@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "mangomilk_building:block/gold_boiler/block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "mangomilk_building:block/gold_boiler/block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mangomilk_building:block/gold_boiler/block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "mangomilk_building:block/gold_boiler/block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "mangomilk_building:block/gold_boiler/block"
+    },
+    "facing=west": {
+      "model": "mangomilk_building:block/gold_boiler/block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

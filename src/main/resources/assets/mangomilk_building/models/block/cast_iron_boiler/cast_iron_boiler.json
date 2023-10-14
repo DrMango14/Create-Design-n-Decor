@@ -1,0 +1,8 @@
+{
+	"parent": "block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "mangomilk_building:block/cast_iron_boiler",
+		"particle": "mangomilk_building:block/cast_iron_boiler"
+	}
+}

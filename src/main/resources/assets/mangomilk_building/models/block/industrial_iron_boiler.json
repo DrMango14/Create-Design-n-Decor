@@ -1,0 +1,6 @@
+{
+	"parent": "mangomilk_building:block/industrial_iron_boiler/industrial_iron_boiler",
+	"loader": "forge:obj",
+	"flip-v": true,
+	"model": "mangomilk_building:models/block/boilers/model_item.obj"
+}

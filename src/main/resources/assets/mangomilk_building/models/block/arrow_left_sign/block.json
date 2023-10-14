@@ -1,0 +1,6 @@
+{
+  "parent": "mangomilk_building:block/sign",
+  "textures": {
+    "0": "mangomilk_building:block/signs/left"
+  }
+}

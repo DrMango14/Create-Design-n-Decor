@@ -1,0 +1,6 @@
+{
+	"parent": "mangomilk_building:block/crushing_wheel/asurine",
+	"loader": "forge:obj",
+	"flip_v": true,
+	"model": "create:models/block/crushing_wheel/crushing_wheel.obj"
+}

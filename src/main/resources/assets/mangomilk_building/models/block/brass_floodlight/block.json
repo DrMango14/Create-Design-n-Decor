@@ -1,0 +1,7 @@
+{
+  "parent": "mangomilk_building:block/brass_floodlight/model",
+  "textures": {
+    "0": "mangomilk_building:block/brass_floodlight_off",
+    "particle": "mangomilk_building:block/brass_floodlight_off"
+  }
+}

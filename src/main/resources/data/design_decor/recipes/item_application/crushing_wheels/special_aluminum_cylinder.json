@@ -3,7 +3,7 @@
   "type": "create:item_application",
   "ingredients": [
     {
-      "tag": "design_decor:aluminum_boiler"
+      "item": "design_decor:aluminum_boiler"
     },
     {
       "item": "minecraft:pink_dye"

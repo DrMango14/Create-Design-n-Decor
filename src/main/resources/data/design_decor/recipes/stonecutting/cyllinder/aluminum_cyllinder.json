@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "forge:storage_blocks/aluminum"
+  },
+  "result": "design_decor:aluminum_boiler",
+  "count": 4
+}

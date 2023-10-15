@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:crushing_wheels"
+    },
+    {
+      "item": "minecraft:granite"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:granite_crushing_wheel"
+    }
+  ]
+}

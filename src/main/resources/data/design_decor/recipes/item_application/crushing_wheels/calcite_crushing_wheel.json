@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:crushing_wheels"
+    },
+    {
+      "item": "minecraft:calcite"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:calcite_crushing_wheel"
+    }
+  ]
+}

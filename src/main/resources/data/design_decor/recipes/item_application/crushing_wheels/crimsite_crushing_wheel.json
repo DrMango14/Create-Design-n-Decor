@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:crushing_wheels"
+    },
+    {
+      "item": "create:crimsite"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:crimsite_crushing_wheel"
+    }
+  ]
+}

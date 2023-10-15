@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:crushing_wheels"
+    },
+    {
+      "item": "minecraft:tuff"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:tuff_crushing_wheel"
+    }
+  ]
+}

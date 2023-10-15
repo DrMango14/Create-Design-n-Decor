@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "design_decor:blank_sign"
+  },
+  "result": "design_decor:glitch_warning_sign",
+  "count": 1
+}

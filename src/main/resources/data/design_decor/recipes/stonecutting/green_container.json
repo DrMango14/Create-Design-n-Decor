@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:item_vault"
+  },
+  "result": "design_decor:green_container",
+  "count": 1
+}

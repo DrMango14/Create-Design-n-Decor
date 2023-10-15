@@ -1,0 +1,23 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "EIE",
+    "IGI",
+    "EIE"
+  ],
+  "key": {
+    "I": {
+      "item": "design_decor:capitalism_block"
+    },
+    "G": {
+      "item": "minecraft:golden_apple"
+    },
+    "E": {
+      "item": "create:experience_block"
+    }
+  },
+  "result": {
+    "item": "minecraft:enchanted_golden_apple"
+  },
+  "acceptMirrored": true
+}

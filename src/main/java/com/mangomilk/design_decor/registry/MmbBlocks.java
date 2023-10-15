@@ -452,6 +452,18 @@ public class MmbBlocks {
             .lang("Creeper Sign")
             .register();
 
+    public static final BlockEntry<SignBlock> BLANK_SIGN = REGISTRATE.block("blank_sign", SignBlock::new)
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(BlockBehaviour.Properties::instabreak)
+            .transform(pickaxeOnly())
+            .addLayer(() -> RenderType::cutoutMipped)
+            .blockstate(BlockStateGen.directionalBlockProvider(true))
+            .item()
+            .transform(customItemModel())
+            .lang("Blank Sign")
+            .register();
+
 
 
 

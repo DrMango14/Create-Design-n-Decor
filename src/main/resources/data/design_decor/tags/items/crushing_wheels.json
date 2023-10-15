@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "design_decor:granite_crushing_wheel",
+    "design_decor:limestone_crushing_wheel",
+    "design_decor:diorite_crushing_wheel",
+    "design_decor:ochrum_crushing_wheel",
+    "design_decor:scoria_crushing_wheel",
+    "design_decor:scorchia_crushing_wheel",
+    "design_decor:tuff_crushing_wheel",
+    "design_decor:veridium_crushing_wheel",
+    "design_decor:calcite_crushing_wheel",
+    "design_decor:dripstone_crushing_wheel",
+    "design_decor:crimsite_crushing_wheel",
+    "design_decor:asurine_crushing_wheel",
+    "design_decor:deepslate_crushing_wheel",
+    "create:crushing_wheel"
+  ]
+}

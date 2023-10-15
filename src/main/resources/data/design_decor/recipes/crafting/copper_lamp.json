@@ -1,0 +1,23 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "MGM",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:nuggets/copper"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "design_decor:copper_lamp",
+    "count": 1
+
+
+  }
+}

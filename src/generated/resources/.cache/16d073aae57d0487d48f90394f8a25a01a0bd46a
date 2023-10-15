@@ -1,4 +1,4 @@
-// 1.19.2	2023-10-14T21:09:26.6315896	Registrate Provider for design_decor [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.19.2	2023-10-15T10:29:09.7040584	Registrate Provider for design_decor [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 286d4b9d68386e791a868e35bc0e99f978ba2ca5 assets/design_decor/blockstates/aluminum_boiler.json
 c9d7b0e1a8a9da720f77bdbc2e5e420946ad4569 assets/design_decor/blockstates/aluminum_boiler_special.json
 586cbedc3839fe074fd2531c7166ab7b99d3db29 assets/design_decor/blockstates/arrow_down_sign.json
@@ -7,6 +7,7 @@ c9d7b0e1a8a9da720f77bdbc2e5e420946ad4569 assets/design_decor/blockstates/aluminu
 c9b4aa2f28bc26a8b281e00103a4a67b0fd3802d assets/design_decor/blockstates/arrow_up_sign.json
 95686001127e86cf126ac044b173963eb3af18d5 assets/design_decor/blockstates/asurine_crushing_wheel.json
 6aaf7be98b5fa5296bfb36fc19d32749c825560b assets/design_decor/blockstates/biohazard_sign.json
+04d66daf754530ffe606adc88e53dd49cc0c88f6 assets/design_decor/blockstates/blank_sign.json
 79a1bab462a29371e22b2ec6caa5336efb126cc5 assets/design_decor/blockstates/blue_container.json
 7c71d9a81f8bf2e16b6f184710b75d226e441cc3 assets/design_decor/blockstates/brass_boiler.json
 cba4fa88f4307c0453bb27be19ab8fe280604029 assets/design_decor/blockstates/brass_floodlight.json
@@ -56,8 +57,8 @@ a8da57e4543957123d314e9b5eff8c31e7f7143b assets/design_decor/blockstates/zinc_bo
 4d9549a8ca1ad238f7a6d6f8a81eec9f99e9fc8e assets/design_decor/blockstates/zinc_floor.json
 489e48b58171226abe1b7a0a6863319f0f595ff0 assets/design_decor/blockstates/zinc_lamp.json
 5dcd854f1c71bafa0b8c073c7e52665962cb5142 assets/design_decor/blockstates/zinc_light.json
-62bc8181d026e356383e0f9919d46db23d2bea19 assets/design_decor/lang/en_ud.json
-fcf357a76b5b6047ea28d8f3d5de9b1170c7b486 assets/design_decor/lang/en_us.json
+73d8d8449c8263ee5cdfeb8c2d53e4746f99fe77 assets/design_decor/lang/en_ud.json
+f635a4fdf2d28f1bfba0b4ef32aff26396d6b24e assets/design_decor/lang/en_us.json
 34595cd84a3d88dc498266079e48b63bdfd619d7 assets/design_decor/models/block/brass_floor.json
 aa3147c4735cca408e35abd157a3271814f286bc assets/design_decor/models/block/brass_light.json
 e46609bdcdbf705763e202a7310fc9cf5566ec72 assets/design_decor/models/block/capitalism_block.json
@@ -77,6 +78,7 @@ e702c5f35883ee4fe262ed5d1de1e112dd782153 assets/design_decor/models/item/arrow_l
 6e59e6a5d507d01b848ca069d3d9440d94da11e0 assets/design_decor/models/item/arrow_up_sign.json
 c27672aa5d39aac74f1286633d50896e8848db45 assets/design_decor/models/item/asurine_crushing_wheel.json
 e7e63a2527cd000b487b0036e5b133df9373f865 assets/design_decor/models/item/biohazard_sign.json
+d94408e3126b92585bbd32959238a70b30f61279 assets/design_decor/models/item/blank_sign.json
 2f55c78b1a5748a144c0661e7c732b94528c2f0f assets/design_decor/models/item/blue_container.json
 7f0033247481777ac77f9864ae73fbd29f6ec5ef assets/design_decor/models/item/brass_boiler.json
 23f6e6f9ce62cf917da64aeaac9410bc6af14cbc assets/design_decor/models/item/brass_floodlight.json
@@ -134,6 +136,7 @@ c46d13c0ac75d92640f1ce8a063dd9aaa145c5f1 data/design_decor/loot_tables/blocks/ar
 d762900ae6230342567ff9987574d388a7adba1e data/design_decor/loot_tables/blocks/arrow_up_sign.json
 8764494c602510692e4b8f42d3c7d459a775beea data/design_decor/loot_tables/blocks/asurine_crushing_wheel.json
 7ad249e6bfbb38437b731c6bff8f84caf8024c07 data/design_decor/loot_tables/blocks/biohazard_sign.json
+e7b5472c8c42498bb7697abeafef9c6c06ea282c data/design_decor/loot_tables/blocks/blank_sign.json
 315359511ad19a5af61f647c69d8d9eafeafca79 data/design_decor/loot_tables/blocks/blue_container.json
 dd6bb8e4d5f0c05a414f3ad5f5a7c1484d9c9941 data/design_decor/loot_tables/blocks/brass_boiler.json
 bdbf93c94e54ef380112fe5418f9cf4fe5833db1 data/design_decor/loot_tables/blocks/brass_floodlight.json
@@ -183,4 +186,4 @@ ea0230a36def0231c40293e03bd45102b001d7cd data/design_decor/loot_tables/blocks/zi
 73edd6017af052d4ece4fa11b2181fef90a0a5f6 data/design_decor/loot_tables/blocks/zinc_lamp.json
 a64dd60ee47d4847433d6847fe154cb4a82f15c7 data/design_decor/loot_tables/blocks/zinc_light.json
 95d743880e7002197dc204802142f42a6636d6de data/minecraft/tags/blocks/mineable/axe.json
-ae36b7fdc62368fca48dcc428a71f02799a0842b data/minecraft/tags/blocks/mineable/pickaxe.json
+60ead4de76bca0cf05c4d93564c022fd7beb3081 data/minecraft/tags/blocks/mineable/pickaxe.json

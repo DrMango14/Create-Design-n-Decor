@@ -1,0 +1,21 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LL ",
+    "LL ",
+    "   "
+  ],
+  "key": {
+
+    "L": {
+      "item": "design_decor:brass_lamp"
+    }
+  },
+  "result": {
+    "item": "design_decor:brass_light",
+    "count": 1
+
+
+  }
+}

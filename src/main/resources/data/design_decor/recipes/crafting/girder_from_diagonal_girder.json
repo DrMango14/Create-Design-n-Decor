@@ -1,0 +1,20 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  G",
+    " G ",
+    "   "
+  ],
+  "key": {
+    "G": {
+      "item": "design_decor:diagonal_girder"
+    }
+  },
+  "result": {
+    "item": "create:metal_girder",
+    "count": 2
+
+
+  }
+}

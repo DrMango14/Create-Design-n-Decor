@@ -1,0 +1,23 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IAI",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/copper"
+    },
+    "A": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "result": {
+    "item": "design_decor:copper_gas_tank",
+    "count": 1
+
+
+  }
+}

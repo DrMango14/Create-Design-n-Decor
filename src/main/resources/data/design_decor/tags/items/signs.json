@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "design_decor:moyai_sign",
+    "design_decor:warning_sign",
+    "design_decor:arrow_up_sign",
+    "design_decor:tap_sign",
+    "design_decor:stop_sign",
+    "design_decor:arrow_right_sign",
+    "design_decor:arrow_left_sign",
+    "design_decor:glitch_warning_sign",
+    "design_decor:broken_wrench_sign",
+    "design_decor:biohazard_sign",
+    "design_decor:capitalism_warning_sign",
+    "design_decor:arrow_down_sign",
+    "design_decor:gear_sign",
+    "design_decor:creeper_sign",
+    "design_decor:bun_sign",
+    "design_decor:silly_sign",
+    "design_decor:american_sign",
+    "design_decor:magnet_sign",
+    "design_decor:blank_sign"
+  ]
+}

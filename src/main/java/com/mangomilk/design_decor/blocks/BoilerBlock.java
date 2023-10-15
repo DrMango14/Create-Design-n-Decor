@@ -86,8 +86,10 @@ public class BoilerBlock extends WrenchableDirectionalBlock {
                 MmbBlocks.GOLD_BOILER::has,
                 MmbBlocks.INDUSTRIAL_IRON_BOILER::has,
                 MmbBlocks.BRASS_BOILER::has,
-                MmbBlocks.COPPER_BOILER::has
-                    );
+                MmbBlocks.COPPER_BOILER::has,
+                MmbBlocks.CAPITALISM_BOILER::has,
+                MmbBlocks.ANDESITE_BOILER::has
+            );
         }
 
         @Override

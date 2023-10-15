@@ -19,7 +19,7 @@ public class DiagonalGirderGenerator extends SpecialBlockStateGen {
 
     @Override
     protected int getYRotation(BlockState state) {
-        return switch (state.getValue(FloodlightBlock.FACING)) {
+        return switch (state.getValue(DiagonalGirderBlock.FACING)) {
             case NORTH -> 270;
             case SOUTH -> 90;
             case WEST -> 180;

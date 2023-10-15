@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "forge:storage_blocks/andesite_alloy"
+  },
+  "result": "design_decor:andesite_boiler",
+  "count": 4
+}

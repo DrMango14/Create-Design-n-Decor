@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "design_decor:signs"
+  },
+  "result": "design_decor:silly_sign",
+  "count": 1
+}

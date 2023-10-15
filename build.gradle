@@ -23,7 +23,7 @@ apply plugin: 'org.spongepowered.mixin'
 //  add sourceSets.main, "design_decor.refmap.json"
 //}
 
-version = '0.1.0-1.19.2'
+version = '0.1a-1.19.2'
 group = 'com.mangomilk.design_decor' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'design_decor'
 

@@ -8,7 +8,7 @@ license="MIT"
 
 modId="design_decor"
 
-version="${file.jarVersion}"
+version="0.1.0"
 
 displayName="Create: Design n' Decor"
 
@@ -32,7 +32,12 @@ dave's building extended but way better
     ordering="NONE"
 
     side="BOTH"
-
+[[dependencies.design_decor]]
+modId="create"
+mandatory=true
+versionRange="[0.5.1,)"
+ordering="NONE"
+side="BOTH"
 [[dependencies.design_decor]]
     modId="minecraft"
     mandatory=true

@@ -1,4 +1,4 @@
-// 1.19.2	2023-10-14T17:06:37.8917682	Registrate Provider for design_decor [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.19.2	2023-10-14T21:09:26.6315896	Registrate Provider for design_decor [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 286d4b9d68386e791a868e35bc0e99f978ba2ca5 assets/design_decor/blockstates/aluminum_boiler.json
 c9d7b0e1a8a9da720f77bdbc2e5e420946ad4569 assets/design_decor/blockstates/aluminum_boiler_special.json
 586cbedc3839fe074fd2531c7166ab7b99d3db29 assets/design_decor/blockstates/arrow_down_sign.json
@@ -40,6 +40,7 @@ e22896e55e506b70184dd4e1c1bc82a5836ec4c3 assets/design_decor/blockstates/industr
 cf7d046769cb90c94162628585b6fdb396f13340 assets/design_decor/blockstates/industrial_gold_floor.json
 32f23f3838ce94761e35290f61c0a0f75bb6e7cb assets/design_decor/blockstates/industrial_iron_boiler.json
 540136ab137ff1b6580d866be87dfaf99010cbdb assets/design_decor/blockstates/industrial_iron_floor.json
+80de660bd82b5db642b226c68d315603e42ba342 assets/design_decor/blockstates/industrial_plating_block.json
 7b9a37b6b8efdd3bc2abc5cc1bc1e90111d81087 assets/design_decor/blockstates/limestone_crushing_wheel.json
 bfec65485b4255362faec62bcab520faa9fbda0c assets/design_decor/blockstates/moyai_sign.json
 5127914fddfa756af0c4d0bf6f83a5e556ffc5da assets/design_decor/blockstates/ochrum_crushing_wheel.json
@@ -55,8 +56,8 @@ a8da57e4543957123d314e9b5eff8c31e7f7143b assets/design_decor/blockstates/zinc_bo
 4d9549a8ca1ad238f7a6d6f8a81eec9f99e9fc8e assets/design_decor/blockstates/zinc_floor.json
 489e48b58171226abe1b7a0a6863319f0f595ff0 assets/design_decor/blockstates/zinc_lamp.json
 5dcd854f1c71bafa0b8c073c7e52665962cb5142 assets/design_decor/blockstates/zinc_light.json
-3520e2dbe4adefd44ead8543b1639035b386edf7 assets/design_decor/lang/en_ud.json
-0179f2239e8928e3651a79ec4badd41e98d5e48d assets/design_decor/lang/en_us.json
+62bc8181d026e356383e0f9919d46db23d2bea19 assets/design_decor/lang/en_ud.json
+fcf357a76b5b6047ea28d8f3d5de9b1170c7b486 assets/design_decor/lang/en_us.json
 34595cd84a3d88dc498266079e48b63bdfd619d7 assets/design_decor/models/block/brass_floor.json
 aa3147c4735cca408e35abd157a3271814f286bc assets/design_decor/models/block/brass_light.json
 e46609bdcdbf705763e202a7310fc9cf5566ec72 assets/design_decor/models/block/capitalism_block.json
@@ -65,6 +66,7 @@ d0b1e90c0c50e6654b43216b6f3669f8c846dc7c assets/design_decor/models/block/copper
 057bdcac55d509b9ffafa725b8ab97fa1224d042 assets/design_decor/models/block/industrial_gold_block.json
 cade24778eb6220e384f1f3a0f8a28eb172421b7 assets/design_decor/models/block/industrial_gold_floor.json
 80db23dfdfa12c428e87f4a3e59e414f5dcb91fa assets/design_decor/models/block/industrial_iron_floor.json
+955900edbf6ee78107e4230b275a9872a4b22cd5 assets/design_decor/models/block/industrial_plating_block.json
 cea549f790a61cb9c85ca09c51b6986fb2bbca30 assets/design_decor/models/block/zinc_floor.json
 03b446eaab91bbfd5c43019531b574bddf9cbc93 assets/design_decor/models/block/zinc_light.json
 863e4f4a86e0299a834a8a39b42bf701848824a4 assets/design_decor/models/item/aluminum_boiler.json
@@ -107,6 +109,7 @@ ae5a1a72213b5193356ddc48b9522c284bd8cb16 assets/design_decor/models/item/industr
 f2268b0b310ef8d76fbb11100e1dcc3a58e3a93f assets/design_decor/models/item/industrial_gold_floor.json
 20359dcb3a1f379b9f6fc50d98a28f0f471c7da1 assets/design_decor/models/item/industrial_iron_boiler.json
 600069479a9d51de6f230845bc32eca801839f57 assets/design_decor/models/item/industrial_iron_floor.json
+2783cafb4f33f8918431c786768f5f90f7120745 assets/design_decor/models/item/industrial_plating_block.json
 9cb489cc25892b41e86a14bf01444af62e5a5bb2 assets/design_decor/models/item/limestone_crushing_wheel.json
 543298b154c885aa151d957c91057fbbf1dfd966 assets/design_decor/models/item/moyai_sign.json
 ae13de5be865b32045c63ee6e41447b18e773eca assets/design_decor/models/item/ochrum_crushing_wheel.json
@@ -122,6 +125,7 @@ f8f8b158ee18339aa4a1d165b3e5c16baf34922f assets/design_decor/models/item/stop_si
 004c6ada89a50d91bec57e9347abc4b79e1b88a9 assets/design_decor/models/item/zinc_floor.json
 7ca47eee7239f9415d5ed68901263e63b2ba5c1d assets/design_decor/models/item/zinc_lamp.json
 1981794dbaaa24fb2d26b25ab25c53583a666c74 assets/design_decor/models/item/zinc_light.json
+d6b2291cfa88aea46efc0f2b52a411a300657844 data/create/tags/blocks/wrench_pickup.json
 aac455b606dd903a3928b8b60a7fe19534e84702 data/design_decor/loot_tables/blocks/aluminum_boiler.json
 8b92404db20b791f40a68902ecce71672f1f8d90 data/design_decor/loot_tables/blocks/aluminum_boiler_special.json
 e086fb6c7402ca0528ec847a25b041de8e034769 data/design_decor/loot_tables/blocks/arrow_down_sign.json
@@ -162,6 +166,7 @@ a3af8150aa97b511fdd091c0f1d4c993b5413e78 data/design_decor/loot_tables/blocks/gr
 50ec49ca44834e33bebc9eaac9220fddc7144bc3 data/design_decor/loot_tables/blocks/industrial_gold_floor.json
 426fae93d72fa3f00533887dafd91fa11ce47f94 data/design_decor/loot_tables/blocks/industrial_iron_boiler.json
 a9f3a47b20ef1e6e0821c5d4fa061681dae17752 data/design_decor/loot_tables/blocks/industrial_iron_floor.json
+9e46700f7228e1cb81fdd25238019d95405602f3 data/design_decor/loot_tables/blocks/industrial_plating_block.json
 fc1dca5171de6a9e7758bb291af362552817a91e data/design_decor/loot_tables/blocks/limestone_crushing_wheel.json
 ccfd6a86e475932acca0f96ce9842106ff814886 data/design_decor/loot_tables/blocks/moyai_sign.json
 04a72c496631893b5eaa3c04318feac109438e10 data/design_decor/loot_tables/blocks/ochrum_crushing_wheel.json
@@ -178,4 +183,4 @@ ea0230a36def0231c40293e03bd45102b001d7cd data/design_decor/loot_tables/blocks/zi
 73edd6017af052d4ece4fa11b2181fef90a0a5f6 data/design_decor/loot_tables/blocks/zinc_lamp.json
 a64dd60ee47d4847433d6847fe154cb4a82f15c7 data/design_decor/loot_tables/blocks/zinc_light.json
 95d743880e7002197dc204802142f42a6636d6de data/minecraft/tags/blocks/mineable/axe.json
-231578a8b93a9f206dcc161663f230b79e0dea10 data/minecraft/tags/blocks/mineable/pickaxe.json
+ae36b7fdc62368fca48dcc428a71f02799a0842b data/minecraft/tags/blocks/mineable/pickaxe.json

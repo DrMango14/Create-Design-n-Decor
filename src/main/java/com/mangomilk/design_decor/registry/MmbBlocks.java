@@ -1,6 +1,8 @@
 package com.mangomilk.design_decor.registry;
 
 
+import com.mangomilk.design_decor.base.DecorBuilderTransformer;
+import com.mangomilk.design_decor.base.MmbSpriteShifts;
 import com.mangomilk.design_decor.blocks.BoilerBlock;
 import com.mangomilk.design_decor.blocks.LampBlock;
 import com.mangomilk.design_decor.blocks.SignBlock;
@@ -20,6 +22,8 @@ import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderGenerator
 import com.mangomilk.design_decor.blocks.floodlight.FloodlightBlock;
 import com.mangomilk.design_decor.blocks.floodlight.FloodlightGenerator;
 import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlock;
+import com.simibubi.create.AllSpriteShifts;
+import com.simibubi.create.AllTags;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
@@ -706,12 +710,25 @@ public class MmbBlocks {
                     .lang("Industrial Gold Floor")
                     .register();
 
+    public static final BlockEntry<Block> INDUSTRIAL_PLATING_BLOCK =
+            REGISTRATE.block("industrial_plating_block", Block::new)
+                    .transform(DecorBuilderTransformer.layeredConnected(() -> MmbSpriteShifts.INDUSTRIAL_PLATING_BLOCK_SIDE, () -> MmbSpriteShifts.INDUSTRIAL_PLATING_BLOCK))
+                    .initialProperties(SharedProperties::softMetal)
+                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .transform(pickaxeOnly())
+                    .tag(AllTags.AllBlockTags.WRENCH_PICKUP.tag)
+                    .simpleItem()
+                    .lang("Block of Industrial Plating")
+                    .register();
+
 
     public static final BlockEntry<DiagonalGirderBlock> DIAGONAL_GIRDER =
             REGISTRATE.block("diagonal_girder", DiagonalGirderBlock::new)
                     .initialProperties(SharedProperties::softMetal)
                     .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
-                    .properties(p -> p.noOcclusion())
+                    .properties(BlockBehaviour.Properties::noOcclusion)
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(new DiagonalGirderGenerator()::generate)

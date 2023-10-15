@@ -4,8 +4,10 @@ import com.mangomilk.design_decor.CreateMMBuilding;
 import com.simibubi.create.foundation.block.connected.AllCTTypes;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.CTSpriteShifter;
+import com.simibubi.create.foundation.block.connected.CTType;
 import com.simibubi.create.foundation.utility.Couple;
 
+@SuppressWarnings({"unused"})
 public class MmbSpriteShifts {
     public static final Couple<CTSpriteShiftEntry>
             RED_CONTAINER_TOP = vault("red","top"),
@@ -23,6 +25,10 @@ public class MmbSpriteShifts {
             GREEN_CONTAINER_SIDE = vault("green","side"),
             GREEN_CONTAINER_BOTTOM = vault("green","bottom");
 
+    public static final CTSpriteShiftEntry
+            INDUSTRIAL_PLATING_BLOCK = omni("industrial_plating_block"),
+            INDUSTRIAL_PLATING_BLOCK_SIDE = omni("industrial_plating_block_side");
+
     private static Couple<CTSpriteShiftEntry> vault(String color,String name) {
         final String prefixed = "block/"+color+"_container/container_" + name;
         return Couple.createWithContext(
@@ -30,6 +36,27 @@ public class MmbSpriteShifts {
                         CreateMMBuilding.asResource(medium ? prefixed + "_medium" : prefixed + "_large")));
     }
 
+    private static CTSpriteShiftEntry omni(String name) {
+        return getCT(AllCTTypes.OMNIDIRECTIONAL, name);
+    }
+
+    private static CTSpriteShiftEntry horizontal(String name) {
+        return getCT(AllCTTypes.HORIZONTAL, name);
+    }
+
+    private static CTSpriteShiftEntry vertical(String name) {
+        return getCT(AllCTTypes.VERTICAL, name);
+    }
+
+
+    private static CTSpriteShiftEntry getCT(CTType type, String blockTextureName, String connectedTextureName) {
+        return CTSpriteShifter.getCT(type, CreateMMBuilding.asResource("block/" + blockTextureName),
+                CreateMMBuilding.asResource("block/" + connectedTextureName + "_connected"));
+    }
+
+    private static CTSpriteShiftEntry getCT(CTType type, String blockTextureName) {
+        return getCT(type, blockTextureName, blockTextureName);
+    }
 
     public static void init(){}
 

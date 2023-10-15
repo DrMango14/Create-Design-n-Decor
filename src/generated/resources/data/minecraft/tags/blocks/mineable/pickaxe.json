@@ -54,6 +54,7 @@
     "design_decor:copper_floor",
     "design_decor:industrial_iron_floor",
     "design_decor:industrial_gold_floor",
+    "design_decor:industrial_plating_block",
     "design_decor:diagonal_girder"
   ]
 }

@@ -1,0 +1,6 @@
+{
+	"parent": "design_decor:block/crushing_wheel/limestone",
+	"loader": "forge:obj",
+	"flip_v": true,
+	"model": "create:models/block/crushing_wheel/crushing_wheel.obj"
+}

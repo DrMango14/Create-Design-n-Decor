@@ -6,22 +6,22 @@ license="MIT"
 
 [[mods]]
 
-modId="mangomilk_building"
+modId="design_decor"
 
 version="${file.jarVersion}"
 
-displayName="Create: MangoMilk Building"
+displayName="Create: Design n' Decor"
 
 logoFile="logo.png"
 
 
-authors="DrMangoTea, Milky"
+authors="DrMangoTea, Milky, Luna, Pepa, Spydnel"
 
 description='''
 dave's building extended but way better
 '''
 
-[[dependencies.mangomilk_building]]
+[[dependencies.design_decor]]
 
     modId="forge"
 
@@ -33,7 +33,7 @@ dave's building extended but way better
 
     side="BOTH"
 
-[[dependencies.mangomilk_building]]
+[[dependencies.design_decor]]
     modId="minecraft"
     mandatory=true
 

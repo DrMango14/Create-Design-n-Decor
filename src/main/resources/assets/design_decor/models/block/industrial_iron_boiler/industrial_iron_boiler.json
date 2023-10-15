@@ -1,0 +1,8 @@
+{
+	"parent": "block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "design_decor:block/industrial_iron_boiler",
+		"particle": "design_decor:block/industrial_iron_boiler"
+	}
+}

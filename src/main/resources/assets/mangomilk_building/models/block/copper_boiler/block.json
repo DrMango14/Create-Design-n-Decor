@@ -1,6 +1,0 @@
-{
-	"parent": "mangomilk_building:block/copper_boiler/copper_boiler",
-	"loader": "forge:obj",
-	"flip-v": true,
-	"model": "mangomilk_building:models/block/boilers/model.obj"
-}

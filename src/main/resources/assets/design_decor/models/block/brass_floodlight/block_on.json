@@ -1,0 +1,7 @@
+{
+  "parent": "design_decor:block/brass_floodlight/model",
+  "textures": {
+    "0": "design_decor:block/brass_floodlight_on",
+    "particle": "design_decor:block/brass_floodlight_on"
+  }
+}

@@ -20,12 +20,12 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 //mixin {
-//  add sourceSets.main, "mangomilk_building.refmap.json"
+//  add sourceSets.main, "design_decor.refmap.json"
 //}
 
 version = '0.1.0-1.19.2'
-group = 'com.mangomilk.mangomilk_building' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'mangomilk_building'
+group = 'com.mangomilk.design_decor' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'design_decor'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -39,10 +39,10 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            arg '-mixin.config=mangomilk_building.mixins.json'
+            arg '-mixin.config=design_decor.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'mangomilk_building'
+            property 'forge.enabledGameTestNamespaces', 'design_decor'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
             mods {
@@ -54,10 +54,10 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            arg '-mixin.config=mangomilk_building.mixins.json'
+            arg '-mixin.config=design_decor.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'mangomilk_building'
+            property 'forge.enabledGameTestNamespaces', 'design_decor'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
             mods {
@@ -71,7 +71,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'mangomilk_building'
+            property 'forge.enabledGameTestNamespaces', 'design_decor'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
             mods {
@@ -85,7 +85,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'mangomilk_building', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'design_decor', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
                 mangomilk_building {
                     source sourceSets.main
@@ -141,14 +141,14 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "mangomilk_building",
-                "Specification-Vendor"    : "tfmgsareus",
+                "Specification-Title"     : "design_decor",
+                "Specification-Vendor"    : "design_decor",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "tfmgsareus",
+                "Implementation-Vendor"   : "design_decor",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "MixinConfigs": "mangomilk_building.mixins.json"
+                "MixinConfigs": "design_decor.mixins.json"
         ])
     }
 }

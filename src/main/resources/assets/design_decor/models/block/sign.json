@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"0": "design_decor:block/signs/back",
+		"1": "design_decor:block/signs/back",
+		"particle": "design_decor:block/signs/back"
+	},
+	"elements": [
+		{
+			"from": [1, 15, 1],
+			"to": [15, 16, 15],
+			"faces": {
+				"north": {"uv": [1, 1, 15, 2], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [1, 1, 2, 15], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [1, 1, 15, 2], "texture": "#0"},
+				"west": {"uv": [1, 1, 2, 15], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [1, 1, 15, 15], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#0"}
+			}
+		}
+	]
+}

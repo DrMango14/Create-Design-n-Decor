@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "mangomilk_building:block/industrial_gold_floor"
-  }
-}

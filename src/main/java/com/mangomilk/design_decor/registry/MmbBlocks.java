@@ -22,7 +22,6 @@ import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderGenerator
 import com.mangomilk.design_decor.blocks.floodlight.FloodlightBlock;
 import com.mangomilk.design_decor.blocks.floodlight.FloodlightGenerator;
 import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlock;
-import com.simibubi.create.AllSpriteShifts;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
 import com.simibubi.create.foundation.data.AssetLookup;

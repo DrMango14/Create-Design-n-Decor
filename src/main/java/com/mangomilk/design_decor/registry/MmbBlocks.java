@@ -474,7 +474,7 @@ public class MmbBlocks {
             .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
             .item()
             .build()
-            .lang("Gas Tank")
+            .lang("Iron Portable Fluid Tank")
             .register();
 
     public static final BlockEntry<GasTankBlock> COPPER_GAS_TANK = REGISTRATE.block("copper_gas_tank", GasTankBlock::new)
@@ -485,7 +485,7 @@ public class MmbBlocks {
             .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
             .item()
             .build()
-            .lang("Copper Gas Tank")
+            .lang("Portable Fluid Tank")
             .register();
 
     //CONTAINERS

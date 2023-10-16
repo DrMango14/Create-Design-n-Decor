@@ -1,0 +1,8 @@
+{
+	"parent": "block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "design_decor:block/brass_boiler_large",
+		"particle": "design_decor:block/brass_boiler_large"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "design_decor:block/zinc_boiler_large/zinc_boiler",
+	"loader": "forge:obj",
+	"flip-v": true,
+	"model": "design_decor:models/block/boilers/large.obj"
+}

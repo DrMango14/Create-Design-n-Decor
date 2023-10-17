@@ -1,0 +1,6 @@
+{
+  "parent": "design_decor:block/large_chain",
+  "textures": {
+    "0": "design_decor:block/copper_large_chain"
+  }
+}

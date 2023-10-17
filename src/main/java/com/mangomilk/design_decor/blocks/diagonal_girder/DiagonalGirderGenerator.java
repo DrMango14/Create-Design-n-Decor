@@ -1,6 +1,5 @@
 package com.mangomilk.design_decor.blocks.diagonal_girder;
 
-import com.mangomilk.design_decor.blocks.floodlight.FloodlightBlock;
 import com.simibubi.create.foundation.data.SpecialBlockStateGen;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;

@@ -4,6 +4,8 @@ package com.mangomilk.design_decor.registry;
 import com.mangomilk.design_decor.base.DecorBuilderTransformer;
 import com.mangomilk.design_decor.base.MmbSpriteShifts;
 import com.mangomilk.design_decor.blocks.*;
+import com.mangomilk.design_decor.blocks.chain.LargeChain;
+import com.mangomilk.design_decor.blocks.chain.TagDependentLargeChain;
 import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlock;
 import com.mangomilk.design_decor.blocks.containers.red.RedContainerCTBehaviour;
 import com.mangomilk.design_decor.blocks.containers.red.RedContainerItem;
@@ -48,6 +50,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -216,19 +219,6 @@ public class MmbBlocks {
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), AluminumBoilerStructure.FACING))
             .lang("Large Aluminum Boiler")
-            .register();
-
-
-    public static final BlockEntry<BoilerBlock> ALUMINUM_BOILER_SPECIAL = REGISTRATE.block("aluminum_boiler_special", BoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutoutMipped)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
-            .build()
-            .lang("Aluminum Boiler")
             .register();
 
 
@@ -1066,6 +1056,202 @@ public class MmbBlocks {
                     .item()
                     .transform(customItemModel())
                     .register();
+
+    //Chains
+
+    public static final BlockEntry<TagDependentLargeChain> LARGE_ALUMINIUM_CHAIN =
+            REGISTRATE.block("aluminium_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/aluminium")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Aluminium Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_ANDESITE_CHAIN =
+            REGISTRATE.block("andesite_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Andesite Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_BRASS_CHAIN =
+            REGISTRATE.block("brass_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Brass Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<TagDependentLargeChain> LARGE_STRONG_BRONZE_CHAIN =
+            REGISTRATE.block("strong_bronze_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/strong_bronze")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Bronze Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<TagDependentLargeChain> LARGE_BRONZE_CHAIN =
+            REGISTRATE.block("bronze_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/bronze")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Bronze Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<TagDependentLargeChain> LARGE_CAST_IRON_CHAIN =
+            REGISTRATE.block("cast_iron_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/cast_iron")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Cast Iron Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_COPPER_CHAIN =
+            REGISTRATE.block("copper_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Copper Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<TagDependentLargeChain> LARGE_ELECTRUM_CHAIN =
+            REGISTRATE.block("electrum_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/electrum")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Electrum Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_GOLD_CHAIN =
+            REGISTRATE.block("gold_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Gold Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_INDUSTRIAL_IRON_CHAIN =
+            REGISTRATE.block("industrial_iron_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Industrial Iron Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_IRON_CHAIN =
+            REGISTRATE.block("iron_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Iron Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<TagDependentLargeChain> LARGE_LEAD_CHAIN =
+            REGISTRATE.block("lead_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/lead")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Lead Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<TagDependentLargeChain> LARGE_MITHRIL_CHAIN =
+            REGISTRATE.block("mithril_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/mithril")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Mithril Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_NETHERITE_CHAIN =
+            REGISTRATE.block("netherite_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Netherite Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<TagDependentLargeChain> LARGE_NETHERSTEEL_CHAIN =
+            REGISTRATE.block("nethersteel_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/nethersteel")))
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Nethersteel Chain")
+                    .item()
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeChain> LARGE_ZINC_CHAIN =
+            REGISTRATE.block("zinc_large_chain", LargeChain::new)
+                    .properties(p -> p.color(MaterialColor.METAL))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.axisBlockProvider(true))
+                    .tag(AllTags.AllBlockTags.BRITTLE.tag)
+                    .tag(BlockTags.CLIMBABLE)
+                    .lang("Large Zinc Chain")
+                    .item()
+                    .build()
+                    .register();
+
 
     private static boolean never(BlockState p_235436_0_, BlockGetter p_235436_1_, BlockPos p_235436_2_) {
         return false;

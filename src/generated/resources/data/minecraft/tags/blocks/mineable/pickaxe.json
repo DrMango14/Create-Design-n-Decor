@@ -13,7 +13,6 @@
     "design_decor:aluminum_boiler",
     "design_decor:aluminum_boiler_large",
     "design_decor:aluminum_boiler_structure",
-    "design_decor:aluminum_boiler_special",
     "design_decor:gold_boiler",
     "design_decor:gold_boiler_large",
     "design_decor:gold_boiler_structure",
@@ -80,6 +79,22 @@
     "design_decor:industrial_iron_floor",
     "design_decor:industrial_gold_floor",
     "design_decor:industrial_plating_block",
-    "design_decor:diagonal_girder"
+    "design_decor:diagonal_girder",
+    "design_decor:aluminium_large_chain",
+    "design_decor:andesite_large_chain",
+    "design_decor:brass_large_chain",
+    "design_decor:strong_bronze_large_chain",
+    "design_decor:bronze_large_chain",
+    "design_decor:cast_iron_large_chain",
+    "design_decor:copper_large_chain",
+    "design_decor:electrum_large_chain",
+    "design_decor:gold_large_chain",
+    "design_decor:industrial_iron_large_chain",
+    "design_decor:iron_large_chain",
+    "design_decor:lead_large_chain",
+    "design_decor:mithril_large_chain",
+    "design_decor:netherite_large_chain",
+    "design_decor:nethersteel_large_chain",
+    "design_decor:zinc_large_chain"
   ]
 }

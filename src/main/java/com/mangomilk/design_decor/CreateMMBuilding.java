@@ -3,6 +3,7 @@ package com.mangomilk.design_decor;
 
 import com.mangomilk.design_decor.base.MmbCreativeModeTab;
 import com.mangomilk.design_decor.base.MmbSpriteShifts;
+import com.mangomilk.design_decor.registry.DecoSoundEvents;
 import com.mangomilk.design_decor.registry.MmbBlockEntities;
 import com.mangomilk.design_decor.registry.MmbBlocks;
 import com.mangomilk.design_decor.registry.MmbItems;
@@ -29,15 +30,16 @@ public class CreateMMBuilding
 
     public CreateMMBuilding()
     {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        REGISTRATE.registerEventListeners(FMLJavaModLoadingContext.get().getModEventBus());
+        REGISTRATE.registerEventListeners(eventBus);
 
 
         //
 
         MmbBlocks.register();
         MmbItems.register();
+        DecoSoundEvents.register(eventBus);
         MmbBlockEntities.register();
         MmbSpriteShifts.init();
 

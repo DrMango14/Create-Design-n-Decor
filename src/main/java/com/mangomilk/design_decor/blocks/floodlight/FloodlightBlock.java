@@ -6,7 +6,9 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -42,6 +44,7 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty TURNED_ON = BooleanProperty.create("turned_on");
+    public static final BooleanProperty WRENCHED = BooleanProperty.create("wrenched");
 
     public static final VoxelShape SHAPE_DOWN = Block.box(3.0D, 8.0D, 3.0D, 13.0D, 16.0D, 13.0D);
     public static final VoxelShape SHAPE_UP = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
@@ -52,7 +55,7 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
     public static final VoxelShape SHAPE_SOUTH = Block.box(3.0D, 3.0D, 0.0D, 13.0D, 13.0D, 8.0D);
     public FloodlightBlock(Properties p_52591_) {
         super(p_52591_);
-        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(FACING, Direction.UP).setValue(TURNED_ON, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(FACING, Direction.UP).setValue(TURNED_ON, false).setValue(WRENCHED, false));
     }
 
     public VoxelShape getShape(BlockState p_54561_, BlockGetter p_54562_, BlockPos p_54563_, CollisionContext p_54564_) {
@@ -77,29 +80,28 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
     @Override
     public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos,
                                 boolean pIsMoving) {
-        boolean isOn = pState.getValue(TURNED_ON);
         if (pLevel.isClientSide)
             return;
+        boolean beenWrenched = pState.getValue(WRENCHED);
 
-        if (pLevel.hasNeighborSignal(pPos)) {
+        if (!beenWrenched && pLevel.hasNeighborSignal(pPos)) {
             pLevel.setBlock(pPos,pState.setValue(TURNED_ON,!pState.getValue(TURNED_ON)), 2);
-            if (isOn == false) {
-                this.FloodlightSoundOn(pLevel, pPos, (Direction)null);
-            }
-            if (isOn == true) {
-                this.FloodlightSoundOff(pLevel, pPos, (Direction)null);
-            }
         }
     }
 
+    public void tick(BlockState p_221937_, ServerLevel p_221938_, BlockPos p_221939_, RandomSource p_221940_) {
+        if (p_221937_.getValue(TURNED_ON) && p_221938_.hasNeighborSignal(p_221939_) != p_221937_.getValue(WRENCHED)) {
+            p_221938_.setBlock(p_221939_, p_221937_.setValue(TURNED_ON, false), 2);
+        }
+    }
     @Override
     public InteractionResult onWrenched(BlockState state, UseOnContext context) {
-        boolean isOn = state.getValue(TURNED_ON);
         InteractionResult onWrenched = IWrenchable.super.onWrenched(state, context);
         if (!onWrenched.consumesAction())
             return onWrenched;
+        boolean isOn = state.getValue(TURNED_ON);
 
-        context.getLevel().setBlock(context.getClickedPos(),state.setValue(TURNED_ON,!state.getValue(TURNED_ON)),2);
+        context.getLevel().setBlock(context.getClickedPos(),state.setValue(TURNED_ON,!state.getValue(TURNED_ON)).setValue(WRENCHED,!state.getValue(WRENCHED)),2);
 
         playRotateSound(context.getLevel(), context.getClickedPos());
 
@@ -134,7 +136,7 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
         return super.updateShape(p_51461_, p_51462_, p_51463_, p_51464_, p_51465_, p_51466_);
     }
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_55125_) {
-        p_55125_.add(WATERLOGGED,FACING,TURNED_ON);
+        p_55125_.add(WATERLOGGED,FACING,TURNED_ON,WRENCHED);
     }
 
     @Nullable

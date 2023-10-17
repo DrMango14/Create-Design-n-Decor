@@ -20,9 +20,13 @@ public class DecoSoundEvents {
     public static RegistryObject<SoundEvent> LARGE_CHAIN_HIT = registerSoundEvent("large_chain_hit");
     public static RegistryObject<SoundEvent> LARGE_CHAIN_FALL = registerSoundEvent("large_chain_fall");
 
+    public static RegistryObject<SoundEvent> FLOODLIGHT_ON = registerSoundEvent("floodlight_on");
+    public static RegistryObject<SoundEvent> FLOODLIGHT_OFF = registerSoundEvent("floodlight_off");
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(CreateMMBuilding.MOD_ID, name)));
     }
+
+
 
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);

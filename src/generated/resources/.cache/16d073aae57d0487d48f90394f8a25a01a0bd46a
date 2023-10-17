@@ -1,4 +1,4 @@
-// 1.19.2	2023-10-16T22:45:27.0990524	Registrate Provider for design_decor [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.19.2	2023-10-17T01:57:05.0911922	Registrate Provider for design_decor [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 f13827cbee53f0f9e055d10a5f25786a2922cf4b assets/design_decor/blockstates/aluminium_large_chain.json
 286d4b9d68386e791a868e35bc0e99f978ba2ca5 assets/design_decor/blockstates/aluminum_boiler.json
 7bd953cd3cc69f0ec9bf49e2a9fe83b14c9e5f75 assets/design_decor/blockstates/aluminum_boiler_large.json
@@ -19,7 +19,7 @@ c9b4aa2f28bc26a8b281e00103a4a67b0fd3802d assets/design_decor/blockstates/arrow_u
 7c71d9a81f8bf2e16b6f184710b75d226e441cc3 assets/design_decor/blockstates/brass_boiler.json
 342fca565b16b811eab6d8b0e25b6ef055a7b086 assets/design_decor/blockstates/brass_boiler_large.json
 3dff9e1ec59415779195d2abfa9f07bc17b428a1 assets/design_decor/blockstates/brass_boiler_structure.json
-cba4fa88f4307c0453bb27be19ab8fe280604029 assets/design_decor/blockstates/brass_floodlight.json
+038c7943ea2f2882e07da1c59443bb0411ce6e80 assets/design_decor/blockstates/brass_floodlight.json
 1419f04d049e03812dba2ecd340212f087106923 assets/design_decor/blockstates/brass_floor.json
 eb59a64de9953332313f6033aa2c350eb24bc147 assets/design_decor/blockstates/brass_lamp.json
 cf208d4e6ef8320363f878d9a98b1b0b9f3789b5 assets/design_decor/blockstates/brass_large_chain.json
@@ -96,8 +96,8 @@ a8da57e4543957123d314e9b5eff8c31e7f7143b assets/design_decor/blockstates/zinc_bo
 489e48b58171226abe1b7a0a6863319f0f595ff0 assets/design_decor/blockstates/zinc_lamp.json
 29489ae32cd27d2d0300920c78bbc362f4b945fb assets/design_decor/blockstates/zinc_large_chain.json
 5dcd854f1c71bafa0b8c073c7e52665962cb5142 assets/design_decor/blockstates/zinc_light.json
-b4f091b1e9d8955807dd906745ef88c35b91e07b assets/design_decor/lang/en_ud.json
-a7b1b827f2d9e5e3e005322b87261a9865eef2f3 assets/design_decor/lang/en_us.json
+838665a5aa12d9f2e6bcd95bb50d16f8ff264a32 assets/design_decor/lang/en_ud.json
+9f2d5a70608773da6bf79ce0205a732019d30ccd assets/design_decor/lang/en_us.json
 34595cd84a3d88dc498266079e48b63bdfd619d7 assets/design_decor/models/block/brass_floor.json
 aa3147c4735cca408e35abd157a3271814f286bc assets/design_decor/models/block/brass_light.json
 e46609bdcdbf705763e202a7310fc9cf5566ec72 assets/design_decor/models/block/capitalism_block.json

@@ -34,6 +34,14 @@
     {"name": "design_decor:large_chain/place4","volume": 0.9},
     {"name": "design_decor:large_chain/place5","volume": 0.9},
     {"name": "design_decor:large_chain/place6","volume": 0.9}
+  ]},
+  "floodlight_on": {"subtitle": "subtitles.block.floodlight.on","sounds": [
+    {"name": "minecraft:block/lodestone/lock1","volume": 0.9},
+    {"name": "minecraft:block/lodestone/lock2","volume": 0.9}
+  ]},
+  "floodlight_off": {"subtitle": "subtitles.block.floodlight.off","sounds": [
+    {"name": "minecraft:block/lodestone/lock1","volume": 0.9},
+    {"name": "minecraft:block/lodestone/lock2","volume": 0.9}
   ]}
-    
+
 }

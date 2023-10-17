@@ -147,7 +147,7 @@ public class MmbBlocks {
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(new FloodlightGenerator()::generate)
-                    .lang("Brass Headlight")
+                    .lang("Brass Floodlight")
                     .item()
                     .transform(customItemModel("_", "block"))
                     .register();

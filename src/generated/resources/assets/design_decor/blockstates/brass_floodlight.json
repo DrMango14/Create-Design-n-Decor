@@ -1,44 +1,86 @@
 {
   "variants": {
-    "facing=down,turned_on=false": {
+    "facing=down,turned_on=false,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block"
     },
-    "facing=down,turned_on=true": {
+    "facing=down,turned_on=false,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block"
+    },
+    "facing=down,turned_on=true,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block_on"
     },
-    "facing=east,turned_on=false": {
+    "facing=down,turned_on=true,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block_on"
+    },
+    "facing=east,turned_on=false,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block",
       "y": 90
     },
-    "facing=east,turned_on=true": {
+    "facing=east,turned_on=false,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block",
+      "y": 90
+    },
+    "facing=east,turned_on=true,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block_on",
       "y": 90
     },
-    "facing=north,turned_on=false": {
+    "facing=east,turned_on=true,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "y": 90
+    },
+    "facing=north,turned_on=false,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block"
     },
-    "facing=north,turned_on=true": {
+    "facing=north,turned_on=false,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block"
+    },
+    "facing=north,turned_on=true,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block_on"
     },
-    "facing=south,turned_on=false": {
+    "facing=north,turned_on=true,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block_on"
+    },
+    "facing=south,turned_on=false,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block",
       "y": 180
     },
-    "facing=south,turned_on=true": {
+    "facing=south,turned_on=false,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block",
+      "y": 180
+    },
+    "facing=south,turned_on=true,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block_on",
       "y": 180
     },
-    "facing=up,turned_on=false": {
+    "facing=south,turned_on=true,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "y": 180
+    },
+    "facing=up,turned_on=false,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block"
     },
-    "facing=up,turned_on=true": {
+    "facing=up,turned_on=false,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block"
+    },
+    "facing=up,turned_on=true,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block_on"
     },
-    "facing=west,turned_on=false": {
+    "facing=up,turned_on=true,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block_on"
+    },
+    "facing=west,turned_on=false,waterlogged=false": {
       "model": "design_decor:block/brass_floodlight/block",
       "y": 270
     },
-    "facing=west,turned_on=true": {
+    "facing=west,turned_on=false,waterlogged=true": {
+      "model": "design_decor:block/brass_floodlight/block",
+      "y": 270
+    },
+    "facing=west,turned_on=true,waterlogged=false": {
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "y": 270
+    },
+    "facing=west,turned_on=true,waterlogged=true": {
       "model": "design_decor:block/brass_floodlight/block_on",
       "y": 270
     }

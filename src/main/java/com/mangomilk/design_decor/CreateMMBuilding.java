@@ -39,6 +39,7 @@ public class CreateMMBuilding
         //
 
         MmbBlocks.register();
+        MmbBlocks.DecoTags.init();
         MmbItems.register();
         DecoSoundEvents.register(eventBus);
         MmbBlockEntities.register();

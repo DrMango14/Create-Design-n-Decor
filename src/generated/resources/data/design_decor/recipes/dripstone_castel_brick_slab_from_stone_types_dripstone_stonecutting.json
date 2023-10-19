@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "tag": "create:stone_types/dripstone"
+  },
+  "result": "design_decor:dripstone_castel_brick_slab"
+}

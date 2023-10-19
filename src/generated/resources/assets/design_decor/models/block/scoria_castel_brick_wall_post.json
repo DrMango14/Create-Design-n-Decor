@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "design_decor:block/walls/scoria_castel_bricks"
+  }
+}

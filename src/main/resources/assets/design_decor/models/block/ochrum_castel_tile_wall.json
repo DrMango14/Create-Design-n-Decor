@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "design_decor:block/ochrum_castel_tiles"
+  }
+}

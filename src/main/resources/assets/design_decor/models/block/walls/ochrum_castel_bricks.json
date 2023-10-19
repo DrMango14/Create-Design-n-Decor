@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "design_decor:block/ochrum_castel_bricks"
+  }
+}

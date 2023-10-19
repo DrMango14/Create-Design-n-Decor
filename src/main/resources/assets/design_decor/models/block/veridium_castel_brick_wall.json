@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "design_decor:block/veridium_castel_bricks"
+  }
+}

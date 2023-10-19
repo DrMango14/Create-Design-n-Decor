@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "design_decor:block/walls/veridium_castel_bricks"
+  }
+}

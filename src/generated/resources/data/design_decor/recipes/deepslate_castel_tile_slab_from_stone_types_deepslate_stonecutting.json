@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "tag": "create:stone_types/deepslate"
+  },
+  "result": "design_decor:deepslate_castel_tile_slab"
+}

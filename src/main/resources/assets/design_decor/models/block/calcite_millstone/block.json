@@ -1,0 +1,7 @@
+{
+	"parent": "create:block/millstone/block",
+	"textures": {
+		"5": "design_decor:block/millstones/calcite",
+		"particle": "create:block/palettes/stone_types/cap/calcite_cut_cap"
+	}
+}

@@ -11,7 +11,7 @@
       "tag": "forge:ingots/brass"
     },
     "E": {
-      "item": "create:electron_tube"
+      "item": "minecraft:glowstone_dust"
     },
     "A": {
       "item": "create:andesite_alloy"

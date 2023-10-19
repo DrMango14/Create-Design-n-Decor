@@ -1,0 +1,23 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "AEA",
+    " A "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:torch"
+    },
+    "A": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "result": {
+    "item": "design_decor:andesite_floodlight",
+    "count": 2
+
+
+  }
+}

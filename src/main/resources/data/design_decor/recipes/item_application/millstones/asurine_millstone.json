@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:millstones"
+    },
+    {
+      "item": "create:asurine"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:asurine_millstone"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber
@@ -18,5 +19,8 @@ public class MmbCrushingWheelBlockEntity extends CrushingWheelBlockEntity {
 		setLazyTickRate(20);
 	}
 
-
+	@Override
+	protected AABB createRenderBoundingBox() {
+		return new AABB(worldPosition).inflate(1);
+	}
 }

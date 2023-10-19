@@ -56,7 +56,6 @@ public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBloc
 
 	@Override
 	protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-
 		super.createBlockStateDefinition(builder);
 	}
 

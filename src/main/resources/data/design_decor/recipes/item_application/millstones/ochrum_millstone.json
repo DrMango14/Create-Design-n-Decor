@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:millstones"
+    },
+    {
+      "item": "create:ochrum"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:ochrum_millstone"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "design_decor:granite_millstone",
+    "design_decor:limestone_millstone",
+    "design_decor:diorite_millstone",
+    "design_decor:ochrum_millstone",
+    "design_decor:scoria_millstone",
+    "design_decor:scorchia_millstone",
+    "design_decor:tuff_millstone",
+    "design_decor:veridium_millstone",
+    "design_decor:calcite_millstone",
+    "design_decor:dripstone_millstone",
+    "design_decor:crimsite_millstone",
+    "design_decor:asurine_millstone",
+    "design_decor:deepslate_millstone",
+    "create:millstone"
+  ]
+}

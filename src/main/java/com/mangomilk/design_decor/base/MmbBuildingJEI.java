@@ -50,6 +50,22 @@ public class MmbBuildingJEI implements IModPlugin {
         registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "crushing")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.CALCITE_CRUSHING_WHEEL.get()), type));
         registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "crushing")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.ASURINE_CRUSHING_WHEEL.get()), type));
         registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "crushing")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.CRIMSITE_CRUSHING_WHEEL.get()), type));
+
+
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.GRANITE_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.LIMESTONE_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.SCORIA_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.SCORCHIA_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.TUFF_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.OCHRUM_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.VERIDIUM_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.DRIPSTONE_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.DIORITE_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.DEEPSLATE_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.CALCITE_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.ASURINE_MILLSTONE.get()), type));
+        registration.getJeiHelpers().getRecipeType(new ResourceLocation("create", "milling")).ifPresent(type -> registration.addRecipeCatalyst(new ItemStack(MmbBlocks.CRIMSITE_MILLSTONE.get()), type));
+
     }
 
     @Nonnull

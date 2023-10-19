@@ -1,0 +1,6 @@
+{
+  "parent": "design_decor:block/copper_floodlight/model",
+  "textures": {
+    "1": "design_decor:block/copper_floodlight_on"
+  }
+}

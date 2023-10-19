@@ -20,7 +20,6 @@ import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelControl
 import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderBlock;
 import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderGenerator;
 import com.mangomilk.design_decor.blocks.floodlight.FloodlightBlock;
-import com.mangomilk.design_decor.blocks.floodlight.FloodlightGenerator;
 import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlock;
 import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumLargeBoilerBlock;
@@ -40,6 +39,7 @@ import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.Industrial
 import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronLargeBoilerBlock;
 import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.*;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
 import com.simibubi.create.foundation.data.AssetLookup;
@@ -53,6 +53,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -146,13 +147,37 @@ public class MmbBlocks {
                     .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.TURNED_ON) ? 15 : 0))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
-                    .blockstate(new FloodlightGenerator()::generate)
                     .lang("Brass Floodlight")
                     .item()
                     .transform(customItemModel("_", "block"))
                     .register();
 
+    public static final BlockEntry<FloodlightBlock> ANDESITE_FLOODLIGHT =
+            REGISTRATE.block("andesite_floodlight", FloodlightBlock::new)
+                    .initialProperties(SharedProperties::copperMetal)
+                    .properties(p -> p.color(MaterialColor.STONE))
+                    .properties(BlockBehaviour.Properties::noOcclusion)
+                    .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 0 : !s.getValue(FloodlightBlock.WATERLOGGED) ? 12 : 8 ))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .lang("Andesite Floodlight")
+                    .item()
+                    .transform(customItemModel("_", "block"))
+                    .register();
 
+    public static final BlockEntry<FloodlightBlock> COPPER_FLOODLIGHT =
+            REGISTRATE.block("copper_floodlight", FloodlightBlock::new)
+                    .initialProperties(SharedProperties::copperMetal)
+                    .properties(p -> p.color(MaterialColor.STONE))
+                    .properties(BlockBehaviour.Properties::noOcclusion)
+                    .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 12 : 0 ))
+                    .properties(p -> p.lightLevel(s -> !s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 6 : 0 ))
+                    .addLayer(() -> RenderType::cutout)
+                    .transform(axeOrPickaxe())
+                    .lang("Copper Floodlight")
+                    .item()
+                    .transform(customItemModel("_", "block"))
+                    .register();
 
     //BOILERS
     public static final BlockEntry<BoilerBlock> BRASS_BOILER = REGISTRATE.block("brass_boiler", BoilerBlock::new)
@@ -459,23 +484,25 @@ public class MmbBlocks {
     public static final BlockEntry<GasTankBlock> GAS_TANK = REGISTRATE.block("gas_tank", GasTankBlock::new)
             .initialProperties(SharedProperties::softMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.sound(SoundType.COPPER))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
             .item()
             .build()
-            .lang("Iron Portable Fluid Tank")
+            .lang("Compact Iron Fluid Tank")
             .register();
 
     public static final BlockEntry<GasTankBlock> COPPER_GAS_TANK = REGISTRATE.block("copper_gas_tank", GasTankBlock::new)
             .initialProperties(SharedProperties::softMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.sound(SoundType.COPPER))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
             .item()
             .build()
-            .lang("Portable Fluid Tank")
+            .lang("Compact Fluid Tank")
             .register();
 
     //CONTAINERS
@@ -770,14 +797,22 @@ public class MmbBlocks {
             .lang("Blank Sign")
             .register();
 
-
-
-
     //CRUSHING WHEELS
+    public static final BlockEntry<MmbCrushingWheelControllerBlock> MMB_CRUSHING_WHEEL_CONTROLLER =
+            REGISTRATE.block("crushing_wheel_controller", MmbCrushingWheelControllerBlock::new)
+                    .initialProperties(SharedProperties.CRUSHING_WHEEL_CONTROLLER_MATERIAL)
+                    .properties(p -> p.color(MaterialColor.STONE))
+                    .properties(p -> p.noOcclusion()
+                            .noLootTable()
+                            .air())
+                    .blockstate((c, p) -> p.getVariantBuilder(c.get())
+                            .forAllStatesExcept(BlockStateGen.mapToAir(p), MmbCrushingWheelControllerBlock.FACING))
+                    .register();
+
     public static final BlockEntry<MmbCrushingWheelBlock> GRANITE_CRUSHING_WHEEL =
             REGISTRATE.block("granite_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.GRANITE)
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -787,24 +822,10 @@ public class MmbBlocks {
                     .transform(customItemModel())
                     .lang("Granite Crushing Wheel")
                     .register();
-
-    public static final BlockEntry<MmbCrushingWheelControllerBlock> MMB_CRUSHING_WHEEL_CONTROLLER =
-            REGISTRATE.block("granite_crushing_wheel_controller", MmbCrushingWheelControllerBlock::new)
-                    .initialProperties(SharedProperties.CRUSHING_WHEEL_CONTROLLER_MATERIAL)
-                    .properties(p -> p.color(MaterialColor.STONE))
-                    .properties(p -> p.noOcclusion()
-                            .noLootTable()
-                            .air())
-                    .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                            .forAllStatesExcept(BlockStateGen.mapToAir(p), MmbCrushingWheelControllerBlock.FACING))
-
-                    .register();
-
-
     public static final BlockEntry<MmbCrushingWheelBlock> DIORITE_CRUSHING_WHEEL =
             REGISTRATE.block("diorite_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.DIORITE)
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -814,13 +835,12 @@ public class MmbBlocks {
                     .transform(customItemModel())
                     .lang("Diorite Crushing Wheel")
                     .register();
-
-
-
+    
     public static final BlockEntry<MmbCrushingWheelBlock> LIMESTONE_CRUSHING_WHEEL =
             REGISTRATE.block("limestone_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.SANDSTONE)
+                    .properties(p -> p.color(MaterialColor.SAND))
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -832,8 +852,9 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> OCHRUM_CRUSHING_WHEEL =
             REGISTRATE.block("ochrum_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.CALCITE)
+                    .properties(p -> p.color(MaterialColor.COLOR_YELLOW))
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -845,8 +866,9 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> SCORCHIA_CRUSHING_WHEEL =
             REGISTRATE.block("scorchia_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.BLACKSTONE)
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -858,8 +880,9 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> SCORIA_CRUSHING_WHEEL =
             REGISTRATE.block("scoria_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.BLACKSTONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_BROWN))
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -871,8 +894,8 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> TUFF_CRUSHING_WHEEL =
             REGISTRATE.block("tuff_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.TUFF)
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -884,8 +907,9 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> VERIDIUM_CRUSHING_WHEEL =
             REGISTRATE.block("veridium_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.TUFF)
+                    .properties(p -> p.color(MaterialColor.WARPED_NYLIUM))
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -897,8 +921,8 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> DRIPSTONE_CRUSHING_WHEEL =
             REGISTRATE.block("dripstone_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.DRIPSTONE_BLOCK)
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -910,8 +934,8 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> DEEPSLATE_CRUSHING_WHEEL =
             REGISTRATE.block("deepslate_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.DEEPSLATE)
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -923,8 +947,9 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> CRIMSITE_CRUSHING_WHEEL =
             REGISTRATE.block("crimsite_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .properties(p -> p.color(MaterialColor.COLOR_RED))
+                    .initialProperties(() -> Blocks.DEEPSLATE)
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -936,8 +961,8 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> CALCITE_CRUSHING_WHEEL =
             REGISTRATE.block("calcite_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.CALCITE)
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -949,8 +974,9 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> ASURINE_CRUSHING_WHEEL =
             REGISTRATE.block("asurine_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
-                    .initialProperties(SharedProperties::stone)
+                    .initialProperties(() -> Blocks.DEEPSLATE)
+                    .properties(p -> p.color(MaterialColor.COLOR_BLUE))
+                    .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
@@ -959,6 +985,157 @@ public class MmbBlocks {
                     .item()
                     .transform(customItemModel())
                     .lang("Asurine Crushing Wheel")
+                    .register();
+
+    public static final BlockEntry<GraniteDecoMillStoneBlock> GRANITE_MILLSTONE =
+            REGISTRATE.block("granite_millstone", GraniteDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.GRANITE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Granite Millstone")
+                    .register();
+    public static final BlockEntry<DioriteDecoMillStoneBlock> DIORITE_MILLSTONE =
+            REGISTRATE.block("diorite_millstone", DioriteDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.DIORITE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Diorite Millstone")
+                    .register();
+    public static final BlockEntry<LimestoneDecoMillStoneBlock> LIMESTONE_MILLSTONE =
+            REGISTRATE.block("limestone_millstone", LimestoneDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.SANDSTONE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .properties(p -> p.color(MaterialColor.SAND))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Limestone Millstone")
+                    .register();
+    public static final BlockEntry<OchrumDecoMillStoneBlock> OCHRUM_MILLSTONE =
+            REGISTRATE.block("ochrum_millstone", OchrumDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.CALCITE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_YELLOW))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Ochrum Millstone")
+                    .register();
+    public static final BlockEntry<ScorchiaDecoMillStoneBlock> SCORCHIA_MILLSTONE =
+            REGISTRATE.block("scorchia_millstone", ScorchiaDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.BLACKSTONE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Scorchia Millstone")
+                    .register();
+    public static final BlockEntry<ScoriaDecoMillStoneBlock> SCORIA_MILLSTONE =
+            REGISTRATE.block("scoria_millstone", ScoriaDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.BLACKSTONE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .properties(p -> p.color(MaterialColor.COLOR_BROWN))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Scoria Millstone")
+                    .register();
+    public static final BlockEntry<TuffDecoMillStoneBlock> TUFF_MILLSTONE =
+            REGISTRATE.block("tuff_millstone", TuffDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.TUFF)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Tuff Millstone")
+                    .register();
+    public static final BlockEntry<VeridiumDecoMillStoneBlock> VERIDIUM_MILLSTONE =
+            REGISTRATE.block("veridium_millstone", VeridiumDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.TUFF)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .properties(p -> p.color(MaterialColor.WARPED_NYLIUM))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Veridium Millstone")
+                    .register();
+    public static final BlockEntry<DripstoneDecoMillStoneBlock> DRIPSTONE_MILLSTONE =
+            REGISTRATE.block("dripstone_millstone", DripstoneDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.DRIPSTONE_BLOCK)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Dripstone Millstone")
+                    .register();
+    public static final BlockEntry<DeepslateDecoMillStoneBlock> DEEPSLATE_MILLSTONE =
+            REGISTRATE.block("deepslate_millstone", DeepslateDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.DEEPSLATE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Deepslate Millstone")
+                    .register();
+    public static final BlockEntry<CrimsiteDecoMillStoneBlock> CRIMSITE_MILLSTONE =
+            REGISTRATE.block("crimsite_millstone", CrimsiteDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.DEEPSLATE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .properties(p -> p.color(MaterialColor.COLOR_RED))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Crimsite Millstone")
+                    .register();
+    public static final BlockEntry<CalciteDecoMillStoneBlock> CALCITE_MILLSTONE =
+            REGISTRATE.block("calcite_millstone", CalciteDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.CALCITE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Calcite Millstone")
+                    .register();
+    public static final BlockEntry<AsurineDecoMillStoneBlock> ASURINE_MILLSTONE =
+            REGISTRATE.block("asurine_millstone", AsurineDecoMillStoneBlock::new)
+                    .initialProperties(() -> Blocks.DEEPSLATE)
+                    .properties(p -> p.destroyTime(1.25f))
+                    .properties(p -> p.color(MaterialColor.COLOR_BLUE))
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                    .transform(BlockStressDefaults.setImpact(4.0))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Asurine Millstone")
                     .register();
 
 

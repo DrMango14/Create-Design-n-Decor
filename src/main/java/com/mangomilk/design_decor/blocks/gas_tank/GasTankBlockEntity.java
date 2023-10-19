@@ -34,7 +34,7 @@ public class GasTankBlockEntity extends SmartBlockEntity implements IHaveGoggleI
     public GasTankBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
 
-        tankInventory = new SmartFluidTank(3000,this::onFluidStackChanged);
+        tankInventory = new SmartFluidTank(5000,this::onFluidStackChanged);
 
         fluidCapability = LazyOptional.of(() -> tankInventory);
     }

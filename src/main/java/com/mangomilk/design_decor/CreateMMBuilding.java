@@ -1,6 +1,7 @@
 package com.mangomilk.design_decor;
 
 
+import com.mangomilk.design_decor.base.DecoPartialModels;
 import com.mangomilk.design_decor.base.MmbCreativeModeTab;
 import com.mangomilk.design_decor.base.MmbSpriteShifts;
 import com.mangomilk.design_decor.registry.DecoSoundEvents;
@@ -42,6 +43,7 @@ public class CreateMMBuilding
         DecoSoundEvents.register(eventBus);
         MmbBlockEntities.register();
         MmbSpriteShifts.init();
+        DecoPartialModels.init();
 
 
         //

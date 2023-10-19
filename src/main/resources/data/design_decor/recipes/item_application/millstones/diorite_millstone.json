@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:millstones"
+    },
+    {
+      "item": "minecraft:diorite"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:diorite_millstone"
+    }
+  ]
+}

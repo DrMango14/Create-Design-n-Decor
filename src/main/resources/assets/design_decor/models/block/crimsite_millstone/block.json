@@ -1,0 +1,7 @@
+{
+	"parent": "create:block/millstone/block",
+	"textures": {
+		"5": "design_decor:block/millstones/crimsite",
+		"particle": "create:block/palettes/stone_types/cap/crimsite_cut_cap"
+	}
+}

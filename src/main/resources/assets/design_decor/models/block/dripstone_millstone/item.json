@@ -1,0 +1,8 @@
+{
+  "parent": "create:block/millstone/item",
+  "textures": {
+    "4": "design_decor:block/crushing_wheels/dripstone/plates",
+    "5": "design_decor:block/millstones/dripstone",
+    "particle": "create:block/palettes/stone_types/cap/dripstone_cut_cap"
+  }
+}

@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "design_decor:aluminum_boiler"
+    },
+    {
+      "item": "minecraft:pink_dye"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:aluminum_boiler_special"
+    }
+  ]
+}

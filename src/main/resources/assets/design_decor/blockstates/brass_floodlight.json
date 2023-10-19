@@ -1,28 +1,36 @@
 {
   "variants": {
     "facing=down,turned_on=false,waterlogged=false,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 90
     },
     "facing=down,turned_on=false,waterlogged=false,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 90
     },
     "facing=down,turned_on=false,waterlogged=true,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 90
     },
     "facing=down,turned_on=false,waterlogged=true,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 90
     },
     "facing=down,turned_on=true,waterlogged=false,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 90
     },
     "facing=down,turned_on=true,waterlogged=false,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 90
     },
     "facing=down,turned_on=true,waterlogged=true,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 90
     },
     "facing=down,turned_on=true,waterlogged=true,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 90
     },
     "facing=east,turned_on=false,waterlogged=false,wrenched=false": {
       "model": "design_decor:block/brass_floodlight/block",
@@ -113,28 +121,36 @@
       "y": 180
     },
     "facing=up,turned_on=false,waterlogged=false,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 270
     },
     "facing=up,turned_on=false,waterlogged=false,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 270
     },
     "facing=up,turned_on=false,waterlogged=true,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 270
     },
     "facing=up,turned_on=false,waterlogged=true,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block"
+      "model": "design_decor:block/brass_floodlight/block",
+      "x": 270
     },
     "facing=up,turned_on=true,waterlogged=false,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 270
     },
     "facing=up,turned_on=true,waterlogged=false,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 270
     },
     "facing=up,turned_on=true,waterlogged=true,wrenched=false": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 270
     },
     "facing=up,turned_on=true,waterlogged=true,wrenched=true": {
-      "model": "design_decor:block/brass_floodlight/block_on"
+      "model": "design_decor:block/brass_floodlight/block_on",
+      "x": 270
     },
     "facing=west,turned_on=false,waterlogged=false,wrenched=false": {
       "model": "design_decor:block/brass_floodlight/block",

@@ -1,0 +1,17 @@
+
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "design_decor:millstones"
+    },
+    {
+      "item": "create:scoria"
+    }
+  ],
+  "results": [
+    {
+      "item": "design_decor:scoria_millstone"
+    }
+  ]
+}

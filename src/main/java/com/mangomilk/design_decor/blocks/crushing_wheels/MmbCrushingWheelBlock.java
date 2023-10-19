@@ -1,15 +1,19 @@
 package com.mangomilk.design_decor.blocks.crushing_wheels;
 
+import com.mangomilk.design_decor.blocks.BoilerBlock;
 import com.mangomilk.design_decor.registry.MmbBlockEntities;
 import com.mangomilk.design_decor.registry.MmbBlocks;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelBlock;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelBlockEntity;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlock;
+import com.simibubi.create.foundation.utility.Iterate;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,6 +26,23 @@ public class MmbCrushingWheelBlock extends CrushingWheelBlock {
 	public MmbCrushingWheelBlock(Properties properties) {
 		super(properties);
 	}
+
+
+	@Override
+	public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+		for (Direction d : Iterate.directions) {
+			if (d.getAxis() == state.getValue(AXIS))
+				continue;
+			if (MmbBlocks.MMB_CRUSHING_WHEEL_CONTROLLER.has(worldIn.getBlockState(pos.relative(d))))
+				worldIn.removeBlock(pos.relative(d), isMoving);
+			if (AllBlocks.CRUSHING_WHEEL_CONTROLLER.has(worldIn.getBlockState(pos.relative(d))))
+				worldIn.removeBlock(pos.relative(d), isMoving);
+		}
+
+		super.onRemove(state, worldIn, pos, newState, isMoving);
+	}
+
+
 	public void updateControllers(BlockState state, Level world, BlockPos pos, Direction side) {
 		if (side.getAxis() == state.getValue(AXIS))
 			return;
@@ -47,7 +68,6 @@ public class MmbCrushingWheelBlock extends CrushingWheelBlock {
 				AllBlocks.CRUSHING_WHEEL.has(otherState)||
 				MmbBlocks.GRANITE_CRUSHING_WHEEL.has(otherState)||
 				MmbBlocks.DIORITE_CRUSHING_WHEEL.has(otherState)||
-
 				MmbBlocks.LIMESTONE_CRUSHING_WHEEL.has(otherState)||
 				MmbBlocks.OCHRUM_CRUSHING_WHEEL.has(otherState)||
 				MmbBlocks.SCORCHIA_CRUSHING_WHEEL.has(otherState)||
@@ -59,8 +79,6 @@ public class MmbCrushingWheelBlock extends CrushingWheelBlock {
 				MmbBlocks.CRIMSITE_CRUSHING_WHEEL.has(otherState)||
 				MmbBlocks.CALCITE_CRUSHING_WHEEL.has(otherState)||
 				MmbBlocks.ASURINE_CRUSHING_WHEEL.has(otherState)
-
-
 
 		) {
 			controllerShouldExist = true;
@@ -110,6 +128,26 @@ public class MmbCrushingWheelBlock extends CrushingWheelBlock {
 		( MmbBlocks.MMB_CRUSHING_WHEEL_CONTROLLER.get())
 				.updateSpeed(world.getBlockState(controllerPos), world, controllerPos);
 
+	}
+
+
+	@Override
+	public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+		for (Direction direction : Iterate.directions) {
+			BlockPos neighbourPos = pos.relative(direction);
+			BlockState neighbourState = worldIn.getBlockState(neighbourPos);
+			Axis stateAxis = state.getValue(AXIS);
+			if (MmbBlocks.MMB_CRUSHING_WHEEL_CONTROLLER.has(neighbourState) && direction.getAxis() != stateAxis)
+				return false;
+			if (AllBlocks.CRUSHING_WHEEL_CONTROLLER.has(neighbourState) && direction.getAxis() != stateAxis)
+				return false;
+			if (!(worldIn.getBlockState(neighbourPos).getBlock() instanceof CrushingWheelBlock))
+				continue;
+			if (neighbourState.getValue(AXIS) != stateAxis || stateAxis != direction.getAxis())
+				return false;
+		}
+
+		return true;
 	}
 
 	@Override

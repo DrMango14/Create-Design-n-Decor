@@ -3,6 +3,7 @@ package com.mangomilk.design_decor.blocks.floodlight;
 import com.mangomilk.design_decor.registry.DecoSoundEvents;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
+import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -59,22 +60,15 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
     }
 
     public VoxelShape getShape(BlockState p_54561_, BlockGetter p_54562_, BlockPos p_54563_, CollisionContext p_54564_) {
-        switch (p_54561_.getValue(FACING)) {
-            case NORTH:
-                return SHAPE_NORTH;
-            case SOUTH:
-                return SHAPE_SOUTH;
-            case EAST:
-                return SHAPE_EAST;
-            case WEST:
-                return SHAPE_WEST;
-            case UP:
-                return SHAPE_UP;
-            case DOWN:
-                return SHAPE_DOWN;
-            default:
-                return SHAPE_NORTH;
-        }
+        return switch (p_54561_.getValue(FACING)) {
+            case NORTH -> SHAPE_NORTH;
+            case SOUTH -> SHAPE_SOUTH;
+            case EAST -> SHAPE_EAST;
+            case WEST -> SHAPE_WEST;
+            case UP -> SHAPE_UP;
+            case DOWN -> SHAPE_DOWN;
+            default -> SHAPE_NORTH;
+        };
     }
 
     @Override
@@ -141,23 +135,20 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
 
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext p_58126_) {
+        FluidState fluidstate = p_58126_.getLevel().getFluidState(p_58126_.getClickedPos());
+        boolean flag = fluidstate.getType() == Fluids.WATER;
+
         BlockState blockstate = this.defaultBlockState();
         LevelReader levelreader = p_58126_.getLevel();
         BlockPos blockpos = p_58126_.getClickedPos();
         Direction[] adirection = p_58126_.getNearestLookingDirections();
 
         for(Direction direction : adirection) {
-
-            if (direction.getAxis().isHorizontal()) {
-                Direction direction1 = direction.getOpposite();
-                blockstate = blockstate.setValue(FACING, direction1);
-
-                return blockstate;
-            }
+            Direction direction1 = direction.getOpposite();
+            blockstate = blockstate.setValue(FACING, direction1).setValue(WATERLOGGED, flag);
+            return blockstate;
         }
 
-        FluidState fluidstate = p_58126_.getLevel().getFluidState(p_58126_.getClickedPos());
-        boolean flag = fluidstate.getType() == Fluids.WATER;
         return Objects.requireNonNull(super.getStateForPlacement(p_58126_)).setValue(WATERLOGGED, flag);
     }
 

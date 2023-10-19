@@ -1,9 +1,11 @@
 package com.mangomilk.design_decor.registry;
 
 
+import com.mangomilk.design_decor.CreateMMBuilding;
 import com.mangomilk.design_decor.base.DecorBuilderTransformer;
 import com.mangomilk.design_decor.base.MmbSpriteShifts;
 import com.mangomilk.design_decor.blocks.*;
+import com.mangomilk.design_decor.blocks.SignBlock;
 import com.mangomilk.design_decor.blocks.chain.LargeChain;
 import com.mangomilk.design_decor.blocks.chain.TagDependentLargeChain;
 import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlock;
@@ -45,24 +47,31 @@ import com.simibubi.create.content.kinetics.BlockStressDefaults;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.SharedProperties;
+import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import java.util.Collections;
+
 import static com.mangomilk.design_decor.CreateMMBuilding.REGISTRATE;
+import static com.mangomilk.design_decor.registry.MmbBlocks.DecoTags.*;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
@@ -1573,6 +1582,288 @@ public class MmbBlocks {
                     .build()
                     .register();
 
+
+    //STONE PALETTE BLOCKS
+
+    public static final BlockEntry<Block>
+            CASTEL_BRICKS_GRANITE = CastelBricks("granite", "Granite", Blocks.GRANITE),
+            CASTEL_BRICKS_DIORITE = CastelBricks("diorite", "Diorite", Blocks.DIORITE),
+            CASTEL_BRICKS_ANDESITE = CastelBricks("andesite", "Andesite", Blocks.ANDESITE),
+            CASTEL_BRICKS_CALCITE = CastelBricks("calcite", "Calcite", Blocks.CALCITE),
+            CASTEL_BRICKS_DRIPSTONE = CastelBricks("dripstone", "Dripstone", Blocks.DRIPSTONE_BLOCK),
+            CASTEL_BRICKS_DEEPSLATE = CastelBricks("deepslate", "Deepslate", Blocks.DEEPSLATE),
+            CASTEL_BRICKS_TUFF = CastelBricks("tuff", "Tuff", Blocks.TUFF),
+            CASTEL_BRICKS_ASURINE = CastelBricks("asurine", "Asurine", MaterialColor.COLOR_BLUE, Blocks.DEEPSLATE),
+            CASTEL_BRICKS_CRIMSITE = CastelBricks("crimsite", "Crimsite", MaterialColor.COLOR_RED, Blocks.DEEPSLATE),
+            CASTEL_BRICKS_LIMESTONE = CastelBricks("limestone", "Limestone", MaterialColor.SAND, Blocks.SANDSTONE),
+            CASTEL_BRICKS_OCHRUM = CastelBricks("ochrum", "Ochrum", MaterialColor.TERRACOTTA_YELLOW, Blocks.CALCITE),
+            CASTEL_BRICKS_SCORIA = CastelBricks("scoria", "Scoria", MaterialColor.COLOR_BROWN, Blocks.BLACKSTONE),
+            CASTEL_BRICKS_SCORCHIA = CastelBricks("scorchia", "Scorchia", MaterialColor.TERRACOTTA_GRAY, Blocks.BLACKSTONE),
+            CASTEL_BRICKS_VERIDIUM = CastelBricks("veridium", "Veridium", MaterialColor.WARPED_NYLIUM, Blocks.TUFF),
+
+            CASTEL_TILE_GRANITE = CastelTiles("granite", "Granite", Blocks.GRANITE),
+            CASTEL_TILE_DIORITE = CastelTiles("diorite", "Diorite", Blocks.DIORITE),
+            CASTEL_TILE_ANDESITE = CastelTiles("andesite", "Andesite", Blocks.ANDESITE),
+            CASTEL_TILE_CALCITE = CastelTiles("calcite", "Calcite", Blocks.CALCITE),
+            CASTEL_TILE_DRIPSTONE = CastelTiles("dripstone", "Dripstone", Blocks.DRIPSTONE_BLOCK),
+            CASTEL_TILE_DEEPSLATE = CastelTiles("deepslate", "Deepslate", Blocks.DEEPSLATE),
+            CASTEL_TILE_TUFF = CastelTiles("tuff", "Tuff", Blocks.TUFF),
+            CASTEL_TILE_ASURINE = CastelTiles("asurine", "Asurine", MaterialColor.COLOR_BLUE, Blocks.DEEPSLATE),
+            CASTEL_TILE_CRIMSITE = CastelTiles("crimsite", "Crimsite", MaterialColor.COLOR_RED, Blocks.DEEPSLATE),
+            CASTEL_TILE_LIMESTONE = CastelTiles("limestone", "Limestone", MaterialColor.SAND, Blocks.SANDSTONE),
+            CASTEL_TILE_OCHRUM = CastelTiles("ochrum", "Ochrum", MaterialColor.TERRACOTTA_YELLOW, Blocks.CALCITE),
+            CASTEL_TILE_SCORIA = CastelTiles("scoria", "Scoria", MaterialColor.COLOR_BROWN, Blocks.BLACKSTONE),
+            CASTEL_TILE_SCORCHIA = CastelTiles("scorchia", "Scorchia", MaterialColor.TERRACOTTA_GRAY, Blocks.BLACKSTONE),
+            CASTEL_TILE_VERIDIUM = CastelTiles("veridium", "Veridium", MaterialColor.WARPED_NYLIUM, Blocks.TUFF)
+            ;
+    private static BlockEntry<Block> CastelBricks(String id, String lang, MaterialColor color, Block block) {
+        REGISTRATE.block(id + "_castel_brick_stairs", p -> new StairBlock(block.defaultBlockState(), p))
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("stairs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_bricks")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("stairs"))
+                .build()
+                .lang(lang + " Castel Brick Stairs")
+                .register();
+
+        REGISTRATE.block(id + "_castel_brick_slab", SlabBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("slabs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_bricks"), CreateMMBuilding.asResource("block/" + id + "_castel_bricks")))
+                .item()
+                .tag(MCItemTag("slabs"))
+                .build()
+                .lang(lang + " Castel Brick Slab")
+                .register();
+
+        REGISTRATE.block(id + "_castel_brick_wall", WallBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("walls"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_bricks")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("walls"))
+                .build()
+                .lang(lang + " Castel Brick Wall")
+                .register();
+
+        return REGISTRATE.block(id + "_castel_bricks", Block::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .build()
+                .lang(lang + " Castel Bricks")
+                .register();
+    }
+
+    private static BlockEntry<Block> CastelBricks(String id, String lang, Block block) {
+        REGISTRATE.block(id + "_castel_brick_stairs", p -> new StairBlock(block.defaultBlockState(), p))
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("stairs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_bricks")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("stairs"))
+                .build()
+                .lang(lang + " Castel Brick Stairs")
+                .register();
+
+        REGISTRATE.block(id + "_castel_brick_slab", SlabBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("slabs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_bricks"), CreateMMBuilding.asResource("block/" + id + "_castel_bricks")))
+                .item()
+                .tag(MCItemTag("slabs"))
+                .build()
+                .lang(lang + " Castel Brick Slab")
+                .register();
+
+        REGISTRATE.block(id + "_castel_brick_wall", WallBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("walls"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_bricks")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("walls"))
+                .build()
+                .lang(lang + " Castel Brick Wall")
+                .register();
+
+        return REGISTRATE.block(id + "_castel_bricks", Block::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .build()
+                .lang(lang + " Castel Bricks")
+                .register();
+    }
+    private static BlockEntry<Block> CastelTiles(String id, String lang, MaterialColor color, Block block) {
+        REGISTRATE.block(id + "_castel_tile_stairs", p -> new StairBlock(block.defaultBlockState(), p))
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("stairs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_tiles")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("stairs"))
+                .build()
+                .lang(lang + " Castel Tile Stairs")
+                .register();
+
+        REGISTRATE.block(id + "_castel_tile_slab", SlabBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("slabs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_tiles"), CreateMMBuilding.asResource("block/" + id + "_castel_tiles")))
+                .item()
+                .tag(MCItemTag("slabs"))
+                .build()
+                .lang(lang + " Castel Tile Slab")
+                .register();
+
+        REGISTRATE.block(id + "_castel_tile_wall", WallBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("walls"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_tiles")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("walls"))
+                .build()
+                .lang(lang + " Castel Tile Wall")
+                .register();
+
+        return REGISTRATE.block(id + "_castel_tiles", Block::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.color(color))
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .build()
+                .lang(lang + " Castel Tiles")
+                .register();
+    }
+    private static BlockEntry<Block> CastelTiles(String id, String lang, Block block) {
+        REGISTRATE.block(id + "_castel_tile_stairs", p -> new StairBlock(block.defaultBlockState(), p))
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("stairs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_tiles")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("stairs"))
+                .build()
+                .lang(lang + " Castel Tile Stairs")
+                .register();
+
+        REGISTRATE.block(id + "_castel_tile_slab", SlabBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("slabs"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_tiles"), CreateMMBuilding.asResource("block/" + id + "_castel_tiles")))
+                .item()
+                .tag(MCItemTag("slabs"))
+                .build()
+                .lang(lang + " Castel Tile Slab")
+                .register();
+
+        REGISTRATE.block(id + "_castel_tile_wall", WallBlock::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .tag(MCBlockTag("walls"))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_tiles")))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .tag(MCItemTag("walls"))
+                .build()
+                .lang(lang + " Castel Tile Wall")
+                .register();
+
+        return REGISTRATE.block(id + "_castel_tiles", Block::new)
+                .initialProperties(() -> block)
+                .properties(p -> p.destroyTime(1.25f))
+                .transform(pickaxeOnly())
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .item()
+                .tag(CreateItemTag("stone_types/" + id))
+                .build()
+                .lang(lang + " Castel Tiles")
+                .register();
+    }
+    public static class DecoTags {
+        public static <T> TagKey<T> optionalTag(IForgeRegistry<T> registry,
+                                                ResourceLocation id) {
+            return registry.tags()
+                    .createOptionalTagKey(id, Collections.emptySet());
+        }
+        public static <T> TagKey<T> CreateTag(IForgeRegistry<T> registry, String path) {
+            return optionalTag(registry, new ResourceLocation("create", path));
+        }
+        public static TagKey<Item> CreateItemTag(String path) {
+            return CreateTag(ForgeRegistries.ITEMS, path);
+        }
+        public static TagKey<Block> CreateBlockTag(String path) {
+            return CreateTag(ForgeRegistries.BLOCKS, path);
+        }
+        public static <T> TagKey<T> MCTag(IForgeRegistry<T> registry, String path) {
+            return optionalTag(registry, new ResourceLocation("minecraft", path));
+        }
+        public static TagKey<Item> MCItemTag(String path) {
+            return MCTag(ForgeRegistries.ITEMS, path);
+        }
+        public static TagKey<Block> MCBlockTag(String path) {
+            return MCTag(ForgeRegistries.BLOCKS, path);
+        }
+        public static void init() {
+        }
+    }
 
     private static boolean never(BlockState p_235436_0_, BlockGetter p_235436_1_, BlockPos p_235436_2_) {
         return false;

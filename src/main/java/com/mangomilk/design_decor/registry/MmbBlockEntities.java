@@ -6,18 +6,27 @@ import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlockEntity;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelBlockEntity;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelControllerBlockEntity;
 import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlockEntity;
+import com.mangomilk.design_decor.blocks.industrial_gear.IndustrialGearInstance;
+import com.mangomilk.design_decor.blocks.industrial_gear.IndustrialGearRenderer;
 import com.mangomilk.design_decor.blocks.millstone.DecoMillStoneBlockEntity;
 import com.mangomilk.design_decor.blocks.millstone.instance.*;
 import com.mangomilk.design_decor.blocks.millstone.renderer.*;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.kinetics.base.CutoutRotatingInstance;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
-import com.simibubi.create.content.kinetics.millstone.MillstoneCogInstance;
+import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
 import static com.mangomilk.design_decor.CreateMMBuilding.REGISTRATE;
 
 public class MmbBlockEntities {
+
+    public static final BlockEntityEntry<BracketedKineticBlockEntity> BRACKETED_KINETIC = REGISTRATE
+            .blockEntity("simple_kinetic", BracketedKineticBlockEntity::new)
+            .instance(() -> IndustrialGearInstance::new, false)
+            .validBlocks(MmbBlocks.COGWHEEL, MmbBlocks.LARGE_COGWHEEL)
+            .renderer(() -> IndustrialGearRenderer::new)
+            .register();
 
     public static final BlockEntityEntry<GasTankBlockEntity> GAS_TANK = REGISTRATE
             .blockEntity("gas_tank", GasTankBlockEntity::new)

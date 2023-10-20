@@ -1,6 +1,5 @@
 package com.mangomilk.design_decor.blocks.large_boiler.capitalism;
 
-import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
 import com.mangomilk.design_decor.registry.MmbBlocks;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.render.MultiPosDestructionHandler;
@@ -143,8 +142,8 @@ public class CapitalismBoilerStructure extends DirectionalBlock implements IWren
 
         if (!directlyAdjacent && stillValid(level, targetedPos, targetedState, true))
             return true;
-        return targetedState.getBlock() instanceof BrassLargeBoilerBlock
-                && targetedState.getValue(BrassLargeBoilerBlock.FACING).getAxis() != direction.getAxis();
+        return targetedState.getBlock() instanceof CapitalismLargeBoilerBlock
+                && targetedState.getValue(CapitalismLargeBoilerBlock.FACING).getAxis() != direction.getAxis();
     }
 
     @Override

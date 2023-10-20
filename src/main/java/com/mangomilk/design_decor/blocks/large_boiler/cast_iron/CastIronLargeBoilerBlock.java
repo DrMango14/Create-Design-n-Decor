@@ -1,8 +1,7 @@
 package com.mangomilk.design_decor.blocks.large_boiler.cast_iron;
 
+import com.mangomilk.design_decor.blocks.TagDependentDirectionalBlock;
 import com.mangomilk.design_decor.registry.MmbBlocks;
-import com.simibubi.create.content.kinetics.waterwheel.WaterWheelStructuralBlock;
-import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
@@ -12,11 +11,13 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -31,23 +32,18 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Set;
 import java.util.function.Predicate;
 
 @SuppressWarnings("deprecation")
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class CastIronLargeBoilerBlock extends WrenchableDirectionalBlock {
-
-    public static final Map<Direction.Axis, Set<BlockPos>> LARGE_OFFSETS = new EnumMap<>(Direction.Axis.class);
+public class CastIronLargeBoilerBlock extends TagDependentDirectionalBlock {
 
     public static final BooleanProperty EXTENSION = BooleanProperty.create("extension");
 
     public static final int placementHelperId = PlacementHelpers.register(new PlacementHelper());
-    public CastIronLargeBoilerBlock(Properties p_52591_) {
-        super(p_52591_);
+    public CastIronLargeBoilerBlock(Properties properties, TagKey<Item> itemTagKey) {
+        super(properties, itemTagKey);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP).setValue(EXTENSION, false));
     }
 
@@ -61,6 +57,9 @@ public class CastIronLargeBoilerBlock extends WrenchableDirectionalBlock {
         return pState.setValue(EXTENSION, pNeighborState.is(this));
     }
 
+    public Direction.Axis getAxisForPlacement(BlockPlaceContext context) {
+        return super.getStateForPlacement(context).getValue(FACING).getAxis();
+    }
     @Override
     public VoxelShape getOcclusionShape(BlockState p_60578_, BlockGetter p_60579_, BlockPos p_60580_) {
       return SHAPE;
@@ -146,7 +145,7 @@ public class CastIronLargeBoilerBlock extends WrenchableDirectionalBlock {
                 BlockPos structurePos = (secondary ? pPos.relative(side) : pPos).relative(targetSide);
                 BlockState occupiedState = pLevel.getBlockState(structurePos);
                 BlockState requiredStructure = MmbBlocks.CAST_IRON_BOILER_STRUCTURAL.getDefaultState()
-                        .setValue(WaterWheelStructuralBlock.FACING, targetSide.getOpposite());
+                        .setValue(CastIronBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;
                 if (!occupiedState.getMaterial()

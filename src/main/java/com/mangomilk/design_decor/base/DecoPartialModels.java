@@ -6,6 +6,9 @@ import com.mangomilk.design_decor.CreateMMBuilding;
 public class DecoPartialModels {
 
     public static final PartialModel
+            EMPTY = block("empty"),
+
+            SHAFTLESS_LARGE_COGWHEEL = block("industrial_gear_large"),
 
             GRANITE_MILLSTONE_COG = block("granite_millstone/inner"),
             DIORITE_MILLSTONE_COG = block("diorite_millstone/inner"),

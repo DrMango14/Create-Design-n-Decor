@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/cobalt"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/cobalt"
+  },
+  "result": "design_decor:cobalt_large_chain",
+  "count": 4
+}

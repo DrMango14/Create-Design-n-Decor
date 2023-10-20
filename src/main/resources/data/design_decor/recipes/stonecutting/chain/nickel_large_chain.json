@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/nickel"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/nickel"
+  },
+  "result": "design_decor:nickel_large_chain",
+  "count": 4
+}

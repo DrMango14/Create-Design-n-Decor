@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/hepatizon"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/hepatizon"
+  },
+  "result": "design_decor:hepatizon_large_chain",
+  "count": 4
+}

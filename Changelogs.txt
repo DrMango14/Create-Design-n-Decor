@@ -1,3 +1,10 @@
+Hidden Items can still obtainable within the /give command
+
+Added Industrial Gears
+Hide Cast Iron & Aluminium from JEI & Creative unless you have Cast Iron or Aluminium in a mod
+
+----
+
 Added Castel Bricks & Tiles
 Brass Floodlight Recipe Electron Tube -> Glowstone Dust
 Added Andesite & Copper Floodlights
@@ -8,7 +15,7 @@ Added Stone Palette Millstone types
 Holding Shift Diagonal Girder can now reverse the direction your facing horizontally
 Wrenching Diagonal Girder can now switch vertical direction
 Diagonal Girder & Tanks can be water Logged
-Fixed GUI Display for chains
+Fixed GUI Item Display for chains
 Compact Tanks Storage 3 -> 5 Buckets
 Fixed Compact Tanks Hitbox & Sounds
 Re-Named Portable Tanks to Compact Tanks

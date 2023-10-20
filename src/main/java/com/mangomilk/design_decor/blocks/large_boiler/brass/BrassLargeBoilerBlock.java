@@ -1,7 +1,6 @@
 package com.mangomilk.design_decor.blocks.large_boiler.brass;
 
 import com.mangomilk.design_decor.registry.MmbBlocks;
-import com.simibubi.create.content.kinetics.waterwheel.WaterWheelStructuralBlock;
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
@@ -56,6 +55,9 @@ public class BrassLargeBoilerBlock extends WrenchableDirectionalBlock {
         return pState.setValue(EXTENSION, pNeighborState.is(this));
     }
 
+    public Direction.Axis getAxisForPlacement(BlockPlaceContext context) {
+        return super.getStateForPlacement(context).getValue(FACING).getAxis();
+    }
     @Override
     public VoxelShape getOcclusionShape(BlockState p_60578_, BlockGetter p_60579_, BlockPos p_60580_) {
       return SHAPE;
@@ -141,7 +143,7 @@ public class BrassLargeBoilerBlock extends WrenchableDirectionalBlock {
                 BlockPos structurePos = (secondary ? pPos.relative(side) : pPos).relative(targetSide);
                 BlockState occupiedState = pLevel.getBlockState(structurePos);
                 BlockState requiredStructure = MmbBlocks.BRASS_BOILER_STRUCTURAL.getDefaultState()
-                        .setValue(WaterWheelStructuralBlock.FACING, targetSide.getOpposite());
+                        .setValue(BrassBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;
                 if (!occupiedState.getMaterial()

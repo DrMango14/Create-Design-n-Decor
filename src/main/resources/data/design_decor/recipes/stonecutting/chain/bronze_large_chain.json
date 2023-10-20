@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/bronze"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/bronze"
+  },
+  "result": "design_decor:bronze_large_chain",
+  "count": 4
+}

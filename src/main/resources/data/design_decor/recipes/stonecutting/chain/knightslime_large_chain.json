@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/knightslime"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/knightslime"
+  },
+  "result": "design_decor:knightslime_large_chain",
+  "count": 4
+}

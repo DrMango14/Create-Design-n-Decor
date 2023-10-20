@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/queen_slime"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/queen_slime"
+  },
+  "result": "design_decor:queen_slime_large_chain",
+  "count": 4
+}

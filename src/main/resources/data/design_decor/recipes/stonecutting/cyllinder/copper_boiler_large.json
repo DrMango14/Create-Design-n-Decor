@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:copper_block"
+  },
+  "result": "design_decor:copper_boiler_large",
+  "count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "design_decor:industrial_iron"
+  },
+  "result": "design_decor:industrial_iron_large_chain",
+  "count": 2
+}

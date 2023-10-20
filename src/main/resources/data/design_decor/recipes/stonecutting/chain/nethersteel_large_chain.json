@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/nethersteel"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/nethersteel"
+  },
+  "result": "design_decor:nethersteel_large_chain",
+  "count": 4
+}

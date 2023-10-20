@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:andesite_alloy"
+  },
+  "result": "design_decor:andesite_large_chain",
+  "count": 4
+}

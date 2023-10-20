@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "design_decor:capitalism_block"
+  },
+  "result": "design_decor:capitalism_boiler_large",
+  "count": 1
+}

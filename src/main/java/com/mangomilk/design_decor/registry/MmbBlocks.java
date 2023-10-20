@@ -23,29 +23,43 @@ import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderBlock;
 import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderGenerator;
 import com.mangomilk.design_decor.blocks.floodlight.FloodlightBlock;
 import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlock;
+import com.mangomilk.design_decor.blocks.industrial_gear.IndustrialGearBlock;
+import com.mangomilk.design_decor.blocks.industrial_gear.IndustrialGearBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.andesite.AndesiteBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.andesite.AndesiteLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.andesite.AndesiteLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.capitalism.CapitalismBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.capitalism.CapitalismLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.capitalism.CapitalismLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.copper.CopperBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.copper.CopperLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.copper.CopperLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.gold.GoldBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.gold.GoldLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.gold.GoldLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlock;
+import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlockItem;
 import com.mangomilk.design_decor.blocks.millstone.block.*;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
+import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
+import com.simibubi.create.content.kinetics.waterwheel.LargeWaterWheelBlockItem;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
@@ -188,6 +202,37 @@ public class MmbBlocks {
                     .transform(customItemModel("_", "block"))
                     .register();
 
+    //COGWHEELS
+    public static final BlockEntry<IndustrialGearBlock> COGWHEEL =
+            REGISTRATE.block("industrial_gear", IndustrialGearBlock::small)
+                    .initialProperties(SharedProperties::softMetal)
+                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .transform(pickaxeOnly())
+                    .transform(BlockStressDefaults.setNoImpact())
+                    .blockstate(BlockStateGen.axisBlockProvider(false))
+                    .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                    .item(IndustrialGearBlockItem::new)
+                    .build()
+                    .lang("Industrial Gear")
+                    .register();
+
+    public static final BlockEntry<IndustrialGearBlock> LARGE_COGWHEEL =
+            REGISTRATE.block("industrial_gear_large", IndustrialGearBlock::large)
+                    .initialProperties(SharedProperties::softMetal)
+                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .transform(pickaxeOnly())
+                    .transform(BlockStressDefaults.setNoImpact())
+                    .blockstate(BlockStateGen.axisBlockProvider(false))
+                    .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                    .item(IndustrialGearBlockItem::new)
+                    .build()
+                    .lang("Large Industrial Gear")
+                    .register();
+
     //BOILERS
     public static final BlockEntry<BoilerBlock> BRASS_BOILER = REGISTRATE.block("brass_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
@@ -209,7 +254,7 @@ public class MmbBlocks {
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(BrassLargeBoilerBlockItem::new)
             .build()
             .lang("Large Brass Boiler")
             .register();
@@ -223,7 +268,8 @@ public class MmbBlocks {
             .lang("Large Brass Boiler")
             .register();
 
-    public static final BlockEntry<BoilerBlock> ALUMINUM_BOILER = REGISTRATE.block("aluminum_boiler", BoilerBlock::new)
+    public static final BlockEntry<TagBoilerBlock> ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler",
+                    p -> new TagBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
             .initialProperties(SharedProperties::copperMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
@@ -232,27 +278,28 @@ public class MmbBlocks {
             .blockstate(BlockStateGen.directionalBlockProvider(true))
             .item()
             .build()
-            .lang("Aluminum Boiler")
+            .lang("Aluminium Boiler")
             .register();
-    public static final BlockEntry<AluminumLargeBoilerBlock> LARGE_ALUMINUM_BOILER = REGISTRATE.block("aluminum_boiler_large", AluminumLargeBoilerBlock::new)
+    public static final BlockEntry<AluminumLargeBoilerBlock> LARGE_ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler_large",
+                    p -> new AluminumLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
             .initialProperties(SharedProperties::copperMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(AluminumLargeBoilerBlockItem::new)
             .build()
-            .lang("Large Aluminum Boiler")
+            .lang("Large Aluminium Boiler")
             .register();
 
-    public static final BlockEntry<AluminumBoilerStructure> ALUMINUM_BOILER_STRUCTURAL = REGISTRATE.block("aluminum_boiler_structure", AluminumBoilerStructure::new)
+    public static final BlockEntry<AluminumBoilerStructure> ALUMINUM_BOILER_STRUCTURAL = REGISTRATE.block("aluminium_boiler_structure", AluminumBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), AluminumBoilerStructure.FACING))
-            .lang("Large Aluminum Boiler")
+            .lang("Large Aluminium Boiler")
             .register();
 
 
@@ -274,7 +321,7 @@ public class MmbBlocks {
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(GoldLargeBoilerBlockItem::new)
             .build()
             .lang("Large Gold Boiler")
             .register();
@@ -307,7 +354,7 @@ public class MmbBlocks {
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(CopperLargeBoilerBlockItem::new)
             .build()
             .lang("Large Copper Boiler")
             .register();
@@ -340,7 +387,7 @@ public class MmbBlocks {
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(ZincLargeBoilerBlockItem::new)
             .build()
             .lang("Large Zinc Boiler")
             .register();
@@ -373,7 +420,7 @@ public class MmbBlocks {
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(IndustrialIronLargeBoilerBlockItem::new)
             .build()
             .lang("Large Industrial Iron Boiler")
             .register();
@@ -406,7 +453,7 @@ public class MmbBlocks {
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(AndesiteLargeBoilerBlockItem::new)
             .build()
             .lang("Large Andesite Boiler")
             .register();
@@ -421,7 +468,8 @@ public class MmbBlocks {
             .register();
 
 
-    public static final BlockEntry<BoilerBlock> CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler", BoilerBlock::new)
+    public static final BlockEntry<TagBoilerBlock> CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler",
+                    p -> new TagBoilerBlock(p, AllTags.forgeItemTag("ingots/cast_iron")))
             .initialProperties(SharedProperties::copperMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
@@ -432,14 +480,15 @@ public class MmbBlocks {
             .build()
             .lang("Cast Iron Boiler")
             .register();
-    public static final BlockEntry<CastIronLargeBoilerBlock> LARGE_CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler_large", CastIronLargeBoilerBlock::new)
+    public static final BlockEntry<CastIronLargeBoilerBlock> LARGE_CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler_large",
+                    p -> new CastIronLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/cast_iron")))
             .initialProperties(SharedProperties::copperMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(CastIronLargeBoilerBlockItem::new)
             .build()
             .lang("Large Cast Iron Boiler")
             .register();
@@ -472,7 +521,7 @@ public class MmbBlocks {
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item()
+            .item(CapitalismLargeBoilerBlockItem::new)
             .build()
             .lang("Large Capitalism Boiler")
             .register();

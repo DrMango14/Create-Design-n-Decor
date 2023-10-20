@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:gold_block"
+  },
+  "result": "design_decor:gold_boiler_large",
+  "count": 1
+}

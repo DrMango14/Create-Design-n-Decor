@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/brass"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/brass"
+  },
+  "result": "design_decor:brass_large_chain",
+  "count": 4
+}

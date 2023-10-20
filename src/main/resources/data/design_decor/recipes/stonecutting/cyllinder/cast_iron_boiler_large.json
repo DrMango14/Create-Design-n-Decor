@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/cast_iron"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/cast_iron"
+  },
+  "result": "design_decor:cast_iron_boiler_large",
+  "count": 1
+}

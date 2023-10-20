@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/manyullyn"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/manyullyn"
+  },
+  "result": "design_decor:manyullyn_large_chain",
+  "count": 4
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/rose_gold"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/rose_gold"
+  },
+  "result": "design_decor:rose_gold_large_chain",
+  "count": 4
+}

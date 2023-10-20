@@ -1,7 +1,6 @@
 package com.mangomilk.design_decor.blocks.large_boiler.capitalism;
 
 import com.mangomilk.design_decor.registry.MmbBlocks;
-import com.simibubi.create.content.kinetics.waterwheel.WaterWheelStructuralBlock;
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
@@ -31,17 +30,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Set;
 import java.util.function.Predicate;
 
 @SuppressWarnings("deprecation")
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class CapitalismLargeBoilerBlock extends WrenchableDirectionalBlock {
-
-    public static final Map<Direction.Axis, Set<BlockPos>> LARGE_OFFSETS = new EnumMap<>(Direction.Axis.class);
 
     public static final BooleanProperty EXTENSION = BooleanProperty.create("extension");
 
@@ -61,6 +55,9 @@ public class CapitalismLargeBoilerBlock extends WrenchableDirectionalBlock {
         return pState.setValue(EXTENSION, pNeighborState.is(this));
     }
 
+    public Direction.Axis getAxisForPlacement(BlockPlaceContext context) {
+        return super.getStateForPlacement(context).getValue(FACING).getAxis();
+    }
     @Override
     public VoxelShape getOcclusionShape(BlockState p_60578_, BlockGetter p_60579_, BlockPos p_60580_) {
       return SHAPE;
@@ -146,7 +143,7 @@ public class CapitalismLargeBoilerBlock extends WrenchableDirectionalBlock {
                 BlockPos structurePos = (secondary ? pPos.relative(side) : pPos).relative(targetSide);
                 BlockState occupiedState = pLevel.getBlockState(structurePos);
                 BlockState requiredStructure = MmbBlocks.CAPITALISM_BOILER_STRUCTURAL.getDefaultState()
-                        .setValue(WaterWheelStructuralBlock.FACING, targetSide.getOpposite());
+                        .setValue(CapitalismBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;
                 if (!occupiedState.getMaterial()

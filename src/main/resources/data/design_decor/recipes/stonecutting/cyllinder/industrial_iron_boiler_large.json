@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:industrial_iron_block"
+  },
+  "result": "design_decor:industrial_iron_boiler_large",
+  "count": 1
+}

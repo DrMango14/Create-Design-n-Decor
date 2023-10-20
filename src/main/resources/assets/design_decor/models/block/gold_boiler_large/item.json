@@ -1,5 +1,5 @@
 {
-	"parent": "design_decor:block/brass_boiler_large/brass_boiler",
+	"parent": "design_decor:block/gold_boiler_large/gold_boiler",
 	"loader": "forge:obj",
 	"flip-v": true,
 	"model": "design_decor:models/block/boilers/large_item.obj"

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:stonecutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/mithril"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/mithril"
+  },
+  "result": "design_decor:mithril_large_chain",
+  "count": 4
+}

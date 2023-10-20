@@ -11,7 +11,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
+import java.util.Random;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -133,7 +133,7 @@ public class AndesiteLargeBoilerBlock extends WrenchableDirectionalBlock {
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
         Direction.Axis axis = pState.getValue(FACING).getAxis();
         for (Direction side : Iterate.directions) {
             if (side.getAxis() == axis)

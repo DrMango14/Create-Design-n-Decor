@@ -1,6 +1,6 @@
 modLoader="javafml"
 
-loaderVersion="[43,)"
+loaderVersion="[40,)"
 
 license="MIT"
 
@@ -27,7 +27,7 @@ dave's building extended but way better :3
 
     mandatory=true
 
-    versionRange="[43,)"
+    versionRange="[40,)"
 
     ordering="NONE"
 
@@ -38,10 +38,11 @@ mandatory=true
 versionRange="[0.5.1,)"
 ordering="NONE"
 side="BOTH"
+
 [[dependencies.design_decor]]
     modId="minecraft"
     mandatory=true
 
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"

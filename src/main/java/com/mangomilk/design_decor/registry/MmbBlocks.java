@@ -56,7 +56,6 @@ import com.mangomilk.design_decor.blocks.millstone.block.*;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
-import com.simibubi.create.content.kinetics.waterwheel.LargeWaterWheelBlockItem;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.CreateRegistrate;
@@ -79,6 +78,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -91,7 +91,7 @@ import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
-@SuppressWarnings({"unused", "removal"})
+@SuppressWarnings({"unused","deprecation"})
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class MmbBlocks {
@@ -860,8 +860,9 @@ public class MmbBlocks {
             REGISTRATE.block("crushing_wheel_controller", MmbCrushingWheelControllerBlock::new)
                     .initialProperties(SharedProperties.CRUSHING_WHEEL_CONTROLLER_MATERIAL)
                     .properties(p -> p.color(MaterialColor.STONE))
-                    .properties(p -> p.noOcclusion()
-                            .noLootTable()
+                    .properties(p -> p
+                            .noOcclusion()
+                            .noDrops()
                             .air())
                     .blockstate((c, p) -> p.getVariantBuilder(c.get())
                             .forAllStatesExcept(BlockStateGen.mapToAir(p), MmbCrushingWheelControllerBlock.FACING))
@@ -1887,12 +1888,11 @@ public class MmbBlocks {
                 .register();
     }
     public static class DecoTags {
-        public static <T> TagKey<T> optionalTag(IForgeRegistry<T> registry,
-                                                ResourceLocation id) {
+        public static <T extends IForgeRegistryEntry<T>> TagKey<T> optionalTag(IForgeRegistry<T> registry, ResourceLocation id) {
             return registry.tags()
                     .createOptionalTagKey(id, Collections.emptySet());
         }
-        public static <T> TagKey<T> CreateTag(IForgeRegistry<T> registry, String path) {
+        public static <T extends IForgeRegistryEntry<T>> TagKey<T> CreateTag(IForgeRegistry<T> registry, String path) {
             return optionalTag(registry, new ResourceLocation("create", path));
         }
         public static TagKey<Item> CreateItemTag(String path) {
@@ -1901,7 +1901,7 @@ public class MmbBlocks {
         public static TagKey<Block> CreateBlockTag(String path) {
             return CreateTag(ForgeRegistries.BLOCKS, path);
         }
-        public static <T> TagKey<T> MCTag(IForgeRegistry<T> registry, String path) {
+        public static <T extends IForgeRegistryEntry<T>> TagKey<T> MCTag(IForgeRegistry<T> registry, String path) {
             return optionalTag(registry, new ResourceLocation("minecraft", path));
         }
         public static TagKey<Item> MCItemTag(String path) {

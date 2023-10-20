@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -37,7 +38,7 @@ public class MmbCreativeModeTab extends CreativeModeTab {
 
 	@Override
 	public Component getDisplayName() {
-		return Component.literal("Create: Design n' Decor");
+		return new TextComponent("Create: Design n' Decor");
 	}
 
 	protected Collection<RegistryEntry<Item>> registeredItems() {

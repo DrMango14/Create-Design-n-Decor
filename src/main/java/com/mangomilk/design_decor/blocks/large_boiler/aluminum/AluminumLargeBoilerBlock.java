@@ -2,7 +2,6 @@ package com.mangomilk.design_decor.blocks.large_boiler.aluminum;
 
 import com.mangomilk.design_decor.blocks.TagDependentDirectionalBlock;
 import com.mangomilk.design_decor.registry.MmbBlocks;
-import com.simibubi.create.content.kinetics.waterwheel.LargeWaterWheelBlockEntity;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
@@ -13,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -33,6 +31,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Random;
 import java.util.function.Predicate;
 
 @SuppressWarnings("deprecation")
@@ -135,7 +134,7 @@ public class AluminumLargeBoilerBlock extends TagDependentDirectionalBlock {
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
         Direction.Axis axis = pState.getValue(FACING).getAxis();
         for (Direction side : Iterate.directions) {
             if (side.getAxis() == axis)

@@ -3,13 +3,11 @@ package com.mangomilk.design_decor.blocks.floodlight;
 import com.mangomilk.design_decor.registry.DecoSoundEvents;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
-import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -37,6 +35,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
+import java.util.Random;
 
 @SuppressWarnings({"unused","deprecation"})
 @ParametersAreNonnullByDefault
@@ -83,7 +82,7 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
         }
     }
 
-    public void tick(BlockState p_221937_, ServerLevel p_221938_, BlockPos p_221939_, RandomSource p_221940_) {
+    public void tick(BlockState p_221937_, ServerLevel p_221938_, BlockPos p_221939_, Random p_221940_) {
         if (p_221937_.getValue(TURNED_ON) && p_221938_.hasNeighborSignal(p_221939_) != p_221937_.getValue(WRENCHED)) {
             p_221938_.setBlock(p_221939_, p_221937_.setValue(TURNED_ON, false), 2);
         }

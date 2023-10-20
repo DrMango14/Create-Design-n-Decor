@@ -16,7 +16,6 @@ import net.minecraft.core.Direction.Axis;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -36,6 +35,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.Random;
 
 public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBlock {
 
@@ -107,7 +108,7 @@ public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBloc
 	}
 
 	@Override
-	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
+	public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
 		if (!stateIn.getValue(VALID))
 			return;
 		if (rand.nextInt(1) != 0)

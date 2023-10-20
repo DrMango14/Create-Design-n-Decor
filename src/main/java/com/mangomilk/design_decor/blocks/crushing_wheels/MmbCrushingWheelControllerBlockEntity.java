@@ -22,7 +22,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -40,10 +39,7 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControllerBlockEntity {
 	private UUID entityUUID;
@@ -252,7 +248,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 		else
 			particleData = new ItemParticleOption(ParticleTypes.ITEM, stack);
 
-		RandomSource r = level.random;
+		Random r = level.random;
 		for (int i = 0; i < 4; i++)
 			level.addParticle(particleData, worldPosition.getX() + r.nextFloat(), worldPosition.getY() + r.nextFloat(),
 				worldPosition.getZ() + r.nextFloat(), 0, 0, 0);

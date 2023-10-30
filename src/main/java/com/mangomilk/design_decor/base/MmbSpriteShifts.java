@@ -26,8 +26,12 @@ public class MmbSpriteShifts {
             GREEN_CONTAINER_BOTTOM = vault("green","bottom");
 
     public static final CTSpriteShiftEntry
+            ORNATE_GRATE = omni("ornate_grate"),
             INDUSTRIAL_PLATING_BLOCK = omni("industrial_plating_block"),
-            INDUSTRIAL_PLATING_BLOCK_SIDE = omni("industrial_plating_block_side");
+            INDUSTRIAL_PLATING_BLOCK_SIDE = omni("industrial_plating_block_side"),
+            TINTED_FRAMED_GLASS = omni("palettes/tinted_framed_glass"),
+            TINTED_HORIZONTAL_FRAMED_GLASS = horizontal("palettes/horizontal_tinted_framed_glass"),
+            TINTED_VERTICAL_FRAMED_GLASS = vertical("palettes/vertical_tinted_framed_glass");
 
     private static Couple<CTSpriteShiftEntry> vault(String color,String name) {
         final String prefixed = "block/"+color+"_container/container_" + name;

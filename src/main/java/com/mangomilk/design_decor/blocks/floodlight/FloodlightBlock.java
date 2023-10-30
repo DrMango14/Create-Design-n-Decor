@@ -3,7 +3,6 @@ package com.mangomilk.design_decor.blocks.floodlight;
 import com.mangomilk.design_decor.registry.DecoSoundEvents;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
-import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

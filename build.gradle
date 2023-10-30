@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
         jcenter()
@@ -11,7 +10,6 @@ buildscript {
         classpath "org.spongepowered:mixingradle:0.7-SNAPSHOT"
     }
 }
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -19,22 +17,16 @@ plugins {
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
-//mixin {
-//  add sourceSets.main, "design_decor.refmap.json"
-//}
 
 version = '0.2a-1.19.2'
-group = 'com.mangomilk.design_decor' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = 'com.mangomilk.design_decor'
 archivesBaseName = 'design_decor'
 
-// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
     mappings channel: 'official', version: '1.19.2'
-
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
     runs {
         client {

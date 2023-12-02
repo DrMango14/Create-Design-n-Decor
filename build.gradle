@@ -20,7 +20,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '0.2a-1.20.2'
+version = '0.2a-1.20.1'
 group = 'com.mangomilk.design_decor'
 base {
     archivesName = "design_decor"

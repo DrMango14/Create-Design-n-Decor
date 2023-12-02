@@ -1291,11 +1291,11 @@ public class MmbBlocks {
 
     public static final BlockEntry<ConnectedTintedGlassBlock>
             TINTED_FRAMED_GLASS = tintedframedGlass(
-            () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_FRAMED_GLASS)),
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_FRAMED_GLASS)),
             TINTED_HORIZONTAL_FRAMED_GLASS = tintedframedGlass("horizontal","Horizontal",
-                    () -> new HorizontalCTBehaviour(MmbSpriteShifts.TINTED_HORIZONTAL_FRAMED_GLASS, MmbSpriteShifts.TINTED_FRAMED_GLASS)),
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_HORIZONTAL_FRAMED_GLASS)),
             TINTED_VERTICAL_FRAMED_GLASS = tintedframedGlass("vertical","Vertical",
-                    () -> new HorizontalCTBehaviour(MmbSpriteShifts.TINTED_VERTICAL_FRAMED_GLASS));
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_VERTICAL_FRAMED_GLASS));
 
 
     public static final BlockEntry<DiagonalGirderBlock> DIAGONAL_GIRDER =

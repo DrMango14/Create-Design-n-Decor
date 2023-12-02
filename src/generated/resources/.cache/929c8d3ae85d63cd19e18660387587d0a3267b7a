@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-01T20:07:31.5450197	Registrate Provider for design_decor [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2023-12-01T20:29:02.395194	Registrate Provider for design_decor [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 6df0c7c48c65b0f15bb3e88b30e50e6e80d40f06 assets/design_decor/blockstates/aluminium_boiler.json
 461467c6748b88cc1a8de75508a9ce48d4241691 assets/design_decor/blockstates/aluminium_boiler_large.json
 3dff9e1ec59415779195d2abfa9f07bc17b428a1 assets/design_decor/blockstates/aluminium_boiler_structure.json
@@ -395,7 +395,7 @@ c6470f58c8cd006db153f5f96ff25e9d7536c4d3 assets/design_decor/models/block/granit
 46c4095dc4239248706a9eccb537cbb602197a9f assets/design_decor/models/block/granite_castel_tile_wall_post.json
 c8c3cbaa5e154dfbc8bbd3eafb8619627dd4f614 assets/design_decor/models/block/granite_castel_tile_wall_side.json
 beb94aa16de79c0523aa769fc2d4eb27b7e6f022 assets/design_decor/models/block/granite_castel_tile_wall_side_tall.json
-061c5f48dc17e22db64c18a189c741ed9cb3b765 assets/design_decor/models/block/horizontal_tinted_framed_glass.json
+7ed14f0a4aba95b9e4c4ddc90891892fc744ad60 assets/design_decor/models/block/horizontal_tinted_framed_glass.json
 057bdcac55d509b9ffafa725b8ab97fa1224d042 assets/design_decor/models/block/industrial_gold_block.json
 cade24778eb6220e384f1f3a0f8a28eb172421b7 assets/design_decor/models/block/industrial_gold_floor.json
 80db23dfdfa12c428e87f4a3e59e414f5dcb91fa assets/design_decor/models/block/industrial_iron_floor.json
@@ -509,7 +509,7 @@ d9df66eae26b9ab8f95937f43f986ede3a8d98ce assets/design_decor/models/block/veridi
 a37d53d70a433a5073ea91a1dfcb3b70bc1e8f4e assets/design_decor/models/block/veridium_castel_tile_wall_post.json
 9713e463fe8ca6d6cab5b628d15ba2a5b43ea06c assets/design_decor/models/block/veridium_castel_tile_wall_side.json
 1c78a87a31f08ad5b5d293932c407f0d6d9b998c assets/design_decor/models/block/veridium_castel_tile_wall_side_tall.json
-061c5f48dc17e22db64c18a189c741ed9cb3b765 assets/design_decor/models/block/vertical_tinted_framed_glass.json
+4c07f27a51aa7d2c900d7f434247e6f74b277775 assets/design_decor/models/block/vertical_tinted_framed_glass.json
 cea549f790a61cb9c85ca09c51b6986fb2bbca30 assets/design_decor/models/block/zinc_floor.json
 03b446eaab91bbfd5c43019531b574bddf9cbc93 assets/design_decor/models/block/zinc_light.json
 247ed1494b4e0dc60e5fc3ed926969663b7bc6be assets/design_decor/models/item/aluminium_boiler.json
@@ -642,7 +642,7 @@ bdeaa1fa04773f12c024cf6713b6db266fe04e52 assets/design_decor/models/item/granite
 9332a3648201c52475929559a63c77bff921dff4 assets/design_decor/models/item/granite_millstone.json
 f575a785d1b1d991f03d98f5864b35abb718d1f4 assets/design_decor/models/item/green_container.json
 8b7374777124da499bb974d78d5bb97ff3a1c9a7 assets/design_decor/models/item/hepatizon_large_chain.json
-a340c559aef2931ae751a7f495f6525633060c17 assets/design_decor/models/item/horizontal_tinted_framed_glass.json
+740c1e4af23c59191b2d029ecb2d0e70869f9770 assets/design_decor/models/item/horizontal_tinted_framed_glass.json
 d2ae508b55891141afe524a8cfc2455c323311f2 assets/design_decor/models/item/industrial_gear.json
 c1e2064a73f7309dab3f691f8f6e01e00bfa380f assets/design_decor/models/item/industrial_gear_large.json
 ae5a1a72213b5193356ddc48b9522c284bd8cb16 assets/design_decor/models/item/industrial_gold_block.json
@@ -736,7 +736,7 @@ a691a898697edf8193b487e5a359cd343a0e008a assets/design_decor/models/item/veridiu
 88b20bd58c378b38efe353b4dbdccb2ecb338a8c assets/design_decor/models/item/veridium_castel_tile_wall.json
 71ece567ea6ae324f987d1836b0c8a3cb198d87a assets/design_decor/models/item/veridium_crushing_wheel.json
 58500baea5081ffa13f22074dad5673228abb15c assets/design_decor/models/item/veridium_millstone.json
-b731514ebdb859d2ea010827de553c12d1dcb4c2 assets/design_decor/models/item/vertical_tinted_framed_glass.json
+74f8245b49a2a473dd1cc275bef4d3a12d053ef4 assets/design_decor/models/item/vertical_tinted_framed_glass.json
 9bcb2050fd380189b12fcd674796fbfd1b2ce06d assets/design_decor/models/item/warning_sign.json
 411bcfb189d4ac9ab9065c19b7c6f312475aef9f assets/design_decor/models/item/zinc_boiler.json
 2ba1195345fe11df69b6f36296617ca36a1caeb3 assets/design_decor/models/item/zinc_boiler_large.json

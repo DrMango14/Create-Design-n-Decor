@@ -57,29 +57,15 @@ public class IndustrialGearBlock extends ShaftBlock implements ICogWheel, Encasa
         isLarge = large;
     }
 
-    public static IndustrialGearBlock small(Properties properties) {
-        return new IndustrialGearBlock(false, properties);
-    }
+    public static IndustrialGearBlock small(Properties properties) {return new IndustrialGearBlock(false, properties);}
 
-    public static IndustrialGearBlock large(Properties properties) {
-        return new IndustrialGearBlock(true, properties);
-    }
+    public static IndustrialGearBlock large(Properties properties) {return new IndustrialGearBlock(true, properties);}
 
     @Override
-    public boolean isLargeCog() {
-        return isLarge;
-    }
+    public boolean isLargeCog() {return isLarge;}
 
     @Override
-    public boolean isSmallCog() {
-        return !isLarge;
-    }
-
-    @Override
-    public void fillItemCategory(CreativeModeTab pTab, NonNullList<ItemStack> pItems) {
-        super.fillItemCategory(pTab, pItems);
-        MmbBlocks.LARGE_COGWHEEL.is(this);
-    }
+    public boolean isSmallCog() {return !isLarge;}
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {

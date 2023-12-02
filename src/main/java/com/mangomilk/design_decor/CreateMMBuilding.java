@@ -26,7 +26,7 @@ public class CreateMMBuilding
 
     public static final String MOD_ID = "design_decor";
     public static final String NAME = "Create: Design n' Decor";
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(CreateMMBuilding.MOD_ID).creativeModeTab(()-> MmbCreativeModeTab.BUILDING);
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(CreateMMBuilding.MOD_ID).setCreativeTab(MmbCreativeModeTab.BASE_CREATIVE_TAB);
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public CreateMMBuilding()
@@ -45,6 +45,7 @@ public class CreateMMBuilding
         MmbBlockEntities.register();
         MmbSpriteShifts.init();
         DecoPartialModels.init();
+        MmbCreativeModeTab.register(eventBus);
 
 
         //

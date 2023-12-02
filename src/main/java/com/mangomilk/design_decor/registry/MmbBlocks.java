@@ -54,8 +54,8 @@ import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlockI
 import com.mangomilk.design_decor.blocks.millstone.block.*;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
+import com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
-import com.simibubi.create.foundation.block.connected.HorizontalCTBehaviour;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
@@ -74,7 +74,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -90,7 +91,7 @@ import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
-@SuppressWarnings({"unused", "removal"})
+@SuppressWarnings({"unused", "removal", "all"})
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class MmbBlocks {
@@ -132,7 +133,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<Block> BRASS_LIGHT =
             REGISTRATE.block("brass_light", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .properties(p->p.lightLevel(s -> 15))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
@@ -142,7 +143,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> COPPER_LIGHT =
             REGISTRATE.block("copper_light", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .properties(p->p.lightLevel(s -> 15))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
@@ -152,7 +153,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> ZINC_LIGHT =
             REGISTRATE.block("zinc_light", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .properties(p->p.lightLevel(s -> 15))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
@@ -164,7 +165,7 @@ public class MmbBlocks {
     public static final BlockEntry<FloodlightBlock> BRASS_FLOODLIGHT =
             REGISTRATE.block("brass_floodlight", FloodlightBlock::new)
                     .initialProperties(SharedProperties::copperMetal)
-                    .properties(p -> p.color(MaterialColor.TERRACOTTA_YELLOW))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_YELLOW))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.TURNED_ON) ? 15 : 0))
                     .addLayer(() -> RenderType::cutout)
@@ -177,7 +178,7 @@ public class MmbBlocks {
     public static final BlockEntry<FloodlightBlock> ANDESITE_FLOODLIGHT =
             REGISTRATE.block("andesite_floodlight", FloodlightBlock::new)
                     .initialProperties(SharedProperties::copperMetal)
-                    .properties(p -> p.color(MaterialColor.STONE))
+                    .properties(p -> p.mapColor(MapColor.STONE))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 0 : !s.getValue(FloodlightBlock.WATERLOGGED) ? 12 : 8 ))
                     .addLayer(() -> RenderType::cutout)
@@ -190,7 +191,7 @@ public class MmbBlocks {
     public static final BlockEntry<FloodlightBlock> COPPER_FLOODLIGHT =
             REGISTRATE.block("copper_floodlight", FloodlightBlock::new)
                     .initialProperties(SharedProperties::copperMetal)
-                    .properties(p -> p.color(MaterialColor.STONE))
+                    .properties(p -> p.mapColor(MapColor.STONE))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 12 : 0 ))
                     .properties(p -> p.lightLevel(s -> !s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 6 : 0 ))
@@ -205,7 +206,7 @@ public class MmbBlocks {
     public static final BlockEntry<IndustrialGearBlock> COGWHEEL =
             REGISTRATE.block("industrial_gear", IndustrialGearBlock::small)
                     .initialProperties(SharedProperties::softMetal)
-                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.mapColor(MapColor.COLOR_GRAY))
                     .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
                     .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .transform(pickaxeOnly())
@@ -220,7 +221,7 @@ public class MmbBlocks {
     public static final BlockEntry<IndustrialGearBlock> LARGE_COGWHEEL =
             REGISTRATE.block("industrial_gear_large", IndustrialGearBlock::large)
                     .initialProperties(SharedProperties::softMetal)
-                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.mapColor(MapColor.COLOR_GRAY))
                     .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
                     .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .transform(pickaxeOnly())
@@ -565,7 +566,7 @@ public class MmbBlocks {
     //CONTAINERS
     public static final BlockEntry<RedContainerBlock> RED_CONTAINER = REGISTRATE.block("red_container", RedContainerBlock::new)
             .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.TERRACOTTA_RED))
+            .properties(p -> p.mapColor(MapColor.TERRACOTTA_RED))
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
                     .explosionResistance(1200))
             .transform(pickaxeOnly())
@@ -582,7 +583,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BlueContainerBlock> BLUE_CONTAINER = REGISTRATE.block("blue_container",BlueContainerBlock::new)
             .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.COLOR_BLUE))
+            .properties(p -> p.mapColor(MapColor.COLOR_BLUE))
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
                     .explosionResistance(1200))
             .transform(pickaxeOnly())
@@ -599,7 +600,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<GreenContainerBlock> GREEN_CONTAINER = REGISTRATE.block("green_container",GreenContainerBlock::new)
             .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.COLOR_GREEN))
+            .properties(p -> p.mapColor(MapColor.COLOR_GREEN))
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
                     .explosionResistance(1200))
             .transform(pickaxeOnly())
@@ -857,13 +858,14 @@ public class MmbBlocks {
     //CRUSHING WHEELS
     public static final BlockEntry<MmbCrushingWheelControllerBlock> MMB_CRUSHING_WHEEL_CONTROLLER =
             REGISTRATE.block("crushing_wheel_controller", MmbCrushingWheelControllerBlock::new)
-                    .initialProperties(SharedProperties.CRUSHING_WHEEL_CONTROLLER_MATERIAL)
-                    .properties(p -> p.color(MaterialColor.STONE))
-                    .properties(p -> p.noOcclusion()
+                    .properties(p -> p.mapColor(MapColor.STONE)
+                            .noOcclusion()
                             .noLootTable()
-                            .air())
+                            .air()
+                            .noCollission()
+                            .pushReaction(PushReaction.BLOCK))
                     .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                            .forAllStatesExcept(BlockStateGen.mapToAir(p), MmbCrushingWheelControllerBlock.FACING))
+                            .forAllStatesExcept(BlockStateGen.mapToAir(p), CrushingWheelControllerBlock.FACING))
                     .register();
 
     public static final BlockEntry<MmbCrushingWheelBlock> GRANITE_CRUSHING_WHEEL =
@@ -892,11 +894,11 @@ public class MmbBlocks {
                     .transform(customItemModel())
                     .lang("Diorite Crushing Wheel")
                     .register();
-    
+
     public static final BlockEntry<MmbCrushingWheelBlock> LIMESTONE_CRUSHING_WHEEL =
             REGISTRATE.block("limestone_crushing_wheel", MmbCrushingWheelBlock::new)
                     .initialProperties(() -> Blocks.SANDSTONE)
-                    .properties(p -> p.color(MaterialColor.SAND))
+                    .properties(p -> p.mapColor(MapColor.SAND))
                     .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
@@ -910,7 +912,7 @@ public class MmbBlocks {
     public static final BlockEntry<MmbCrushingWheelBlock> OCHRUM_CRUSHING_WHEEL =
             REGISTRATE.block("ochrum_crushing_wheel", MmbCrushingWheelBlock::new)
                     .initialProperties(() -> Blocks.CALCITE)
-                    .properties(p -> p.color(MaterialColor.COLOR_YELLOW))
+                    .properties(p -> p.mapColor(MapColor.COLOR_YELLOW))
                     .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
@@ -924,7 +926,7 @@ public class MmbBlocks {
     public static final BlockEntry<MmbCrushingWheelBlock> SCORCHIA_CRUSHING_WHEEL =
             REGISTRATE.block("scorchia_crushing_wheel", MmbCrushingWheelBlock::new)
                     .initialProperties(() -> Blocks.BLACKSTONE)
-                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_GRAY))
                     .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
@@ -938,7 +940,7 @@ public class MmbBlocks {
     public static final BlockEntry<MmbCrushingWheelBlock> SCORIA_CRUSHING_WHEEL =
             REGISTRATE.block("scoria_crushing_wheel", MmbCrushingWheelBlock::new)
                     .initialProperties(() -> Blocks.BLACKSTONE)
-                    .properties(p -> p.color(MaterialColor.COLOR_BROWN))
+                    .properties(p -> p.mapColor(MapColor.COLOR_BROWN))
                     .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
@@ -965,7 +967,7 @@ public class MmbBlocks {
     public static final BlockEntry<MmbCrushingWheelBlock> VERIDIUM_CRUSHING_WHEEL =
             REGISTRATE.block("veridium_crushing_wheel", MmbCrushingWheelBlock::new)
                     .initialProperties(() -> Blocks.TUFF)
-                    .properties(p -> p.color(MaterialColor.WARPED_NYLIUM))
+                    .properties(p -> p.mapColor(MapColor.WARPED_NYLIUM))
                     .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
@@ -1004,7 +1006,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<MmbCrushingWheelBlock> CRIMSITE_CRUSHING_WHEEL =
             REGISTRATE.block("crimsite_crushing_wheel", MmbCrushingWheelBlock::new)
-                    .properties(p -> p.color(MaterialColor.COLOR_RED))
+                    .properties(p -> p.mapColor(MapColor.COLOR_RED))
                     .initialProperties(() -> Blocks.DEEPSLATE)
                     .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
@@ -1032,7 +1034,7 @@ public class MmbBlocks {
     public static final BlockEntry<MmbCrushingWheelBlock> ASURINE_CRUSHING_WHEEL =
             REGISTRATE.block("asurine_crushing_wheel", MmbCrushingWheelBlock::new)
                     .initialProperties(() -> Blocks.DEEPSLATE)
-                    .properties(p -> p.color(MaterialColor.COLOR_BLUE))
+                    .properties(p -> p.mapColor(MapColor.COLOR_BLUE))
                     .properties(p -> p.destroyTime(1.25f))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .transform(pickaxeOnly())
@@ -1070,7 +1072,7 @@ public class MmbBlocks {
             REGISTRATE.block("limestone_millstone", LimestoneDecoMillStoneBlock::new)
                     .initialProperties(() -> Blocks.SANDSTONE)
                     .properties(p -> p.destroyTime(1.25f))
-                    .properties(p -> p.color(MaterialColor.SAND))
+                    .properties(p -> p.mapColor(MapColor.SAND))
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                     .transform(BlockStressDefaults.setImpact(4.0))
@@ -1082,7 +1084,7 @@ public class MmbBlocks {
             REGISTRATE.block("ochrum_millstone", OchrumDecoMillStoneBlock::new)
                     .initialProperties(() -> Blocks.CALCITE)
                     .properties(p -> p.destroyTime(1.25f))
-                    .properties(p -> p.color(MaterialColor.TERRACOTTA_YELLOW))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_YELLOW))
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                     .transform(BlockStressDefaults.setImpact(4.0))
@@ -1094,7 +1096,7 @@ public class MmbBlocks {
             REGISTRATE.block("scorchia_millstone", ScorchiaDecoMillStoneBlock::new)
                     .initialProperties(() -> Blocks.BLACKSTONE)
                     .properties(p -> p.destroyTime(1.25f))
-                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_GRAY))
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                     .transform(BlockStressDefaults.setImpact(4.0))
@@ -1106,7 +1108,7 @@ public class MmbBlocks {
             REGISTRATE.block("scoria_millstone", ScoriaDecoMillStoneBlock::new)
                     .initialProperties(() -> Blocks.BLACKSTONE)
                     .properties(p -> p.destroyTime(1.25f))
-                    .properties(p -> p.color(MaterialColor.COLOR_BROWN))
+                    .properties(p -> p.mapColor(MapColor.COLOR_BROWN))
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                     .transform(BlockStressDefaults.setImpact(4.0))
@@ -1129,7 +1131,7 @@ public class MmbBlocks {
             REGISTRATE.block("veridium_millstone", VeridiumDecoMillStoneBlock::new)
                     .initialProperties(() -> Blocks.TUFF)
                     .properties(p -> p.destroyTime(1.25f))
-                    .properties(p -> p.color(MaterialColor.WARPED_NYLIUM))
+                    .properties(p -> p.mapColor(MapColor.WARPED_NYLIUM))
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                     .transform(BlockStressDefaults.setImpact(4.0))
@@ -1163,7 +1165,7 @@ public class MmbBlocks {
             REGISTRATE.block("crimsite_millstone", CrimsiteDecoMillStoneBlock::new)
                     .initialProperties(() -> Blocks.DEEPSLATE)
                     .properties(p -> p.destroyTime(1.25f))
-                    .properties(p -> p.color(MaterialColor.COLOR_RED))
+                    .properties(p -> p.mapColor(MapColor.COLOR_RED))
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                     .transform(BlockStressDefaults.setImpact(4.0))
@@ -1186,7 +1188,7 @@ public class MmbBlocks {
             REGISTRATE.block("asurine_millstone", AsurineDecoMillStoneBlock::new)
                     .initialProperties(() -> Blocks.DEEPSLATE)
                     .properties(p -> p.destroyTime(1.25f))
-                    .properties(p -> p.color(MaterialColor.COLOR_BLUE))
+                    .properties(p -> p.mapColor(MapColor.COLOR_BLUE))
                     .transform(pickaxeOnly())
                     .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                     .transform(BlockStressDefaults.setImpact(4.0))
@@ -1200,7 +1202,7 @@ public class MmbBlocks {
     //MISC
     public static final BlockEntry<Block> CAPITALISM_BLOCK =
             REGISTRATE.block("capitalism_block", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
                     .item()
@@ -1209,7 +1211,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> INDUSTRIAL_GOLD_BLOCK =
             REGISTRATE.block("industrial_gold_block", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
                     .item()
@@ -1218,7 +1220,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> ZINC_FLOOR =
             REGISTRATE.block("zinc_floor", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
                     .item()
@@ -1227,7 +1229,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> BRASS_FLOOR =
             REGISTRATE.block("brass_floor", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
                     .item()
@@ -1236,7 +1238,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> COPPER_FLOOR =
             REGISTRATE.block("copper_floor", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
                     .item()
@@ -1245,7 +1247,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> INDUSTRIAL_IRON_FLOOR =
             REGISTRATE.block("industrial_iron_floor", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
                     .item()
@@ -1254,7 +1256,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<Block> INDUSTRIAL_GOLD_FLOOR =
             REGISTRATE.block("industrial_gold_floor", Block::new)
-                    .properties(p -> p.color(MaterialColor.GOLD))
+                    .properties(p -> p.mapColor(MapColor.GOLD))
                     .initialProperties(SharedProperties::copperMetal)
                     .transform(pickaxeOnly())
                     .item()
@@ -1266,7 +1268,7 @@ public class MmbBlocks {
             REGISTRATE.block("industrial_plating_block", Block::new)
                     .transform(DecorBuilderTransformer.layeredConnected(() -> MmbSpriteShifts.INDUSTRIAL_PLATING_BLOCK_SIDE, () -> MmbSpriteShifts.INDUSTRIAL_PLATING_BLOCK))
                     .initialProperties(SharedProperties::softMetal)
-                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.mapColor(MapColor.COLOR_GRAY))
                     .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
                     .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .transform(pickaxeOnly())
@@ -1279,7 +1281,7 @@ public class MmbBlocks {
             REGISTRATE.block("ornate_grate", OrnateGrateBlock::new)
                     .transform(DecorBuilderTransformer.ornateconnected(() -> MmbSpriteShifts.ORNATE_GRATE))
                     .initialProperties(SharedProperties::wooden)
-                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .properties(p -> p.mapColor(MapColor.TERRACOTTA_GRAY))
                     .properties(p -> p.sound(SoundType.WOOD))
                     .transform(axeOrPickaxe())
                     .tag(AllTags.AllBlockTags.FAN_TRANSPARENT.tag)
@@ -1291,17 +1293,17 @@ public class MmbBlocks {
 
     public static final BlockEntry<ConnectedTintedGlassBlock>
             TINTED_FRAMED_GLASS = tintedframedGlass(
-            () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_FRAMED_GLASS)),
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_FRAMED_GLASS)),
             TINTED_HORIZONTAL_FRAMED_GLASS = tintedframedGlass("horizontal","Horizontal",
-                    () -> new HorizontalCTBehaviour(MmbSpriteShifts.TINTED_HORIZONTAL_FRAMED_GLASS, MmbSpriteShifts.TINTED_FRAMED_GLASS)),
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_HORIZONTAL_FRAMED_GLASS)),
             TINTED_VERTICAL_FRAMED_GLASS = tintedframedGlass("vertical","Vertical",
-                    () -> new HorizontalCTBehaviour(MmbSpriteShifts.TINTED_VERTICAL_FRAMED_GLASS));
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_VERTICAL_FRAMED_GLASS));
 
 
     public static final BlockEntry<DiagonalGirderBlock> DIAGONAL_GIRDER =
             REGISTRATE.block("diagonal_girder", DiagonalGirderBlock::new)
                     .initialProperties(SharedProperties::softMetal)
-                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.mapColor(MapColor.COLOR_GRAY))
                     .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .addLayer(() -> RenderType::cutout)
@@ -1317,7 +1319,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<TagDependentLargeChain> LARGE_ALUMINIUM_CHAIN =
             REGISTRATE.block("aluminium_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/aluminium")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1329,7 +1331,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_ANDESITE_CHAIN =
             REGISTRATE.block("andesite_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1341,7 +1343,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_BRASS_CHAIN =
             REGISTRATE.block("brass_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1353,7 +1355,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_STRONG_BRONZE_CHAIN =
             REGISTRATE.block("strong_bronze_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/strong_bronze")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1365,7 +1367,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_BRONZE_CHAIN =
             REGISTRATE.block("bronze_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/bronze")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1377,7 +1379,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_CAST_IRON_CHAIN =
             REGISTRATE.block("cast_iron_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/cast_iron")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1389,7 +1391,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_COPPER_CHAIN =
             REGISTRATE.block("copper_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1401,7 +1403,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_ELECTRUM_CHAIN =
             REGISTRATE.block("electrum_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/electrum")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1413,7 +1415,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_GOLD_CHAIN =
             REGISTRATE.block("gold_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1425,7 +1427,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_INDUSTRIAL_IRON_CHAIN =
             REGISTRATE.block("industrial_iron_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1437,7 +1439,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_IRON_CHAIN =
             REGISTRATE.block("iron_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1449,7 +1451,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_LEAD_CHAIN =
             REGISTRATE.block("lead_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/lead")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1461,7 +1463,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_MITHRIL_CHAIN =
             REGISTRATE.block("mithril_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/mithril")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1473,7 +1475,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_NETHERITE_CHAIN =
             REGISTRATE.block("netherite_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1485,7 +1487,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_NETHERSTEEL_CHAIN =
             REGISTRATE.block("nethersteel_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/nethersteel")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1497,7 +1499,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<LargeChain> LARGE_ZINC_CHAIN =
             REGISTRATE.block("zinc_large_chain", LargeChain::new)
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1509,7 +1511,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_TIN_CHAIN =
             REGISTRATE.block("tin_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/tin")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1521,7 +1523,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_STEEL_CHAIN =
             REGISTRATE.block("steel_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/steel")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1533,7 +1535,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_SILVER_CHAIN =
             REGISTRATE.block("silver_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/silver")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1545,7 +1547,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_INVAR_CHAIN =
             REGISTRATE.block("invar_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/invar")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1557,7 +1559,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_NICKEL_CHAIN =
             REGISTRATE.block("nickel_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/nickel")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1569,7 +1571,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_ROSE_GOLD_CHAIN =
             REGISTRATE.block("rose_gold_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/rose_gold")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1581,7 +1583,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_COBALT_CHAIN =
             REGISTRATE.block("cobalt_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/cobalt")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1593,7 +1595,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_MANYULLYN_CHAIN =
             REGISTRATE.block("manyullyn_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/manyullyn")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1605,7 +1607,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_HEPATIZON_CHAIN =
             REGISTRATE.block("hepatizon_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/hepatizon")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1617,7 +1619,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_PIG_IRON_CHAIN =
             REGISTRATE.block("pig_iron_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/pig_iron")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1629,7 +1631,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_KNIGHTSLIME_CHAIN =
             REGISTRATE.block("knightslime_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/knightslime")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1641,7 +1643,7 @@ public class MmbBlocks {
                     .register();
     public static final BlockEntry<TagDependentLargeChain> LARGE_QUEEN_SLIME_CHAIN =
             REGISTRATE.block("queen_slime_large_chain", p -> new TagDependentLargeChain(p, AllTags.forgeItemTag("ingots/queen_slime")))
-                    .properties(p -> p.color(MaterialColor.METAL))
+                    .properties(p -> p.mapColor(MapColor.METAL))
                     .addLayer(() -> RenderType::cutout)
                     .transform(axeOrPickaxe())
                     .blockstate(BlockStateGen.axisBlockProvider(true))
@@ -1663,13 +1665,13 @@ public class MmbBlocks {
             CASTEL_BRICKS_DRIPSTONE = CastelBricks("dripstone", "Dripstone", Blocks.DRIPSTONE_BLOCK),
             CASTEL_BRICKS_DEEPSLATE = CastelBricks("deepslate", "Deepslate", Blocks.DEEPSLATE),
             CASTEL_BRICKS_TUFF = CastelBricks("tuff", "Tuff", Blocks.TUFF),
-            CASTEL_BRICKS_ASURINE = CastelBricks("asurine", "Asurine", MaterialColor.COLOR_BLUE, Blocks.DEEPSLATE),
-            CASTEL_BRICKS_CRIMSITE = CastelBricks("crimsite", "Crimsite", MaterialColor.COLOR_RED, Blocks.DEEPSLATE),
-            CASTEL_BRICKS_LIMESTONE = CastelBricks("limestone", "Limestone", MaterialColor.SAND, Blocks.SANDSTONE),
-            CASTEL_BRICKS_OCHRUM = CastelBricks("ochrum", "Ochrum", MaterialColor.TERRACOTTA_YELLOW, Blocks.CALCITE),
-            CASTEL_BRICKS_SCORIA = CastelBricks("scoria", "Scoria", MaterialColor.COLOR_BROWN, Blocks.BLACKSTONE),
-            CASTEL_BRICKS_SCORCHIA = CastelBricks("scorchia", "Scorchia", MaterialColor.TERRACOTTA_GRAY, Blocks.BLACKSTONE),
-            CASTEL_BRICKS_VERIDIUM = CastelBricks("veridium", "Veridium", MaterialColor.WARPED_NYLIUM, Blocks.TUFF),
+            CASTEL_BRICKS_ASURINE = CastelBricks("asurine", "Asurine", MapColor.COLOR_BLUE, Blocks.DEEPSLATE),
+            CASTEL_BRICKS_CRIMSITE = CastelBricks("crimsite", "Crimsite", MapColor.COLOR_RED, Blocks.DEEPSLATE),
+            CASTEL_BRICKS_LIMESTONE = CastelBricks("limestone", "Limestone", MapColor.SAND, Blocks.SANDSTONE),
+            CASTEL_BRICKS_OCHRUM = CastelBricks("ochrum", "Ochrum", MapColor.TERRACOTTA_YELLOW, Blocks.CALCITE),
+            CASTEL_BRICKS_SCORIA = CastelBricks("scoria", "Scoria", MapColor.COLOR_BROWN, Blocks.BLACKSTONE),
+            CASTEL_BRICKS_SCORCHIA = CastelBricks("scorchia", "Scorchia", MapColor.TERRACOTTA_GRAY, Blocks.BLACKSTONE),
+            CASTEL_BRICKS_VERIDIUM = CastelBricks("veridium", "Veridium", MapColor.WARPED_NYLIUM, Blocks.TUFF),
 
             CASTEL_TILE_GRANITE = CastelTiles("granite", "Granite", Blocks.GRANITE),
             CASTEL_TILE_DIORITE = CastelTiles("diorite", "Diorite", Blocks.DIORITE),
@@ -1678,13 +1680,13 @@ public class MmbBlocks {
             CASTEL_TILE_DRIPSTONE = CastelTiles("dripstone", "Dripstone", Blocks.DRIPSTONE_BLOCK),
             CASTEL_TILE_DEEPSLATE = CastelTiles("deepslate", "Deepslate", Blocks.DEEPSLATE),
             CASTEL_TILE_TUFF = CastelTiles("tuff", "Tuff", Blocks.TUFF),
-            CASTEL_TILE_ASURINE = CastelTiles("asurine", "Asurine", MaterialColor.COLOR_BLUE, Blocks.DEEPSLATE),
-            CASTEL_TILE_CRIMSITE = CastelTiles("crimsite", "Crimsite", MaterialColor.COLOR_RED, Blocks.DEEPSLATE),
-            CASTEL_TILE_LIMESTONE = CastelTiles("limestone", "Limestone", MaterialColor.SAND, Blocks.SANDSTONE),
-            CASTEL_TILE_OCHRUM = CastelTiles("ochrum", "Ochrum", MaterialColor.TERRACOTTA_YELLOW, Blocks.CALCITE),
-            CASTEL_TILE_SCORIA = CastelTiles("scoria", "Scoria", MaterialColor.COLOR_BROWN, Blocks.BLACKSTONE),
-            CASTEL_TILE_SCORCHIA = CastelTiles("scorchia", "Scorchia", MaterialColor.TERRACOTTA_GRAY, Blocks.BLACKSTONE),
-            CASTEL_TILE_VERIDIUM = CastelTiles("veridium", "Veridium", MaterialColor.WARPED_NYLIUM, Blocks.TUFF)
+            CASTEL_TILE_ASURINE = CastelTiles("asurine", "Asurine", MapColor.COLOR_BLUE, Blocks.DEEPSLATE),
+            CASTEL_TILE_CRIMSITE = CastelTiles("crimsite", "Crimsite", MapColor.COLOR_RED, Blocks.DEEPSLATE),
+            CASTEL_TILE_LIMESTONE = CastelTiles("limestone", "Limestone", MapColor.SAND, Blocks.SANDSTONE),
+            CASTEL_TILE_OCHRUM = CastelTiles("ochrum", "Ochrum", MapColor.TERRACOTTA_YELLOW, Blocks.CALCITE),
+            CASTEL_TILE_SCORIA = CastelTiles("scoria", "Scoria", MapColor.COLOR_BROWN, Blocks.BLACKSTONE),
+            CASTEL_TILE_SCORCHIA = CastelTiles("scorchia", "Scorchia", MapColor.TERRACOTTA_GRAY, Blocks.BLACKSTONE),
+            CASTEL_TILE_VERIDIUM = CastelTiles("veridium", "Veridium", MapColor.WARPED_NYLIUM, Blocks.TUFF)
             ;
 
     public static class DecoTags {

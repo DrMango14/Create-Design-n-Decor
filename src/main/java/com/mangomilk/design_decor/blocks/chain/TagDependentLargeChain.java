@@ -168,13 +168,6 @@ public class TagDependentLargeChain extends ChainBlock implements SimpleWaterlog
         return false;
     }
 
-
-    @Override
-    public void fillItemCategory(CreativeModeTab tab, NonNullList<ItemStack> list) {
-        if (!shouldHide())
-            super.fillItemCategory(tab, list);
-    }
-
     public boolean shouldHide() {
         ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
         return !tagManager.isKnownTagName(tag) || tagManager.getTag(tag).isEmpty();

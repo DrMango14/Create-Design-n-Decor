@@ -98,8 +98,7 @@ public class BlueContainerItem extends BlockItem {
 				BlockState blockState = world.getBlockState(offsetPos);
 				if (BlueContainerBlock.isContainer(blockState))
 					continue;
-				if (!blockState.getMaterial()
-					.isReplaceable())
+				if (!blockState.canBeReplaced())
 					return;
 				tanksToPlace++;
 			}

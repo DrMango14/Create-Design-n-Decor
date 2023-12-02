@@ -111,8 +111,8 @@ public class CastIronLargeBoilerBlock extends TagDependentDirectionalBlock {
                         continue;
                     BlockState occupiedState = context.getLevel()
                             .getBlockState(pos.offset(offset));
-                    if (!occupiedState.getMaterial()
-                            .isReplaceable())
+
+					if (!occupiedState.canBeReplaced())
                         return null;
                 }
             }
@@ -148,8 +148,7 @@ public class CastIronLargeBoilerBlock extends TagDependentDirectionalBlock {
                         .setValue(CastIronBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;
-                if (!occupiedState.getMaterial()
-                        .isReplaceable()) {
+				if (!occupiedState.canBeReplaced()) {
                     pLevel.destroyBlock(pPos, false);
                     return;
                 }

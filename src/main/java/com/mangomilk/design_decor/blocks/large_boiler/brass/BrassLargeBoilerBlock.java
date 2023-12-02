@@ -109,8 +109,8 @@ public class BrassLargeBoilerBlock extends WrenchableDirectionalBlock {
                         continue;
                     BlockState occupiedState = context.getLevel()
                             .getBlockState(pos.offset(offset));
-                    if (!occupiedState.getMaterial()
-                            .isReplaceable())
+
+					if (!occupiedState.canBeReplaced())
                         return null;
                 }
             }
@@ -146,8 +146,7 @@ public class BrassLargeBoilerBlock extends WrenchableDirectionalBlock {
                         .setValue(BrassBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;
-                if (!occupiedState.getMaterial()
-                        .isReplaceable()) {
+				if (!occupiedState.canBeReplaced()) {
                     pLevel.destroyBlock(pPos, false);
                     return;
                 }

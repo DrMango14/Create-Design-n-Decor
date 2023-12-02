@@ -17,13 +17,14 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Supplier;
@@ -34,6 +35,7 @@ import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnect
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
+@SuppressWarnings({"unused", "removal", "all"})
 public class DecorBuilderTransformer {
 
     public static <B extends Block> NonNullUnaryOperator<BlockBuilder<B, CreateRegistrate>> connected(
@@ -78,7 +80,8 @@ public class DecorBuilderTransformer {
                 .addLayer(() -> RenderType::translucent)
                 .initialProperties(() -> Blocks.TINTED_GLASS)
                 .properties(DecorBuilderTransformer::glassProperties)
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(Tags.Items.GLASS_TINTED), c::get))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(Tags.Items.GLASS_TINTED),
+                        RecipeCategory.BUILDING_BLOCKS, c::get))
                 .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/", "tinted_framed_glass"))
                 .tag(Tags.Blocks.GLASS_TINTED, Tags.Blocks.GLASS, BlockTags.IMPERMEABLE)
                 .lang("Tinted Framed Glass")
@@ -96,7 +99,8 @@ public class DecorBuilderTransformer {
                 .addLayer(() -> RenderType::translucent)
                 .initialProperties(() -> Blocks.TINTED_GLASS)
                 .properties(DecorBuilderTransformer::glassProperties)
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(Tags.Items.GLASS_TINTED), c::get))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(Tags.Items.GLASS_TINTED),
+                        RecipeCategory.BUILDING_BLOCKS, c::get))
                 .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/",  "tinted_framed_glass"))
                 .tag(Tags.Blocks.GLASS_TINTED, Tags.Blocks.GLASS, BlockTags.IMPERMEABLE)
                 .lang(name + " Tinted Framed Glass")
@@ -111,14 +115,15 @@ public class DecorBuilderTransformer {
 
 
 
-    public static BlockEntry<Block> CastelBricks(String id, String lang, MaterialColor color, Block block) {
+    public static BlockEntry<Block> CastelBricks(String id, String lang, MapColor color, Block block) {
         CreateMMBuilding.REGISTRATE.block(id + "_castel_brick_stairs", p -> new StairBlock(block.defaultBlockState(), p))
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("stairs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_bricks")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -129,11 +134,12 @@ public class DecorBuilderTransformer {
 
         CreateMMBuilding.REGISTRATE.block(id + "_castel_brick_slab", SlabBlock::new)
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("slabs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 2))
                 .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_bricks"), CreateMMBuilding.asResource("block/" + id + "_castel_bricks")))
                 .item()
                 .tag(MCItemTag("slabs"))
@@ -143,11 +149,12 @@ public class DecorBuilderTransformer {
 
         CreateMMBuilding.REGISTRATE.block(id + "_castel_brick_wall", WallBlock::new)
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("walls"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_bricks")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -158,10 +165,11 @@ public class DecorBuilderTransformer {
 
         return CreateMMBuilding.REGISTRATE.block(id + "_castel_bricks", Block::new)
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
                 .build()
@@ -175,7 +183,8 @@ public class DecorBuilderTransformer {
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("stairs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_bricks")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -189,7 +198,8 @@ public class DecorBuilderTransformer {
                 .properties(p -> p.destroyTime(1f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("slabs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 2))
                 .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_bricks"), CreateMMBuilding.asResource("block/" + id + "_castel_bricks")))
                 .item()
                 .tag(MCItemTag("slabs"))
@@ -202,7 +212,8 @@ public class DecorBuilderTransformer {
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("walls"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_bricks")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -215,21 +226,23 @@ public class DecorBuilderTransformer {
                 .initialProperties(() -> block)
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
                 .build()
                 .lang(lang + " Castel Bricks")
                 .register();
     }
-    public static BlockEntry<Block> CastelTiles(String id, String lang, MaterialColor color, Block block) {
+    public static BlockEntry<Block> CastelTiles(String id, String lang, MapColor color, Block block) {
         CreateMMBuilding.REGISTRATE.block(id + "_castel_tile_stairs", p -> new StairBlock(block.defaultBlockState(), p))
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("stairs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_tiles")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -240,11 +253,12 @@ public class DecorBuilderTransformer {
 
         CreateMMBuilding.REGISTRATE.block(id + "_castel_tile_slab", SlabBlock::new)
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("slabs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 2))
                 .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_tiles"), CreateMMBuilding.asResource("block/" + id + "_castel_tiles")))
                 .item()
                 .tag(MCItemTag("slabs"))
@@ -254,11 +268,12 @@ public class DecorBuilderTransformer {
 
         CreateMMBuilding.REGISTRATE.block(id + "_castel_tile_wall", WallBlock::new)
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("walls"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_tiles")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -269,10 +284,11 @@ public class DecorBuilderTransformer {
 
         return CreateMMBuilding.REGISTRATE.block(id + "_castel_tiles", Block::new)
                 .initialProperties(() -> block)
-                .properties(p -> p.color(color))
+                .properties(p -> p.mapColor(color))
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
                 .build()
@@ -285,7 +301,8 @@ public class DecorBuilderTransformer {
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("stairs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.stairsBlock(c.get(), CreateMMBuilding.asResource("block/stairs/" + id + "_castel_tiles")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -299,7 +316,8 @@ public class DecorBuilderTransformer {
                 .properties(p -> p.destroyTime(1f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("slabs"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 2))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 2))
                 .blockstate((c, p) -> p.slabBlock(c.get(), CreateMMBuilding.asResource("block/slabs/" + id + "_castel_tiles"), CreateMMBuilding.asResource("block/" + id + "_castel_tiles")))
                 .item()
                 .tag(MCItemTag("slabs"))
@@ -312,7 +330,8 @@ public class DecorBuilderTransformer {
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
                 .tag(MCBlockTag("walls"))
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .blockstate((c, p) -> p.wallBlock(c.get(), CreateMMBuilding.asResource("block/walls/" + id + "_castel_tiles")))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
@@ -325,7 +344,8 @@ public class DecorBuilderTransformer {
                 .initialProperties(() -> block)
                 .properties(p -> p.destroyTime(1.25f))
                 .transform(pickaxeOnly())
-                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)), c::get, 1))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(CreateItemTag("stone_types/" + id)),
+                        RecipeCategory.BUILDING_BLOCKS, c::get, 1))
                 .item()
                 .tag(CreateItemTag("stone_types/" + id))
                 .build()

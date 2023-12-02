@@ -109,8 +109,8 @@ public class CapitalismLargeBoilerBlock extends WrenchableDirectionalBlock {
                         continue;
                     BlockState occupiedState = context.getLevel()
                             .getBlockState(pos.offset(offset));
-                    if (!occupiedState.getMaterial()
-                            .isReplaceable())
+
+					if (!occupiedState.canBeReplaced())
                         return null;
                 }
             }
@@ -146,8 +146,7 @@ public class CapitalismLargeBoilerBlock extends WrenchableDirectionalBlock {
                         .setValue(CapitalismBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;
-                if (!occupiedState.getMaterial()
-                        .isReplaceable()) {
+				if (!occupiedState.canBeReplaced()) {
                     pLevel.destroyBlock(pPos, false);
                     return;
                 }

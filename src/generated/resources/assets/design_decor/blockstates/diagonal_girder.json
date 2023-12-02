@@ -3,86 +3,86 @@
     "facing=down,facing_up=false,waterlogged=false": {
       "model": "design_decor:block/diagonal_girder/block"
     },
-    "facing=down,facing_up=false,waterlogged=true": {
+    "facing=up,facing_up=false,waterlogged=false": {
       "model": "design_decor:block/diagonal_girder/block"
-    },
-    "facing=down,facing_up=true,waterlogged=false": {
-      "model": "design_decor:block/diagonal_girder/block_up"
-    },
-    "facing=down,facing_up=true,waterlogged=true": {
-      "model": "design_decor:block/diagonal_girder/block_up"
-    },
-    "facing=east,facing_up=false,waterlogged=false": {
-      "model": "design_decor:block/diagonal_girder/block"
-    },
-    "facing=east,facing_up=false,waterlogged=true": {
-      "model": "design_decor:block/diagonal_girder/block"
-    },
-    "facing=east,facing_up=true,waterlogged=false": {
-      "model": "design_decor:block/diagonal_girder/block_up"
-    },
-    "facing=east,facing_up=true,waterlogged=true": {
-      "model": "design_decor:block/diagonal_girder/block_up"
     },
     "facing=north,facing_up=false,waterlogged=false": {
       "model": "design_decor:block/diagonal_girder/block",
-      "y": 270
-    },
-    "facing=north,facing_up=false,waterlogged=true": {
-      "model": "design_decor:block/diagonal_girder/block",
-      "y": 270
-    },
-    "facing=north,facing_up=true,waterlogged=false": {
-      "model": "design_decor:block/diagonal_girder/block_up",
-      "y": 270
-    },
-    "facing=north,facing_up=true,waterlogged=true": {
-      "model": "design_decor:block/diagonal_girder/block_up",
       "y": 270
     },
     "facing=south,facing_up=false,waterlogged=false": {
       "model": "design_decor:block/diagonal_girder/block",
       "y": 90
     },
-    "facing=south,facing_up=false,waterlogged=true": {
+    "facing=west,facing_up=false,waterlogged=false": {
       "model": "design_decor:block/diagonal_girder/block",
-      "y": 90
+      "y": 180
+    },
+    "facing=east,facing_up=false,waterlogged=false": {
+      "model": "design_decor:block/diagonal_girder/block"
+    },
+    "facing=down,facing_up=true,waterlogged=false": {
+      "model": "design_decor:block/diagonal_girder/block_up"
+    },
+    "facing=up,facing_up=true,waterlogged=false": {
+      "model": "design_decor:block/diagonal_girder/block_up"
+    },
+    "facing=north,facing_up=true,waterlogged=false": {
+      "model": "design_decor:block/diagonal_girder/block_up",
+      "y": 270
     },
     "facing=south,facing_up=true,waterlogged=false": {
       "model": "design_decor:block/diagonal_girder/block_up",
       "y": 90
     },
-    "facing=south,facing_up=true,waterlogged=true": {
+    "facing=west,facing_up=true,waterlogged=false": {
       "model": "design_decor:block/diagonal_girder/block_up",
-      "y": 90
+      "y": 180
     },
-    "facing=up,facing_up=false,waterlogged=false": {
+    "facing=east,facing_up=true,waterlogged=false": {
+      "model": "design_decor:block/diagonal_girder/block_up"
+    },
+    "facing=down,facing_up=false,waterlogged=true": {
       "model": "design_decor:block/diagonal_girder/block"
     },
     "facing=up,facing_up=false,waterlogged=true": {
       "model": "design_decor:block/diagonal_girder/block"
     },
-    "facing=up,facing_up=true,waterlogged=false": {
-      "model": "design_decor:block/diagonal_girder/block_up"
-    },
-    "facing=up,facing_up=true,waterlogged=true": {
-      "model": "design_decor:block/diagonal_girder/block_up"
-    },
-    "facing=west,facing_up=false,waterlogged=false": {
+    "facing=north,facing_up=false,waterlogged=true": {
       "model": "design_decor:block/diagonal_girder/block",
-      "y": 180
+      "y": 270
+    },
+    "facing=south,facing_up=false,waterlogged=true": {
+      "model": "design_decor:block/diagonal_girder/block",
+      "y": 90
     },
     "facing=west,facing_up=false,waterlogged=true": {
       "model": "design_decor:block/diagonal_girder/block",
       "y": 180
     },
-    "facing=west,facing_up=true,waterlogged=false": {
+    "facing=east,facing_up=false,waterlogged=true": {
+      "model": "design_decor:block/diagonal_girder/block"
+    },
+    "facing=down,facing_up=true,waterlogged=true": {
+      "model": "design_decor:block/diagonal_girder/block_up"
+    },
+    "facing=up,facing_up=true,waterlogged=true": {
+      "model": "design_decor:block/diagonal_girder/block_up"
+    },
+    "facing=north,facing_up=true,waterlogged=true": {
       "model": "design_decor:block/diagonal_girder/block_up",
-      "y": 180
+      "y": 270
+    },
+    "facing=south,facing_up=true,waterlogged=true": {
+      "model": "design_decor:block/diagonal_girder/block_up",
+      "y": 90
     },
     "facing=west,facing_up=true,waterlogged=true": {
       "model": "design_decor:block/diagonal_girder/block_up",
       "y": 180
+    },
+    "facing=east,facing_up=true,waterlogged=true": {
+      "model": "design_decor:block/diagonal_girder/block_up"
     }
   }
 }

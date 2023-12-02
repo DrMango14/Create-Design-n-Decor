@@ -4,12 +4,12 @@
       "model": "design_decor:block/green_container",
       "y": 90
     },
+    "axis=z,large=false": {
+      "model": "design_decor:block/green_container"
+    },
     "axis=x,large=true": {
       "model": "design_decor:block/green_container",
       "y": 90
-    },
-    "axis=z,large=false": {
-      "model": "design_decor:block/green_container"
     },
     "axis=z,large=true": {
       "model": "design_decor:block/green_container"

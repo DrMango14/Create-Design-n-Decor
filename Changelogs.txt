@@ -1,28 +1,36 @@
 Hidden Items can still obtainable within the /give command
 
-Added Industrial Gears
-Hide Cast Iron & Aluminium from JEI & Creative unless you have Cast Iron or Aluminium in a mod
+Port to 1.18 & 1.20
 
-----
+**Changelogs:**
 
-Added Castel Bricks & Tiles
+**Added:**
+Industrial Gears
+Andesite & Copper Floodlights
+Castel Bricks & Tiles
+Stone Palette Millstone types
+Grates
+Large Chains
+Large Boilers
+
+**Changes:**
 Brass Floodlight Recipe Electron Tube -> Glowstone Dust
-Added Andesite & Copper Floodlights
+Metal Container Texture Tweaks - LopyLuna
+Hide Cast Iron & Aluminium from JEI & Creative unless you have Cast Iron or Aluminium in a mod
 Texture Tweaks to Gold, Industrial Iron, Copper Boilers -Lopyluna & Spydnel
 Fixed on Stone Palette Crushing Wheels Controller sometimes not deleting it-self
 Fixed Sounds on Stone Palette Crushing Wheels
-Added Stone Palette Millstone types
 Holding Shift Diagonal Girder can now reverse the direction your facing horizontally
 Wrenching Diagonal Girder can now switch vertical direction
-Diagonal Girder & Tanks can be water Logged
-Fixed GUI Item Display for chains
+Diagonal Girder & Tanks can be waterlogged
 Compact Tanks Storage 3 -> 5 Buckets
 Fixed Compact Tanks Hitbox & Sounds
 Re-Named Portable Tanks to Compact Tanks
-
-----
-
-Added Large Chains
 Brass Floodlight code got a rework
-Added Large Boilers (Textures Still needed)
 Texture Tweaks to Aluminium Boiler -Pepa
+
+**Planned stuff for next Release:**
+Sewer Seal
+Sewer Grates
+Ceiling Fans
+Catwalks (Blame Milky)

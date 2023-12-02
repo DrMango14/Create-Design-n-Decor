@@ -4,10 +4,8 @@
       "model": "design_decor:block/brass_lamp",
       "x": 180
     },
-    "facing=east": {
-      "model": "design_decor:block/brass_lamp",
-      "x": 90,
-      "y": 90
+    "facing=up": {
+      "model": "design_decor:block/brass_lamp"
     },
     "facing=north": {
       "model": "design_decor:block/brass_lamp",
@@ -18,13 +16,15 @@
       "x": 90,
       "y": 180
     },
-    "facing=up": {
-      "model": "design_decor:block/brass_lamp"
-    },
     "facing=west": {
       "model": "design_decor:block/brass_lamp",
       "x": 90,
       "y": 270
+    },
+    "facing=east": {
+      "model": "design_decor:block/brass_lamp",
+      "x": 90,
+      "y": 90
     }
   }
 }

@@ -4,12 +4,21 @@
       "model": "design_decor:block/capitalism_boiler_large/block",
       "x": 180
     },
-    "extension=false,facing=east": {
+    "extension=true,facing=down": {
       "model": "design_decor:block/capitalism_boiler_large/block",
-      "x": 90,
-      "y": 90
+      "x": 180
+    },
+    "extension=false,facing=up": {
+      "model": "design_decor:block/capitalism_boiler_large/block"
+    },
+    "extension=true,facing=up": {
+      "model": "design_decor:block/capitalism_boiler_large/block"
     },
     "extension=false,facing=north": {
+      "model": "design_decor:block/capitalism_boiler_large/block",
+      "x": 90
+    },
+    "extension=true,facing=north": {
       "model": "design_decor:block/capitalism_boiler_large/block",
       "x": 90
     },
@@ -18,39 +27,30 @@
       "x": 90,
       "y": 180
     },
-    "extension=false,facing=up": {
-      "model": "design_decor:block/capitalism_boiler_large/block"
+    "extension=true,facing=south": {
+      "model": "design_decor:block/capitalism_boiler_large/block",
+      "x": 90,
+      "y": 180
     },
     "extension=false,facing=west": {
       "model": "design_decor:block/capitalism_boiler_large/block",
       "x": 90,
       "y": 270
     },
-    "extension=true,facing=down": {
+    "extension=true,facing=west": {
       "model": "design_decor:block/capitalism_boiler_large/block",
-      "x": 180
+      "x": 90,
+      "y": 270
+    },
+    "extension=false,facing=east": {
+      "model": "design_decor:block/capitalism_boiler_large/block",
+      "x": 90,
+      "y": 90
     },
     "extension=true,facing=east": {
       "model": "design_decor:block/capitalism_boiler_large/block",
       "x": 90,
       "y": 90
-    },
-    "extension=true,facing=north": {
-      "model": "design_decor:block/capitalism_boiler_large/block",
-      "x": 90
-    },
-    "extension=true,facing=south": {
-      "model": "design_decor:block/capitalism_boiler_large/block",
-      "x": 90,
-      "y": 180
-    },
-    "extension=true,facing=up": {
-      "model": "design_decor:block/capitalism_boiler_large/block"
-    },
-    "extension=true,facing=west": {
-      "model": "design_decor:block/capitalism_boiler_large/block",
-      "x": 90,
-      "y": 270
     }
   }
 }

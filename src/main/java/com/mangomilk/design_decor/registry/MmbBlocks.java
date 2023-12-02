@@ -55,7 +55,6 @@ import com.mangomilk.design_decor.blocks.millstone.block.*;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
-import com.simibubi.create.foundation.block.connected.HorizontalCTBehaviour;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
@@ -78,6 +77,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -90,14 +90,14 @@ import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
-@SuppressWarnings({"unused", "removal"})
+@SuppressWarnings({"unused", "all"})
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class MmbBlocks {
     //LAMPS
     public static final BlockEntry<LampBlock> BRASS_LAMP = REGISTRATE.block("brass_lamp", LampBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p->p.lightLevel(s -> 15))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -109,7 +109,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<LampBlock> COPPER_LAMP = REGISTRATE.block("copper_lamp", LampBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p->p.lightLevel(s -> 15))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -120,7 +120,7 @@ public class MmbBlocks {
             .register();
     public static final BlockEntry<LampBlock> ZINC_LAMP = REGISTRATE.block("zinc_lamp", LampBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p->p.lightLevel(s -> 15))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -235,7 +235,7 @@ public class MmbBlocks {
     //BOILERS
     public static final BlockEntry<BoilerBlock> BRASS_BOILER = REGISTRATE.block("brass_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -247,7 +247,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BrassLargeBoilerBlock> LARGE_BRASS_BOILER = REGISTRATE.block("brass_boiler_large", BrassLargeBoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .properties(p -> p.isViewBlocking(MmbBlocks::never))
             .transform(pickaxeOnly())
@@ -260,7 +260,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BrassBoilerStructure> BRASS_BOILER_STRUCTURAL = REGISTRATE.block("brass_boiler_structure", BrassBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), BrassBoilerStructure.FACING))
@@ -270,7 +270,7 @@ public class MmbBlocks {
     public static final BlockEntry<TagBoilerBlock> ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler",
                     p -> new TagBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -282,7 +282,7 @@ public class MmbBlocks {
     public static final BlockEntry<AluminumLargeBoilerBlock> LARGE_ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler_large",
                     p -> new AluminumLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -294,7 +294,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<AluminumBoilerStructure> ALUMINUM_BOILER_STRUCTURAL = REGISTRATE.block("aluminium_boiler_structure", AluminumBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), AluminumBoilerStructure.FACING))
@@ -304,7 +304,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BoilerBlock> GOLD_BOILER = REGISTRATE.block("gold_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -315,7 +315,7 @@ public class MmbBlocks {
             .register();
     public static final BlockEntry<GoldLargeBoilerBlock> LARGE_GOLD_BOILER = REGISTRATE.block("gold_boiler_large", GoldLargeBoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -327,7 +327,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<GoldBoilerStructure> GOLD_BOILER_STRUCTURAL = REGISTRATE.block("gold_boiler_structure", GoldBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), GoldBoilerStructure.FACING))
@@ -337,7 +337,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BoilerBlock> COPPER_BOILER = REGISTRATE.block("copper_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -348,7 +348,7 @@ public class MmbBlocks {
             .register();
     public static final BlockEntry<CopperLargeBoilerBlock> LARGE_COPPER_BOILER = REGISTRATE.block("copper_boiler_large", CopperLargeBoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -360,7 +360,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<CopperBoilerStructure> COPPER_BOILER_STRUCTURAL = REGISTRATE.block("copper_boiler_structure", CopperBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), CopperBoilerStructure.FACING))
@@ -370,7 +370,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BoilerBlock> ZINC_BOILER = REGISTRATE.block("zinc_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -381,7 +381,7 @@ public class MmbBlocks {
             .register();
     public static final BlockEntry<ZincLargeBoilerBlock> LARGE_ZINC_BOILER = REGISTRATE.block("zinc_boiler_large", ZincLargeBoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -393,7 +393,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<ZincBoilerStructure> ZINC_BOILER_STRUCTURAL = REGISTRATE.block("zinc_boiler_structure", ZincBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), ZincBoilerStructure.FACING))
@@ -403,7 +403,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BoilerBlock> INDUSTRIAL_IRON_BOILER = REGISTRATE.block("industrial_iron_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -414,7 +414,7 @@ public class MmbBlocks {
             .register();
     public static final BlockEntry<IndustrialIronLargeBoilerBlock> LARGE_INDUSTRIAL_IRON_BOILER = REGISTRATE.block("industrial_iron_boiler_large", IndustrialIronLargeBoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -426,7 +426,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<IndustrialIronBoilerStructure> INDUSTRIAL_IRON_BOILER_STRUCTURAL = REGISTRATE.block("industrial_iron_boiler_structure", IndustrialIronBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), IndustrialIronBoilerStructure.FACING))
@@ -436,7 +436,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BoilerBlock> ANDESITE_BOILER = REGISTRATE.block("andesite_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -447,7 +447,7 @@ public class MmbBlocks {
             .register();
     public static final BlockEntry<AndesiteLargeBoilerBlock> LARGE_ANDESITE_BOILER = REGISTRATE.block("andesite_boiler_large", AndesiteLargeBoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -459,7 +459,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<AndesiteBoilerStructure> ANDESITE_BOILER_STRUCTURAL = REGISTRATE.block("andesite_boiler_structure", AndesiteBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), AndesiteBoilerStructure.FACING))
@@ -470,7 +470,7 @@ public class MmbBlocks {
     public static final BlockEntry<TagBoilerBlock> CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler",
                     p -> new TagBoilerBlock(p, AllTags.forgeItemTag("ingots/cast_iron")))
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -482,7 +482,7 @@ public class MmbBlocks {
     public static final BlockEntry<CastIronLargeBoilerBlock> LARGE_CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler_large",
                     p -> new CastIronLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/cast_iron")))
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -494,7 +494,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<CastIronBoilerStructure> CAST_IRON_BOILER_STRUCTURAL = REGISTRATE.block("cast_iron_boiler_structure", CastIronBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), CastIronBoilerStructure.FACING))
@@ -504,7 +504,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<BoilerBlock> CAPITALISM_BOILER = REGISTRATE.block("capitalism_boiler", BoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -515,7 +515,7 @@ public class MmbBlocks {
             .register();
     public static final BlockEntry<CapitalismLargeBoilerBlock> LARGE_CAPITALISM_BOILER = REGISTRATE.block("capitalism_boiler_large", CapitalismLargeBoilerBlock::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutout)
@@ -527,7 +527,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<CapitalismBoilerStructure> CAPITALISM_BOILER_STRUCTURAL = REGISTRATE.block("capitalism_boiler_structure", CapitalismBoilerStructure::new)
             .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .transform(pickaxeOnly())
             .blockstate((c, p) -> p.getVariantBuilder(c.get())
                     .forAllStatesExcept(BlockStateGen.mapToAir(p), CapitalismBoilerStructure.FACING))
@@ -540,7 +540,7 @@ public class MmbBlocks {
     //GAS TANK
     public static final BlockEntry<GasTankBlock> GAS_TANK = REGISTRATE.block("gas_tank", GasTankBlock::new)
             .initialProperties(SharedProperties::softMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(p -> p.sound(SoundType.COPPER))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -552,7 +552,7 @@ public class MmbBlocks {
 
     public static final BlockEntry<GasTankBlock> COPPER_GAS_TANK = REGISTRATE.block("copper_gas_tank", GasTankBlock::new)
             .initialProperties(SharedProperties::softMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.COLOR_ORANGE))
             .properties(p -> p.sound(SoundType.COPPER))
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -621,7 +621,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -634,7 +634,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -646,7 +646,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -658,7 +658,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -670,7 +670,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -682,7 +682,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -694,7 +694,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -706,7 +706,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -718,7 +718,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -730,7 +730,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -742,7 +742,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -754,7 +754,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -766,7 +766,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -779,7 +779,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -792,7 +792,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -805,7 +805,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -818,7 +818,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -831,7 +831,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .addLayer(() -> RenderType::cutoutMipped)
             .blockstate(BlockStateGen.directionalBlockProvider(true))
@@ -844,7 +844,7 @@ public class MmbBlocks {
             .initialProperties(SharedProperties::wooden)
             .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
             .transform(axeOrPickaxe())
-            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.noOcclusion().color(MaterialColor.METAL))
             .properties(BlockBehaviour.Properties::instabreak)
             .transform(pickaxeOnly())
             .addLayer(() -> RenderType::cutoutMipped)
@@ -860,7 +860,7 @@ public class MmbBlocks {
                     .initialProperties(SharedProperties.CRUSHING_WHEEL_CONTROLLER_MATERIAL)
                     .properties(p -> p.color(MaterialColor.STONE))
                     .properties(p -> p.noOcclusion()
-                            .noLootTable()
+                            .noDrops()
                             .air())
                     .blockstate((c, p) -> p.getVariantBuilder(c.get())
                             .forAllStatesExcept(BlockStateGen.mapToAir(p), MmbCrushingWheelControllerBlock.FACING))
@@ -1291,11 +1291,11 @@ public class MmbBlocks {
 
     public static final BlockEntry<ConnectedTintedGlassBlock>
             TINTED_FRAMED_GLASS = tintedframedGlass(
-            () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_FRAMED_GLASS)),
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_FRAMED_GLASS)),
             TINTED_HORIZONTAL_FRAMED_GLASS = tintedframedGlass("horizontal","Horizontal",
-                    () -> new HorizontalCTBehaviour(MmbSpriteShifts.TINTED_HORIZONTAL_FRAMED_GLASS, MmbSpriteShifts.TINTED_FRAMED_GLASS)),
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_HORIZONTAL_FRAMED_GLASS)),
             TINTED_VERTICAL_FRAMED_GLASS = tintedframedGlass("vertical","Vertical",
-                    () -> new HorizontalCTBehaviour(MmbSpriteShifts.TINTED_VERTICAL_FRAMED_GLASS));
+                    () -> new SimpleCTBehaviour(MmbSpriteShifts.TINTED_VERTICAL_FRAMED_GLASS));
 
 
     public static final BlockEntry<DiagonalGirderBlock> DIAGONAL_GIRDER =
@@ -1688,12 +1688,11 @@ public class MmbBlocks {
             ;
 
     public static class DecoTags {
-        public static <T> TagKey<T> optionalTag(IForgeRegistry<T> registry,
-                                                ResourceLocation id) {
+        public static <T extends IForgeRegistryEntry<T>> TagKey<T> optionalTag(IForgeRegistry<T> registry, ResourceLocation id) {
             return registry.tags()
                     .createOptionalTagKey(id, Collections.emptySet());
         }
-        public static <T> TagKey<T> CreateTag(IForgeRegistry<T> registry, String path) {
+        public static <T extends IForgeRegistryEntry<T>> TagKey<T> CreateTag(IForgeRegistry<T> registry, String path) {
             return optionalTag(registry, new ResourceLocation("create", path));
         }
         public static TagKey<Item> CreateItemTag(String path) {
@@ -1702,7 +1701,7 @@ public class MmbBlocks {
         public static TagKey<Block> CreateBlockTag(String path) {
             return CreateTag(ForgeRegistries.BLOCKS, path);
         }
-        public static <T> TagKey<T> MCTag(IForgeRegistry<T> registry, String path) {
+        public static <T extends IForgeRegistryEntry<T>> TagKey<T> MCTag(IForgeRegistry<T> registry, String path) {
             return optionalTag(registry, new ResourceLocation("minecraft", path));
         }
         public static TagKey<Item> MCItemTag(String path) {

@@ -97,13 +97,13 @@ public class DecorBuilderTransformer {
                 .initialProperties(() -> Blocks.TINTED_GLASS)
                 .properties(DecorBuilderTransformer::glassProperties)
                 .recipe((c, p) -> p.stonecutting(DataIngredient.tag(Tags.Items.GLASS_TINTED), c::get))
-                .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/",  "tinted_framed_glass"))
+                .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/",  type + "_tinted_framed_glass"))
                 .tag(Tags.Blocks.GLASS_TINTED, Tags.Blocks.GLASS, BlockTags.IMPERMEABLE)
                 .lang(name + " Tinted Framed Glass")
                 .item()
                 .tag(Tags.Items.GLASS_TINTED, Tags.Items.GLASS)
                 .model((c, p) -> p.cubeColumn(c.getName(), p.modLoc(palettesDir() + c.getName()),
-                        p.modLoc("block/palettes/tinted_framed_glass")))
+                        p.modLoc("block/palettes/" + type + "_tinted_framed_glass")))
                 .build()
                 .register();
     }

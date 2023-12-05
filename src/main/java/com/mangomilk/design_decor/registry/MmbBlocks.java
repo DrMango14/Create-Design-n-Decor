@@ -20,6 +20,7 @@ import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelControl
 import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderBlock;
 import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderGenerator;
 import com.mangomilk.design_decor.blocks.floodlight.FloodlightBlock;
+import com.mangomilk.design_decor.blocks.floodlight.FloodlightGenerator;
 import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlock;
 import com.mangomilk.design_decor.blocks.glass.ConnectedTintedGlassBlock;
 import com.mangomilk.design_decor.blocks.industrial_gear.IndustrialGearBlock;
@@ -168,6 +169,7 @@ public class MmbBlocks {
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.TURNED_ON) ? 15 : 0))
                     .addLayer(() -> RenderType::cutout)
+                    .blockstate(new FloodlightGenerator()::generate)
                     .transform(axeOrPickaxe())
                     .lang("Brass Floodlight")
                     .item()
@@ -181,6 +183,7 @@ public class MmbBlocks {
                     .properties(BlockBehaviour.Properties::noOcclusion)
                     .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 0 : !s.getValue(FloodlightBlock.WATERLOGGED) ? 12 : 8 ))
                     .addLayer(() -> RenderType::cutout)
+                    .blockstate(new FloodlightGenerator()::generate)
                     .transform(axeOrPickaxe())
                     .lang("Andesite Floodlight")
                     .item()
@@ -195,6 +198,7 @@ public class MmbBlocks {
                     .properties(p -> p.lightLevel(s -> s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 12 : 0 ))
                     .properties(p -> p.lightLevel(s -> !s.getValue(FloodlightBlock.WATERLOGGED) == s.getValue(FloodlightBlock.TURNED_ON) ? 6 : 0 ))
                     .addLayer(() -> RenderType::cutout)
+                    .blockstate(new FloodlightGenerator()::generate)
                     .transform(axeOrPickaxe())
                     .lang("Copper Floodlight")
                     .item()
@@ -268,6 +272,19 @@ public class MmbBlocks {
             .register();
 
     public static final BlockEntry<TagBoilerBlock> ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler",
+                    p -> new TagBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
+            .initialProperties(SharedProperties::copperMetal)
+            .properties(BlockBehaviour.Properties::noOcclusion)
+            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+            .transform(pickaxeOnly())
+            .addLayer(() -> RenderType::cutoutMipped)
+            .blockstate(BlockStateGen.directionalBlockProvider(true))
+            .item()
+            .build()
+            .lang("Aluminium Boiler")
+            .register();
+
+    public static final BlockEntry<TagBoilerBlock> ALUMINUM_BOILER_SPECIAL = REGISTRATE.block("aluminium_boiler_special",
                     p -> new TagBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
             .initialProperties(SharedProperties::copperMetal)
             .properties(BlockBehaviour.Properties::noOcclusion)

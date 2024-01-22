@@ -1,8 +1,7 @@
 package com.mangomilk.design_decor.blocks.large_boiler.aluminum;
 
 import com.mangomilk.design_decor.blocks.TagDependentDirectionalBlock;
-import com.mangomilk.design_decor.registry.MmbBlocks;
-import com.simibubi.create.content.kinetics.waterwheel.LargeWaterWheelBlockEntity;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
@@ -144,7 +143,7 @@ public class AluminumLargeBoilerBlock extends TagDependentDirectionalBlock {
                 Direction targetSide = secondary ? side.getClockWise(axis) : side;
                 BlockPos structurePos = (secondary ? pPos.relative(side) : pPos).relative(targetSide);
                 BlockState occupiedState = pLevel.getBlockState(structurePos);
-                BlockState requiredStructure = MmbBlocks.ALUMINUM_BOILER_STRUCTURAL.getDefaultState()
+                BlockState requiredStructure = CDDBlocks.ALUMINUM_BOILER_STRUCTURAL.getDefaultState()
                         .setValue(AluminumBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;

@@ -1,10 +1,9 @@
 package com.mangomilk.design_decor.blocks.industrial_gear;
 
 import com.jozufozu.flywheel.backend.Backend;
-import com.mangomilk.design_decor.base.DecoPartialModels;
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDPartialModels;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
@@ -29,7 +28,7 @@ public class IndustrialGearRenderer extends KineticBlockEntityRenderer<Bracketed
         if (Backend.canUseInstancing(be.getLevel()))
             return;
 
-        if (!MmbBlocks.LARGE_COGWHEEL.has(be.getBlockState())) {
+        if (!CDDBlocks.LARGE_COGWHEEL.has(be.getBlockState())) {
             super.renderSafe(be, partialTicks, ms, buffer, light, overlay);
             return;
         }
@@ -40,12 +39,12 @@ public class IndustrialGearRenderer extends KineticBlockEntityRenderer<Bracketed
         Direction.Axis axis = getRotationAxisOf(be);
         Direction facing = Direction.fromAxisAndDirection(axis, Direction.AxisDirection.POSITIVE);
         renderRotatingBuffer(be,
-                CachedBufferer.partialFacingVertical(DecoPartialModels.SHAFTLESS_LARGE_COGWHEEL, be.getBlockState(), facing),
+                CachedBufferer.partialFacingVertical(CDDPartialModels.SHAFTLESS_LARGE_COGWHEEL, be.getBlockState(), facing),
                 ms, buffer.getBuffer(RenderType.solid()), light);
 
         float angle = getAngleForLargeCogShaft(be, axis);
         SuperByteBuffer shaft =
-                CachedBufferer.partialFacingVertical(DecoPartialModels.EMPTY, be.getBlockState(), facing);
+                CachedBufferer.partialFacingVertical(CDDPartialModels.EMPTY, be.getBlockState(), facing);
         kineticRotationTransform(shaft, be, axis, angle, light);
         shaft.renderInto(ms, buffer.getBuffer(RenderType.solid()));
 

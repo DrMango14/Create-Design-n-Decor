@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.chain;
 
-import com.mangomilk.design_decor.registry.DecoSoundEvents;
+import com.mangomilk.design_decor.registry.CDDSoundEvents;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
@@ -62,9 +62,9 @@ public class TagDependentLargeChain extends ChainBlock implements SimpleWaterlog
 
     public TagDependentLargeChain(Properties p_55926_, TagKey<Item> itemTagKey) {
         super(p_55926_.noCollission().noOcclusion().isSuffocating(TagDependentLargeChain::never).requiresCorrectToolForDrops().strength(5.0F, 6.0F)
-                .sound(new ForgeSoundType(1f, .95f, () -> DecoSoundEvents.LARGE_CHAIN_BREAK.get(),
-                        () -> DecoSoundEvents.LARGE_CHAIN_STEP.get(), () -> DecoSoundEvents.LARGE_CHAIN_PLACE.get(),
-                        () -> DecoSoundEvents.LARGE_CHAIN_HIT.get(), () -> DecoSoundEvents.LARGE_CHAIN_FALL.get())));
+                .sound(new ForgeSoundType(1f, .95f, () -> CDDSoundEvents.LARGE_CHAIN_BREAK.get(),
+                        () -> CDDSoundEvents.LARGE_CHAIN_STEP.get(), () -> CDDSoundEvents.LARGE_CHAIN_PLACE.get(),
+                        () -> CDDSoundEvents.LARGE_CHAIN_HIT.get(), () -> CDDSoundEvents.LARGE_CHAIN_FALL.get())));
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(AXIS, Direction.Axis.Y));
         this.tag = itemTagKey;
     }

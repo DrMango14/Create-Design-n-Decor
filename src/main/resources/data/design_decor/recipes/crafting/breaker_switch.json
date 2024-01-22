@@ -1,0 +1,26 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "BBB",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "B": {
+      "tag": "forge:nuggets/brass"
+    }
+  },
+  "result": {
+    "item": "design_decor:breaker_switch",
+    "count": 1
+
+
+  }
+}

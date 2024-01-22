@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.large_boiler.copper;
 
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.render.MultiPosDestructionHandler;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -63,7 +63,7 @@ public class CopperBoilerStructure extends DirectionalBlock implements IWrenchab
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
-        return MmbBlocks.LARGE_COPPER_BOILER.asStack();
+        return CDDBlocks.LARGE_COPPER_BOILER.asStack();
     }
 
     @Override
@@ -111,8 +111,8 @@ public class CopperBoilerStructure extends DirectionalBlock implements IWrenchab
         if (stillValid(pLevel, pCurrentPos, pState, false)) {
             BlockPos masterPos = getMaster(pLevel, pCurrentPos, pState);
             if (!pLevel.getBlockTicks()
-                    .hasScheduledTick(masterPos, MmbBlocks.LARGE_COPPER_BOILER.get()))
-                pLevel.scheduleTick(masterPos, MmbBlocks.LARGE_COPPER_BOILER.get(), 1);
+                    .hasScheduledTick(masterPos, CDDBlocks.LARGE_COPPER_BOILER.get()))
+                pLevel.scheduleTick(masterPos, CDDBlocks.LARGE_COPPER_BOILER.get(), 1);
             return pState;
         }
         if (!(pLevel instanceof Level level) || level.isClientSide())
@@ -127,7 +127,7 @@ public class CopperBoilerStructure extends DirectionalBlock implements IWrenchab
         Direction direction = state.getValue(FACING);
         BlockPos targetedPos = pos.relative(direction);
         BlockState targetedState = level.getBlockState(targetedPos);
-        if (targetedState.is(MmbBlocks.COPPER_BOILER_STRUCTURAL.get()))
+        if (targetedState.is(CDDBlocks.COPPER_BOILER_STRUCTURAL.get()))
             return getMaster(level, targetedPos, targetedState);
         return targetedPos;
     }
@@ -174,7 +174,7 @@ public class CopperBoilerStructure extends DirectionalBlock implements IWrenchab
         public boolean addHitEffects(BlockState state, Level level, HitResult target, ParticleEngine manager) {
             if (target instanceof BlockHitResult bhr) {
                 BlockPos targetPos = bhr.getBlockPos();
-                CopperBoilerStructure waterWheelStructuralBlock = MmbBlocks.COPPER_BOILER_STRUCTURAL.get();
+                CopperBoilerStructure waterWheelStructuralBlock = CDDBlocks.COPPER_BOILER_STRUCTURAL.get();
                 if (waterWheelStructuralBlock.stillValid(level, targetPos, state, false))
                     manager.crack(CopperBoilerStructure.getMaster(level, targetPos, state), bhr.getDirection());
                 return true;
@@ -185,7 +185,7 @@ public class CopperBoilerStructure extends DirectionalBlock implements IWrenchab
         @Override
         @Nullable
         public Set<BlockPos> getExtraPositions(ClientLevel level, BlockPos pos, BlockState blockState, int progress) {
-            CopperBoilerStructure waterWheelStructuralBlock = MmbBlocks.COPPER_BOILER_STRUCTURAL.get();
+            CopperBoilerStructure waterWheelStructuralBlock = CDDBlocks.COPPER_BOILER_STRUCTURAL.get();
             if (!waterWheelStructuralBlock.stillValid(level, pos, blockState, false))
                 return null;
             HashSet<BlockPos> set = new HashSet<>();

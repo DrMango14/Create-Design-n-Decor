@@ -1,7 +1,7 @@
 package com.mangomilk.design_decor.blocks.crushing_wheels;
 
-import com.mangomilk.design_decor.registry.MmbBlockEntities;
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlockEntities;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelBlockEntity;
@@ -138,21 +138,21 @@ public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBloc
 			for (Direction d : Iterate.directions) {
 				BlockState neighbour = world.getBlockState(pos.relative(d));
 				if (
-						!MmbBlocks.GRANITE_CRUSHING_WHEEL.has(neighbour)&&
-						!MmbBlocks.DIORITE_CRUSHING_WHEEL.has(neighbour)&&
+						!CDDBlocks.GRANITE_CRUSHING_WHEEL.has(neighbour)&&
+						!CDDBlocks.DIORITE_CRUSHING_WHEEL.has(neighbour)&&
 								!AllBlocks.CRUSHING_WHEEL.has(neighbour)&&
 
-								!MmbBlocks.LIMESTONE_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.OCHRUM_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.SCORCHIA_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.SCORIA_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.TUFF_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.VERIDIUM_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.DRIPSTONE_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.DEEPSLATE_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.CRIMSITE_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.CALCITE_CRUSHING_WHEEL.has(neighbour)&&
-				!MmbBlocks.ASURINE_CRUSHING_WHEEL.has(neighbour))
+								!CDDBlocks.LIMESTONE_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.OCHRUM_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.SCORCHIA_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.SCORIA_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.TUFF_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.VERIDIUM_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.DRIPSTONE_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.DEEPSLATE_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.CRIMSITE_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.CALCITE_CRUSHING_WHEEL.has(neighbour)&&
+				!CDDBlocks.ASURINE_CRUSHING_WHEEL.has(neighbour))
 					continue;
 				if (neighbour.getValue(BlockStateProperties.AXIS) == d.getAxis())
 					continue;
@@ -213,7 +213,7 @@ public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBloc
 
 	@Override
 	public BlockEntityType<? extends CrushingWheelControllerBlockEntity> getBlockEntityType() {
-		return MmbBlockEntities.MMB_CRUSHING_WHEEL_CONTROLLER.get();
+		return CDDBlockEntities.MMB_CRUSHING_WHEEL_CONTROLLER.get();
 	}
 
 	@Override

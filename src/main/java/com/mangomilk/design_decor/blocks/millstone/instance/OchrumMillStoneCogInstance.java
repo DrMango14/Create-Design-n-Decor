@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.millstone.instance;
 
-import com.mangomilk.design_decor.base.DecoPartialModels;
+import com.mangomilk.design_decor.registry.CDDPartialModels;
 import com.mangomilk.design_decor.blocks.millstone.DecoMillStoneBlockEntity;
 import com.simibubi.create.content.kinetics.base.SingleRotatingInstance;
 import com.jozufozu.flywheel.api.Instancer;
@@ -13,6 +13,6 @@ public class OchrumMillStoneCogInstance extends SingleRotatingInstance<DecoMillS
 
     @Override
     protected Instancer<RotatingData> getModel() {
-        return getRotatingMaterial().getModel(DecoPartialModels.OCHRUM_MILLSTONE_COG, blockEntity.getBlockState());
+        return getRotatingMaterial().getModel(CDDPartialModels.OCHRUM_MILLSTONE_COG, blockEntity.getBlockState());
     }
 }

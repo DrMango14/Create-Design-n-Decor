@@ -1,7 +1,7 @@
 package com.mangomilk.design_decor.blocks.large_boiler.cast_iron;
 
 import com.mangomilk.design_decor.blocks.TagDependentDirectionalBlock;
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
@@ -144,7 +144,7 @@ public class CastIronLargeBoilerBlock extends TagDependentDirectionalBlock {
                 Direction targetSide = secondary ? side.getClockWise(axis) : side;
                 BlockPos structurePos = (secondary ? pPos.relative(side) : pPos).relative(targetSide);
                 BlockState occupiedState = pLevel.getBlockState(structurePos);
-                BlockState requiredStructure = MmbBlocks.CAST_IRON_BOILER_STRUCTURAL.getDefaultState()
+                BlockState requiredStructure = CDDBlocks.CAST_IRON_BOILER_STRUCTURAL.getDefaultState()
                         .setValue(CastIronBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;

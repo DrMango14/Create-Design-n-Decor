@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "design_decor:wallpapers"
+  },
+  "result": "design_decor:green_wallpaper_wavy",
+  "count": 1
+}

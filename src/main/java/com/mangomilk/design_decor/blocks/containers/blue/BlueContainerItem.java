@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.containers.blue;
 
-import com.mangomilk.design_decor.registry.MmbBlockEntities;
+import com.mangomilk.design_decor.registry.CDDBlockEntities;
 import com.simibubi.create.api.connectivity.ConnectivityHandler;
 import com.simibubi.create.foundation.utility.VecHelper;
 import net.minecraft.core.BlockPos;
@@ -64,7 +64,7 @@ public class BlueContainerItem extends BlockItem {
 
 		if (!BlueContainerBlock.isContainer(placedOnState))
 			return;
-		BlueContainerBlockEntity tankAt = ConnectivityHandler.partAt(MmbBlockEntities.BLUE_CONTAINER.get(), world, placedOnPos);
+		BlueContainerBlockEntity tankAt = ConnectivityHandler.partAt(CDDBlockEntities.BLUE_CONTAINER.get(), world, placedOnPos);
 		if (tankAt == null)
 			return;
 		BlueContainerBlockEntity controllerBE = tankAt.getControllerBE();

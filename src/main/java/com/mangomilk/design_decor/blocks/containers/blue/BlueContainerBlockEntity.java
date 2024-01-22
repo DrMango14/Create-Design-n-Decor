@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.containers.blue;
 
-import com.mangomilk.design_decor.registry.MmbBlockEntities;
+import com.mangomilk.design_decor.registry.CDDBlockEntities;
 import com.simibubi.create.api.connectivity.ConnectivityHandler;
 import com.simibubi.create.content.logistics.vault.ItemVaultBlockEntity;
 import com.simibubi.create.foundation.blockEntity.IMultiBlockEntityContainer;
@@ -260,7 +260,7 @@ public class BlueContainerBlockEntity extends ItemVaultBlockEntity implements IM
 					BlockPos containerPos = alongZ ? worldPosition.offset(xOffset, zOffset, yOffset)
 						: worldPosition.offset(yOffset, xOffset, zOffset);
 					BlueContainerBlockEntity containerAt =
-						ConnectivityHandler.partAt(MmbBlockEntities.BLUE_CONTAINER.get(), level, containerPos);
+						ConnectivityHandler.partAt(CDDBlockEntities.BLUE_CONTAINER.get(), level, containerPos);
 					invs[yOffset * radius * radius + xOffset * radius + zOffset] =
 						containerAt != null ? containerAt.inventory : new ItemStackHandler();
 				}

@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.large_boiler.andesite;
 
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
@@ -142,7 +142,7 @@ public class AndesiteLargeBoilerBlock extends WrenchableDirectionalBlock {
                 Direction targetSide = secondary ? side.getClockWise(axis) : side;
                 BlockPos structurePos = (secondary ? pPos.relative(side) : pPos).relative(targetSide);
                 BlockState occupiedState = pLevel.getBlockState(structurePos);
-                BlockState requiredStructure = MmbBlocks.ANDESITE_BOILER_STRUCTURAL.getDefaultState()
+                BlockState requiredStructure = CDDBlocks.ANDESITE_BOILER_STRUCTURAL.getDefaultState()
                         .setValue(AndesiteBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;

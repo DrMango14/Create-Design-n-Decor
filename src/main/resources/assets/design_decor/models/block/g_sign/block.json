@@ -1,0 +1,6 @@
+{
+  "parent": "design_decor:block/sign",
+  "textures": {
+    "0": "design_decor:block/letter_signs/g"
+  }
+}

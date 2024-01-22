@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.containers.red;
 
-import com.mangomilk.design_decor.base.MmbSpriteShifts;
+import com.mangomilk.design_decor.registry.CDDSpriteShifts;
 import com.simibubi.create.api.connectivity.ConnectivityHandler;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.ConnectedTextureBehaviour;
@@ -23,13 +23,13 @@ public class RedContainerCTBehaviour extends ConnectedTextureBehaviour.Base {
 			return null;
 
 		if (direction.getAxis() == containerBlockAxis)
-			return MmbSpriteShifts.RED_CONTAINER_FRONT.get(small);
+			return CDDSpriteShifts.RED_CONTAINER_FRONT.get(small);
 		if (direction == Direction.UP)
-			return MmbSpriteShifts.RED_CONTAINER_TOP.get(small);
+			return CDDSpriteShifts.RED_CONTAINER_TOP.get(small);
 		if (direction == Direction.DOWN)
-			return MmbSpriteShifts.RED_CONTAINER_BOTTOM.get(small);
+			return CDDSpriteShifts.RED_CONTAINER_BOTTOM.get(small);
 
-		return MmbSpriteShifts.RED_CONTAINER_SIDE.get(small);
+		return CDDSpriteShifts.RED_CONTAINER_SIDE.get(small);
 	}
 
 	@Override

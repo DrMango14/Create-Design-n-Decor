@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.large_boiler.capitalism;
 
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
@@ -142,7 +142,7 @@ public class CapitalismLargeBoilerBlock extends WrenchableDirectionalBlock {
                 Direction targetSide = secondary ? side.getClockWise(axis) : side;
                 BlockPos structurePos = (secondary ? pPos.relative(side) : pPos).relative(targetSide);
                 BlockState occupiedState = pLevel.getBlockState(structurePos);
-                BlockState requiredStructure = MmbBlocks.CAPITALISM_BOILER_STRUCTURAL.getDefaultState()
+                BlockState requiredStructure = CDDBlocks.CAPITALISM_BOILER_STRUCTURAL.getDefaultState()
                         .setValue(CapitalismBoilerStructure.FACING, targetSide.getOpposite());
                 if (occupiedState == requiredStructure)
                     continue;

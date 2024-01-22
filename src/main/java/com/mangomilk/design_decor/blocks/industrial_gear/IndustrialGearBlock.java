@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.industrial_gear;
 
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.content.decoration.encasing.EncasableBlock;
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
@@ -78,7 +78,7 @@ public class IndustrialGearBlock extends ShaftBlock implements ICogWheel, Encasa
     @Override
     public void fillItemCategory(CreativeModeTab pTab, NonNullList<ItemStack> pItems) {
         super.fillItemCategory(pTab, pItems);
-        MmbBlocks.LARGE_COGWHEEL.is(this);
+        CDDBlocks.LARGE_COGWHEEL.is(this);
     }
 
     @Override

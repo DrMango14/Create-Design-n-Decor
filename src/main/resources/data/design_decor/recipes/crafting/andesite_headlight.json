@@ -8,7 +8,7 @@
   ],
   "key": {
     "E": {
-      "item": "minecraft:torch"
+      "item": "minecraft:glowstone_dust"
     },
     "A": {
       "item": "create:andesite_alloy"

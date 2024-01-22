@@ -3,10 +3,9 @@ package com.mangomilk.design_decor.blocks.industrial_gear;
 import com.jozufozu.flywheel.api.Instancer;
 import com.jozufozu.flywheel.api.MaterialManager;
 import com.jozufozu.flywheel.util.transform.TransformStack;
-import com.mangomilk.design_decor.base.DecoPartialModels;
+import com.mangomilk.design_decor.registry.CDDPartialModels;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.simibubi.create.content.kinetics.base.SingleRotatingInstance;
 import com.simibubi.create.content.kinetics.base.flwdata.RotatingData;
@@ -38,7 +37,7 @@ public class IndustrialGearInstance  extends SingleRotatingInstance<BracketedKin
         BlockPos pos = blockEntity.getBlockPos();
         float offset = BracketedKineticBlockEntityRenderer.getShaftAngleOffset(axis, pos);
         Direction facing = Direction.fromAxisAndDirection(axis, Direction.AxisDirection.POSITIVE);
-        Instancer<RotatingData> half = getRotatingMaterial().getModel(DecoPartialModels.EMPTY, blockState,
+        Instancer<RotatingData> half = getRotatingMaterial().getModel(CDDPartialModels.EMPTY, blockState,
                 facing, () -> this.rotateToAxis(axis));
 
         additionalShaft = setup(half.createInstance(), speed);
@@ -52,7 +51,7 @@ public class IndustrialGearInstance  extends SingleRotatingInstance<BracketedKin
 
         Direction.Axis axis = KineticBlockEntityRenderer.getRotationAxisOf(blockEntity);
         Direction facing = Direction.fromAxisAndDirection(axis, Direction.AxisDirection.POSITIVE);
-        return getRotatingMaterial().getModel(DecoPartialModels.SHAFTLESS_LARGE_COGWHEEL, blockState, facing,
+        return getRotatingMaterial().getModel(CDDPartialModels.SHAFTLESS_LARGE_COGWHEEL, blockState, facing,
                 () -> this.rotateToAxis(axis));
     }
 

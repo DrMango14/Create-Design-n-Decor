@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "design_decor:wallpapers"
+  },
+  "result": "design_decor:wallpaper_arrow_yellow",
+  "count": 1
+}

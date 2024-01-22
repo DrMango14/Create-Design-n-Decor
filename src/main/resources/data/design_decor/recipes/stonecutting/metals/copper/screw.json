@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:copper_ingot"
+  },
+  "result": "design_decor:copper_screw",
+  "count": 4
+}

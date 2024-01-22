@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.millstone.renderer;
 
-import com.mangomilk.design_decor.base.DecoPartialModels;
+import com.mangomilk.design_decor.registry.CDDPartialModels;
 import com.simibubi.create.content.kinetics.millstone.MillstoneBlockEntity;
 import com.simibubi.create.content.kinetics.millstone.MillstoneRenderer;
 import com.simibubi.create.foundation.render.CachedBufferer;
@@ -16,6 +16,6 @@ public class CalciteMillStoneRenderer extends MillstoneRenderer {
 
     @Override
     protected SuperByteBuffer getRotatedModel(MillstoneBlockEntity be, BlockState state) {
-        return CachedBufferer.partial(DecoPartialModels.CALCITE_MILLSTONE_COG, state);
+        return CachedBufferer.partial(CDDPartialModels.CALCITE_MILLSTONE_COG, state);
     }
 }

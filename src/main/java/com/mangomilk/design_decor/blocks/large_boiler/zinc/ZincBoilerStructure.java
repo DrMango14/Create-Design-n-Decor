@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.large_boiler.zinc;
 
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.render.MultiPosDestructionHandler;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -63,7 +63,7 @@ public class ZincBoilerStructure extends DirectionalBlock implements IWrenchable
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
-        return MmbBlocks.LARGE_ZINC_BOILER.asStack();
+        return CDDBlocks.LARGE_ZINC_BOILER.asStack();
     }
 
     @Override
@@ -111,8 +111,8 @@ public class ZincBoilerStructure extends DirectionalBlock implements IWrenchable
         if (stillValid(pLevel, pCurrentPos, pState, false)) {
             BlockPos masterPos = getMaster(pLevel, pCurrentPos, pState);
             if (!pLevel.getBlockTicks()
-                    .hasScheduledTick(masterPos, MmbBlocks.LARGE_ZINC_BOILER.get()))
-                pLevel.scheduleTick(masterPos, MmbBlocks.LARGE_ZINC_BOILER.get(), 1);
+                    .hasScheduledTick(masterPos, CDDBlocks.LARGE_ZINC_BOILER.get()))
+                pLevel.scheduleTick(masterPos, CDDBlocks.LARGE_ZINC_BOILER.get(), 1);
             return pState;
         }
         if (!(pLevel instanceof Level level) || level.isClientSide())
@@ -127,7 +127,7 @@ public class ZincBoilerStructure extends DirectionalBlock implements IWrenchable
         Direction direction = state.getValue(FACING);
         BlockPos targetedPos = pos.relative(direction);
         BlockState targetedState = level.getBlockState(targetedPos);
-        if (targetedState.is(MmbBlocks.ZINC_BOILER_STRUCTURAL.get()))
+        if (targetedState.is(CDDBlocks.ZINC_BOILER_STRUCTURAL.get()))
             return getMaster(level, targetedPos, targetedState);
         return targetedPos;
     }
@@ -174,7 +174,7 @@ public class ZincBoilerStructure extends DirectionalBlock implements IWrenchable
         public boolean addHitEffects(BlockState state, Level level, HitResult target, ParticleEngine manager) {
             if (target instanceof BlockHitResult bhr) {
                 BlockPos targetPos = bhr.getBlockPos();
-                ZincBoilerStructure waterWheelStructuralBlock = MmbBlocks.ZINC_BOILER_STRUCTURAL.get();
+                ZincBoilerStructure waterWheelStructuralBlock = CDDBlocks.ZINC_BOILER_STRUCTURAL.get();
                 if (waterWheelStructuralBlock.stillValid(level, targetPos, state, false))
                     manager.crack(ZincBoilerStructure.getMaster(level, targetPos, state), bhr.getDirection());
                 return true;
@@ -185,7 +185,7 @@ public class ZincBoilerStructure extends DirectionalBlock implements IWrenchable
         @Override
         @Nullable
         public Set<BlockPos> getExtraPositions(ClientLevel level, BlockPos pos, BlockState blockState, int progress) {
-            ZincBoilerStructure waterWheelStructuralBlock = MmbBlocks.ZINC_BOILER_STRUCTURAL.get();
+            ZincBoilerStructure waterWheelStructuralBlock = CDDBlocks.ZINC_BOILER_STRUCTURAL.get();
             if (!waterWheelStructuralBlock.stillValid(level, pos, blockState, false))
                 return null;
             HashSet<BlockPos> set = new HashSet<>();

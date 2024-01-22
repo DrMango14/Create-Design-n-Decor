@@ -1,0 +1,9 @@
+
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "design_decor:letter_signs"
+  },
+  "result": "design_decor:7_sign",
+  "count": 1
+}

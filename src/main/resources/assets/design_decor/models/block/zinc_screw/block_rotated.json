@@ -1,0 +1,7 @@
+{
+	"parent": "design_decor:block/screws_rotated",
+	"textures": {
+		"0": "design_decor:block/zinc_screw",
+		"particle": "design_decor:block/zinc_screw"
+	}
+}

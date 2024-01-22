@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.gas_tank;
 
-import com.mangomilk.design_decor.registry.MmbBlockEntities;
+import com.mangomilk.design_decor.registry.CDDBlockEntities;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
@@ -64,6 +64,6 @@ public class GasTankBlock extends Block implements SimpleWaterloggedBlock, IWren
 
     @Override
     public BlockEntityType<? extends GasTankBlockEntity> getBlockEntityType() {
-        return MmbBlockEntities.GAS_TANK.get();
+        return CDDBlockEntities.GAS_TANK.get();
     }
 }

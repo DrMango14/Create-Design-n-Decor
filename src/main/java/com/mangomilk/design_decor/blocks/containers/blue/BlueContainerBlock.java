@@ -1,8 +1,8 @@
 package com.mangomilk.design_decor.blocks.containers.blue;
 
 
-import com.mangomilk.design_decor.registry.MmbBlockEntities;
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlockEntities;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.api.connectivity.ConnectivityHandler;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
@@ -112,7 +112,7 @@ public class BlueContainerBlock extends Block implements IWrenchable, IBE<BlueCo
 	public static boolean isContainer(BlockState state) {
 
 
-		return MmbBlocks.BLUE_CONTAINER.has(state);
+		return CDDBlocks.BLUE_CONTAINER.has(state);
 	}
 
 	@Nullable
@@ -172,7 +172,7 @@ public class BlueContainerBlock extends Block implements IWrenchable, IBE<BlueCo
 
 	@Override
 	public BlockEntityType<? extends BlueContainerBlockEntity> getBlockEntityType() {
-		return MmbBlockEntities.BLUE_CONTAINER.get();
+		return CDDBlockEntities.BLUE_CONTAINER.get();
 	}
 
 	@Override

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "design_decor:block/letter_sign/block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "design_decor:block/letter_sign/block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "design_decor:block/letter_sign/block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "design_decor:block/letter_sign/block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "design_decor:block/letter_sign/block"
+    },
+    "facing=west": {
+      "model": "design_decor:block/letter_sign/block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

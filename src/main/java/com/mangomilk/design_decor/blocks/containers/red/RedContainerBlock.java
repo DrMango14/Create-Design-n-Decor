@@ -1,8 +1,8 @@
 package com.mangomilk.design_decor.blocks.containers.red;
 
 
-import com.mangomilk.design_decor.registry.MmbBlockEntities;
-import com.mangomilk.design_decor.registry.MmbBlocks;
+import com.mangomilk.design_decor.registry.CDDBlockEntities;
+import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.api.connectivity.ConnectivityHandler;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
@@ -112,7 +112,7 @@ public class RedContainerBlock extends Block implements IWrenchable, IBE<RedCont
 	public static boolean isContainer(BlockState state) {
 
 
-		return MmbBlocks.RED_CONTAINER.has(state);
+		return CDDBlocks.RED_CONTAINER.has(state);
 	}
 
 	@Nullable
@@ -172,7 +172,7 @@ public class RedContainerBlock extends Block implements IWrenchable, IBE<RedCont
 
 	@Override
 	public BlockEntityType<? extends RedContainerBlockEntity> getBlockEntityType() {
-		return MmbBlockEntities.RED_CONTAINER.get();
+		return CDDBlockEntities.RED_CONTAINER.get();
 	}
 
 	@Override

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "design_decor:block/palettes/vertical_tinted_framed_glass",
-    "side": "design_decor:block/palettes/vertical_tinted_framed_glass"
-  }
-}

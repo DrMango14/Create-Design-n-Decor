@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "design_decor",
+  "version": "${version}",
+  "name": "Create: Design n' Decor",
+  "description": "dave's building extended but way better :3",
+  "authors": [
+    "DrMangoTea",
+    "Milky",
+    "Luna",
+    "Pepa",
+    "Spydnel",
+    "Szedamm"
+  ],
+  "contact": {
+    "sources": "https://github.com/Fabricators-of-Create/create-fabric-addon-template"
+  },
+  "license": "CC0",
+  "icon": "assets/modid/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.mangomilk.design_decor.DesignDecor"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_api_version}",
+    "create": "${create_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}

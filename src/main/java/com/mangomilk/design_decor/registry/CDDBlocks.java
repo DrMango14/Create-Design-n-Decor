@@ -83,6 +83,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -94,8 +95,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -991,7 +990,7 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
                     .transform(customItemModel())
                     .lang("Diorite Crushing Wheel")
                     .register();
-    
+
     public static final BlockEntry<MmbCrushingWheelBlock> LIMESTONE_CRUSHING_WHEEL =
             REGISTRATE.block("limestone_crushing_wheel", MmbCrushingWheelBlock::new)
                     .initialProperties(() -> Blocks.SANDSTONE)
@@ -2105,28 +2104,27 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             ;
 
     public static class DecoTags {
-        public static <T> TagKey<T> optionalTag(IForgeRegistry<T> registry,
+        public static <T> TagKey<T> optionalTag(Registry<T> registry,
                                                 ResourceLocation id) {
-            return registry.tags()
-                    .createOptionalTagKey(id, Collections.emptySet());
+            return TagKey.create(registry.key(), id);
         }
-        public static <T> TagKey<T> CreateTag(IForgeRegistry<T> registry, String path) {
+        public static <T> TagKey<T> CreateTag(Registry<T> registry, String path) {
             return optionalTag(registry, new ResourceLocation("create", path));
         }
         public static TagKey<Item> CreateItemTag(String path) {
-            return CreateTag(ForgeRegistries.ITEMS, path);
+            return CreateTag(Registry.ITEM, path);
         }
         public static TagKey<Block> CreateBlockTag(String path) {
-            return CreateTag(ForgeRegistries.BLOCKS, path);
+            return CreateTag(Registry.BLOCK, path);
         }
-        public static <T> TagKey<T> MCTag(IForgeRegistry<T> registry, String path) {
+        public static <T> TagKey<T> MCTag(Registry<T> registry, String path) {
             return optionalTag(registry, new ResourceLocation("minecraft", path));
         }
         public static TagKey<Item> MCItemTag(String path) {
-            return MCTag(ForgeRegistries.ITEMS, path);
+            return MCTag(Registry.ITEM, path);
         }
         public static TagKey<Block> MCBlockTag(String path) {
-            return MCTag(ForgeRegistries.BLOCKS, path);
+            return MCTag(Registry.BLOCK, path);
         }
         public static void init() {
         }

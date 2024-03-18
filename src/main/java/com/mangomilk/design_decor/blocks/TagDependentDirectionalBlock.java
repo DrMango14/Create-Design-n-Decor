@@ -2,12 +2,12 @@ package com.mangomilk.design_decor.blocks;
 
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.Registry;
 import net.minecraft.tags.TagKey;
+import net.minecraft.tags.TagManager;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.tags.ITagManager;
 
 public class TagDependentDirectionalBlock extends WrenchableDirectionalBlock {
 
@@ -25,7 +25,6 @@ public class TagDependentDirectionalBlock extends WrenchableDirectionalBlock {
     }
 
     public boolean shouldHide() {
-        ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-        return !tagManager.isKnownTagName(tag) || tagManager.getTag(tag).isEmpty();
+        return Registry.ITEM.getTag(tag).isEmpty();
     }
 }

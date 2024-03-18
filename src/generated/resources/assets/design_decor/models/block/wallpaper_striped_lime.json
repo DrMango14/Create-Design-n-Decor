@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "design_decor:block/wallpaper_striped_lime"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "create:stone_types/tuff"
-  },
-  "result": "design_decor:tuff_castel_tile_stairs"
-}

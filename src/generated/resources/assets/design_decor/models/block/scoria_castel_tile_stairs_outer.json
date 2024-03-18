@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "design_decor:block/stairs/scoria_castel_tiles",
-    "side": "design_decor:block/stairs/scoria_castel_tiles",
-    "top": "design_decor:block/stairs/scoria_castel_tiles"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "create:stone_types/veridium"
-  },
-  "result": "design_decor:veridium_castel_tile_wall"
-}

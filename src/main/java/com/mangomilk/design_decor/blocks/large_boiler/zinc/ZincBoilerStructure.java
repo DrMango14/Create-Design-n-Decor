@@ -3,6 +3,9 @@ package com.mangomilk.design_decor.blocks.large_boiler.zinc;
 import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.render.MultiPosDestructionHandler;
+
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.BlockPos;
@@ -27,9 +30,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientBlockExtensions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
@@ -152,7 +152,7 @@ public class ZincBoilerStructure extends DirectionalBlock implements IWrenchable
             pLevel.setBlockAndUpdate(pPos, Blocks.AIR.defaultBlockState());
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     public void initializeClient(Consumer<IClientBlockExtensions> consumer) {
         consumer.accept(new RenderProperties());
     }

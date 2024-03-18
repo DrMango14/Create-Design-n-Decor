@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "design_decor:block/veridium_castel_tiles"
-  }
-}

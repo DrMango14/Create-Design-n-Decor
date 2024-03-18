@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "design_decor:block/stairs/deepslate_castel_tiles",
-    "side": "design_decor:block/stairs/deepslate_castel_tiles",
-    "top": "design_decor:block/stairs/deepslate_castel_tiles"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "design_decor:block/andesite_castel_bricks",
-    "side": "design_decor:block/andesite_castel_bricks",
-    "top": "design_decor:block/andesite_castel_bricks"
-  }
-}

@@ -5,7 +5,7 @@ import com.mangomilk.design_decor.registry.CDDBlockEntities;
 import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.mangomilk.design_decor.registry.CDDItems;
 import com.mangomilk.design_decor.registry.CDDPartialModels;
-import com.mangomilk.design_decor.registry.CDDSoundEvents;
+//import com.mangomilk.design_decor.registry.CDDSoundEvents;
 import com.mangomilk.design_decor.registry.CDDSpriteShifts;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.Create;
@@ -39,6 +39,8 @@ public class DesignDecor implements ModInitializer {
 		CDDBlockEntities.register();
 		CDDSpriteShifts.init();
 		CDDPartialModels.init();
+
+		REGISTRATE.register();
 	}
 
 	public static ResourceLocation asResource(String path) {

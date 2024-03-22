@@ -4,9 +4,9 @@ import com.mangomilk.design_decor.blocks.ceiling_fan.CeilingFanBlock;
 import com.mangomilk.design_decor.blocks.ceiling_fan.CeilingFanBlockEntity;
 import com.mangomilk.design_decor.blocks.ceiling_fan.CeilingFanInstance;
 import com.mangomilk.design_decor.blocks.ceiling_fan.CeilingFanRenderer;
-import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerBlockEntity;
-import com.mangomilk.design_decor.blocks.containers.green.GreenContainerBlockEntity;
-import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlockEntity;
+//import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerBlockEntity;
+//import com.mangomilk.design_decor.blocks.containers.green.GreenContainerBlockEntity;
+//import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlockEntity;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelBlockEntity;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelControllerBlockEntity;
 import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlockEntity;
@@ -44,20 +44,20 @@ public class CDDBlockEntities {
             .blockEntity("gas_tank", GasTankBlockEntity::new)
             .validBlocks(CDDBlocks.GAS_TANK, CDDBlocks.COPPER_GAS_TANK)
             .register();
-    public static final BlockEntityEntry<RedContainerBlockEntity> RED_CONTAINER = REGISTRATE
-            .blockEntity("red_container", RedContainerBlockEntity::new)
-            .validBlocks(CDDBlocks.RED_CONTAINER)
-            .register();
-
-    public static final BlockEntityEntry<GreenContainerBlockEntity> GREEN_CONTAINER = REGISTRATE
-            .blockEntity("green_container", GreenContainerBlockEntity::new)
-            .validBlocks(CDDBlocks.RED_CONTAINER)
-            .register();
-
-    public static final BlockEntityEntry<BlueContainerBlockEntity> BLUE_CONTAINER = REGISTRATE
-            .blockEntity("blue_container", BlueContainerBlockEntity::new)
-            .validBlocks(CDDBlocks.RED_CONTAINER)
-            .register();
+//    public static final BlockEntityEntry<RedContainerBlockEntity> RED_CONTAINER = REGISTRATE
+//            .blockEntity("red_container", RedContainerBlockEntity::new)
+//            .validBlocks(CDDBlocks.RED_CONTAINER)
+//            .register();
+//
+//    public static final BlockEntityEntry<GreenContainerBlockEntity> GREEN_CONTAINER = REGISTRATE
+//            .blockEntity("green_container", GreenContainerBlockEntity::new)
+//            .validBlocks(CDDBlocks.RED_CONTAINER)
+//            .register();
+//
+//    public static final BlockEntityEntry<BlueContainerBlockEntity> BLUE_CONTAINER = REGISTRATE
+//            .blockEntity("blue_container", BlueContainerBlockEntity::new)
+//            .validBlocks(CDDBlocks.RED_CONTAINER)
+//            .register();
 
     public static final BlockEntityEntry<MmbCrushingWheelBlockEntity> MMB_CRUSHING_WHEEL = REGISTRATE
             .blockEntity("mmb_crushing_wheel", MmbCrushingWheelBlockEntity::new)

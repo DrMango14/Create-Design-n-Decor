@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.chain;
 
-import com.mangomilk.design_decor.registry.CDDSoundEvents;
+//import com.mangomilk.design_decor.registry.CDDSoundEvents;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
@@ -21,6 +21,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -31,7 +32,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.util.ForgeSoundType;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -54,9 +54,10 @@ public class LargeChain extends ChainBlock implements SimpleWaterloggedBlock, IW
 
     public LargeChain(Properties p_55926_) {
         super(p_55926_.noCollission().noOcclusion().isSuffocating(LargeChain::never).requiresCorrectToolForDrops().strength(5.0F, 6.0F)
-                .sound(new ForgeSoundType(1f, .95f, () -> CDDSoundEvents.LARGE_CHAIN_BREAK.get(),
-                () -> CDDSoundEvents.LARGE_CHAIN_STEP.get(), () -> CDDSoundEvents.LARGE_CHAIN_PLACE.get(),
-                () -> CDDSoundEvents.LARGE_CHAIN_HIT.get(), () -> CDDSoundEvents.LARGE_CHAIN_FALL.get())));
+//                .sound(new SoundType(1f, .95f, CDDSoundEvents.LARGE_CHAIN_BREAK.get(),
+//                CDDSoundEvents.LARGE_CHAIN_STEP.get(), CDDSoundEvents.LARGE_CHAIN_PLACE.get(),
+//                CDDSoundEvents.LARGE_CHAIN_HIT.get(), CDDSoundEvents.LARGE_CHAIN_FALL.get()))
+		);
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(AXIS, Direction.Axis.Y));
     }
 

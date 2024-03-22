@@ -1,7 +1,7 @@
 package com.mangomilk.design_decor.blocks.catwalks;
 
 import com.mangomilk.design_decor.blocks.BoilerBlock;
-import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
+//import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
 import com.mangomilk.design_decor.registry.CDDShapes;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.decoration.copycat.CopycatPanelBlock;

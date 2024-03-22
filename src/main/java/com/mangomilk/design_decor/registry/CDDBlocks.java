@@ -2,6 +2,7 @@ package com.mangomilk.design_decor.registry;
 
 import com.mangomilk.design_decor.DesignDecor;
 import com.mangomilk.design_decor.base.CDDBuilderTransformer;
+import com.mangomilk.design_decor.base.CDDCreativeModeTab;
 import com.mangomilk.design_decor.blocks.*;
 import com.mangomilk.design_decor.blocks.SignBlock;
 import com.mangomilk.design_decor.blocks.breaker_switch.BreakerSwitchBlock;
@@ -11,15 +12,15 @@ import com.mangomilk.design_decor.blocks.catwalks.CatwalkGenerator;
 import com.mangomilk.design_decor.blocks.ceiling_fan.CeilingFanBlock;
 import com.mangomilk.design_decor.blocks.chain.LargeChain;
 import com.mangomilk.design_decor.blocks.chain.TagDependentLargeChain;
-import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlock;
-import com.mangomilk.design_decor.blocks.containers.red.RedContainerCTBehaviour;
-import com.mangomilk.design_decor.blocks.containers.red.RedContainerItem;
-import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerBlock;
-import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerCTBehaviour;
-import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerItem;
-import com.mangomilk.design_decor.blocks.containers.green.GreenContainerBlock;
-import com.mangomilk.design_decor.blocks.containers.green.GreenContainerCTBehaviour;
-import com.mangomilk.design_decor.blocks.containers.green.GreenContainerItem;
+//import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlock;
+//import com.mangomilk.design_decor.blocks.containers.red.RedContainerCTBehaviour;
+//import com.mangomilk.design_decor.blocks.containers.red.RedContainerItem;
+//import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerBlock;
+//import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerCTBehaviour;
+//import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerItem;
+//import com.mangomilk.design_decor.blocks.containers.green.GreenContainerBlock;
+//import com.mangomilk.design_decor.blocks.containers.green.GreenContainerCTBehaviour;
+//import com.mangomilk.design_decor.blocks.containers.green.GreenContainerItem;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelBlock;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelControllerBlock;
 import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderBlock;
@@ -659,56 +660,56 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .register();
 
     //CONTAINERS
-    public static final BlockEntry<RedContainerBlock> RED_CONTAINER = REGISTRATE.block("red_container", RedContainerBlock::new)
-            .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.TERRACOTTA_RED))
-            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
-                    .explosionResistance(1200))
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStates(s -> ConfiguredModel.builder()
-                            .modelFile(AssetLookup.standardModel(c, p))
-                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
-                            .build()))
-            .onRegister(connectedTextures(RedContainerCTBehaviour::new))
-            .item(RedContainerItem::new)
-            .build()
-            .lang("Red Container")
-            .register();
-
-    public static final BlockEntry<BlueContainerBlock> BLUE_CONTAINER = REGISTRATE.block("blue_container",BlueContainerBlock::new)
-            .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.COLOR_BLUE))
-            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
-                    .explosionResistance(1200))
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStates(s -> ConfiguredModel.builder()
-                            .modelFile(AssetLookup.standardModel(c, p))
-                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
-                            .build()))
-            .onRegister(connectedTextures(BlueContainerCTBehaviour::new))
-            .item(BlueContainerItem::new)
-            .build()
-            .lang("Blue Container")
-            .register();
-
-    public static final BlockEntry<GreenContainerBlock> GREEN_CONTAINER = REGISTRATE.block("green_container",GreenContainerBlock::new)
-            .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.COLOR_GREEN))
-            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
-                    .explosionResistance(1200))
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStates(s -> ConfiguredModel.builder()
-                            .modelFile(AssetLookup.standardModel(c, p))
-                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
-                            .build()))
-            .onRegister(connectedTextures(GreenContainerCTBehaviour::new))
-            .item(GreenContainerItem::new)
-            .build()
-            .lang("Green Container")
-            .register();
+//    public static final BlockEntry<RedContainerBlock> RED_CONTAINER = REGISTRATE.block("red_container", RedContainerBlock::new)
+//            .initialProperties(SharedProperties::softMetal)
+//            .properties(p -> p.color(MaterialColor.TERRACOTTA_RED))
+//            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
+//                    .explosionResistance(1200))
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStates(s -> ConfiguredModel.builder()
+//                            .modelFile(AssetLookup.standardModel(c, p))
+//                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
+//                            .build()))
+//            .onRegister(connectedTextures(RedContainerCTBehaviour::new))
+//            .item(RedContainerItem::new)
+//            .build()
+//            .lang("Red Container")
+//            .register();
+//
+//    public static final BlockEntry<BlueContainerBlock> BLUE_CONTAINER = REGISTRATE.block("blue_container",BlueContainerBlock::new)
+//            .initialProperties(SharedProperties::softMetal)
+//            .properties(p -> p.color(MaterialColor.COLOR_BLUE))
+//            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
+//                    .explosionResistance(1200))
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStates(s -> ConfiguredModel.builder()
+//                            .modelFile(AssetLookup.standardModel(c, p))
+//                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
+//                            .build()))
+//            .onRegister(connectedTextures(BlueContainerCTBehaviour::new))
+//            .item(BlueContainerItem::new)
+//            .build()
+//            .lang("Blue Container")
+//            .register();
+//
+//    public static final BlockEntry<GreenContainerBlock> GREEN_CONTAINER = REGISTRATE.block("green_container",GreenContainerBlock::new)
+//            .initialProperties(SharedProperties::softMetal)
+//            .properties(p -> p.color(MaterialColor.COLOR_GREEN))
+//            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
+//                    .explosionResistance(1200))
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStates(s -> ConfiguredModel.builder()
+//                            .modelFile(AssetLookup.standardModel(c, p))
+//                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
+//                            .build()))
+//            .onRegister(connectedTextures(GreenContainerCTBehaviour::new))
+//            .item(GreenContainerItem::new)
+//            .build()
+//            .lang("Green Container")
+//            .register();
 
 
 

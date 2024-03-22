@@ -43,31 +43,31 @@ public class IndustrialGearBlockItem extends BlockItem {
                 PlacementHelpers.register(large ? new IndustrialGearBlockItem.IntegratedLargeCogHelper() : new IndustrialGearBlockItem.IntegratedSmallCogHelper());
     }
 
-    @Override
-    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
-        Level world = context.getLevel();
-        BlockPos pos = context.getClickedPos();
-        BlockState state = world.getBlockState(pos);
-
-        IPlacementHelper helper = PlacementHelpers.get(placementHelperId);
-        Player player = context.getPlayer();
-        BlockHitResult ray = new BlockHitResult(context.getClickLocation(), context.getClickedFace(), pos, true);
-        if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
-            return helper.getOffset(player, world, state, pos, ray)
-                    .placeInWorld(world, this, player, context.getHand(), ray);
-        }
-
-        if (integratedCogHelperId != -1) {
-            helper = PlacementHelpers.get(integratedCogHelperId);
-
-            if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
-                return helper.getOffset(player, world, state, pos, ray)
-                        .placeInWorld(world, this, player, context.getHand(), ray);
-            }
-        }
-
-        return super.onItemUseFirst(stack, context);
-    }
+//    @Override
+//    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+//        Level world = context.getLevel();
+//        BlockPos pos = context.getClickedPos();
+//        BlockState state = world.getBlockState(pos);
+//
+//        IPlacementHelper helper = PlacementHelpers.get(placementHelperId);
+//        Player player = context.getPlayer();
+//        BlockHitResult ray = new BlockHitResult(context.getClickLocation(), context.getClickedFace(), pos, true);
+//        if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
+//            return helper.getOffset(player, world, state, pos, ray)
+//                    .placeInWorld(world, this, player, context.getHand(), ray);
+//        }
+//
+//        if (integratedCogHelperId != -1) {
+//            helper = PlacementHelpers.get(integratedCogHelperId);
+//
+//            if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
+//                return helper.getOffset(player, world, state, pos, ray)
+//                        .placeInWorld(world, this, player, context.getHand(), ray);
+//            }
+//        }
+//
+//        return super.onItemUseFirst(stack, context);
+//    }
 
     @MethodsReturnNonnullByDefault
     private static class SmallCogHelper extends IndustrialGearBlockItem.DiagonalCogHelper {

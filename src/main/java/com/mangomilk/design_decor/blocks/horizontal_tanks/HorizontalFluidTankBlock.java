@@ -5,7 +5,10 @@ import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.simibubi.create.api.connectivity.ConnectivityHandler;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
+import com.simibubi.create.foundation.blockEntity.ComparatorUtil;
 import com.simibubi.create.foundation.item.ItemHelper;
+
+import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
@@ -28,8 +31,6 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraftforge.common.util.ForgeSoundType;
-import net.minecraftforge.items.CapabilityItemHandler;
 
 import javax.annotation.Nullable;
 
@@ -138,14 +139,14 @@ public class HorizontalFluidTankBlock extends Block implements IWrenchable, IBE<
 
 	// Vaults are less noisy when placed in batch
 	public static final SoundType SILENCED_WOOD =
-		new ForgeSoundType(0.1F, 1.5F, () -> SoundEvents.WOOD_BREAK, () -> SoundEvents.WOOD_STEP,
-			() -> SoundEvents.WOOD_PLACE, () -> SoundEvents.WOOD_HIT,
-			() -> SoundEvents.WOOD_FALL);
+		new SoundType(0.1F, 1.5F, SoundEvents.WOOD_BREAK, SoundEvents.WOOD_STEP,
+			SoundEvents.WOOD_PLACE, SoundEvents.WOOD_HIT,
+			SoundEvents.WOOD_FALL);
 
-	@Override
+//	@Override
 	public SoundType getSoundType(BlockState state, LevelReader world, BlockPos pos, Entity entity) {
-		SoundType soundType = super.getSoundType(state, world, pos, entity);
-		if (entity != null && entity.getPersistentData()
+		SoundType soundType = super.getSoundType(state);
+		if (entity != null && entity.getExtraCustomData()
 			.contains("SilenceVaultSound"))
 			return SILENCED_WOOD;
 		return soundType;
@@ -159,10 +160,9 @@ public class HorizontalFluidTankBlock extends Block implements IWrenchable, IBE<
 	@Override
 	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
 		return getBlockEntityOptional(pLevel, pPos)
-			.map(vte -> vte.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY))
-			.map(lo -> lo.map(ItemHelper::calcRedstoneFromInventory)
-				.orElse(0))
-			.orElse(0);
+				.map(HorizontalFluidTankBlockEntity::getControllerBE)
+				.map(be->ComparatorUtil.fractionToRedstoneLevel((double) be.fluidInventory.getPrimaryHandler().getFluidAmount() /be.getCapacity()))
+				.orElse(0);
 	}
 
 	@Override

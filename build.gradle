@@ -72,6 +72,15 @@ dependencies {
 //    modCompileOnly("dev.emi:emi:${emi_version}")
 }
 
+sourceSets {
+	main {
+		resources {
+			srcDir("src/generated/resources")
+			exclude("src/generated/resources/.cache")
+		}
+	}
+}
+
 loom {
 	accessWidenerPath = file("src/main/resources/design_decor.accesswidener")
 	runs {

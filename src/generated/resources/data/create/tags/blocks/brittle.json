@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "design_decor:aluminium_large_chain",
+    "design_decor:andesite_large_chain",
+    "design_decor:brass_large_chain",
+    "design_decor:strong_bronze_large_chain",
+    "design_decor:bronze_large_chain",
+    "design_decor:cast_iron_large_chain",
+    "design_decor:copper_large_chain",
+    "design_decor:electrum_large_chain",
+    "design_decor:gold_large_chain",
+    "design_decor:industrial_iron_large_chain",
+    "design_decor:iron_large_chain",
+    "design_decor:lead_large_chain",
+    "design_decor:mithril_large_chain",
+    "design_decor:netherite_large_chain",
+    "design_decor:nethersteel_large_chain",
+    "design_decor:zinc_large_chain",
+    "design_decor:tin_large_chain",
+    "design_decor:steel_large_chain",
+    "design_decor:silver_large_chain",
+    "design_decor:invar_large_chain",
+    "design_decor:nickel_large_chain",
+    "design_decor:rose_gold_large_chain",
+    "design_decor:cobalt_large_chain",
+    "design_decor:manyullyn_large_chain",
+    "design_decor:hepatizon_large_chain",
+    "design_decor:pig_iron_large_chain",
+    "design_decor:knightslime_large_chain",
+    "design_decor:queen_slime_large_chain"
+  ]
+}

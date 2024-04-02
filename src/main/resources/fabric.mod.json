@@ -10,17 +10,20 @@
     "Luna",
     "Pepa",
     "Spydnel",
-    "Szedamm"
+    "Szedann"
   ],
   "contact": {
     "sources": "https://github.com/Fabricators-of-Create/create-fabric-addon-template"
   },
   "license": "CC0",
-  "icon": "/logo.png",
+  "icon": "logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [
       "com.mangomilk.design_decor.DesignDecor"
+    ],
+    "fabric-datagen": [
+      "com.mangomilk.design_decor.base.CDDDatagen"
     ]
   },
   "mixins": [

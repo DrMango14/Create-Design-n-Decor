@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "design_decor:granite_castel_brick_stairs",
+    "design_decor:granite_castel_brick_wall",
+    "design_decor:granite_castel_bricks",
+    "design_decor:granite_castel_tile_stairs",
+    "design_decor:granite_castel_tile_wall",
+    "design_decor:granite_castel_tiles"
+  ]
+}

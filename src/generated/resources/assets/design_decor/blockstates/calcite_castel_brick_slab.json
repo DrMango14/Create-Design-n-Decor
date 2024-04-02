@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "design_decor:block/calcite_castel_brick_slab"
+    },
+    "type=double": {
+      "model": "design_decor:block/slabs/calcite_castel_bricks"
+    },
+    "type=top": {
+      "model": "design_decor:block/calcite_castel_brick_slab_top"
+    }
+  }
+}

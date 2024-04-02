@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "design_decor:block/aluminium_boiler_special/block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "design_decor:block/aluminium_boiler_special/block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "design_decor:block/aluminium_boiler_special/block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "design_decor:block/aluminium_boiler_special/block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "design_decor:block/aluminium_boiler_special/block"
+    },
+    "facing=west": {
+      "model": "design_decor:block/aluminium_boiler_special/block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

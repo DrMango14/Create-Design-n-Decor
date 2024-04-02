@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "tag": "create:stone_types/calcite"
+  },
+  "result": "design_decor:calcite_castel_brick_slab"
+}

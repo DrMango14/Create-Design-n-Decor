@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "create:stone_types/scorchia"
+  },
+  "result": "design_decor:scorchia_castel_tile_wall"
+}

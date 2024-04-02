@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "design_decor:diorite_castel_brick_stairs",
+    "design_decor:diorite_castel_brick_wall",
+    "design_decor:diorite_castel_bricks",
+    "design_decor:diorite_castel_tile_stairs",
+    "design_decor:diorite_castel_tile_wall",
+    "design_decor:diorite_castel_tiles"
+  ]
+}

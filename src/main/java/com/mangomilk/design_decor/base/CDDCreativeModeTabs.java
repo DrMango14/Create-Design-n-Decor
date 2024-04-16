@@ -169,13 +169,13 @@ public class CDDCreativeModeTabs {
 		private static Function<Item, CreativeModeTab.TabVisibility> makeVisibilityFunc() {
 			Map<Item, CreativeModeTab.TabVisibility> visibilities = new Reference2ObjectOpenHashMap<>();
 
-			Map<ItemProviderEntry<?>, CreativeModeTab.TabVisibility> simpleVisibilities = Map.of(
-					AllItems.BLAZE_CAKE_BASE, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY
-			);
+//			Map<ItemProviderEntry<?>, CreativeModeTab.TabVisibility> simpleVisibilities = Map.of(
+//					AllItems.BLAZE_CAKE_BASE, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY
+//			);
 
-			simpleVisibilities.forEach((entry, factory) -> {
-				visibilities.put(entry.asItem(), factory);
-			});
+//			simpleVisibilities.forEach((entry, factory) -> {
+//				visibilities.put(entry.asItem(), factory);
+//			});
 
 //			for (BlockEntry<ValveHandleBlock> entry : AllBlocks.DYED_VALVE_HANDLES) {
 //				visibilities.put(entry.asItem(), TabVisibility.SEARCH_TAB_ONLY);
@@ -226,7 +226,7 @@ public class CDDCreativeModeTabs {
 
 		private List<Item> collectBlocks(Predicate<Item> exclusionPredicate) {
 			List<Item> items = new ReferenceArrayList<>();
-			for (RegistryEntry<Block> entry : Create.REGISTRATE.getAll(Registries.BLOCK)) {
+			for (RegistryEntry<Block> entry : DesignDecor.REGISTRATE.getAll(Registries.BLOCK)) {
 				if (!CreateRegistrate.isInCreativeTab(entry, tabFilter.get().key()))
 					continue;
 				Item item = entry.get()

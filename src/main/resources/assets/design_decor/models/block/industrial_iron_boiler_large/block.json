@@ -1,6 +1,7 @@
 {
 	"parent": "design_decor:block/industrial_iron_boiler_large/industrial_iron_boiler",
 	"loader": "forge:obj",
+	"porting_lib:loader": "porting_lib:obj",
 	"flip_v": true,
 	"model": "design_decor:models/block/boilers/large.obj"
 }

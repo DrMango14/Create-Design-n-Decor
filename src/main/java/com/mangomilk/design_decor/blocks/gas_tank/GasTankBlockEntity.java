@@ -10,6 +10,9 @@ import com.simibubi.create.foundation.utility.LangBuilder;
 import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTank;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import io.github.fabricators_of_create.porting_lib.util.LazyOptional;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
+import net.fabricmc.fabric.api.transfer.v1.storage.base.SidedStorageBlockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,12 +21,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
+import org.jetbrains.annotations.Nullable;
+
 
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
 
-public class GasTankBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation {
+public class GasTankBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation, SidedStorageBlockEntity {
 
 
     protected FluidTank tankInventory;
@@ -79,6 +84,12 @@ public class GasTankBlockEntity extends SmartBlockEntity implements IHaveGoggleI
     }
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {}
+
+	@Nullable
+	@Override
+	public Storage<FluidVariant> getFluidStorage(@Nullable Direction direction) {
+		return tankInventory;
+	}
     @Override
     @SuppressWarnings("removal")
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {

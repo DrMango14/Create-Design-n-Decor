@@ -6,6 +6,7 @@ import com.simibubi.create.content.kinetics.crusher.CrushingWheelBlockEntity;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlockEntity;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
+import com.simibubi.create.foundation.damageTypes.CreateDamageSources;
 import com.simibubi.create.foundation.item.ItemHelper;
 import com.simibubi.create.foundation.sound.SoundScapes;
 import com.simibubi.create.foundation.sound.SoundScapes.AmbienceGroup;
@@ -114,15 +115,15 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 
 			// Output Items
 			if (facing != Direction.UP) {
-				BlockPos nextPos = worldPosition.offset(facing.getAxis() == Axis.X ? 1f * offset : 0f, (-1f),
-					facing.getAxis() == Axis.Z ? 1f * offset : 0f);
+				BlockPos nextPos = worldPosition.offset((int) (facing.getAxis() == Axis.X ? 1f * offset : 0f), (int) -1f,
+                        (int) (facing.getAxis() == Axis.Z ? 1f * offset : 0f));
 				DirectBeltInputBehaviour behaviour =
 					BlockEntityBehaviour.get(level, nextPos, DirectBeltInputBehaviour.TYPE);
 				if (behaviour != null) {
 					boolean changed = false;
 					if (!behaviour.canInsertFromSide(facing))
 						return;
-					for (int slot = 0; slot < inventory.getSlots(); slot++) {
+					for (int slot = 0; slot < inventory.getSlots().size(); slot++) {
 						ItemStack stack = inventory.getStackInSlot(slot);
 						if (stack.isEmpty())
 							continue;
@@ -141,13 +142,13 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 			}
 
 			// Eject Items
-			for (int slot = 0; slot < inventory.getSlots(); slot++) {
+			for (int slot = 0; slot < inventory.getSlots().size(); slot++) {
 				ItemStack stack = inventory.getStackInSlot(slot);
 				if (stack.isEmpty())
 					continue;
 				ItemEntity entityIn = new ItemEntity(level, outPos.x, outPos.y, outPos.z, stack);
 				entityIn.setDeltaMovement(outSpeed);
-				entityIn.getExtraCustomData()
+				entityIn.getCustomData()
 					.put("BypassCrushingWheel", NbtUtils.writeBlockPos(worldPosition));
 				level.addFreshEntity(entityIn);
 			}
@@ -199,7 +200,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 					processingEntity.setPos(entityOutPos.x, entityOutPos.y, entityOutPos.z);
 				}
 			}
-			processingEntity.hurt(CrushingWheelBlockEntity.DAMAGE_SOURCE, crusherDamage);
+			processingEntity.hurt(CreateDamageSources.crush(level), crusherDamage);
 			if (!processingEntity.isAlive()) {
 				processingEntity.setPos(entityOutPos.x, entityOutPos.y, entityOutPos.z);
 			}
@@ -274,7 +275,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 					ItemHelper.addToList(stack, list);
 				}
 			}
-			for (int slot = 0; slot < list.size() && slot + 1 < inventory.getSlots(); slot++)
+			for (int slot = 0; slot < list.size() && slot + 1 < inventory.getSlots().size(); slot++)
 				inventory.setStackInSlot(slot + 1, list.get(slot));
 		} else {
 			inventory.clear();

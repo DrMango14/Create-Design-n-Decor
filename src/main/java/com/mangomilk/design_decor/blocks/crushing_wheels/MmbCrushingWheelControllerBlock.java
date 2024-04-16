@@ -84,7 +84,7 @@ public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBloc
 			return;
 //		if (entityIn instanceof ItemEntity)
 //			((ItemEntity) entityIn).setPickUpDelay(10);
-		CompoundTag data = entityIn.getExtraCustomData();
+		CompoundTag data = entityIn.getCustomData();
 		if (data.contains("BypassCrushingWheel")) {
 			if (pos.equals(NbtUtils.readBlockPos(data.getCompound("BypassCrushingWheel"))))
 				return;
@@ -94,7 +94,7 @@ public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBloc
 		boolean isPlayer = entityIn instanceof Player;
 		if (isPlayer && ((Player) entityIn).isCreative())
 			return;
-		if (isPlayer && entityIn.level.getDifficulty() == Difficulty.PEACEFUL)
+		if (isPlayer && entityIn.level().getDifficulty() == Difficulty.PEACEFUL)
 			return;
 
 		be.startCrushing(entityIn);
@@ -183,7 +183,7 @@ public class MmbCrushingWheelControllerBlock extends CrushingWheelControllerBloc
 		if (entity == null)
 			return standardShape;
 
-		CompoundTag data = entity.getExtraCustomData();
+		CompoundTag data = entity.getCustomData();
 		if (data.contains("BypassCrushingWheel"))
 			if (pos.equals(NbtUtils.readBlockPos(data.getCompound("BypassCrushingWheel"))))
 				if (state.getValue(FACING) != Direction.UP) // Allow output items to land on top of the block rather

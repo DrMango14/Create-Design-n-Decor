@@ -110,10 +110,6 @@ public class MmbCrushingWheelBlock extends CrushingWheelBlock {
 		}
 
 		if (!controllerExists) {
-			if (!world.getBlockState(controllerPos)
-					.getMaterial()
-					.isReplaceable())
-				return;
 			world.setBlockAndUpdate(controllerPos, CDDBlocks.MMB_CRUSHING_WHEEL_CONTROLLER.getDefaultState()
 					.setValue(VALID, controllerShouldBeValid)
 					.setValue(CrushingWheelControllerBlock.FACING, controllerNewDirection));
@@ -152,7 +148,7 @@ public class MmbCrushingWheelBlock extends CrushingWheelBlock {
 	public Class<CrushingWheelBlockEntity> getBlockEntityClass() {
 		return CrushingWheelBlockEntity.class;
 	}
-	
+
 	@Override
 	public BlockEntityType<? extends CrushingWheelBlockEntity> getBlockEntityType() {
 		return CDDBlockEntities.MMB_CRUSHING_WHEEL.get();

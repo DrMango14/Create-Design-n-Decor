@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor;
 
-import com.mangomilk.design_decor.base.CDDCreativeModeTab;
+import com.mangomilk.design_decor.base.CDDCreativeModeTabs;
 import com.mangomilk.design_decor.registry.CDDBlockEntities;
 import com.mangomilk.design_decor.registry.CDDBlocks;
 import com.mangomilk.design_decor.registry.CDDItems;
@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 public class DesignDecor implements ModInitializer {
 	public static final String MOD_ID = "design_decor";
 	public static final String NAME = "Create: Design n' Decor";
-	public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DesignDecor.MOD_ID).creativeModeTab(()-> CDDCreativeModeTab.BUILDING);
+	public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(DesignDecor.MOD_ID);
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	@Override
@@ -32,6 +32,8 @@ public class DesignDecor implements ModInitializer {
 				() -> () -> "{} is accessing Porting Lib from the client!",
 				() -> () -> "{} is accessing Porting Lib from the server!"
 		), NAME);
+		CDDCreativeModeTabs.register();
+		REGISTRATE.setCreativeTab(CDDCreativeModeTabs.BUILDING.key());
 		CDDBlocks.register();
 		CDDBlocks.DecoTags.init();
 		CDDItems.register();
@@ -39,8 +41,8 @@ public class DesignDecor implements ModInitializer {
 		CDDBlockEntities.register();
 		CDDSpriteShifts.init();
 		CDDPartialModels.init();
-
 		REGISTRATE.register();
+
 	}
 
 	public static ResourceLocation asResource(String path) {

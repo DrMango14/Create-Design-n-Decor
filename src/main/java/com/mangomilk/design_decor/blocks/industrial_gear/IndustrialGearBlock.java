@@ -75,11 +75,11 @@ public class IndustrialGearBlock extends ShaftBlock implements ICogWheel, Encasa
         return !isLarge;
     }
 
-    @Override
-    public void fillItemCategory(CreativeModeTab pTab, NonNullList<ItemStack> pItems) {
-        super.fillItemCategory(pTab, pItems);
-        CDDBlocks.LARGE_COGWHEEL.is(this);
-    }
+//    @Override
+//    public void fillItemCategory(CreativeModeTab pTab, NonNullList<ItemStack> pItems) {
+//        super.fillItemCategory(pTab, pItems);
+//        CDDBlocks.LARGE_COGWHEEL.is(this);
+//    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {

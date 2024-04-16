@@ -146,7 +146,7 @@ public class HorizontalFluidTankBlock extends Block implements IWrenchable, IBE<
 //	@Override
 	public SoundType getSoundType(BlockState state, LevelReader world, BlockPos pos, Entity entity) {
 		SoundType soundType = super.getSoundType(state);
-		if (entity != null && entity.getExtraCustomData()
+		if (entity != null && entity.getCustomData()
 			.contains("SilenceVaultSound"))
 			return SILENCED_WOOD;
 		return soundType;

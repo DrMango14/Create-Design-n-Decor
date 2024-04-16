@@ -111,10 +111,10 @@ public class CatwalkBlock extends Block implements IWrenchable, SimpleWaterlogge
                                          BlockHitResult ray) {
             List<Direction> directions = IPlacementHelper.orderedByDistanceExceptAxis(pos, ray.getLocation(),
                     Direction.UP
-                            .getAxis(),
-                    dir -> world.getBlockState(pos.relative(dir))
-                            .getMaterial()
-                            .isReplaceable());
+                            .getAxis());
+//                    dir -> world.getBlockState(pos.relative(dir))
+//							.
+//                            .isReplaceable());
 
             boolean down = state.getValue(DOWN);
 

@@ -5,10 +5,10 @@ import com.mangomilk.design_decor.DesignDecor;
 import com.simibubi.create.foundation.ponder.PonderLocalization;
 import com.tterrag.registrate.providers.ProviderType;
 
+import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +23,7 @@ public class CDDDatagen implements DataGeneratorEntrypoint {
 		ExistingFileHelper helper = new ExistingFileHelper(
 				Set.of(CDDResources), Set.of("create"), false, null, null
 		);
-		REGISTRATE.setupDatagen(gen, helper);
+		REGISTRATE.setupDatagen(gen.createPack(), helper);
 	}
 
 	public static void gatherData(DataGenerator gen) {

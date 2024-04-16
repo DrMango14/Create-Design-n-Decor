@@ -2,7 +2,6 @@ package com.mangomilk.design_decor.blocks.stepped_lever;
 
 import com.mangomilk.design_decor.registry.CDDBlockEntities;
 import com.mangomilk.design_decor.registry.CDDShapes;
-import com.mojang.math.Vector3f;
 import com.simibubi.create.foundation.block.IBE;
 
 import net.fabricmc.api.EnvType;
@@ -29,6 +28,8 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import org.joml.Vector3f;
 //import net.minecraftforge.api.distmarker.Dist;
 //import net.minecraftforge.api.distmarker.OnlyIn;
 

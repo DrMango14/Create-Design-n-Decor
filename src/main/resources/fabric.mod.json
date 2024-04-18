@@ -13,9 +13,9 @@
     "Szedann"
   ],
   "contact": {
-    "sources": "https://github.com/Fabricators-of-Create/create-fabric-addon-template"
+    "sources": "https://github.com/Szedann/Create-Design-n-Decor"
   },
-  "license": "CC0",
+  "license": "MIT",
   "icon": "logo.png",
   "environment": "*",
   "entrypoints": {

@@ -13,6 +13,8 @@ import com.simibubi.create.Create;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 
 import io.github.fabricators_of_create.porting_lib.util.EnvExecutor;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.ResourceLocation;
@@ -40,7 +42,7 @@ public class DesignDecor implements ModInitializer {
 //		CDDSoundEvents.register(eventBus);
 		CDDBlockEntities.register();
 		CDDSpriteShifts.init();
-		CDDPartialModels.init();
+		EnvExecutor.runWhenOn(EnvType.CLIENT, ()-> CDDPartialModels::init);
 		REGISTRATE.register();
 
 	}

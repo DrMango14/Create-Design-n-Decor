@@ -17,6 +17,9 @@ public class CDDShapes {
     public static final VoxelShaper
             STEPPED_LEVER = shape(4, 0, 0, 12, 5, 16)
             .forHorizontalAxis(),
+
+
+
             STEPPED_LEVER_CEILING = shape(4, 11, 0, 15, 16, 16)
                     .forHorizontalAxis(),
             STEPPED_LEVER_WALL = shape(4, 0, 0, 12, 16, 5)
@@ -28,15 +31,21 @@ public class CDDShapes {
             BREAKER_SWITCH_CEILING = shape(4, 13, 2, 15, 16, 14)
                     .forHorizontalAxis(),
             BREAKER_SWITCH_WALL = shape(4, 2, 0, 12, 14, 3)
-                    .forHorizontal(SOUTH)
+                    .forHorizontal(SOUTH),
 
+            DIAGONAL_METAL_SUPPORT = shape(3, 0, 11, 13, 10, 16).add(0, 12, 0, 16, 16, 16)
+                    .forHorizontal(SOUTH),
 
+            METAL_SUPPORT = shape(4, 13, 0, 12, 16, 16).add(4, 0, 4, 12, 13, 12)
+            .forHorizontalAxis()
 
 
                     ;
     public static final VoxelShape
             CATWALK_DOWN = shape(0, 0, 0, 16, 2, 16).build(),
             CATWALK = shape(0, 14, 0, 16, 16, 16).build(),
+
+            WOODEN_SUPPORT = shape(4, 0, 4, 12, 16, 12).build(),
 
             EMPTY = shape(0, 0, 0, 0, 0, 0).build();
 

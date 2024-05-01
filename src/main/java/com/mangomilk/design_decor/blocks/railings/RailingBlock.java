@@ -6,6 +6,8 @@ import com.simibubi.create.foundation.utility.VoxelShaper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -22,11 +24,17 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class RailingBlock extends Block {
@@ -85,6 +93,12 @@ public class RailingBlock extends Block {
     }
 
 
+
+
+
+
+
+
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_55125_) {
         p_55125_.add(WATERLOGGED,NORTH,SOUTH,WEST,EAST);
     }
@@ -120,4 +134,33 @@ public class RailingBlock extends Block {
         return super.updateShape(p_51461_, p_51462_, p_51463_, p_51464_, p_51465_, p_51466_);
     }
 
+
+    @Override
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+
+
+        int numero = 0;
+
+        if(state.getValue(NORTH))
+            numero++;
+        if(state.getValue(SOUTH))
+            numero++;
+        if(state.getValue(EAST))
+            numero++;
+        if(state.getValue(WEST))
+            numero++;
+        ResourceLocation resourcelocation = this.getLootTable();
+        LootContext lootcontext = builder.withParameter(LootContextParams.BLOCK_STATE, state).create(LootContextParamSets.BLOCK);
+        ServerLevel serverlevel = lootcontext.getLevel();
+        LootTable lootTable = serverlevel.getServer().getLootTables().get(resourcelocation);
+        
+        
+        ItemStack stack = lootTable.getRandomItems(lootcontext).get(0);
+        stack.setCount(numero);
+
+
+        return List.of(stack);
+
+
+    }
 }

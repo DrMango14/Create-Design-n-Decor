@@ -1,5 +1,7 @@
 {
   "values": [
+    "design_decor:metal_plate_slab",
+    "design_decor:metal_sheet_slab",
     "design_decor:granite_castel_brick_slab",
     "design_decor:diorite_castel_brick_slab",
     "design_decor:andesite_castel_brick_slab",

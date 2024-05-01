@@ -2,6 +2,7 @@ package com.mangomilk.design_decor.registry;
 
 import com.mangomilk.design_decor.DesignDecor;
 import com.mangomilk.design_decor.base.CDDBuilderTransformer;
+import com.mangomilk.design_decor.base.CDDVanillaBlockStates;
 import com.mangomilk.design_decor.blocks.*;
 import com.mangomilk.design_decor.blocks.SignBlock;
 import com.mangomilk.design_decor.blocks.breaker_switch.BreakerSwitchBlock;
@@ -57,6 +58,10 @@ import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.Industrial
 import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincBoilerStructure;
 import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlock;
 import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlockItem;
+import com.mangomilk.design_decor.blocks.metal_support.MetalSupportBlock;
+import com.mangomilk.design_decor.blocks.metal_support.MetalSupportGenerator;
+import com.mangomilk.design_decor.blocks.metal_support.diagonal.DiagonalMetalSupportBlock;
+import com.mangomilk.design_decor.blocks.metal_support.diagonal.DiagonalMetalSupportCtBehavior;
 import com.mangomilk.design_decor.blocks.millstone.block.*;
 import com.mangomilk.design_decor.blocks.railings.RailingBlock;
 import com.mangomilk.design_decor.blocks.railings.RailingBlockItem;
@@ -65,10 +70,8 @@ import com.mangomilk.design_decor.blocks.screws.ScrewGenerator;
 import com.mangomilk.design_decor.blocks.breaker_switch.LeverGenerator;
 import com.mangomilk.design_decor.blocks.stepped_lever.SteppedLeverBlock;
 import com.simibubi.create.AllTags;
-import com.simibubi.create.Create;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
-import com.simibubi.create.content.kinetics.flywheel.FlywheelBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
 import com.simibubi.create.foundation.block.ItemUseOverrides;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
@@ -78,6 +81,7 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
+import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderType;
@@ -85,6 +89,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -103,6 +108,7 @@ import java.util.Collections;
 
 import static com.mangomilk.design_decor.DesignDecor.REGISTRATE;
 import static com.mangomilk.design_decor.base.CDDBuilderTransformer.*;
+import static com.simibubi.create.foundation.data.BlockStateGen.simpleCubeAll;
 import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
@@ -1413,6 +1419,64 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
                     .register();
 
 
+    public static final BlockEntry<Block> ZINC_CHECKER_TILES =
+            REGISTRATE.block("zinc_checker_tiles", Block::new)
+                    .initialProperties(SharedProperties::softMetal)
+                    .onRegister(connectedTextures(() -> new EncasedCTBehaviour(CDDSpriteShifts.ZINC_CHECKER_TILES)))
+                    .onRegister(casingConnectivity((block, cc) -> cc.makeCasing(block, CDDSpriteShifts.ZINC_CHECKER_TILES)))
+                    .properties(p -> p.color(MaterialColor.COLOR_GRAY))
+                    .properties(p -> p.sound(SoundType.COPPER))
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/zinc")), c::get, 4))
+                    .properties(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .transform(pickaxeOnly())
+                    .simpleItem()
+                    .lang("Zinc Checker Tiles")
+                    .register();
+
+    public static final BlockEntry<WoodSupportBlock> WOOD_SUPPORT =
+            REGISTRATE.block("wood_support", WoodSupportBlock::new)
+                    .initialProperties(SharedProperties::wooden)
+                    .onRegister(connectedTextures(() -> new VerticalCtBehavior(CDDSpriteShifts.WOOD_SUPPORT)))
+                    .properties(p -> p.sound(SoundType.WOOD))
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.tag(ItemTags.PLANKS), c::get, 4))
+                    .properties(BlockBehaviour.Properties::noOcclusion)
+                    .blockstate((ctx, prov) -> prov.simpleBlock(ctx.getEntry(), AssetLookup.partialBaseModel(ctx, prov)))
+                    .transform(axeOnly())
+                    .simpleItem()
+                    .lang("Wooden Support")
+                    .register();
+
+
+
+    public static final BlockEntry<MetalSupportBlock> METAL_SUPPORT =
+            REGISTRATE.block("metal_support", MetalSupportBlock::new)
+                    .initialProperties(SharedProperties::softMetal)
+                    .onRegister(connectedTextures(() -> new VerticalCtBehavior(CDDSpriteShifts.METAL_SUPPORT)))
+                    .properties(p -> p.sound(SoundType.COPPER))
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 4))
+                    .properties(BlockBehaviour.Properties::noOcclusion)
+                    .blockstate(new MetalSupportGenerator()::generate)
+                    .transform(axeOnly())
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Metal Support")
+                    .register();
+
+    public static final BlockEntry<DiagonalMetalSupportBlock> DIAGONAL_METAL_SUPPORT =
+            REGISTRATE.block("diagonal_metal_support", DiagonalMetalSupportBlock::new)
+                    .initialProperties(SharedProperties::softMetal)
+                    .onRegister(connectedTextures(() -> new DiagonalMetalSupportCtBehavior(CDDSpriteShifts.DIAGONAL_METAL_SUPPORT)))
+                    .properties(p -> p.sound(SoundType.COPPER))
+                    .properties(BlockBehaviour.Properties::noOcclusion)
+                    .transform(axeOnly())
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 4))
+                    .blockstate(BlockStateGen.horizontalBlockProvider(true))
+                    .item()
+                    .transform(customItemModel())
+                    .lang("Diagonal Metal Support")
+                    .register();
+
+
     public static final BlockEntry<CatwalkBlock> IRON_CATWALK =
             REGISTRATE.block("iron_catwalk", CatwalkBlock::new)
                     .initialProperties(SharedProperties::copperMetal)
@@ -1427,6 +1491,11 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
                     .simpleItem()
                     .lang("Iron Catwalk")
                     .register();
+
+
+
+
+
     public static final BlockEntry<CatwalkBlock> BRASS_CATWALK =
             REGISTRATE.block("brass_catwalk", CatwalkBlock::new)
                     .initialProperties(SharedProperties::copperMetal)
@@ -2066,7 +2135,235 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             }
             return 0;
         }
+    public static final BlockEntry<Block> METAL_PLATE = generateMetalPlates(true);
+    public static final BlockEntry<Block> METAL_SHEET = generateMetalPlates(false);
 
+    public static final BlockEntry<SlabBlock> METAL_PLATE_SLAB =
+            REGISTRATE.block( "metal_plate_slab", SlabBlock::new)
+            .initialProperties(() -> Blocks.STONE)
+            .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+            .properties(p -> p.requiresCorrectToolForDrops())
+            .transform(pickaxeOnly())
+                            .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 8))
+    
+            .blockstate((c, p) -> CDDVanillaBlockStates.generateSlabBlockState(c, p, "metal_plate"))
+            .tag(BlockTags.NEEDS_STONE_TOOL)
+                .tag(BlockTags.SLABS)
+                .item()
+                .transform(customItemModel("metal_plate_bottom"))
+            .lang("Metal Plate Slab")
+                .register();
+    public static final BlockEntry<SlabBlock> METAL_SHEET_SLAB =
+            REGISTRATE.block( "metal_sheet_slab", SlabBlock::new)
+                    .initialProperties(() -> Blocks.STONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(p -> p.requiresCorrectToolForDrops())
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> CDDVanillaBlockStates.generateSlabBlockState(c, p, "metal_sheet"))
+                    .tag(BlockTags.NEEDS_STONE_TOOL)
+                    .tag(BlockTags.SLABS)
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 8))
+    
+                    .item()
+                    .transform(customItemModel("metal_sheet_bottom"))
+                    .lang("Metal Sheet Slab")
+                    .register();
+
+    public static BlockEntry<Block> generateMetalPlates(boolean plates) {
+
+
+
+
+        String name = plates ? "metal_plate" : "metal_sheet";
+        String nameUpperCase = plates ? "Metal Plate" : "Metal Sheet";
+
+        generateColoredMetalPlates(name,nameUpperCase,plates);
+
+        REGISTRATE.block(name+"_wall", WallBlock::new)
+                .initialProperties(() -> Blocks.STONE)
+                .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                .properties(p -> p.requiresCorrectToolForDrops())
+                .transform(pickaxeOnly())
+                .blockstate((c, p) -> CDDVanillaBlockStates.generateWallBlockState(c, p, name))
+                .tag(BlockTags.NEEDS_STONE_TOOL)
+                .tag(BlockTags.WALLS)
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 4))
+
+                .item()
+                .transform(b -> CDDVanillaBlockStates.transformWallItem(b, name))
+                .build()
+                .lang(nameUpperCase+" Wall")
+                .register();
+
+
+
+        if(plates) {
+            REGISTRATE.block(name + "_stairs", p -> new StairBlock(() -> CDDBlocks.METAL_PLATE.get().defaultBlockState(), p))
+                    .initialProperties(() -> Blocks.STONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(p -> p.requiresCorrectToolForDrops())
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> CDDVanillaBlockStates.generateStairBlockState(c, p, name))
+                    .tag(BlockTags.NEEDS_STONE_TOOL)
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 4))
+    
+                    .tag(BlockTags.STAIRS)
+                    .item()
+                    .transform(b -> CDDVanillaBlockStates.transformStairItem(b, name))
+                    .build()
+                    .lang(nameUpperCase + " Stairs")
+                    .register();
+        }else
+            REGISTRATE.block(name + "_stairs", p -> new StairBlock(() -> CDDBlocks.METAL_SHEET.get().defaultBlockState(), p))
+                    .initialProperties(() -> Blocks.STONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(p -> p.requiresCorrectToolForDrops())
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> CDDVanillaBlockStates.generateStairBlockState(c, p, name))
+                    .tag(BlockTags.NEEDS_STONE_TOOL)
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 4))
+    
+                    .tag(BlockTags.STAIRS)
+                    .item()
+                    .transform(b -> CDDVanillaBlockStates.transformStairItem(b, name))
+                    .build()
+                    .lang(nameUpperCase + " Stairs")
+                    .register();
+
+
+
+
+
+
+        return REGISTRATE.block(name, Block::new)
+                .initialProperties(() -> Blocks.STONE)
+                .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                .properties(p -> p.requiresCorrectToolForDrops())
+                .transform(pickaxeOnly())
+                .blockstate(simpleCubeAll(name))
+                .recipe((c, p) -> p.stonecutting(DataIngredient.tag(AllTags.forgeItemTag("ingots/iron")), c::get, 4))
+
+                .tag(BlockTags.NEEDS_STONE_TOOL)
+                .transform(tagBlockAndItem(name))
+                .build()
+                .lang(nameUpperCase)
+                .register();
+    }
+
+
+    //Սկիբիդի Տօիլետ 
+    public static void generateColoredMetalPlates(String name, String nameUpperCase,boolean plates) {
+        String[] colours = {"black", "white", "blue", "light_blue", "red", "green", "lime", "pink", "magenta", "yellow", "gray", "light_gray", "brown", "cyan", "purple", "orange"};
+
+
+        for (String color : colours) {
+            String firstLetter = color.substring(0, 1).toUpperCase();
+            String colorWithoutC = color.substring(1);
+
+            String upperCaseColor = firstLetter + colorWithoutC;
+            String light = "Light";
+            if (upperCaseColor.contains(light)) {
+                String nameWithoutLight = upperCaseColor.substring(6);
+
+                String firstLetter2 = nameWithoutLight.substring(0, 1).toUpperCase();
+                String colorWithoutC2 = nameWithoutLight.substring(1);
+
+                upperCaseColor = light + " " + firstLetter2 + colorWithoutC2;
+
+
+            }
+            REGISTRATE.block(color + "_"+name, Block::new)
+                    .initialProperties(() -> Blocks.STONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(p -> p.requiresCorrectToolForDrops())
+                    .transform(pickaxeOnly())
+                    .blockstate(simpleCubeAll(color + "_"+name))
+                    .tag(BlockTags.NEEDS_STONE_TOOL)
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.items(CDDBlocks.METAL_PLATE.get().asItem()), c::get, 1))
+    
+                    .item()
+                    .build()
+                    .lang(upperCaseColor + " "+nameUpperCase)
+                    .register();
+
+
+            REGISTRATE.block(color + "_" +name + "_wall", WallBlock::new)
+                    .initialProperties(() -> Blocks.STONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(p -> p.requiresCorrectToolForDrops())
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> CDDVanillaBlockStates.generateWallBlockState(c, p, color + "_"+name))
+                    .tag(BlockTags.NEEDS_STONE_TOOL)
+                    .tag(BlockTags.WALLS)
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.items(CDDBlocks.METAL_PLATE.get().asItem()), c::get, 1))
+    
+                    .item()
+                    .transform(b -> CDDVanillaBlockStates.transformWallItem(b, color + "_"+name))
+                    .build()
+                    .lang(upperCaseColor + " "+nameUpperCase+" Wall")
+                    .register();
+            if(plates) {
+                REGISTRATE.block(color + "_" + name + "_stairs", p -> new StairBlock(() -> CDDBlocks.METAL_PLATE.get().defaultBlockState(), p))
+                        .initialProperties(() -> Blocks.STONE)
+                        .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                        .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                        .properties(p -> p.requiresCorrectToolForDrops())
+                        .transform(pickaxeOnly())
+                        .blockstate((c, p) -> CDDVanillaBlockStates.generateStairBlockState(c, p, color + "_" + name))
+                        .recipe((c, p) -> p.stonecutting(DataIngredient.items(CDDBlocks.METAL_PLATE.get().asItem()), c::get, 1))
+        
+                        .tag(BlockTags.NEEDS_STONE_TOOL)
+                        .tag(BlockTags.STAIRS)
+                        .item()
+                        .transform(b -> CDDVanillaBlockStates.transformStairItem(b, color + "_" + name))
+                        .build()
+                        .lang(upperCaseColor + " " + nameUpperCase + " Stairs")
+                        .register();
+            }
+            REGISTRATE.block(color + "_" +name +  "_stairs", p -> new StairBlock(()-> CDDBlocks.METAL_SHEET.get().defaultBlockState(), p))
+                    .initialProperties(() -> Blocks.STONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(p -> p.requiresCorrectToolForDrops())
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> CDDVanillaBlockStates.generateStairBlockState(c, p, color + "_"+name))
+                    .tag(BlockTags.NEEDS_STONE_TOOL)
+                    .tag(BlockTags.STAIRS)
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.items(CDDBlocks.METAL_PLATE.get().asItem()), c::get, 1))
+    
+                    .item()
+                    .transform(b -> CDDVanillaBlockStates.transformStairItem(b, color + "_"+name))
+                    .build()
+                    .lang(upperCaseColor + " "+nameUpperCase+" Stairs")
+                    .register();
+
+            REGISTRATE.block(color + "_" +name + "_slab", SlabBlock::new)
+                    .initialProperties(() -> Blocks.STONE)
+                    .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
+                    .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
+                    .properties(p -> p.requiresCorrectToolForDrops())
+                    .transform(pickaxeOnly())
+                    .recipe((c, p) -> p.stonecutting(DataIngredient.items(CDDBlocks.METAL_PLATE.get().asItem()), c::get, 2))
+    
+                    .blockstate((c, p) -> CDDVanillaBlockStates.generateSlabBlockState(c, p, color + "_"+name))
+                    .tag(BlockTags.NEEDS_STONE_TOOL)
+                    .tag(BlockTags.WALLS)
+                    .item()
+                    .transform(customItemModel(color + "_"+name+"_bottom"))
+                    .lang(upperCaseColor + " "+nameUpperCase+" Slab")
+                    .register();
+
+
+        }
+    }
 
 
 

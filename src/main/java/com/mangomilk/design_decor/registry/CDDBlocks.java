@@ -1,26 +1,38 @@
 package com.mangomilk.design_decor.registry;
 
+import static com.mangomilk.design_decor.DesignDecor.REGISTRATE;
+import static com.mangomilk.design_decor.base.CDDBuilderTransformer.CastelBricks;
+import static com.mangomilk.design_decor.base.CDDBuilderTransformer.CastelTiles;
+import static com.mangomilk.design_decor.base.CDDBuilderTransformer.tintedframedGlass;
+import static com.simibubi.create.foundation.data.BlockStateGen.simpleCubeAll;
+import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
+import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
+import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
+import static com.simibubi.create.foundation.data.TagGen.axeOnly;
+import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
+import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
+import static com.simibubi.create.foundation.data.TagGen.tagBlockAndItem;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.mangomilk.design_decor.DesignDecor;
 import com.mangomilk.design_decor.base.CDDBuilderTransformer;
-import com.mangomilk.design_decor.base.CDDCreativeModeTab;
-import com.mangomilk.design_decor.blocks.*;
+import com.mangomilk.design_decor.base.CDDVanillaBlockStates;
+import com.mangomilk.design_decor.blocks.BoilerBlock;
+import com.mangomilk.design_decor.blocks.LampBlock;
+import com.mangomilk.design_decor.blocks.OrnateGrateBlock;
 import com.mangomilk.design_decor.blocks.SignBlock;
+import com.mangomilk.design_decor.blocks.TagBoilerBlock;
+import com.mangomilk.design_decor.blocks.VerticalCtBehavior;
+import com.mangomilk.design_decor.blocks.WoodSupportBlock;
 import com.mangomilk.design_decor.blocks.breaker_switch.BreakerSwitchBlock;
+import com.mangomilk.design_decor.blocks.breaker_switch.LeverGenerator;
 import com.mangomilk.design_decor.blocks.catwalks.CatwalkBlock;
 import com.mangomilk.design_decor.blocks.catwalks.CatwalkCTBehaviour;
 import com.mangomilk.design_decor.blocks.catwalks.CatwalkGenerator;
 import com.mangomilk.design_decor.blocks.ceiling_fan.CeilingFanBlock;
 import com.mangomilk.design_decor.blocks.chain.LargeChain;
 import com.mangomilk.design_decor.blocks.chain.TagDependentLargeChain;
-//import com.mangomilk.design_decor.blocks.containers.red.RedContainerBlock;
-//import com.mangomilk.design_decor.blocks.containers.red.RedContainerCTBehaviour;
-//import com.mangomilk.design_decor.blocks.containers.red.RedContainerItem;
-//import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerBlock;
-//import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerCTBehaviour;
-//import com.mangomilk.design_decor.blocks.containers.blue.BlueContainerItem;
-//import com.mangomilk.design_decor.blocks.containers.green.GreenContainerBlock;
-//import com.mangomilk.design_decor.blocks.containers.green.GreenContainerCTBehaviour;
-//import com.mangomilk.design_decor.blocks.containers.green.GreenContainerItem;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelBlock;
 import com.mangomilk.design_decor.blocks.crushing_wheels.MmbCrushingWheelControllerBlock;
 import com.mangomilk.design_decor.blocks.diagonal_girder.DiagonalGirderBlock;
@@ -31,45 +43,31 @@ import com.mangomilk.design_decor.blocks.gas_tank.GasTankBlock;
 import com.mangomilk.design_decor.blocks.glass.ConnectedTintedGlassBlock;
 import com.mangomilk.design_decor.blocks.industrial_gear.IndustrialGearBlock;
 import com.mangomilk.design_decor.blocks.industrial_gear.IndustrialGearBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.andesite.AndesiteBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.andesite.AndesiteLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.andesite.AndesiteLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.capitalism.CapitalismBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.capitalism.CapitalismLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.capitalism.CapitalismLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.copper.CopperBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.copper.CopperLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.copper.CopperLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.gold.GoldBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.gold.GoldLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.gold.GoldLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronLargeBoilerBlockItem;
-//import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincBoilerStructure;
-//import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlock;
-//import com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlockItem;
-import com.mangomilk.design_decor.blocks.millstone.block.*;
+import com.mangomilk.design_decor.blocks.metal_support.MetalSupportBlock;
+import com.mangomilk.design_decor.blocks.metal_support.MetalSupportGenerator;
+import com.mangomilk.design_decor.blocks.metal_support.diagonal.DiagonalMetalSupportBlock;
+import com.mangomilk.design_decor.blocks.metal_support.diagonal.DiagonalMetalSupportCtBehavior;
+import com.mangomilk.design_decor.blocks.millstone.block.AsurineDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.CalciteDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.CrimsiteDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.DeepslateDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.DioriteDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.DripstoneDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.GraniteDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.LimestoneDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.OchrumDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.ScorchiaDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.ScoriaDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.TuffDecoMillStoneBlock;
+import com.mangomilk.design_decor.blocks.millstone.block.VeridiumDecoMillStoneBlock;
 import com.mangomilk.design_decor.blocks.railings.RailingBlock;
 import com.mangomilk.design_decor.blocks.railings.RailingBlockItem;
 import com.mangomilk.design_decor.blocks.screws.ScrewBlock;
 import com.mangomilk.design_decor.blocks.screws.ScrewGenerator;
-import com.mangomilk.design_decor.blocks.breaker_switch.LeverGenerator;
 import com.mangomilk.design_decor.blocks.stepped_lever.SteppedLeverBlock;
 import com.simibubi.create.AllTags;
-import com.simibubi.create.Create;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
-import com.simibubi.create.content.kinetics.flywheel.FlywheelBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
 import com.simibubi.create.foundation.block.ItemUseOverrides;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
@@ -81,10 +79,10 @@ import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -93,25 +91,15 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import java.util.Collections;
-
-import static com.mangomilk.design_decor.DesignDecor.REGISTRATE;
-import static com.mangomilk.design_decor.base.CDDBuilderTransformer.*;
-import static com.simibubi.create.foundation.data.BlockStateGen.simpleCubeAll;
-import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
-import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
-import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
-import static com.simibubi.create.foundation.data.TagGen.*;
 
 @SuppressWarnings({"unused", "removal"})
 @ParametersAreNonnullByDefault
@@ -334,27 +322,27 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .lang("Brass Boiler")
             .register();
 
-    public static final BlockEntry<BrassLargeBoilerBlock> LARGE_BRASS_BOILER = REGISTRATE.block("brass_boiler_large", BrassLargeBoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .properties(p -> p.isViewBlocking(CDDBlocks::never))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(BrassLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Brass Boiler")
-            .register();
-
-    public static final BlockEntry<BrassBoilerStructure> BRASS_BOILER_STRUCTURAL = REGISTRATE.block("brass_boiler_structure", BrassBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), BrassBoilerStructure.FACING))
-            .lang("Large Brass Boiler")
-            .register();
+//    public static final BlockEntry<BrassLargeBoilerBlock> LARGE_BRASS_BOILER = REGISTRATE.block("brass_boiler_large", BrassLargeBoilerBlock::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .properties(p -> p.isViewBlocking(CDDBlocks::never))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(BrassLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Brass Boiler")
+//            .register();
+//
+//    public static final BlockEntry<BrassBoilerStructure> BRASS_BOILER_STRUCTURAL = REGISTRATE.block("brass_boiler_structure", BrassBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), BrassBoilerStructure.FACING))
+//            .lang("Large Brass Boiler")
+//            .register();
 
     public static final BlockEntry<TagBoilerBlock> ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler",
                     p -> new TagBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
@@ -381,27 +369,27 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Aluminium Boiler")
             .register();
-    public static final BlockEntry<AluminumLargeBoilerBlock> LARGE_ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler_large",
-                    p -> new AluminumLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(AluminumLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Aluminium Boiler")
-            .register();
-
-    public static final BlockEntry<AluminumBoilerStructure> ALUMINUM_BOILER_STRUCTURAL = REGISTRATE.block("aluminium_boiler_structure", AluminumBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), AluminumBoilerStructure.FACING))
-            .lang("Large Aluminium Boiler")
-            .register();
+//    public static final BlockEntry<AluminumLargeBoilerBlock> LARGE_ALUMINUM_BOILER = REGISTRATE.block("aluminium_boiler_large",
+//                    p -> new AluminumLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/aluminium")))
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(AluminumLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Aluminium Boiler")
+//            .register();
+//
+//    public static final BlockEntry<AluminumBoilerStructure> ALUMINUM_BOILER_STRUCTURAL = REGISTRATE.block("aluminium_boiler_structure", AluminumBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), AluminumBoilerStructure.FACING))
+//            .lang("Large Aluminium Boiler")
+//            .register();
 
 
     public static final BlockEntry<BoilerBlock> GOLD_BOILER = REGISTRATE.block("gold_boiler", BoilerBlock::new)
@@ -415,26 +403,26 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Gold Boiler")
             .register();
-    public static final BlockEntry<GoldLargeBoilerBlock> LARGE_GOLD_BOILER = REGISTRATE.block("gold_boiler_large", GoldLargeBoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(GoldLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Gold Boiler")
-            .register();
-
-    public static final BlockEntry<GoldBoilerStructure> GOLD_BOILER_STRUCTURAL = REGISTRATE.block("gold_boiler_structure", GoldBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), GoldBoilerStructure.FACING))
-            .lang("Large Gold Boiler")
-            .register();
+//    public static final BlockEntry<GoldLargeBoilerBlock> LARGE_GOLD_BOILER = REGISTRATE.block("gold_boiler_large", GoldLargeBoilerBlock::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(GoldLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Gold Boiler")
+//            .register();
+//
+//    public static final BlockEntry<GoldBoilerStructure> GOLD_BOILER_STRUCTURAL = REGISTRATE.block("gold_boiler_structure", GoldBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), GoldBoilerStructure.FACING))
+//            .lang("Large Gold Boiler")
+//            .register();
 
 
     public static final BlockEntry<BoilerBlock> COPPER_BOILER = REGISTRATE.block("copper_boiler", BoilerBlock::new)
@@ -448,26 +436,26 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Copper Boiler")
             .register();
-    public static final BlockEntry<CopperLargeBoilerBlock> LARGE_COPPER_BOILER = REGISTRATE.block("copper_boiler_large", CopperLargeBoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(CopperLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Copper Boiler")
-            .register();
-
-    public static final BlockEntry<CopperBoilerStructure> COPPER_BOILER_STRUCTURAL = REGISTRATE.block("copper_boiler_structure", CopperBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), CopperBoilerStructure.FACING))
-            .lang("Large Copper Boiler")
-            .register();
+//    public static final BlockEntry<CopperLargeBoilerBlock> LARGE_COPPER_BOILER = REGISTRATE.block("copper_boiler_large", CopperLargeBoilerBlock::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(CopperLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Copper Boiler")
+//            .register();
+//
+//    public static final BlockEntry<CopperBoilerStructure> COPPER_BOILER_STRUCTURAL = REGISTRATE.block("copper_boiler_structure", CopperBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), CopperBoilerStructure.FACING))
+//            .lang("Large Copper Boiler")
+//            .register();
 
 
     public static final BlockEntry<BoilerBlock> ZINC_BOILER = REGISTRATE.block("zinc_boiler", BoilerBlock::new)
@@ -481,26 +469,26 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Zinc Boiler")
             .register();
-    public static final BlockEntry<ZincLargeBoilerBlock> LARGE_ZINC_BOILER = REGISTRATE.block("zinc_boiler_large", ZincLargeBoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(ZincLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Zinc Boiler")
-            .register();
-
-    public static final BlockEntry<ZincBoilerStructure> ZINC_BOILER_STRUCTURAL = REGISTRATE.block("zinc_boiler_structure", ZincBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), ZincBoilerStructure.FACING))
-            .lang("Large Zinc Boiler")
-            .register();
+//    public static final BlockEntry<ZincLargeBoilerBlock> LARGE_ZINC_BOILER = REGISTRATE.block("zinc_boiler_large", ZincLargeBoilerBlock::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(ZincLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Zinc Boiler")
+//            .register();
+//
+//    public static final BlockEntry<ZincBoilerStructure> ZINC_BOILER_STRUCTURAL = REGISTRATE.block("zinc_boiler_structure", ZincBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), ZincBoilerStructure.FACING))
+//            .lang("Large Zinc Boiler")
+//            .register();
 
 
     public static final BlockEntry<BoilerBlock> INDUSTRIAL_IRON_BOILER = REGISTRATE.block("industrial_iron_boiler", BoilerBlock::new)
@@ -514,26 +502,26 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Industrial Iron Boiler")
             .register();
-    public static final BlockEntry<IndustrialIronLargeBoilerBlock> LARGE_INDUSTRIAL_IRON_BOILER = REGISTRATE.block("industrial_iron_boiler_large", IndustrialIronLargeBoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(IndustrialIronLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Industrial Iron Boiler")
-            .register();
-
-    public static final BlockEntry<IndustrialIronBoilerStructure> INDUSTRIAL_IRON_BOILER_STRUCTURAL = REGISTRATE.block("industrial_iron_boiler_structure", IndustrialIronBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), IndustrialIronBoilerStructure.FACING))
-            .lang("Large Industrial Iron Boiler")
-            .register();
+//    public static final BlockEntry<IndustrialIronLargeBoilerBlock> LARGE_INDUSTRIAL_IRON_BOILER = REGISTRATE.block("industrial_iron_boiler_large", IndustrialIronLargeBoilerBlock::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(IndustrialIronLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Industrial Iron Boiler")
+//            .register();
+//
+//    public static final BlockEntry<IndustrialIronBoilerStructure> INDUSTRIAL_IRON_BOILER_STRUCTURAL = REGISTRATE.block("industrial_iron_boiler_structure", IndustrialIronBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), IndustrialIronBoilerStructure.FACING))
+//            .lang("Large Industrial Iron Boiler")
+//            .register();
 
 
     public static final BlockEntry<BoilerBlock> ANDESITE_BOILER = REGISTRATE.block("andesite_boiler", BoilerBlock::new)
@@ -547,26 +535,26 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Andesite Boiler")
             .register();
-    public static final BlockEntry<AndesiteLargeBoilerBlock> LARGE_ANDESITE_BOILER = REGISTRATE.block("andesite_boiler_large", AndesiteLargeBoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(AndesiteLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Andesite Boiler")
-            .register();
-
-    public static final BlockEntry<AndesiteBoilerStructure> ANDESITE_BOILER_STRUCTURAL = REGISTRATE.block("andesite_boiler_structure", AndesiteBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), AndesiteBoilerStructure.FACING))
-            .lang("Large Andesite Boiler")
-            .register();
+//    public static final BlockEntry<AndesiteLargeBoilerBlock> LARGE_ANDESITE_BOILER = REGISTRATE.block("andesite_boiler_large", AndesiteLargeBoilerBlock::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(AndesiteLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Andesite Boiler")
+//            .register();
+//
+//    public static final BlockEntry<AndesiteBoilerStructure> ANDESITE_BOILER_STRUCTURAL = REGISTRATE.block("andesite_boiler_structure", AndesiteBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), AndesiteBoilerStructure.FACING))
+//            .lang("Large Andesite Boiler")
+//            .register();
 
 
     public static final BlockEntry<TagBoilerBlock> CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler",
@@ -581,27 +569,27 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Cast Iron Boiler")
             .register();
-    public static final BlockEntry<CastIronLargeBoilerBlock> LARGE_CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler_large",
-                    p -> new CastIronLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/cast_iron")))
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(CastIronLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Cast Iron Boiler")
-            .register();
-
-    public static final BlockEntry<CastIronBoilerStructure> CAST_IRON_BOILER_STRUCTURAL = REGISTRATE.block("cast_iron_boiler_structure", CastIronBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), CastIronBoilerStructure.FACING))
-            .lang("Large Cast Iron Boiler")
-            .register();
+//    public static final BlockEntry<CastIronLargeBoilerBlock> LARGE_CAST_IRON_BOILER = REGISTRATE.block("cast_iron_boiler_large",
+//                    p -> new CastIronLargeBoilerBlock(p, AllTags.forgeItemTag("ingots/cast_iron")))
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(CastIronLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Cast Iron Boiler")
+//            .register();
+//
+//    public static final BlockEntry<CastIronBoilerStructure> CAST_IRON_BOILER_STRUCTURAL = REGISTRATE.block("cast_iron_boiler_structure", CastIronBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), CastIronBoilerStructure.FACING))
+//            .lang("Large Cast Iron Boiler")
+//            .register();
 
 
     public static final BlockEntry<BoilerBlock> CAPITALISM_BOILER = REGISTRATE.block("capitalism_boiler", BoilerBlock::new)
@@ -615,26 +603,26 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .build()
             .lang("Capitalism Boiler")
             .register();
-    public static final BlockEntry<CapitalismLargeBoilerBlock> LARGE_CAPITALISM_BOILER = REGISTRATE.block("capitalism_boiler_large", CapitalismLargeBoilerBlock::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
-            .transform(pickaxeOnly())
-            .addLayer(() -> RenderType::cutout)
-            .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .item(CapitalismLargeBoilerBlockItem::new)
-            .build()
-            .lang("Large Capitalism Boiler")
-            .register();
-
-    public static final BlockEntry<CapitalismBoilerStructure> CAPITALISM_BOILER_STRUCTURAL = REGISTRATE.block("capitalism_boiler_structure", CapitalismBoilerStructure::new)
-            .initialProperties(SharedProperties::copperMetal)
-            .properties(BlockBehaviour.Properties::noOcclusion)
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStatesExcept(BlockStateGen.mapToAir(p), CapitalismBoilerStructure.FACING))
-            .lang("Large Capitalism Boiler")
-            .register();
+//    public static final BlockEntry<CapitalismLargeBoilerBlock> LARGE_CAPITALISM_BOILER = REGISTRATE.block("capitalism_boiler_large", CapitalismLargeBoilerBlock::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .properties(p -> p.hasPostProcess((p_61036_, p_61037_, p_61038_) -> true))
+//            .transform(pickaxeOnly())
+//            .addLayer(() -> RenderType::cutout)
+//            .blockstate(BlockStateGen.directionalBlockProvider(true))
+//            .item(CapitalismLargeBoilerBlockItem::new)
+//            .build()
+//            .lang("Large Capitalism Boiler")
+//            .register();
+//
+//    public static final BlockEntry<CapitalismBoilerStructure> CAPITALISM_BOILER_STRUCTURAL = REGISTRATE.block("capitalism_boiler_structure", CapitalismBoilerStructure::new)
+//            .initialProperties(SharedProperties::copperMetal)
+//            .properties(BlockBehaviour.Properties::noOcclusion)
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStatesExcept(BlockStateGen.mapToAir(p), CapitalismBoilerStructure.FACING))
+//            .lang("Large Capitalism Boiler")
+//            .register();
 
 
 
@@ -665,56 +653,56 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             .register();
 
     //CONTAINERS
-    public static final BlockEntry<RedContainerBlock> RED_CONTAINER = REGISTRATE.block("red_container", RedContainerBlock::new)
-            .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.TERRACOTTA_RED))
-            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
-                    .explosionResistance(1200))
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStates(s -> ConfiguredModel.builder()
-                            .modelFile(AssetLookup.standardModel(c, p))
-                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
-                            .build()))
-            .onRegister(connectedTextures(RedContainerCTBehaviour::new))
-            .item(RedContainerItem::new)
-            .build()
-            .lang("Red Container")
-            .register();
-
-    public static final BlockEntry<BlueContainerBlock> BLUE_CONTAINER = REGISTRATE.block("blue_container",BlueContainerBlock::new)
-            .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.COLOR_BLUE))
-            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
-                    .explosionResistance(1200))
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStates(s -> ConfiguredModel.builder()
-                            .modelFile(AssetLookup.standardModel(c, p))
-                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
-                            .build()))
-            .onRegister(connectedTextures(BlueContainerCTBehaviour::new))
-            .item(BlueContainerItem::new)
-            .build()
-            .lang("Blue Container")
-            .register();
-
-    public static final BlockEntry<GreenContainerBlock> GREEN_CONTAINER = REGISTRATE.block("green_container",GreenContainerBlock::new)
-            .initialProperties(SharedProperties::softMetal)
-            .properties(p -> p.color(MaterialColor.COLOR_GREEN))
-            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
-                    .explosionResistance(1200))
-            .transform(pickaxeOnly())
-            .blockstate((c, p) -> p.getVariantBuilder(c.get())
-                    .forAllStates(s -> ConfiguredModel.builder()
-                            .modelFile(AssetLookup.standardModel(c, p))
-                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
-                            .build()))
-            .onRegister(connectedTextures(GreenContainerCTBehaviour::new))
-            .item(GreenContainerItem::new)
-            .build()
-            .lang("Green Container")
-            .register();
+//    public static final BlockEntry<RedContainerBlock> RED_CONTAINER = REGISTRATE.block("red_container", RedContainerBlock::new)
+//            .initialProperties(SharedProperties::softMetal)
+//            .properties(p -> p.color(MaterialColor.TERRACOTTA_RED))
+//            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
+//                    .explosionResistance(1200))
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStates(s -> ConfiguredModel.builder()
+//                            .modelFile(AssetLookup.standardModel(c, p))
+//                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
+//                            .build()))
+//            .onRegister(connectedTextures(RedContainerCTBehaviour::new))
+//            .item(RedContainerItem::new)
+//            .build()
+//            .lang("Red Container")
+//            .register();
+//
+//    public static final BlockEntry<BlueContainerBlock> BLUE_CONTAINER = REGISTRATE.block("blue_container",BlueContainerBlock::new)
+//            .initialProperties(SharedProperties::softMetal)
+//            .properties(p -> p.color(MaterialColor.COLOR_BLUE))
+//            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
+//                    .explosionResistance(1200))
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStates(s -> ConfiguredModel.builder()
+//                            .modelFile(AssetLookup.standardModel(c, p))
+//                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
+//                            .build()))
+//            .onRegister(connectedTextures(BlueContainerCTBehaviour::new))
+//            .item(BlueContainerItem::new)
+//            .build()
+//            .lang("Blue Container")
+//            .register();
+//
+//    public static final BlockEntry<GreenContainerBlock> GREEN_CONTAINER = REGISTRATE.block("green_container",GreenContainerBlock::new)
+//            .initialProperties(SharedProperties::softMetal)
+//            .properties(p -> p.color(MaterialColor.COLOR_GREEN))
+//            .properties(p -> p.sound(SoundType.NETHERITE_BLOCK)
+//                    .explosionResistance(1200))
+//            .transform(pickaxeOnly())
+//            .blockstate((c, p) -> p.getVariantBuilder(c.get())
+//                    .forAllStates(s -> ConfiguredModel.builder()
+//                            .modelFile(AssetLookup.standardModel(c, p))
+//                            .rotationY(s.getValue(RedContainerBlock.HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0)
+//                            .build()))
+//            .onRegister(connectedTextures(GreenContainerCTBehaviour::new))
+//            .item(GreenContainerItem::new)
+//            .build()
+//            .lang("Green Container")
+//            .register();
 
 
 
@@ -2195,7 +2183,7 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
 
 
         if(plates) {
-            REGISTRATE.block(name + "_stairs", p -> new StairBlock(() -> CDDBlocks.METAL_PLATE.get().defaultBlockState(), p))
+            REGISTRATE.block(name + "_stairs", p -> new StairBlock(CDDBlocks.METAL_PLATE.get().defaultBlockState(), p))
                     .initialProperties(() -> Blocks.STONE)
                     .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
                     .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
@@ -2212,7 +2200,7 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
                     .lang(nameUpperCase + " Stairs")
                     .register();
         }else
-            REGISTRATE.block(name + "_stairs", p -> new StairBlock(() -> CDDBlocks.METAL_SHEET.get().defaultBlockState(), p))
+            REGISTRATE.block(name + "_stairs", p -> new StairBlock(CDDBlocks.METAL_SHEET.get().defaultBlockState(), p))
                     .initialProperties(() -> Blocks.STONE)
                     .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
                     .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
@@ -2305,7 +2293,7 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
                     .lang(upperCaseColor + " "+nameUpperCase+" Wall")
                     .register();
             if(plates) {
-                REGISTRATE.block(color + "_" + name + "_stairs", p -> new StairBlock(() -> CDDBlocks.METAL_PLATE.get().defaultBlockState(), p))
+                REGISTRATE.block(color + "_" + name + "_stairs", p -> new StairBlock(CDDBlocks.METAL_PLATE.get().defaultBlockState(), p))
                         .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
                         .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
@@ -2322,7 +2310,7 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
                         .lang(upperCaseColor + " " + nameUpperCase + " Stairs")
                         .register();
             }
-            REGISTRATE.block(color + "_" +name +  "_stairs", p -> new StairBlock(()-> CDDBlocks.METAL_SHEET.get().defaultBlockState(), p))
+            REGISTRATE.block(color + "_" +name +  "_stairs", p -> new StairBlock(CDDBlocks.METAL_SHEET.get().defaultBlockState(), p))
                     .initialProperties(() -> Blocks.STONE)
                     .properties(p -> p.color(MaterialColor.COLOR_LIGHT_GRAY))
                     .properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
@@ -2395,33 +2383,32 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
             CASTEL_TILE_VERIDIUM = CastelTiles("veridium", "Veridium", MaterialColor.WARPED_NYLIUM, Blocks.TUFF)
             ;
 
-    public static class DecoTags {
-        public static <T> TagKey<T> optionalTag(IForgeRegistry<T> registry,
-                                                ResourceLocation id) {
-            return registry.tags()
-                    .createOptionalTagKey(id, Collections.emptySet());
-        }
-        public static <T> TagKey<T> CreateTag(IForgeRegistry<T> registry, String path) {
-            return optionalTag(registry, new ResourceLocation("create", path));
-        }
-        public static TagKey<Item> CreateItemTag(String path) {
-            return CreateTag(ForgeRegistries.ITEMS, path);
-        }
-        public static TagKey<Block> CreateBlockTag(String path) {
-            return CreateTag(ForgeRegistries.BLOCKS, path);
-        }
-        public static <T> TagKey<T> MCTag(IForgeRegistry<T> registry, String path) {
-            return optionalTag(registry, new ResourceLocation("minecraft", path));
-        }
-        public static TagKey<Item> MCItemTag(String path) {
-            return MCTag(ForgeRegistries.ITEMS, path);
-        }
-        public static TagKey<Block> MCBlockTag(String path) {
-            return MCTag(ForgeRegistries.BLOCKS, path);
-        }
-        public static void init() {
-        }
-    }
+	public static class DecoTags {
+		public static <T> TagKey<T> optionalTag(Registry<T> registry,
+												ResourceLocation id) {
+			return TagKey.create(registry.key(), id);
+		}
+		public static <T> TagKey<T> CreateTag(Registry<T> registry, String path) {
+			return optionalTag(registry, new ResourceLocation("create", path));
+		}
+		public static TagKey<Item> CreateItemTag(String path) {
+			return CreateTag(Registry.ITEM, path);
+		}
+		public static TagKey<Block> CreateBlockTag(String path) {
+			return CreateTag(Registry.BLOCK, path);
+		}
+		public static <T> TagKey<T> MCTag(Registry<T> registry, String path) {
+			return optionalTag(registry, new ResourceLocation("minecraft", path));
+		}
+		public static TagKey<Item> MCItemTag(String path) {
+			return MCTag(Registry.ITEM, path);
+		}
+		public static TagKey<Block> MCBlockTag(String path) {
+			return MCTag(Registry.BLOCK, path);
+		}
+		public static void init() {
+		}
+	}
 
     private static boolean never(BlockState p_235436_0_, BlockGetter p_235436_1_, BlockPos p_235436_2_) {
         return false;

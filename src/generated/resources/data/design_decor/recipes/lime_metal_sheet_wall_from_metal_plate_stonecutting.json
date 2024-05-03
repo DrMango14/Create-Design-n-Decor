@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "design_decor:metal_plate"
+  },
+  "result": "design_decor:lime_metal_sheet_wall"
+}

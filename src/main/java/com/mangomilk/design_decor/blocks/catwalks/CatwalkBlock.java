@@ -1,7 +1,7 @@
 package com.mangomilk.design_decor.blocks.catwalks;
 
 import com.mangomilk.design_decor.blocks.BoilerBlock;
-import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
+//import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
 import com.mangomilk.design_decor.registry.CDDShapes;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.decoration.copycat.CopycatPanelBlock;
@@ -111,10 +111,10 @@ public class CatwalkBlock extends Block implements IWrenchable, SimpleWaterlogge
                                          BlockHitResult ray) {
             List<Direction> directions = IPlacementHelper.orderedByDistanceExceptAxis(pos, ray.getLocation(),
                     Direction.UP
-                            .getAxis(),
-                    dir -> world.getBlockState(pos.relative(dir))
-                            .getMaterial()
-                            .isReplaceable());
+                            .getAxis());
+//                    dir -> world.getBlockState(pos.relative(dir))
+//							.
+//                            .isReplaceable());
 
             boolean down = state.getValue(DOWN);
 

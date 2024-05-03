@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "design_decor",
+  "version": "${version}",
+  "name": "Create: Design n' Decor",
+  "description": "dave's building extended but way better :3",
+  "authors": [
+    "DrMangoTea",
+    "Milky",
+    "Luna",
+    "Pepa",
+    "Spydnel",
+    "Szedann"
+  ],
+  "contact": {
+    "sources": "https://github.com/Szedann/Create-Design-n-Decor"
+  },
+  "license": "MIT",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.mangomilk.design_decor.DesignDecor"
+    ],
+    "fabric-datagen": [
+      "com.mangomilk.design_decor.base.CDDDatagen"
+    ]
+  },
+  "mixins": [
+    "design_decor.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_api_version}",
+    "create": "${create_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}

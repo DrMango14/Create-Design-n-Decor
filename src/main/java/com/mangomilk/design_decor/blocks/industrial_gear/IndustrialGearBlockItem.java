@@ -10,6 +10,8 @@ import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
 import com.simibubi.create.foundation.utility.Iterate;
+
+import io.github.fabricators_of_create.porting_lib.item.UseFirstBehaviorItem;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,7 +29,7 @@ import java.util.function.Predicate;
 
 import static com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock.AXIS;
 
-public class IndustrialGearBlockItem extends BlockItem {
+public class IndustrialGearBlockItem extends BlockItem implements UseFirstBehaviorItem {
 
     boolean large;
 
@@ -44,30 +46,30 @@ public class IndustrialGearBlockItem extends BlockItem {
     }
 
     @Override
-    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
-        Level world = context.getLevel();
-        BlockPos pos = context.getClickedPos();
-        BlockState state = world.getBlockState(pos);
+	public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+		Level world = context.getLevel();
+		BlockPos pos = context.getClickedPos();
+		BlockState state = world.getBlockState(pos);
 
-        IPlacementHelper helper = PlacementHelpers.get(placementHelperId);
-        Player player = context.getPlayer();
-        BlockHitResult ray = new BlockHitResult(context.getClickLocation(), context.getClickedFace(), pos, true);
-        if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
-            return helper.getOffset(player, world, state, pos, ray)
-                    .placeInWorld(world, this, player, context.getHand(), ray);
-        }
+		IPlacementHelper helper = PlacementHelpers.get(placementHelperId);
+		Player player = context.getPlayer();
+		BlockHitResult ray = new BlockHitResult(context.getClickLocation(), context.getClickedFace(), pos, true);
+		if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
+			return helper.getOffset(player, world, state, pos, ray)
+				.placeInWorld(world, this, player, context.getHand(), ray);
+		}
 
-        if (integratedCogHelperId != -1) {
-            helper = PlacementHelpers.get(integratedCogHelperId);
+		if (integratedCogHelperId != -1) {
+			helper = PlacementHelpers.get(integratedCogHelperId);
 
-            if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
-                return helper.getOffset(player, world, state, pos, ray)
-                        .placeInWorld(world, this, player, context.getHand(), ray);
-            }
-        }
+			if (helper.matchesState(state) && player != null && !player.isShiftKeyDown()) {
+				return helper.getOffset(player, world, state, pos, ray)
+					.placeInWorld(world, this, player, context.getHand(), ray);
+			}
+		}
 
-        return super.onItemUseFirst(stack, context);
-    }
+		return InteractionResult.PASS;
+	}
 
     @MethodsReturnNonnullByDefault
     private static class SmallCogHelper extends IndustrialGearBlockItem.DiagonalCogHelper {
@@ -94,8 +96,7 @@ public class IndustrialGearBlockItem extends BlockItem {
                         continue;
 
                     if (!world.getBlockState(newPos)
-                            .getMaterial()
-                            .isReplaceable())
+                            .canBeReplaced())
                         continue;
 
                     return PlacementOffset.success(newPos, s -> s.setValue(AXIS, axis));
@@ -136,8 +137,7 @@ public class IndustrialGearBlockItem extends BlockItem {
                         continue;
 
                     if (!world.getBlockState(newPos)
-                            .getMaterial()
-                            .isReplaceable())
+                            .canBeReplaced())
                         continue;
 
                     return PlacementOffset.success(newPos, s -> s.setValue(AXIS, dir.getAxis()));
@@ -172,8 +172,7 @@ public class IndustrialGearBlockItem extends BlockItem {
                 BlockPos newPos = pos.relative(dir)
                         .relative(closest);
                 if (!world.getBlockState(newPos)
-                        .getMaterial()
-                        .isReplaceable())
+                        .canBeReplaced())
                     continue;
 
                 if (!IndustrialGearBlock.isValidCogwheelPosition(ICogWheel.isLargeCog(state), world, newPos, axis))
@@ -236,8 +235,7 @@ public class IndustrialGearBlockItem extends BlockItem {
                         .relative(d);
 
                 if (!world.getBlockState(newPos)
-                        .getMaterial()
-                        .isReplaceable())
+                        .canBeReplaced())
                     continue;
 
                 if (!IndustrialGearBlock.isValidCogwheelPosition(false, world, newPos, newAxis))
@@ -290,8 +288,7 @@ public class IndustrialGearBlockItem extends BlockItem {
                 BlockPos newPos = pos.relative(d);
 
                 if (!world.getBlockState(newPos)
-                        .getMaterial()
-                        .isReplaceable())
+                        .canBeReplaced())
                     continue;
 
                 if (!IndustrialGearBlock.isValidCogwheelPosition(false, world, newPos, newAxis))

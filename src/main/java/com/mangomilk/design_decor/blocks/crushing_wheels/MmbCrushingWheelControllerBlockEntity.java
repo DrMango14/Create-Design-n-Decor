@@ -6,12 +6,18 @@ import com.simibubi.create.content.kinetics.crusher.CrushingWheelBlockEntity;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlockEntity;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
+import com.simibubi.create.foundation.damageTypes.CreateDamageSources;
 import com.simibubi.create.foundation.item.ItemHelper;
 import com.simibubi.create.foundation.sound.SoundScapes;
 import com.simibubi.create.foundation.sound.SoundScapes.AmbienceGroup;
 import com.simibubi.create.foundation.utility.NBTHelper;
 import com.simibubi.create.foundation.utility.VecHelper;
 import com.simibubi.create.infrastructure.config.AllConfigs;
+
+import io.github.fabricators_of_create.porting_lib.transfer.item.RecipeWrapper;
+import io.github.fabricators_of_create.porting_lib.util.EnvExecutor;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
@@ -23,6 +29,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -32,13 +39,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.wrapper.RecipeWrapper;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +73,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 			return;
 
 		if (level.isClientSide)
-			DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> this.tickAudio());
+			EnvExecutor.runWhenOn(EnvType.CLIENT, ()-> this::tickAudio);
 
 		float speed = crushingspeed * 4;
 
@@ -114,20 +115,20 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 
 			// Output Items
 			if (facing != Direction.UP) {
-				BlockPos nextPos = worldPosition.offset(facing.getAxis() == Axis.X ? 1f * offset : 0f, (-1f),
-					facing.getAxis() == Axis.Z ? 1f * offset : 0f);
+				BlockPos nextPos = worldPosition.offset((int) (facing.getAxis() == Axis.X ? 1f * offset : 0f), (int) -1f,
+                        (int) (facing.getAxis() == Axis.Z ? 1f * offset : 0f));
 				DirectBeltInputBehaviour behaviour =
 					BlockEntityBehaviour.get(level, nextPos, DirectBeltInputBehaviour.TYPE);
 				if (behaviour != null) {
 					boolean changed = false;
 					if (!behaviour.canInsertFromSide(facing))
 						return;
-					for (int slot = 0; slot < inventory.getSlots(); slot++) {
+					for (int slot = 0; slot < inventory.getSlots().size(); slot++) {
 						ItemStack stack = inventory.getStackInSlot(slot);
 						if (stack.isEmpty())
 							continue;
 						ItemStack remainder = behaviour.handleInsertion(stack, facing, false);
-						if (remainder.equals(stack, false))
+						if (remainder.equals(stack))
 							continue;
 						inventory.setStackInSlot(slot, remainder);
 						changed = true;
@@ -141,13 +142,13 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 			}
 
 			// Eject Items
-			for (int slot = 0; slot < inventory.getSlots(); slot++) {
+			for (int slot = 0; slot < inventory.getSlots().size(); slot++) {
 				ItemStack stack = inventory.getStackInSlot(slot);
 				if (stack.isEmpty())
 					continue;
 				ItemEntity entityIn = new ItemEntity(level, outPos.x, outPos.y, outPos.z, stack);
 				entityIn.setDeltaMovement(outSpeed);
-				entityIn.getPersistentData()
+				entityIn.getCustomData()
 					.put("BypassCrushingWheel", NbtUtils.writeBlockPos(worldPosition));
 				level.addFreshEntity(entityIn);
 			}
@@ -199,7 +200,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 					processingEntity.setPos(entityOutPos.x, entityOutPos.y, entityOutPos.z);
 				}
 			}
-			processingEntity.hurt(CrushingWheelBlockEntity.DAMAGE_SOURCE, crusherDamage);
+			processingEntity.hurt(CreateDamageSources.crush(level), crusherDamage);
 			if (!processingEntity.isAlive()) {
 				processingEntity.setPos(entityOutPos.x, entityOutPos.y, entityOutPos.z);
 			}
@@ -223,7 +224,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 		}
 	}
 
-	@OnlyIn(Dist.CLIENT)
+	@Environment(EnvType.CLIENT)
 	public void tickAudio() {
 		float pitch = Mth.clamp((crushingspeed / 256f) + .45f, .85f, 1f);
 		if (entityUUID == null && inventory.getStackInSlot(0)
@@ -259,7 +260,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 	}
 
 	private void applyRecipe() {
-		Optional<ProcessingRecipe<RecipeWrapper>> recipe = findRecipe();
+		Optional<ProcessingRecipe<Container>> recipe = findRecipe();
 
 		List<ItemStack> list = new ArrayList<>();
 		if (recipe.isPresent()) {
@@ -274,7 +275,7 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 					ItemHelper.addToList(stack, list);
 				}
 			}
-			for (int slot = 0; slot < list.size() && slot + 1 < inventory.getSlots(); slot++)
+			for (int slot = 0; slot < list.size() && slot + 1 < inventory.getSlots().size(); slot++)
 				inventory.setStackInSlot(slot + 1, list.get(slot));
 		} else {
 			inventory.clear();
@@ -282,8 +283,8 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 
 	}
 
-	public Optional<ProcessingRecipe<RecipeWrapper>> findRecipe() {
-		Optional<ProcessingRecipe<RecipeWrapper>> crushingRecipe = AllRecipeTypes.CRUSHING.find(wrapper, level);
+	public Optional<ProcessingRecipe<Container>> findRecipe() {
+		Optional<ProcessingRecipe<Container>> crushingRecipe = AllRecipeTypes.CRUSHING.find(wrapper, level);
 		if (!crushingRecipe.isPresent())
 			crushingRecipe = AllRecipeTypes.MILLING.find(wrapper, level);
 		return crushingRecipe;
@@ -314,18 +315,18 @@ public class MmbCrushingWheelControllerBlockEntity extends CrushingWheelControll
 	}
 
 	private void itemInserted(ItemStack stack) {
-		Optional<ProcessingRecipe<RecipeWrapper>> recipe = findRecipe();
+		Optional<ProcessingRecipe<Container>> recipe = findRecipe();
 		inventory.remainingTime = recipe.isPresent() ? recipe.get()
 			.getProcessingDuration() : 100;
 		inventory.appliedRecipe = false;
 	}
 
-	@Override
-	public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
-		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-			return handler.cast();
-		return super.getCapability(cap, side);
-	}
+//	@Override
+//	public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
+//		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+//			return handler.cast();
+//		return super.getCapability(cap, side);
+//	}
 
 	public void clear() {
 		processingEntity = null;

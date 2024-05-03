@@ -1,6 +1,7 @@
 {
 	"parent": "design_decor:block/copper_boiler_large/copper_boiler",
 	"loader": "forge:obj",
+	"porting_lib:loader": "porting_lib:obj",
 	"flip_v": true,
 	"model": "design_decor:models/block/boilers/large_item.obj"
 }

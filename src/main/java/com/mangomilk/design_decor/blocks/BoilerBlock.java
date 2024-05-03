@@ -1,6 +1,5 @@
 package com.mangomilk.design_decor.blocks;
 
-import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
 import com.simibubi.create.foundation.block.WrenchableDirectionalBlock;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
@@ -77,7 +76,7 @@ public class BoilerBlock extends WrenchableDirectionalBlock {
 
         @Override
         public Predicate<BlockState> getStatePredicate() {
-            return s -> s.getBlock() instanceof BrassLargeBoilerBlock || s.getBlock() instanceof BoilerBlock;
+            return s -> s.getBlock() instanceof BoilerBlock;
         }
 
         @Override

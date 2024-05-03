@@ -98,8 +98,7 @@ public class HorizontalFluidTankItem extends BlockItem {
 				BlockState blockState = world.getBlockState(offsetPos);
 				if (HorizontalFluidTankBlock.isBarrel(blockState))
 					continue;
-				if (!blockState.getMaterial()
-					.isReplaceable())
+				if (!blockState.canBeReplaced())
 					return;
 				tanksToPlace++;
 			}
@@ -116,10 +115,10 @@ public class HorizontalFluidTankItem extends BlockItem {
 				if (HorizontalFluidTankBlock.isBarrel(blockState))
 					continue;
 				BlockPlaceContext context = BlockPlaceContext.at(ctx, offsetPos, face);
-				player.getPersistentData()
+				player.getCustomData()
 					.putBoolean("SilenceVaultSound", true);
 				super.place(context);
-				player.getPersistentData()
+				player.getCustomData()
 					.remove("SilenceVaultSound");
 			}
 		}

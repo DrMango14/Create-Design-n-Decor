@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_metal_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "design_decor:metal_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "design_decor:purple_metal_sheet_stairs_from_metal_plate_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_metal_plate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "design_decor:purple_metal_sheet_stairs_from_metal_plate_stonecutting"
+    ]
+  }
+}

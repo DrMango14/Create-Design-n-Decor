@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "design_decor:block/brown_metal_plate_bottom"
+    },
+    "type=double": {
+      "model": "design_decor:block/brown_metal_plate"
+    },
+    "type=top": {
+      "model": "design_decor:block/brown_metal_plate_top"
+    }
+  }
+}

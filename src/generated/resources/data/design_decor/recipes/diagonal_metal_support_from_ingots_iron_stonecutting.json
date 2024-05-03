@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "tag": "forge:ingots/iron"
+  },
+  "result": "design_decor:diagonal_metal_support"
+}

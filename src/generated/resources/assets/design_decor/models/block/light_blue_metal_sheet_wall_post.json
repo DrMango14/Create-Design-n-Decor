@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "design_decor:block/light_blue_metal_sheet"
+  }
+}

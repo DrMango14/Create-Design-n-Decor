@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "design_decor:block/magenta_metal_sheet_bottom"
+    },
+    "type=double": {
+      "model": "design_decor:block/magenta_metal_sheet"
+    },
+    "type=top": {
+      "model": "design_decor:block/magenta_metal_sheet_top"
+    }
+  }
+}

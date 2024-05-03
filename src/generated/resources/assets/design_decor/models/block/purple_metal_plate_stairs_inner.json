@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "design_decor:block/purple_metal_plate",
+    "side": "design_decor:block/purple_metal_plate",
+    "top": "design_decor:block/purple_metal_plate"
+  }
+}

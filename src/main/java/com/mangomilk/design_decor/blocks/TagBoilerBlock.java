@@ -1,6 +1,5 @@
 package com.mangomilk.design_decor.blocks;
 
-import com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlock;
 import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
@@ -79,7 +78,7 @@ public class TagBoilerBlock extends TagDependentDirectionalBlock {
 
         @Override
         public Predicate<BlockState> getStatePredicate() {
-            return s -> s.getBlock() instanceof BrassLargeBoilerBlock || s.getBlock() instanceof TagBoilerBlock;
+            return s -> s.getBlock() instanceof TagBoilerBlock;
         }
 
         @Override

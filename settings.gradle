@@ -1,6 +1,9 @@
 pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        maven { url = 'https://maven.minecraftforge.net/' }
-    }
+	repositories {
+		maven { url = "https://maven.fabricmc.net/" }
+		maven { url = "https://server.bbkr.space/artifactory/libs-release/" }
+		maven { url = "https://maven.quiltmc.org/repository/release" }
+		mavenCentral()
+		gradlePluginPortal()
+	}
 }

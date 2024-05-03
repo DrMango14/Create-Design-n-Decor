@@ -116,10 +116,10 @@ public class HorizontalFluidTankItem extends BlockItem {
 				if (HorizontalFluidTankBlock.isBarrel(blockState))
 					continue;
 				BlockPlaceContext context = BlockPlaceContext.at(ctx, offsetPos, face);
-				player.getPersistentData()
+				player.getExtraCustomData()
 					.putBoolean("SilenceVaultSound", true);
 				super.place(context);
-				player.getPersistentData()
+				player.getExtraCustomData()
 					.remove("SilenceVaultSound");
 			}
 		}

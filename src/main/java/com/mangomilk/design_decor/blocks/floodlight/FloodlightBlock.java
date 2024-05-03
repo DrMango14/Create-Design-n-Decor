@@ -1,6 +1,6 @@
 package com.mangomilk.design_decor.blocks.floodlight;
 
-import com.mangomilk.design_decor.registry.CDDSoundEvents;
+//import com.mangomilk.design_decor.registry.CDDSoundEvents;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -98,14 +98,14 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
 
         playRotateSound(context.getLevel(), context.getClickedPos());
 
-        if (!isOn) {
-            context.getLevel().playLocalSound(context.getClickedPos().getX(), context.getClickedPos().getY(), context.getClickedPos().getZ(),
-                    CDDSoundEvents.FLOODLIGHT_ON.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 1.6F, false);
-        }
-        if (isOn) {
-            context.getLevel().playLocalSound(context.getClickedPos().getX(), context.getClickedPos().getY(), context.getClickedPos().getZ(),
-                    CDDSoundEvents.FLOODLIGHT_OFF.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 0.8F, false);
-        }
+//        if (!isOn) {
+//            context.getLevel().playLocalSound(context.getClickedPos().getX(), context.getClickedPos().getY(), context.getClickedPos().getZ(),
+//                    CDDSoundEvents.FLOODLIGHT_ON.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 1.6F, false);
+//        }
+//        if (isOn) {
+//            context.getLevel().playLocalSound(context.getClickedPos().getX(), context.getClickedPos().getY(), context.getClickedPos().getZ(),
+//                    CDDSoundEvents.FLOODLIGHT_OFF.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 0.8F, false);
+//        }
         return onWrenched;
     }
 
@@ -160,7 +160,7 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
         BlockEntity blockentity = p_152190_.getBlockEntity(p_152191_);
         if (!p_152190_.isClientSide) {
 
-            p_152190_.playSound((Player)null, p_152191_, CDDSoundEvents.FLOODLIGHT_OFF.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 0.8F);
+//            p_152190_.playSound((Player)null, p_152191_, CDDSoundEvents.FLOODLIGHT_OFF.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 0.8F);
             p_152190_.gameEvent(p_152189_, GameEvent.BLOCK_CHANGE, p_152191_);
             return true;
         } else {
@@ -176,7 +176,7 @@ public class FloodlightBlock extends DirectionalBlock implements SimpleWaterlogg
         BlockEntity blockentity = p_152190_.getBlockEntity(p_152191_);
         if (!p_152190_.isClientSide) {
 
-            p_152190_.playSound((Player)null, p_152191_, CDDSoundEvents.FLOODLIGHT_ON.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 1.6F);
+//            p_152190_.playSound((Player)null, p_152191_, CDDSoundEvents.FLOODLIGHT_ON.get(), SoundSource.BLOCKS, 0.25F, Create.RANDOM.nextFloat() * 0.2F + 1.6F);
             p_152190_.gameEvent(p_152189_, GameEvent.BLOCK_CHANGE, p_152191_);
             return true;
         } else {

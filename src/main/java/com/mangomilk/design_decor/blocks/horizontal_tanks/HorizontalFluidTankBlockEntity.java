@@ -10,6 +10,12 @@ import com.simibubi.create.foundation.fluid.CombinedTankWrapper;
 import com.simibubi.create.foundation.recipe.RecipeFinder;
 import com.simibubi.create.foundation.utility.Lang;
 import com.simibubi.create.foundation.utility.LangBuilder;
+
+import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTank;
+import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import io.github.fabricators_of_create.porting_lib.util.LazyOptional;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,11 +29,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,7 +39,7 @@ import static com.simibubi.create.content.fluids.tank.FluidTankBlockEntity.getCa
 
 public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements IMultiBlockEntityContainer.Fluid, IHaveGoggleInformation {
 
-	protected LazyOptional<IFluidHandler> fluidCapability;
+	protected LazyOptional<CombinedTankWrapper> fluidCapability;
 
 	SmartFluidTankBehaviour fluidInventory;
 
@@ -73,8 +74,8 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 
 
 		fluidCapability = LazyOptional.of(() -> {
-			LazyOptional<? extends IFluidHandler> inputCap = fluidInventory.getCapability();
-			return new CombinedTankWrapper(inputCap.orElse(null));
+			Storage<FluidVariant> inputCap = fluidInventory.getCapability();
+			return new CombinedTankWrapper(inputCap);
 		});
 	}
 
@@ -112,7 +113,7 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 		if (updateConnectivity)
 			updateConnectivity();
 	}
-	
+
 
 
 	public int getCapacity(){
@@ -241,16 +242,16 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 
 
 
-	@Nonnull
-	@Override
-	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-
-		if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
-			initCapability();
-			return fluidCapability.cast();
-		}
-		return super.getCapability(cap, side);
-	}
+//	@Nonnull
+//	@Override
+//	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
+//
+//		if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
+//			initCapability();
+//			return fluidCapability.cast();
+//		}
+//		return super.getCapability(cap, side);
+//	}
 
 	private void initCapability() {
 		if (!isController()) {
@@ -264,9 +265,9 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 			return;
 		}
 		fluidCapability = LazyOptional.of(() -> {
-			LazyOptional<? extends IFluidHandler> inputCap = fluidInventory.getCapability();
+			Storage<FluidVariant> inputCap = fluidInventory.getCapability();
 
-			return new CombinedTankWrapper( inputCap.orElse(null));
+			return new CombinedTankWrapper(inputCap);
 		});
 
 
@@ -278,21 +279,12 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 
 
 
-		//--Fluid Info--//
-		LazyOptional<IFluidHandler> handler = this.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY);
-		Optional<IFluidHandler> resolve = handler.resolve();
-		if (!resolve.isPresent())
-			return false;
-
-		IFluidHandler tank = resolve.get();
-		if (tank.getTanks() == 0)
-			return false;
-
 		LangBuilder mb = Lang.translate("generic.unit.millibuckets");
 
 		boolean isEmpty = true;
-		for (int i = 0; i < tank.getTanks(); i++) {
-			FluidStack fluidStack = tank.getFluidInTank(i);
+		for (int i = 0; i < fluidInventory.getTanks().length; i++) {
+			FluidTank tank = getTank(i);
+			FluidStack fluidStack = tank.getFluid();
 			if (fluidStack.isEmpty())
 				continue;
 
@@ -305,7 +297,7 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 							.add(mb)
 							.style(ChatFormatting.DARK_GREEN))
 					.text(ChatFormatting.GRAY, " / ")
-					.add(Lang.number(tank.getTankCapacity(i))
+					.add(Lang.number(tank.getCapacity())
 							.add(mb)
 							.style(ChatFormatting.DARK_GRAY))
 					.forGoggles(tooltip, 1);
@@ -313,7 +305,7 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 			isEmpty = false;
 		}
 
-		if (tank.getTanks() > 1) {
+		if (fluidInventory.getTanks().length > 1) {
 			if (isEmpty)
 				tooltip.remove(tooltip.size() - 1);
 			return true;
@@ -323,7 +315,7 @@ public class HorizontalFluidTankBlockEntity extends SmartBlockEntity implements 
 			return true;
 
 		Lang.translate("gui.goggles.fluid_container.capacity")
-				.add(Lang.number(tank.getTankCapacity(0))
+				.add(Lang.number(getTankSize(0))
 						.add(mb)
 						.style(ChatFormatting.DARK_GREEN))
 				.style(ChatFormatting.DARK_GRAY)

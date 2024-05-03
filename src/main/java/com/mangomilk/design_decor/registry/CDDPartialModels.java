@@ -3,6 +3,10 @@ package com.mangomilk.design_decor.registry;
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mangomilk.design_decor.DesignDecor;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+
+@Environment(EnvType.CLIENT)
 public class CDDPartialModels {
 
     public static final PartialModel

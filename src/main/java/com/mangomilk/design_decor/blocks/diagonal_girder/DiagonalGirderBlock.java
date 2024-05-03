@@ -55,8 +55,8 @@ public class DiagonalGirderBlock extends DirectionalBlock implements SimpleWater
 
     public static VoxelShape nShape(){
         return Shapes.or(
-                Block.box(3, 3, 0, 13, 13, 5),
-                Block.box(3, 0, 3, 13, 5, 13),
+                Block.box(3, 3, 0, 13, 13, 5 ),
+                Block.box(3, 0, 3, 13, 5, 13 ),
                 Block.box(4, 5, 5, 12, 12, 12)
         );
     }

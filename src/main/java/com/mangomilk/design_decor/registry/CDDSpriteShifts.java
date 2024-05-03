@@ -33,7 +33,9 @@ public class CDDSpriteShifts {
             TINTED_HORIZONTAL_FRAMED_GLASS = omni("palettes/horizontal_tinted_framed_glass"),
             TINTED_VERTICAL_FRAMED_GLASS = omni("palettes/vertical_tinted_framed_glass"),
             STONE_TILES = omni("stone_tiles"),
-            RED_STONE_TILES = omni("red_stone_tiles")
+            RED_STONE_TILES = omni("red_stone_tiles"),
+
+            ZINC_CHECKER_TILES = omni("zinc_checker_tiles")
 
                     ;
 
@@ -44,6 +46,12 @@ public class CDDSpriteShifts {
             IRON_CATWALK = omni("iron_catwalk")
 
     ;
+
+    public static final CTSpriteShiftEntry
+            WOOD_SUPPORT = vertical("wood_support_side"),
+
+            DIAGONAL_METAL_SUPPORT = omni("diagonal_metal_support_top"),
+            METAL_SUPPORT = vertical("metal_support_side");
 
 
     public static final Couple<CTSpriteShiftEntry>

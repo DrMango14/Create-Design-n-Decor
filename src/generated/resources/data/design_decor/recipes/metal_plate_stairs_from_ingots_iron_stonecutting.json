@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "tag": "c:ingots/iron"
+  },
+  "result": "design_decor:metal_plate_stairs"
+}

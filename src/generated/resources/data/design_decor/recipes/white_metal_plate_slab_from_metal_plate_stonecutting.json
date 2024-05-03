@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "design_decor:metal_plate"
+  },
+  "result": "design_decor:white_metal_plate_slab"
+}

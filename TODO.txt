@@ -1,4 +1,14 @@
+metal support
+diagonal metal support
+metal support
+wooden support
+metal plates
+railings fix
+cogwheels fix
+copper floodlight recipe fix
+brass floodlight texture fix
 
-- screws n bolts
-- copper brass zinc truss
--
+
+
+
+

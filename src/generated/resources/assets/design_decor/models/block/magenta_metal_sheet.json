@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "design_decor:block/magenta_metal_sheet"
+  }
+}

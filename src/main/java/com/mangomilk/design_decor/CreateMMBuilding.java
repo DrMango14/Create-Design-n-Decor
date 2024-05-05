@@ -4,6 +4,7 @@ package com.mangomilk.design_decor;
 import com.mangomilk.design_decor.base.DecoPartialModels;
 import com.mangomilk.design_decor.base.MmbCreativeModeTab;
 import com.mangomilk.design_decor.base.MmbSpriteShifts;
+import com.mangomilk.design_decor.blocks.millstone.MillstoneInteractionTypes;
 import com.mangomilk.design_decor.registry.DecoSoundEvents;
 import com.mangomilk.design_decor.registry.MmbBlockEntities;
 import com.mangomilk.design_decor.registry.MmbBlocks;
@@ -47,6 +48,7 @@ public class CreateMMBuilding
         DecoPartialModels.init();
         MmbCreativeModeTab.register(eventBus);
 
+        MillstoneInteractionTypes.register();
 
         //
 

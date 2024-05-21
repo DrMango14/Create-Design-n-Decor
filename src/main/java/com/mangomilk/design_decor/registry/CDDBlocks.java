@@ -1953,7 +1953,7 @@ public static final BlockEntry<ScrewBlock> ZINC_SCREW = REGISTRATE.block("zinc_s
                     .blockstate(BlockStateGen.axisBlockProvider(true))
                     .tag(AllTags.AllBlockTags.BRITTLE.tag)
                     .tag(BlockTags.CLIMBABLE)
-                    .lang("Large Manyulln Chain")
+                    .lang("Large Manyullyn Chain")
                     .item()
                     .build()
                     .register();

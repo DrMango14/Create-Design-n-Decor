@@ -10,36 +10,37 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-import static com.mangomilk.design_decor.registry.MmbBlocks.*;
-
 public class MillstoneInteractionTypes {
     private static final Map<ResourceLocation, ArmInteractionPointType> MILLSTONE_TYPES = new HashMap<>();
-    private static final Map<BlockEntry<? extends MillstoneBlock>, Function<BlockState, Boolean>> MILLSTONE_BLOCK_CHECKERS = new HashMap<>();
+    private static final List<BlockEntry<? extends MillstoneBlock>> MILLSTONE_BLOCK_CHECKERS = new ArrayList<>();
 
     static {
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.ASURINE_MILLSTONE, ASURINE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.CALCITE_MILLSTONE, CALCITE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.CRIMSITE_MILLSTONE, CRIMSITE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.DEEPSLATE_MILLSTONE, DEEPSLATE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.DIORITE_MILLSTONE, DIORITE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.DRIPSTONE_MILLSTONE, DRIPSTONE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.GRANITE_MILLSTONE, GRANITE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.LIMESTONE_MILLSTONE, LIMESTONE_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.OCHRUM_MILLSTONE, OCHRUM_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.SCORCHIA_MILLSTONE, SCORCHIA_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.SCORIA_MILLSTONE, SCORIA_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.TUFF_MILLSTONE, TUFF_MILLSTONE::has);
-        MILLSTONE_BLOCK_CHECKERS.put(MmbBlocks.VERIDIUM_MILLSTONE, VERIDIUM_MILLSTONE::has);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.ASURINE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.CALCITE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.CRIMSITE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.DEEPSLATE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.DIORITE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.DRIPSTONE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.GRANITE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.LIMESTONE_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.OCHRUM_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.SCORCHIA_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.SCORIA_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.TUFF_MILLSTONE);
+        MILLSTONE_BLOCK_CHECKERS.add(MmbBlocks.VERIDIUM_MILLSTONE);
     }
 
     public static void register() {
-        MILLSTONE_BLOCK_CHECKERS.forEach((key, value) ->
-                MILLSTONE_TYPES.put(key.getId(), register(key.getId(), id -> new GenericMillstoneType(id, value)))
-        );
+        MILLSTONE_BLOCK_CHECKERS.forEach((entry) -> {
+                    ResourceLocation resource = entry.getId();
+                    MILLSTONE_TYPES.put(resource, register(resource, id -> new GenericMillstoneType(id, entry::has)));
+        });
     }
 
     private static <T extends ArmInteractionPointType> T register(ResourceLocation id, Function<ResourceLocation, T> factory) {

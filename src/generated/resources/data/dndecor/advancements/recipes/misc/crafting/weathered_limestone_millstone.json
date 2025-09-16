@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/weathered_limestone_millstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_weathered_limestone_millstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:weathered_limestone_millstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_weathered_limestone_millstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/weathered_limestone_millstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dndecor:block/large_girder_top",
+    "side": "dndecor:block/large_girder"
+  }
+}

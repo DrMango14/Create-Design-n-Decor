@@ -1,0 +1,21 @@
+{
+  "values": [
+    "dndecor:white_display_board",
+    "dndecor:orange_display_board",
+    "dndecor:magenta_display_board",
+    "dndecor:light_blue_display_board",
+    "dndecor:yellow_display_board",
+    "dndecor:lime_display_board",
+    "dndecor:pink_display_board",
+    "dndecor:gray_display_board",
+    "dndecor:light_gray_display_board",
+    "dndecor:cyan_display_board",
+    "dndecor:purple_display_board",
+    "dndecor:blue_display_board",
+    "dndecor:brown_display_board",
+    "dndecor:green_display_board",
+    "dndecor:red_display_board",
+    "dndecor:black_display_board",
+    "create:display_board"
+  ]
+}

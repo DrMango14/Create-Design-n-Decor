@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "cut_dolomite_slab",
+  "key": {
+    "X": {
+      "item": "dndecor:cut_dolomite"
+    }
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "dndecor:cut_dolomite_slab"
+  },
+  "show_notification": true
+}

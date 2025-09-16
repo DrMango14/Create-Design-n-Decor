@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "dndecor:stone_types/basalt"
+  },
+  "result": "dndecor:small_basalt_brick_wall"
+}

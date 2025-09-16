@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dndecor:block/palettes/stone_types/polished/gabbro_cut_polished",
+    "side": "dndecor:block/palettes/stone_types/slab/gabbro_cut_slab"
+  }
+}

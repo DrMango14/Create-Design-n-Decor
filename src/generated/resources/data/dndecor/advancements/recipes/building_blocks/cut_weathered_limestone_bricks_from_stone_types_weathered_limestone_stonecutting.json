@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stone_types_weathered_limestone": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "dndecor:stone_types/weathered_limestone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:cut_weathered_limestone_bricks_from_stone_types_weathered_limestone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_types_weathered_limestone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:cut_weathered_limestone_bricks_from_stone_types_weathered_limestone_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

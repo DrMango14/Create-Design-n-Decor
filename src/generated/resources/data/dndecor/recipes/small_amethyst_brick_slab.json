@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "small_amethyst_brick_slab",
+  "key": {
+    "X": {
+      "item": "dndecor:small_amethyst_bricks"
+    }
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "dndecor:small_amethyst_brick_slab"
+  },
+  "show_notification": true
+}

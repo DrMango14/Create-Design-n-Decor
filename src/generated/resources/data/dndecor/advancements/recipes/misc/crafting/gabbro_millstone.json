@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gabbro_millstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:gabbro_millstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/gabbro_millstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gabbro_millstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/gabbro_millstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

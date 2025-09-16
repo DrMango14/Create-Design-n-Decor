@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dndecor:block/diagonal_metal_support/block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dndecor:block/diagonal_metal_support/block"
+    },
+    "facing=south": {
+      "model": "dndecor:block/diagonal_metal_support/block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dndecor:block/diagonal_metal_support/block",
+      "y": 270
+    }
+  }
+}

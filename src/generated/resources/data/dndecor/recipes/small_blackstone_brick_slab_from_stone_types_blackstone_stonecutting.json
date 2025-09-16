@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "tag": "dndecor:stone_types/blackstone"
+  },
+  "result": "dndecor:small_blackstone_brick_slab"
+}

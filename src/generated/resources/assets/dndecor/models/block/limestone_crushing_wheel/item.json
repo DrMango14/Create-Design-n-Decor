@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/crushing_wheel/item",
+  "textures": {
+    "insert": "dndecor:block/crushing_wheels/limestone/insert",
+    "plates": "dndecor:block/crushing_wheels/limestone/plates"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dndecor:block/palettes/stone_types/cap/gabbro_cut_cap",
+    "side": "dndecor:block/palettes/stone_types/layered/gabbro_cut_layered"
+  }
+}

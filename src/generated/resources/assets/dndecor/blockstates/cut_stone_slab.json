@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dndecor:block/cut_stone_slab"
+    },
+    "type=double": {
+      "model": "dndecor:block/cut_stone"
+    },
+    "type=top": {
+      "model": "dndecor:block/cut_stone_slab_top"
+    }
+  }
+}

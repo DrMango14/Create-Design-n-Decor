@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dndecor:block/large_metal_girder_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "dndecor:block/large_metal_girder"
+    },
+    "axis=z": {
+      "model": "dndecor:block/large_metal_girder_horizontal",
+      "x": 90
+    }
+  }
+}

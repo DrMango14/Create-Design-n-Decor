@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "forge:dyes/light_blue"
+    },
+    "D": {
+      "item": "dndecor:dark_metal_cogwheel"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DCD",
+    "DDD"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:light_blue_cogwheel"
+  },
+  "show_notification": true
+}

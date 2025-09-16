@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "forge:dyes/magenta"
+    },
+    "D": {
+      "tag": "forge:assets/create/flywheels"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DCD",
+    "DDD"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:magenta_flywheel"
+  },
+  "show_notification": true
+}

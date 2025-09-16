@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ochrum_millstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:ochrum_millstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/ochrum_millstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ochrum_millstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/ochrum_millstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dndecor:block/netherrack_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "dndecor:block/netherrack_pillar"
+    },
+    "axis=z": {
+      "model": "dndecor:block/netherrack_pillar_horizontal",
+      "x": 90
+    }
+  }
+}

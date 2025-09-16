@@ -1,0 +1,27 @@
+{
+  "values": [
+    "dndecor:stone_millstone",
+    "dndecor:packed_mud_millstone",
+    "dndecor:amethyst_millstone",
+    "dndecor:netherrack_millstone",
+    "dndecor:basalt_millstone",
+    "dndecor:blackstone_millstone",
+    "dndecor:weathered_limestone_millstone",
+    "dndecor:gabbro_millstone",
+    "dndecor:dolomite_millstone",
+    "dndecor:granite_millstone",
+    "dndecor:diorite_millstone",
+    "dndecor:calcite_millstone",
+    "dndecor:dripstone_millstone",
+    "dndecor:deepslate_millstone",
+    "dndecor:tuff_millstone",
+    "dndecor:asurine_millstone",
+    "dndecor:crimsite_millstone",
+    "dndecor:limestone_millstone",
+    "dndecor:ochrum_millstone",
+    "dndecor:scoria_millstone",
+    "dndecor:scorchia_millstone",
+    "dndecor:veridium_millstone",
+    "create:millstone"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "large_chain_break": {"subtitle": "subtitles.block.generic.break","sounds": [
+    {"name": "design_decor:large_chain/break1","volume": 0.9},
+    {"name": "design_decor:large_chain/break2","volume": 0.9},
+    {"name": "design_decor:large_chain/break3","volume": 0.9},
+    {"name": "design_decor:large_chain/break4","volume": 0.9}
+  ]},
+  "large_chain_step": {"subtitle": "subtitles.block.generic.footsteps","sounds": [
+    {"name": "design_decor:large_chain/place1","volume": 0.9},
+    {"name": "design_decor:large_chain/place2","volume": 0.9},
+    {"name": "design_decor:large_chain/place3","volume": 0.9},
+    {"name": "design_decor:large_chain/place4","volume": 0.9},
+    {"name": "design_decor:large_chain/place5","volume": 0.9},
+    {"name": "design_decor:large_chain/place6","volume": 0.9}
+  ]},
+  "large_chain_place": {"subtitle": "subtitles.block.generic.place","sounds": [
+    {"name": "design_decor:large_chain/break1","volume": 0.9},
+    {"name": "design_decor:large_chain/break2","volume": 0.9},
+    {"name": "design_decor:large_chain/break3","volume": 0.9},
+    {"name": "design_decor:large_chain/break4","volume": 0.9}
+  ]},
+  "large_chain_hit": {"subtitle": "subtitles.block.generic.hit","sounds": [
+    {"name": "design_decor:large_chain/place1","volume": 0.9},
+    {"name": "design_decor:large_chain/place2","volume": 0.9},
+    {"name": "design_decor:large_chain/place3","volume": 0.9},
+    {"name": "design_decor:large_chain/place4","volume": 0.9},
+    {"name": "design_decor:large_chain/place5","volume": 0.9},
+    {"name": "design_decor:large_chain/place6","volume": 0.9}
+  ]},
+  "large_chain_fall": {"subtitle": "subtitles.block.generic.footsteps","sounds": [
+    {"name": "design_decor:large_chain/place1","volume": 0.9},
+    {"name": "design_decor:large_chain/place2","volume": 0.9},
+    {"name": "design_decor:large_chain/place3","volume": 0.9},
+    {"name": "design_decor:large_chain/place4","volume": 0.9},
+    {"name": "design_decor:large_chain/place5","volume": 0.9},
+    {"name": "design_decor:large_chain/place6","volume": 0.9}
+  ]},
+  "floodlight_on": {"subtitle": "subtitles.block.floodlight.on","sounds": [
+    {"name": "minecraft:block/lodestone/lock1","volume": 0.9},
+    {"name": "minecraft:block/lodestone/lock2","volume": 0.9}
+  ]},
+  "floodlight_off": {"subtitle": "subtitles.block.floodlight.off","sounds": [
+    {"name": "minecraft:block/lodestone/lock1","volume": 0.9},
+    {"name": "minecraft:block/lodestone/lock2","volume": 0.9}
+  ]}
+
+}

@@ -1,0 +1,19 @@
+{
+  "values": [
+    "dndecor:cut_packed_mud",
+    "dndecor:cut_packed_mud_stairs",
+    "dndecor:cut_packed_mud_wall",
+    "dndecor:polished_cut_packed_mud",
+    "dndecor:polished_cut_packed_mud_stairs",
+    "dndecor:polished_cut_packed_mud_wall",
+    "dndecor:cut_packed_mud_bricks",
+    "dndecor:cut_packed_mud_brick_stairs",
+    "dndecor:cut_packed_mud_brick_wall",
+    "dndecor:small_packed_mud_bricks",
+    "dndecor:small_packed_mud_brick_stairs",
+    "dndecor:small_packed_mud_brick_wall",
+    "dndecor:layered_packed_mud",
+    "dndecor:packed_mud_pillar",
+    "minecraft:packed_mud"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "create:block/belt/particle",
+  "textures": {
+    "particle": "dndecor:block/belt"
+  }
+}

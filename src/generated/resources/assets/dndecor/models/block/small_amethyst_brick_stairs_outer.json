@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "dndecor:block/palettes/stone_types/small_brick/amethyst_cut_small_brick",
+    "side": "dndecor:block/palettes/stone_types/small_brick/amethyst_cut_small_brick",
+    "top": "dndecor:block/palettes/stone_types/small_brick/amethyst_cut_small_brick"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.lopyluna.dndecor.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "dndecor.refmap.json",
+  "mixins": [
+    "AssemblyOperatorBlockItemMixin",
+    "BeltBlockEntityAccessor",
+    "BeltBlockEntityMixin",
+    "BeltBlockMixin",
+    "BeltMovementHandlerMixin",
+    "CrushingWheelBlockMixin",
+    "CrushingWheelControllerBlockMixin",
+    "FlapDisplayBlockEntityMixin",
+    "FlapDisplayPlacementHelperMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

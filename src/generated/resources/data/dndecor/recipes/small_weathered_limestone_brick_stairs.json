@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "small_weathered_limestone_brick_stairs",
+  "key": {
+    "X": {
+      "item": "dndecor:small_weathered_limestone_bricks"
+    }
+  },
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "result": {
+    "count": 4,
+    "item": "dndecor:small_weathered_limestone_brick_stairs"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dndecor:block/palettes/stone_types/polished/weathered_limestone_cut_polished"
+  }
+}

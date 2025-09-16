@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "cut_stone_slab",
+  "key": {
+    "X": {
+      "item": "dndecor:cut_stone"
+    }
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "dndecor:cut_stone_slab"
+  },
+  "show_notification": true
+}

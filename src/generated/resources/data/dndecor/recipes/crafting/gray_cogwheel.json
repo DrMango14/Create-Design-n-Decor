@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "forge:dyes/gray"
+    },
+    "D": {
+      "item": "dndecor:dark_metal_cogwheel"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DCD",
+    "DDD"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:gray_cogwheel"
+  },
+  "show_notification": true
+}

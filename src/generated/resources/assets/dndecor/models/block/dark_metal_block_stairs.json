@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "dndecor:block/dark_metal_block",
+    "side": "dndecor:block/dark_metal_block",
+    "top": "dndecor:block/dark_metal_block"
+  }
+}

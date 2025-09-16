@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/frontlight/frontlight_off",
+  "textures": {
+    "0": "dndecor:block/copper_frontlight",
+    "particle": "dndecor:block/copper_frontlight"
+  }
+}

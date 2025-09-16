@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/zinc_checker_tiles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zinc_checker_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:zinc_checker_tiles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_zinc_checker_tiles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/zinc_checker_tiles"
+    ]
+  },
+  "sends_telemetry_event": false
+}

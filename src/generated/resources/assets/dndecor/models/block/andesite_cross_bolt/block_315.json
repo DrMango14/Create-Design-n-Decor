@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/bolt_base/cross/bolt_315",
+  "textures": {
+    "0": "dndecor:block/andesite_bolt",
+    "particle": "dndecor:block/andesite_bolt"
+  }
+}

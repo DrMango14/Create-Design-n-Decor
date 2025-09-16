@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dndecor:block/cut_basalt_slab"
+    },
+    "type=double": {
+      "model": "dndecor:block/cut_basalt"
+    },
+    "type=top": {
+      "model": "dndecor:block/cut_basalt_slab_top"
+    }
+  }
+}

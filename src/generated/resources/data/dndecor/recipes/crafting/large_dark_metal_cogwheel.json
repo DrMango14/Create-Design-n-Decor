@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "create:shaft"
+    },
+    {
+      "item": "dndecor:dark_metal_block"
+    },
+    {
+      "item": "dndecor:dark_metal_block"
+    }
+  ],
+  "result": {
+    "item": "dndecor:large_dark_metal_cogwheel"
+  }
+}

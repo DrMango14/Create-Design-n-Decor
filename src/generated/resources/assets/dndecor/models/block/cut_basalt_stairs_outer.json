@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "dndecor:block/palettes/stone_types/cut/basalt_cut",
+    "side": "dndecor:block/palettes/stone_types/cut/basalt_cut",
+    "top": "dndecor:block/palettes/stone_types/cut/basalt_cut"
+  }
+}

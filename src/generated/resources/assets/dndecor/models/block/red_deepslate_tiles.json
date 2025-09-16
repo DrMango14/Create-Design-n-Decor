@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dndecor:block/red_deepslate_tiles"
+  }
+}

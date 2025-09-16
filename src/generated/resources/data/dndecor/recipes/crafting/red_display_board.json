@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "forge:dyes/red"
+    },
+    "D": {
+      "tag": "forge:assets/create/display_boards"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DCD",
+    "DDD"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:red_display_board"
+  },
+  "show_notification": true
+}

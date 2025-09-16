@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "Z": {
+      "item": "create:zinc_block"
+    }
+  },
+  "pattern": [
+    "ZZ",
+    "ZZ"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:zinc_bricks"
+  },
+  "show_notification": true
+}

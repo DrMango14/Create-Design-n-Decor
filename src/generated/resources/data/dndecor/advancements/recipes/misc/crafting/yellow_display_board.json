@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/yellow_display_board"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_display_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:yellow_display_board"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yellow_display_board",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/yellow_display_board"
+    ]
+  },
+  "sends_telemetry_event": false
+}

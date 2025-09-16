@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_large_metal_girder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:large_metal_girder"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:beam_from_large_metal_girder_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_large_metal_girder",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:beam_from_large_metal_girder_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

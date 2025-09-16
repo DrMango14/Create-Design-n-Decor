@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "polished_cut_blackstone_slab",
+  "key": {
+    "X": {
+      "item": "dndecor:polished_cut_blackstone"
+    }
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "dndecor:polished_cut_blackstone_slab"
+  },
+  "show_notification": true
+}

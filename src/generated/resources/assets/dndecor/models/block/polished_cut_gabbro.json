@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dndecor:block/palettes/stone_types/polished/gabbro_cut_polished"
+  }
+}

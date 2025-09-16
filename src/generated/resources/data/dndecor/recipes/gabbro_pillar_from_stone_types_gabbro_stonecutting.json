@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "dndecor:stone_types/gabbro"
+  },
+  "result": "dndecor:gabbro_pillar"
+}

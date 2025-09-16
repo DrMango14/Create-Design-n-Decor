@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "tag": "forge:dyes/green"
+    },
+    "S": {
+      "tag": "dndecor:stone_metal_decor"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:green_stone_metal"
+  },
+  "show_notification": true
+}

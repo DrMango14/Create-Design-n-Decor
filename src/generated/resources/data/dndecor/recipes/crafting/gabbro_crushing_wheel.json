@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dndecor:gabbro"
+    },
+    {
+      "tag": "forge:assets/create/crushing_wheels"
+    }
+  ],
+  "result": {
+    "item": "dndecor:gabbro_crushing_wheel"
+  }
+}

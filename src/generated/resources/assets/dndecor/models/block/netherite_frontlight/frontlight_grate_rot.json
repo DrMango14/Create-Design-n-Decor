@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/frontlight/frontlight_grate_rot",
+  "textures": {
+    "0": "dndecor:block/netherite_frontlight",
+    "particle": "dndecor:block/netherite_frontlight"
+  }
+}

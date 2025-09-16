@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/yellow_cogwheel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_cogwheel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:yellow_cogwheel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yellow_cogwheel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/yellow_cogwheel"
+    ]
+  },
+  "sends_telemetry_event": false
+}

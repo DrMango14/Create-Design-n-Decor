@@ -1,0 +1,19 @@
+{
+  "values": [
+    "dndecor:cut_weathered_limestone",
+    "dndecor:cut_weathered_limestone_stairs",
+    "dndecor:cut_weathered_limestone_wall",
+    "dndecor:polished_cut_weathered_limestone",
+    "dndecor:polished_cut_weathered_limestone_stairs",
+    "dndecor:polished_cut_weathered_limestone_wall",
+    "dndecor:cut_weathered_limestone_bricks",
+    "dndecor:cut_weathered_limestone_brick_stairs",
+    "dndecor:cut_weathered_limestone_brick_wall",
+    "dndecor:small_weathered_limestone_bricks",
+    "dndecor:small_weathered_limestone_brick_stairs",
+    "dndecor:small_weathered_limestone_brick_wall",
+    "dndecor:layered_weathered_limestone",
+    "dndecor:weathered_limestone_pillar",
+    "dndecor:weathered_limestone"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "dndecor:large_metal_girder"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dndecor:blocks/large_metal_girder"
+}

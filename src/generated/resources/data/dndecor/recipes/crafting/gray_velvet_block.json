@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "forge:nuggets/brass"
+    },
+    "W": {
+      "item": "minecraft:gray_wool"
+    }
+  },
+  "pattern": [
+    "WB",
+    "BW"
+  ],
+  "result": {
+    "count": 4,
+    "item": "dndecor:gray_velvet_block"
+  },
+  "show_notification": true
+}

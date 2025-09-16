@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "tag": "forge:stone"
+    },
+    "G": [
+      {
+        "item": "minecraft:glowstone_dust"
+      },
+      {
+        "item": "minecraft:prismarine_crystals"
+      },
+      {
+        "item": "minecraft:blaze_rod"
+      }
+    ],
+    "M": {
+      "tag": "forge:ingots/netherite"
+    }
+  },
+  "pattern": [
+    "GM",
+    "MB"
+  ],
+  "result": {
+    "count": 4,
+    "item": "dndecor:netherite_frontlight"
+  },
+  "show_notification": true
+}

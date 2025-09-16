@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/display_board_base/block",
+  "textures": {
+    "7": "dndecor:block/display_boards/magenta",
+    "particle": "dndecor:block/display_boards/magenta"
+  }
+}

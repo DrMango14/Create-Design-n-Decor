@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "dndecor:stone_types/dolomite"
+  },
+  "result": "dndecor:small_dolomite_brick_wall"
+}

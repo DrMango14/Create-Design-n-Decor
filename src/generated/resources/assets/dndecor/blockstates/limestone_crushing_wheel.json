@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dndecor:block/limestone_crushing_wheel/block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "dndecor:block/limestone_crushing_wheel/block"
+    },
+    "axis=z": {
+      "model": "dndecor:block/limestone_crushing_wheel/block",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

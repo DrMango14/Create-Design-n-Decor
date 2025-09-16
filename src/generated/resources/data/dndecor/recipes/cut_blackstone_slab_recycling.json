@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dndecor:cut_blackstone_slab"
+    },
+    {
+      "item": "dndecor:cut_blackstone_slab"
+    }
+  ],
+  "result": {
+    "item": "dndecor:cut_blackstone"
+  }
+}

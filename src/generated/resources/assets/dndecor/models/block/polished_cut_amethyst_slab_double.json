@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dndecor:block/palettes/stone_types/polished/amethyst_cut_polished",
+    "side": "dndecor:block/palettes/stone_types/slab/amethyst_cut_slab"
+  }
+}

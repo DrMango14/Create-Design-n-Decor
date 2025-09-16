@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "tag": "forge:dyes/light_blue"
+    },
+    "S": {
+      "tag": "dndecor:stone_metal_decor"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:light_blue_stone_metal"
+  },
+  "show_notification": true
+}

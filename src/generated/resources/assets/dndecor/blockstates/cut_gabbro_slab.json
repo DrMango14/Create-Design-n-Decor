@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dndecor:block/cut_gabbro_slab"
+    },
+    "type=double": {
+      "model": "dndecor:block/cut_gabbro"
+    },
+    "type=top": {
+      "model": "dndecor:block/cut_gabbro_slab_top"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gabbro_crushing_wheel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:gabbro_crushing_wheel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/gabbro_crushing_wheel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gabbro_crushing_wheel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/gabbro_crushing_wheel"
+    ]
+  },
+  "sends_telemetry_event": false
+}

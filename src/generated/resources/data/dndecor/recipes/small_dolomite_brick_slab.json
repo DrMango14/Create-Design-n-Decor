@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "small_dolomite_brick_slab",
+  "key": {
+    "X": {
+      "item": "dndecor:small_dolomite_bricks"
+    }
+  },
+  "pattern": [
+    "XXX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "dndecor:small_dolomite_brick_slab"
+  },
+  "show_notification": true
+}

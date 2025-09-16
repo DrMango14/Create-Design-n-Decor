@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dndecor:polished_cut_basalt_slab"
+    },
+    {
+      "item": "dndecor:polished_cut_basalt_slab"
+    }
+  ],
+  "result": {
+    "item": "dndecor:polished_cut_basalt"
+  }
+}

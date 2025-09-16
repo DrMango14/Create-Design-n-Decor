@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dndecor:block/cut_amethyst_slab"
+    },
+    "type=double": {
+      "model": "dndecor:block/cut_amethyst"
+    },
+    "type=top": {
+      "model": "dndecor:block/cut_amethyst_slab_top"
+    }
+  }
+}

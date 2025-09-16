@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/crushing_wheel/block",
+  "textures": {
+    "insert": "dndecor:block/crushing_wheels/blackstone/insert",
+    "plates": "dndecor:block/crushing_wheels/blackstone/plates"
+  }
+}

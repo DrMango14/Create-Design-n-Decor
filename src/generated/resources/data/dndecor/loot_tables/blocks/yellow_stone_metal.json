@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "dndecor:yellow_stone_metal"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dndecor:blocks/yellow_stone_metal"
+}

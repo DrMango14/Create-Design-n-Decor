@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "dndecor:block/palettes/stone_types/cut/basalt_cut"
+  }
+}

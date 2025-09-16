@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/frontlight/frontlight_grate_rot",
+  "textures": {
+    "0": "dndecor:block/brass_frontlight",
+    "particle": "dndecor:block/brass_frontlight"
+  }
+}

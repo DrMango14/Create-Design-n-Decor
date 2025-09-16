@@ -1,0 +1,27 @@
+{
+  "values": [
+    "dndecor:stone_crushing_wheel",
+    "dndecor:packed_mud_crushing_wheel",
+    "dndecor:amethyst_crushing_wheel",
+    "dndecor:netherrack_crushing_wheel",
+    "dndecor:basalt_crushing_wheel",
+    "dndecor:blackstone_crushing_wheel",
+    "dndecor:weathered_limestone_crushing_wheel",
+    "dndecor:gabbro_crushing_wheel",
+    "dndecor:dolomite_crushing_wheel",
+    "dndecor:granite_crushing_wheel",
+    "dndecor:diorite_crushing_wheel",
+    "dndecor:calcite_crushing_wheel",
+    "dndecor:dripstone_crushing_wheel",
+    "dndecor:deepslate_crushing_wheel",
+    "dndecor:tuff_crushing_wheel",
+    "dndecor:asurine_crushing_wheel",
+    "dndecor:crimsite_crushing_wheel",
+    "dndecor:limestone_crushing_wheel",
+    "dndecor:ochrum_crushing_wheel",
+    "dndecor:scoria_crushing_wheel",
+    "dndecor:scorchia_crushing_wheel",
+    "dndecor:veridium_crushing_wheel",
+    "create:crushing_wheel"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/yellow_flywheel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_flywheel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dndecor:yellow_flywheel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yellow_flywheel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/yellow_flywheel"
+    ]
+  },
+  "sends_telemetry_event": false
+}

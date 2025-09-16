@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:granite"
+    },
+    {
+      "tag": "forge:assets/create/crushing_wheels"
+    }
+  ],
+  "result": {
+    "item": "dndecor:granite_crushing_wheel"
+  }
+}

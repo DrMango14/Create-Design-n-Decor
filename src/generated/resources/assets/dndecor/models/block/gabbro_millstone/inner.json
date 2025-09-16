@@ -1,0 +1,6 @@
+{
+  "parent": "create:block/millstone/inner",
+  "textures": {
+    "5": "dndecor:block/millstones/gabbro"
+  }
+}

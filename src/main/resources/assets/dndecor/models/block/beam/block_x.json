@@ -1,0 +1,51 @@
+{
+	"credit": "Made by LopyLuna",
+	"parent": "block/block",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "dndecor:block/beam/beam",
+		"1": "dndecor:block/beam/beam_side",
+		"2": "dndecor:block/beam/beam_top_x",
+		"3": "dndecor:block/beam/beam_inner",
+		"particle": "dndecor:block/beam/beam"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 5, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 6, 0]},
+			"faces": {
+				"north": {"uv": [0, 11, 16, 16], "texture": "#0", "cullface": "north"},
+				"east": {"uv": [0, 5.5, 8, 8], "texture": "#1", "cullface": "east"},
+				"south": {"uv": [0, 11, 16, 16], "texture": "#0", "cullface": "south"},
+				"west": {"uv": [0, 5.5, 8, 8], "texture": "#1", "cullface": "west"},
+				"up": {"uv": [8, 0, 16, 8], "rotation": 180, "texture": "#3"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#2", "cullface": "down"}
+			}
+		},
+		{
+			"from": [0, 11, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 11, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 5], "texture": "#0", "cullface": "north"},
+				"east": {"uv": [0, 0, 8, 2.5], "texture": "#1", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 5], "texture": "#0", "cullface": "south"},
+				"west": {"uv": [0, 0, 8, 2.5], "texture": "#1", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#2", "cullface": "up"},
+				"down": {"uv": [8, 0, 16, 8], "texture": "#3"}
+			}
+		},
+		{
+			"from": [0, 5, 3],
+			"to": [16, 11, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 6, 0]},
+			"faces": {
+				"north": {"uv": [0, 5, 16, 11], "texture": "#0"},
+				"east": {"uv": [1.5, 2.5, 6.5, 5.5], "texture": "#1", "cullface": "east"},
+				"south": {"uv": [0, 5, 16, 11], "texture": "#0"},
+				"west": {"uv": [1.5, 2.5, 6.5, 5.5], "texture": "#1", "cullface": "west"}
+			}
+		}
+	]
+}

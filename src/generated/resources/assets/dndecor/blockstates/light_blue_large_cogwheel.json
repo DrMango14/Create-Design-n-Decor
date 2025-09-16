@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dndecor:block/light_blue_large_cogwheel/block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "dndecor:block/light_blue_large_cogwheel/block"
+    },
+    "axis=z": {
+      "model": "dndecor:block/light_blue_large_cogwheel/block",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

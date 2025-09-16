@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dndecor:block/cut_netherrack_slab"
+    },
+    "type=double": {
+      "model": "dndecor:block/cut_netherrack"
+    },
+    "type=top": {
+      "model": "dndecor:block/cut_netherrack_slab_top"
+    }
+  }
+}

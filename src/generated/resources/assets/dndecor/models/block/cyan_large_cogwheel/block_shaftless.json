@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/large_cogwheel_shaftless",
+  "textures": {
+    "4": "dndecor:block/large_cogwheels/cyan",
+    "particle": "dndecor:block/large_cogwheels/cyan"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/bolt_base/flat/bolt_315",
+  "textures": {
+    "0": "dndecor:block/iron_bolt",
+    "particle": "dndecor:block/iron_bolt"
+  }
+}

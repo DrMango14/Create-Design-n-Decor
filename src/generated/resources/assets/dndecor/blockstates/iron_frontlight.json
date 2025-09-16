@@ -1,0 +1,280 @@
+{
+  "variants": {
+    "additive=empty,facing=down,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off",
+      "x": 90
+    },
+    "additive=empty,facing=down,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_rot",
+      "x": 90
+    },
+    "additive=empty,facing=down,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight",
+      "x": 90
+    },
+    "additive=empty,facing=down,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_rot",
+      "x": 90
+    },
+    "additive=empty,facing=east,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off",
+      "y": 90
+    },
+    "additive=empty,facing=east,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_rot",
+      "y": 90
+    },
+    "additive=empty,facing=east,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight",
+      "y": 90
+    },
+    "additive=empty,facing=east,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_rot",
+      "y": 90
+    },
+    "additive=empty,facing=north,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off"
+    },
+    "additive=empty,facing=north,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_rot"
+    },
+    "additive=empty,facing=north,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight"
+    },
+    "additive=empty,facing=north,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_rot"
+    },
+    "additive=empty,facing=south,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off",
+      "y": 180
+    },
+    "additive=empty,facing=south,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_rot",
+      "y": 180
+    },
+    "additive=empty,facing=south,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight",
+      "y": 180
+    },
+    "additive=empty,facing=south,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_rot",
+      "y": 180
+    },
+    "additive=empty,facing=up,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off",
+      "x": 270
+    },
+    "additive=empty,facing=up,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_rot",
+      "x": 270
+    },
+    "additive=empty,facing=up,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight",
+      "x": 270
+    },
+    "additive=empty,facing=up,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_rot",
+      "x": 270
+    },
+    "additive=empty,facing=west,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off",
+      "y": 270
+    },
+    "additive=empty,facing=west,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_rot",
+      "y": 270
+    },
+    "additive=empty,facing=west,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight",
+      "y": 270
+    },
+    "additive=empty,facing=west,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_rot",
+      "y": 270
+    },
+    "additive=grate,facing=down,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate",
+      "x": 90
+    },
+    "additive=grate,facing=down,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate_rot",
+      "x": 90
+    },
+    "additive=grate,facing=down,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate",
+      "x": 90
+    },
+    "additive=grate,facing=down,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate_rot",
+      "x": 90
+    },
+    "additive=grate,facing=east,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate",
+      "y": 90
+    },
+    "additive=grate,facing=east,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate_rot",
+      "y": 90
+    },
+    "additive=grate,facing=east,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate",
+      "y": 90
+    },
+    "additive=grate,facing=east,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate_rot",
+      "y": 90
+    },
+    "additive=grate,facing=north,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate"
+    },
+    "additive=grate,facing=north,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate_rot"
+    },
+    "additive=grate,facing=north,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate"
+    },
+    "additive=grate,facing=north,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate_rot"
+    },
+    "additive=grate,facing=south,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate",
+      "y": 180
+    },
+    "additive=grate,facing=south,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate_rot",
+      "y": 180
+    },
+    "additive=grate,facing=south,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate",
+      "y": 180
+    },
+    "additive=grate,facing=south,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate_rot",
+      "y": 180
+    },
+    "additive=grate,facing=up,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate",
+      "x": 270
+    },
+    "additive=grate,facing=up,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate_rot",
+      "x": 270
+    },
+    "additive=grate,facing=up,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate",
+      "x": 270
+    },
+    "additive=grate,facing=up,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate_rot",
+      "x": 270
+    },
+    "additive=grate,facing=west,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate",
+      "y": 270
+    },
+    "additive=grate,facing=west,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_grate_rot",
+      "y": 270
+    },
+    "additive=grate,facing=west,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate",
+      "y": 270
+    },
+    "additive=grate,facing=west,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_grate_rot",
+      "y": 270
+    },
+    "additive=top,facing=down,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top",
+      "x": 90
+    },
+    "additive=top,facing=down,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top_rot",
+      "x": 90
+    },
+    "additive=top,facing=down,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top",
+      "x": 90
+    },
+    "additive=top,facing=down,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top_rot",
+      "x": 90
+    },
+    "additive=top,facing=east,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top",
+      "y": 90
+    },
+    "additive=top,facing=east,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top_rot",
+      "y": 90
+    },
+    "additive=top,facing=east,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top",
+      "y": 90
+    },
+    "additive=top,facing=east,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top_rot",
+      "y": 90
+    },
+    "additive=top,facing=north,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top"
+    },
+    "additive=top,facing=north,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top_rot"
+    },
+    "additive=top,facing=north,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top"
+    },
+    "additive=top,facing=north,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top_rot"
+    },
+    "additive=top,facing=south,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top",
+      "y": 180
+    },
+    "additive=top,facing=south,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top_rot",
+      "y": 180
+    },
+    "additive=top,facing=south,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top",
+      "y": 180
+    },
+    "additive=top,facing=south,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top_rot",
+      "y": 180
+    },
+    "additive=top,facing=up,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top",
+      "x": 270
+    },
+    "additive=top,facing=up,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top_rot",
+      "x": 270
+    },
+    "additive=top,facing=up,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top",
+      "x": 270
+    },
+    "additive=top,facing=up,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top_rot",
+      "x": 270
+    },
+    "additive=top,facing=west,lit=false,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top",
+      "y": 270
+    },
+    "additive=top,facing=west,lit=false,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_off_top_rot",
+      "y": 270
+    },
+    "additive=top,facing=west,lit=true,rotated=false": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top",
+      "y": 270
+    },
+    "additive=top,facing=west,lit=true,rotated=true": {
+      "model": "dndecor:block/iron_frontlight/frontlight_top_rot",
+      "y": 270
+    }
+  }
+}

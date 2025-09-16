@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/large_cogwheel",
+  "textures": {
+    "4": "dndecor:block/large_cogwheels/gray",
+    "particle": "dndecor:block/large_cogwheels/gray"
+  }
+}

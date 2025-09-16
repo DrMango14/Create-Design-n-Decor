@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stone_types_blackstone": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "dndecor:stone_types/blackstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:cut_blackstone_stairs_from_stone_types_blackstone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_types_blackstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:cut_blackstone_stairs_from_stone_types_blackstone_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

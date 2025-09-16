@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "ISI",
+    "S S",
+    "ISI"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:ornate_grate"
+  },
+  "show_notification": true
+}

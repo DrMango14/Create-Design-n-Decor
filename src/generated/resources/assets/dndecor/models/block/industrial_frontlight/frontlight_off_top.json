@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/frontlight/frontlight_off_top",
+  "textures": {
+    "0": "dndecor:block/industrial_frontlight",
+    "particle": "dndecor:block/industrial_frontlight"
+  }
+}

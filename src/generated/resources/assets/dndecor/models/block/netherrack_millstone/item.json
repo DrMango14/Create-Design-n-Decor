@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/millstone/item",
+  "textures": {
+    "4": "dndecor:block/crushing_wheels/netherrack/plates",
+    "5": "dndecor:block/millstones/netherrack"
+  }
+}

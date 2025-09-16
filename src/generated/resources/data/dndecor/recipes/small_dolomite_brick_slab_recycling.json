@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dndecor:small_dolomite_brick_slab"
+    },
+    {
+      "item": "dndecor:small_dolomite_brick_slab"
+    }
+  ],
+  "result": {
+    "item": "dndecor:small_dolomite_bricks"
+  }
+}

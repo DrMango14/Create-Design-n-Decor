@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/frontlight/frontlight_item",
+  "textures": {
+    "0": "dndecor:block/brass_frontlight",
+    "particle": "dndecor:block/brass_frontlight"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/cogwheel_shaftless",
+  "textures": {
+    "1_2": "dndecor:block/cogwheels/white",
+    "particle": "dndecor:block/cogwheels/white"
+  }
+}

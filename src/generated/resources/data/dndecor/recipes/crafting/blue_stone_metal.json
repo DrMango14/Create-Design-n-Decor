@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "create:asurine"
+    },
+    "D": {
+      "tag": "forge:dyes/blue"
+    },
+    "S": {
+      "tag": "forge:plates/iron"
+    }
+  },
+  "pattern": [
+    "ASA",
+    "SDS",
+    "ASA"
+  ],
+  "result": {
+    "count": 8,
+    "item": "dndecor:blue_stone_metal"
+  },
+  "show_notification": true
+}

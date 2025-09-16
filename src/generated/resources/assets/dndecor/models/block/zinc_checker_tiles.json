@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dndecor:block/zinc_checker_tiles"
+  }
+}

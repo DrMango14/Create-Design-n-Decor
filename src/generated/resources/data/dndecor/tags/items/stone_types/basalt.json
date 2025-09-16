@@ -1,0 +1,19 @@
+{
+  "values": [
+    "dndecor:cut_basalt",
+    "dndecor:cut_basalt_stairs",
+    "dndecor:cut_basalt_wall",
+    "dndecor:polished_cut_basalt",
+    "dndecor:polished_cut_basalt_stairs",
+    "dndecor:polished_cut_basalt_wall",
+    "dndecor:cut_basalt_bricks",
+    "dndecor:cut_basalt_brick_stairs",
+    "dndecor:cut_basalt_brick_wall",
+    "dndecor:small_basalt_bricks",
+    "dndecor:small_basalt_brick_stairs",
+    "dndecor:small_basalt_brick_wall",
+    "dndecor:layered_basalt",
+    "dndecor:basalt_pillar",
+    "minecraft:basalt"
+  ]
+}

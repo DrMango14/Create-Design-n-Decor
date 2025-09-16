@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/bolt_base/dash/bolt_0",
+  "textures": {
+    "0": "dndecor:block/netherite_bolt",
+    "particle": "dndecor:block/netherite_bolt"
+  }
+}

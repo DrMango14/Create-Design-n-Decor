@@ -1,0 +1,21 @@
+{
+  "values": [
+    "dndecor:white_flywheel",
+    "dndecor:orange_flywheel",
+    "dndecor:magenta_flywheel",
+    "dndecor:light_blue_flywheel",
+    "dndecor:yellow_flywheel",
+    "dndecor:lime_flywheel",
+    "dndecor:pink_flywheel",
+    "dndecor:gray_flywheel",
+    "dndecor:light_gray_flywheel",
+    "dndecor:cyan_flywheel",
+    "dndecor:purple_flywheel",
+    "dndecor:blue_flywheel",
+    "dndecor:brown_flywheel",
+    "dndecor:green_flywheel",
+    "dndecor:red_flywheel",
+    "dndecor:black_flywheel",
+    "create:flywheel"
+  ]
+}

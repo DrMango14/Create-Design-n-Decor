@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "tag": "dndecor:stone_types/netherrack"
+  },
+  "result": "dndecor:small_netherrack_brick_slab"
+}

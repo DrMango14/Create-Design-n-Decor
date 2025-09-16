@@ -26,7 +26,7 @@ public class DnDecorTags {
         return optionalTag(registry, ResourceLocation.fromNamespaceAndPath("c", path));
     }
     public static <T> TagKey<T> modTag(Registry<T> registry, String path) {
-        return optionalTag(registry, DnDecor.asResource(path));
+        return optionalTag(registry, DnDecor.loc(path));
     }
     public static TagKey<Block> commonBlockTag(String path) {
         return commonTag(BuiltInRegistries.BLOCK, path);

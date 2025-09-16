@@ -11,11 +11,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class DiagonalMetalSupportBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<DiagonalMetalSupportBlock> CODEC = simpleCodec(DiagonalMetalSupportBlock::new);
-
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -25,9 +28,7 @@ public class DiagonalMetalSupportBlock extends HorizontalDirectionalBlock {
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockState state = defaultBlockState();
-
-        return state.setValue(FACING,context.getHorizontalDirection().getOpposite());
+        return defaultBlockState().setValue(FACING,context.getHorizontalDirection().getOpposite());
     }
 
     public DiagonalMetalSupportBlock(Properties properties) {
@@ -35,12 +36,12 @@ public class DiagonalMetalSupportBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return DnDecorShapes.DIAGONAL_METAL_SUPPORT.get(state.getValue(FACING).getOpposite());
     }
 
     @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 }

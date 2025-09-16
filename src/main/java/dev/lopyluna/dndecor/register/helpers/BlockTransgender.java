@@ -58,13 +58,13 @@ import static com.simibubi.create.AllTags.commonItemTag;
 import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.tterrag.registrate.providers.RegistrateRecipeProvider.has;
-import static dev.lopyluna.dndecor.DnDecor.REGISTRATE;
+import static dev.lopyluna.dndecor.DnDecor.REG;
 
 @SuppressWarnings({"removal", "unused"})
 public class BlockTransgender {
 
     public static BlockEntry<VelvetBlock> velvetBlock(String colorId, MapColor mapColor, DyeColor dye) {
-        return REGISTRATE.block(colorId + "_velvet_block", p -> new VelvetBlock(p, dye))
+        return REG.block(colorId + "_velvet_block", p -> new VelvetBlock(p, dye))
                 .initialProperties(() -> Blocks.WHITE_WOOL)
                 .properties(p -> p.mapColor(mapColor)).properties(p -> p.sound(SoundType.WOOL))
                 .properties(p -> p.strength(0.5f,1.5f))
@@ -75,7 +75,7 @@ public class BlockTransgender {
                                 .define('W', DnDecorUtils.getWool(dye))
                                 .define('B', commonItemTag("nuggets/brass"))
                                 .unlockedBy("has_" + c.getName(), has(c.get()))
-                                .save(p, DnDecor.asResource("crafting/" + c.getName()))
+                                .save(p, DnDecor.loc("crafting/" + c.getName()))
                 )
                 .blockstate((c, p) -> p.simpleBlock(c.get(), p.models().cubeAll(c.getName(), Create.asResource("block/seat/top_" + colorId))))
                 .tag(AllTags.AllBlockTags.WINDMILL_SAILS.tag)
@@ -138,22 +138,22 @@ public class BlockTransgender {
 
     public static BlockBuilder<WindowBlock, CreateRegistrate> customWindowBlock(String name, Supplier<CTSpriteShiftEntry> ct,
                                                             Supplier<Supplier<RenderType>> renderType, boolean translucent, Supplier<MapColor> color) {
-        NonNullFunction<String, ResourceLocation> end_texture = n -> DnDecor.asResource(palettesDir() + name + "_end");
-        NonNullFunction<String, ResourceLocation> side_texture = n -> DnDecor.asResource(palettesDir() + n);
+        NonNullFunction<String, ResourceLocation> end_texture = n -> DnDecor.loc(palettesDir() + name + "_end");
+        NonNullFunction<String, ResourceLocation> side_texture = n -> DnDecor.loc(palettesDir() + n);
         return windowBlock(name, ct, null, renderType, translucent, end_texture, side_texture, color);
     }
 
     public static BlockBuilder<WindowBlock, CreateRegistrate> customWindowBlock(String name, Supplier<CTSpriteShiftEntry> ct, Supplier<CTSpriteShiftEntry> ct2,
                     Supplier<Supplier<RenderType>> renderType, boolean translucent, Supplier<MapColor> color) {
-        NonNullFunction<String, ResourceLocation> end_texture = n -> DnDecor.asResource(palettesDir() + name + "_end");
-        NonNullFunction<String, ResourceLocation> side_texture = n -> DnDecor.asResource(palettesDir() + n);
+        NonNullFunction<String, ResourceLocation> end_texture = n -> DnDecor.loc(palettesDir() + name + "_end");
+        NonNullFunction<String, ResourceLocation> side_texture = n -> DnDecor.loc(palettesDir() + n);
         return windowBlock(name, ct, ct2, renderType, translucent, end_texture, side_texture, color);
     }
 
     public static BlockBuilder<WindowBlock, CreateRegistrate> windowBlock(String name,
                     Supplier<CTSpriteShiftEntry> ct, Supplier<CTSpriteShiftEntry> ct2, Supplier<Supplier<RenderType>> renderType, boolean translucent,
                     NonNullFunction<String, ResourceLocation> endTexture, NonNullFunction<String, ResourceLocation> sideTexture, Supplier<MapColor> color) {
-        return REGISTRATE.block(name, p -> new WindowBlock(p, translucent))
+        return REG.block(name, p -> new WindowBlock(p, translucent))
                 .onRegister(ct == null ? $ -> {
                 } : connectedTextures(() -> ct2 != null ? new HorizontalCTBehaviour(ct.get(), ct2.get()) : new HorizontalCTBehaviour(ct.get())))
                 .addLayer(renderType)
@@ -168,7 +168,7 @@ public class BlockTransgender {
     }
 
     public static BlockEntry<ConnectedGlassBlock> framedGlass(String name, Supplier<ConnectedTextureBehaviour> behaviour) {
-        return REGISTRATE.block(name, ConnectedGlassBlock::new)
+        return REG.block(name, ConnectedGlassBlock::new)
                 .onRegister(connectedTextures(behaviour))
                 .addLayer(() -> RenderType::cutout)
                 .initialProperties(() -> Blocks.GLASS)
@@ -187,15 +187,15 @@ public class BlockTransgender {
     }
 
     public static BlockBuilder<ConnectedGlassPaneBlock, CreateRegistrate> customWindowPane(String name, Supplier<? extends Block> parent, Supplier<CTSpriteShiftEntry> ctshift, Supplier<Supplier<RenderType>> renderType) {
-        var topTexture = DnDecor.asResource(palettesDir() + name + "_pane_top");
-        var sideTexture = DnDecor.asResource(palettesDir() + name);
+        var topTexture = DnDecor.loc(palettesDir() + name + "_pane_top");
+        var sideTexture = DnDecor.loc(palettesDir() + name);
         return connectedGlassPane(name, parent, ctshift, sideTexture, sideTexture, topTexture, renderType, false);
     }
 
     public static BlockEntry<ConnectedGlassPaneBlock> framedGlassPane(String name, Supplier<? extends Block> parent, Supplier<CTSpriteShiftEntry> ctshift) {
-        var sideTexture = DnDecor.asResource(palettesDir() + name);
-        var itemSideTexture = DnDecor.asResource(palettesDir() + name);
-        var topTexture = DnDecor.asResource(palettesDir() + name + "_pane_top");
+        var sideTexture = DnDecor.loc(palettesDir() + name);
+        var itemSideTexture = DnDecor.loc(palettesDir() + name);
+        var topTexture = DnDecor.loc(palettesDir() + name + "_pane_top");
         Supplier<Supplier<RenderType>> renderType = () -> RenderType::cutoutMipped;
         return connectedGlassPane(name, parent, ctshift, sideTexture, itemSideTexture, topTexture, renderType, true).register();
     }
@@ -229,7 +229,7 @@ public class BlockTransgender {
         ResourceLocation topTexture, NonNullFunction<BlockBehaviour.Properties, G> factory, Supplier<Supplier<RenderType>> renderType,
         NonNullConsumer<? super G> connectedTextures, NonNullBiConsumer<DataGenContext<Block, G>, RegistrateBlockstateProvider> stateProvider, boolean colorless) {
         name += "_pane";
-        ItemBuilder<BlockItem, BlockBuilder<G, CreateRegistrate>> itemBuilder = REGISTRATE.block(name, factory)
+        ItemBuilder<BlockItem, BlockBuilder<G, CreateRegistrate>> itemBuilder = REG.block(name, factory)
                 .onRegister(connectedTextures)
                 .addLayer(renderType)
                 .initialProperties(() -> Blocks.GLASS_PANE)

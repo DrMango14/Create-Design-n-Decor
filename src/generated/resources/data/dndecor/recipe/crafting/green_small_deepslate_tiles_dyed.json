@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "tag": "c:dyes/green"
+    },
+    "S": {
+      "tag": "dndecor:deepslate_tiles_decor"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:green_small_deepslate_tiles"
+  }
+}

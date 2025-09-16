@@ -1,0 +1,212 @@
+{
+  "variants": {
+    "facing=down,rotation=0": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_0",
+      "x": 180
+    },
+    "facing=down,rotation=135": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_135",
+      "x": 180
+    },
+    "facing=down,rotation=180": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_180",
+      "x": 180
+    },
+    "facing=down,rotation=225": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_225",
+      "x": 180
+    },
+    "facing=down,rotation=270": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_270",
+      "x": 180
+    },
+    "facing=down,rotation=315": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_315",
+      "x": 180
+    },
+    "facing=down,rotation=45": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_45",
+      "x": 180
+    },
+    "facing=down,rotation=90": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_90",
+      "x": 180
+    },
+    "facing=east,rotation=0": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_0",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=135": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_135",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=180": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_180",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=225": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_225",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=270": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_270",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=315": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_315",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=45": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_45",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,rotation=90": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_90",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,rotation=0": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_0",
+      "x": 90
+    },
+    "facing=north,rotation=135": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_135",
+      "x": 90
+    },
+    "facing=north,rotation=180": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_180",
+      "x": 90
+    },
+    "facing=north,rotation=225": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_225",
+      "x": 90
+    },
+    "facing=north,rotation=270": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_270",
+      "x": 90
+    },
+    "facing=north,rotation=315": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_315",
+      "x": 90
+    },
+    "facing=north,rotation=45": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_45",
+      "x": 90
+    },
+    "facing=north,rotation=90": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_90",
+      "x": 90
+    },
+    "facing=south,rotation=0": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_0",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=135": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_135",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=180": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_180",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=225": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_225",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=270": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_270",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=315": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_315",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=45": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_45",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,rotation=90": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_90",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,rotation=0": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_0"
+    },
+    "facing=up,rotation=135": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_135"
+    },
+    "facing=up,rotation=180": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_180"
+    },
+    "facing=up,rotation=225": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_225"
+    },
+    "facing=up,rotation=270": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_270"
+    },
+    "facing=up,rotation=315": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_315"
+    },
+    "facing=up,rotation=45": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_45"
+    },
+    "facing=up,rotation=90": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_90"
+    },
+    "facing=west,rotation=0": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_0",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=135": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_135",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=180": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_180",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=225": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_225",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=270": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_270",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=315": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_315",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=45": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_45",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,rotation=90": {
+      "model": "dndecor:block/cast_iron_flat_bolt/block_90",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

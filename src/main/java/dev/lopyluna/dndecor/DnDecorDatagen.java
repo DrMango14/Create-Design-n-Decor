@@ -18,9 +18,9 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
-import static dev.lopyluna.dndecor.DnDecor.REGISTRATE;
+import static dev.lopyluna.dndecor.DnDecor.REG;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SameParameterValue"})
 public class DnDecorDatagen {
     @SuppressWarnings("all")
     public static void gatherData(GatherDataEvent event) {
@@ -31,13 +31,13 @@ public class DnDecorDatagen {
 
         generator.addProvider(event.includeServer(), new MechanicalCraftingGen(output, lookupProvider));
 
-        event.getGenerator().addProvider(true, REGISTRATE.setDataProvider(new RegistrateDataProvider(REGISTRATE, MOD_ID, event)));
+        event.getGenerator().addProvider(true, REG.setDataProvider(new RegistrateDataProvider(REG, MOD_ID, event)));
         if (event.includeServer()) ProcessingDnDecorRecipeGen.registerAll(generator, output, lookupProvider);
     }
 
     private static void addExtraRegistrateData() {
         DatagenTags.addGenerators();
-        REGISTRATE.addDataGenerator(ProviderType.LANG, provider -> {
+        REG.addDataGenerator(ProviderType.LANG, provider -> {
             BiConsumer<String, String> langConsumer = provider::add;
 
             provideDefaultLang("tooltips", langConsumer);

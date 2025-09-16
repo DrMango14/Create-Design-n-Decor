@@ -1,5 +1,6 @@
 package dev.lopyluna.dndecor;
 
+import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
@@ -21,6 +22,7 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,28 +32,25 @@ import java.util.List;
 public class DnDecor {
     public static final String NAME = "Design n' Decor";
     public static final String MOD_ID = "dndecor";
+    public static final Logger LOGGER = LogUtils.getLogger();
+    public static final boolean LOAD_ALL_METALS = true;
 
-    public static final boolean LOAD_ALL_METALS = false;
-
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID)
+    public static final CreateRegistrate REG = CreateRegistrate.create(MOD_ID)
             .defaultCreativeTab((ResourceKey<CreativeModeTab>) null)
-            .setTooltipModifierFactory(item ->
-                    new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
-                            .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
-            );;
+            .setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE).andThen(TooltipModifier.mapNull(KineticStats.create(item))));
 
     static {
-        REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
+        REG.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
                 .andThen(TooltipModifier.mapNull(create(item))));
     }
 
     public DnDecor(IEventBus modEventBus, ModContainer modContainer) {
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
-        REGISTRATE.registerEventListeners(modEventBus);
+        REG.registerEventListeners(modEventBus);
 
         AllMetalTypes.register();
 
-        DnDecorStoneTypes.register(REGISTRATE);
+        DnDecorStoneTypes.register(REG);
         DnDecorLangPartial.init();
         DnDecorTags.init();
         DnDecorItems.register();
@@ -62,13 +61,14 @@ public class DnDecor {
         DnDecorConfigs.register(modLoadingContext, modContainer);
 
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(EventPriority.LOWEST, DnDecorCreativeTabs::addCreative);
         modEventBus.addListener(EventPriority.LOWEST, DnDecorDatagen::gatherData);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(DnDecorCreativeTabs.BASE_CREATIVE_TAB.getKey())) {
             List<ItemStack> stacks = new ArrayList<>();
-            for (RegistryEntry<Item, Item> entry : REGISTRATE.getAll(Registries.ITEM)) {
+            for (RegistryEntry<Item, Item> entry : REG.getAll(Registries.ITEM)) {
                 Item item = entry.get();
                 if (item instanceof BlockItem) continue;
                 if (item instanceof BucketItem) continue;
@@ -80,7 +80,7 @@ public class DnDecor {
                 }
                 event.accept(stack);
             }
-            for (RegistryEntry<Block, Block> entry : REGISTRATE.getAll(Registries.BLOCK)) {
+            for (RegistryEntry<Block, Block> entry : REG.getAll(Registries.BLOCK)) {
                 var block = entry.get();
                 var item = block.asItem();
                 var stack = item.getDefaultInstance();
@@ -99,7 +99,7 @@ public class DnDecor {
         return new LangBuilder(MOD_ID);
     }
 
-    public static ResourceLocation asResource(String loc) {
+    public static ResourceLocation loc(String loc) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, loc);
     }
 

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magenta_small_deepslate_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:magenta_small_deepslate_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/magenta_small_deepslate_tiles_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magenta_small_deepslate_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/magenta_small_deepslate_tiles_dyed"
+    ]
+  }
+}

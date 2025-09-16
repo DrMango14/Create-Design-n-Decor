@@ -1,7 +1,7 @@
 {
   "parent": "create:block/cogwheel",
   "textures": {
-    "1_2": "dndecor:block/cogwheels/lime",
-    "particle": "dndecor:block/cogwheels/lime"
+    "1_2": "dndecor:block/dark_metal_cogwheel/lime",
+    "particle": "dndecor:block/dark_metal_cogwheel/lime"
   }
 }

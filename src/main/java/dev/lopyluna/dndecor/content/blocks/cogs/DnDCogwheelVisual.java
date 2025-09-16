@@ -23,12 +23,8 @@ import java.util.function.Consumer;
 public class DnDCogwheelVisual {
 
 	public static BlockEntityVisual<BracketedKineticBlockEntity> create(VisualizationContext context, BracketedKineticBlockEntity be, float partialTick) {
-		if (ICogWheel.isLargeCog(be.getBlockState())) {
-			return new LargeCogVisual(context, be, partialTick);
-		} else {
-
-			return new SmallCogVisual(context, be, partialTick);
-		}
+		if (ICogWheel.isLargeCog(be.getBlockState())) return new LargeCogVisual(context, be, partialTick);
+		return new SmallCogVisual(context, be, partialTick);
 	}
 	public static class SmallCogVisual extends SingleAxisRotatingVisual<BracketedKineticBlockEntity> {
 
@@ -36,12 +32,9 @@ public class DnDCogwheelVisual {
 
 		private SmallCogVisual(VisualizationContext context, BracketedKineticBlockEntity blockEntity, float partialTick) {
 			super(context, blockEntity, partialTick, getSmallModel(blockEntity));
-
 			Direction.Axis axis = KineticBlockEntityRenderer.getRotationAxisOf(blockEntity);
 
-			additionalShaft = instancerProvider().instancer(AllInstanceTypes.ROTATING, Models.partial(AllPartialModels.COGWHEEL_SHAFT))
-					.createInstance();
-
+			additionalShaft = instancerProvider().instancer(AllInstanceTypes.ROTATING, Models.partial(AllPartialModels.COGWHEEL_SHAFT)).createInstance();
 
 			additionalShaft.rotateToFace(axis)
 					.setup(blockEntity)
@@ -50,25 +43,19 @@ public class DnDCogwheelVisual {
 					.setChanged();
 		}
 
-
-
 		public static Model getSmallModel(BracketedKineticBlockEntity be){
-
-
-			PartialModel partialModel = DnDecorPartialModels.DYED_COGWHEEL.get(((DnDCogWheelBlock)be.getBlockState().getBlock()).color);
-			if(((DnDCogWheelBlock)be.getBlockState().getBlock()).customModel !=null)
-				partialModel = ((DnDCogWheelBlock)be.getBlockState().getBlock()).customModel;
-			return Models.partial(partialModel);
-		}
-
-
+			if (be.getBlockState().getBlock() instanceof DnDCogWheelBlock block) {
+				PartialModel partialModel = DnDecorPartialModels.DYED_COGWHEEL.get(block.color);
+				if (block.customModel != null) partialModel = block.customModel;
+				return Models.partial(partialModel);
+			}
+            return null;
+        }
 
 		@Override
 		public void update(float pt) {
 			super.update(pt);
-			additionalShaft.setup(blockEntity)
-					.setRotationOffset(BracketedKineticBlockEntityRenderer.getShaftAngleOffset(rotationAxis(), pos))
-					.setChanged();
+			additionalShaft.setup(blockEntity).setRotationOffset(BracketedKineticBlockEntityRenderer.getShaftAngleOffset(rotationAxis(), pos)).setChanged();
 		}
 
 		@Override
@@ -91,17 +78,13 @@ public class DnDCogwheelVisual {
 	}
 
 	public static class LargeCogVisual extends SingleAxisRotatingVisual<BracketedKineticBlockEntity> {
-
 		protected final RotatingInstance additionalShaft;
 
 		private LargeCogVisual(VisualizationContext context, BracketedKineticBlockEntity blockEntity, float partialTick) {
 			super(context, blockEntity, partialTick, getLargeModel(blockEntity));
-
 			Direction.Axis axis = KineticBlockEntityRenderer.getRotationAxisOf(blockEntity);
 
-			additionalShaft = instancerProvider().instancer(AllInstanceTypes.ROTATING, Models.partial(AllPartialModels.COGWHEEL_SHAFT))
-				.createInstance();
-
+			additionalShaft = instancerProvider().instancer(AllInstanceTypes.ROTATING, Models.partial(AllPartialModels.COGWHEEL_SHAFT)).createInstance();
 
 			additionalShaft.rotateToFace(axis)
 				.setup(blockEntity)
@@ -110,27 +93,19 @@ public class DnDCogwheelVisual {
 				.setChanged();
 		}
 
-
-
 		public static Model getLargeModel(BracketedKineticBlockEntity be){
-
-
-			PartialModel partialModel = DnDecorPartialModels.DYED_LARGE_COGWHEEL.get(((DnDCogWheelBlock)be.getBlockState().getBlock()).color);
-
-			if(((DnDCogWheelBlock)be.getBlockState().getBlock()).customModel !=null)
-				partialModel = ((DnDCogWheelBlock)be.getBlockState().getBlock()).customModel;
-
-			return Models.partial(partialModel);
+			if (be.getBlockState().getBlock() instanceof DnDCogWheelBlock block) {
+				PartialModel partialModel = DnDecorPartialModels.DYED_LARGE_COGWHEEL.get(block.color);
+				if (block.customModel != null) partialModel = block.customModel;
+				return Models.partial(partialModel);
+			}
+			return null;
 		}
-
-
 
 		@Override
 		public void update(float pt) {
 			super.update(pt);
-			additionalShaft.setup(blockEntity)
-				.setRotationOffset(BracketedKineticBlockEntityRenderer.getShaftAngleOffset(rotationAxis(), pos))
-				.setChanged();
+			additionalShaft.setup(blockEntity).setRotationOffset(BracketedKineticBlockEntityRenderer.getShaftAngleOffset(rotationAxis(), pos)).setChanged();
 		}
 
 		@Override

@@ -8,19 +8,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DnDecorShapes {
 
-
-    public static final VoxelShaper STEPPED_LEVER = shape((double)4.0F, (double)0.0F, (double)0.0F, (double)12.0F, (double)5.0F, (double)16.0F).forHorizontalAxis();
-    public static final VoxelShaper STEPPED_LEVER_CEILING = shape((double)4.0F, (double)11.0F, (double)0.0F, (double)15.0F, (double)16.0F, (double)16.0F).forHorizontalAxis();
-    public static final VoxelShaper STEPPED_LEVER_WALL = shape((double)4.0F, (double)0.0F, (double)0.0F, (double)12.0F, (double)16.0F, (double)5.0F).forHorizontal(Direction.SOUTH);
-    public static final VoxelShaper BREAKER_SWITCH = shape((double)4.0F, (double)0.0F, (double)2.0F, (double)12.0F, (double)3.0F, (double)14.0F).forHorizontalAxis();
-    public static final VoxelShaper BREAKER_SWITCH_CEILING = shape((double)4.0F, (double)13.0F, (double)2.0F, (double)15.0F, (double)16.0F, (double)14.0F).forHorizontalAxis();
-    public static final VoxelShaper BREAKER_SWITCH_WALL = shape((double)4.0F, (double)2.0F, (double)0.0F, (double)12.0F, (double)14.0F, (double)3.0F).forHorizontal(Direction.SOUTH);
-    public static final VoxelShaper DIAGONAL_METAL_SUPPORT = shape((double)3.0F, (double)0.0F, (double)11.0F, (double)13.0F, (double)10.0F, (double)16.0F).add((double)0.0F, (double)12.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F).forHorizontal(Direction.SOUTH);
-    public static final VoxelShaper METAL_SUPPORT = shape((double)4.0F, (double)13.0F, (double)0.0F, (double)12.0F, (double)16.0F, (double)16.0F).add((double)4.0F, (double)0.0F, (double)4.0F, (double)12.0F, (double)13.0F, (double)12.0F).forHorizontalAxis();
-    public static final VoxelShape  CATWALK_DOWN = shape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)2.0F, (double)16.0F).build();
-    public static final VoxelShape  CATWALK = shape((double)0.0F, (double)14.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F).build();
-    public static final VoxelShape  WOODEN_SUPPORT = shape((double)4.0F, (double)0.0F, (double)4.0F, (double)12.0F, (double)16.0F, (double)12.0F).build();
-    public static final VoxelShape  EMPTY = shape((double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F).build();
+    public static final VoxelShaper DIAGONAL_METAL_SUPPORT = shape(3, 0, 11, 13, 10, 16).add(0, 12, 0, 16, 16, 16).forHorizontal(Direction.SOUTH);
+    public static final VoxelShaper METAL_SUPPORT = shape(4, 13, 0, 12, 16, 16).add(4, 0, 4, 12, 13, 12).forHorizontalAxis();
+    public static final VoxelShape  WOODEN_SUPPORT = shape(4, 0, 4, 12, 16, 12).build();
 
     public static AllShapes.Builder shape(VoxelShape shape) {
         return new AllShapes.Builder(shape);

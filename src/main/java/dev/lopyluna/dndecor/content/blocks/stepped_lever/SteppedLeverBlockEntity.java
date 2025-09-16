@@ -29,7 +29,7 @@ public class SteppedLeverBlockEntity extends SmartBlockEntity implements IHaveGo
     protected void read(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
         this.state = compound.getInt("State");
         this.lastChange = compound.getInt("ChangeTimer");
-        this.clientState.chase((double)this.state, (double)0.2F, LerpedFloat.Chaser.EXP);
+        this.clientState.chase(this.state, 0.2F, LerpedFloat.Chaser.EXP);
         super.read(compound, registries, clientPacket);
     }
 
@@ -42,17 +42,12 @@ public class SteppedLeverBlockEntity extends SmartBlockEntity implements IHaveGo
 
     public void tick() {
         super.tick();
+        if (level == null) return;
         if (this.lastChange > 0) {
             --this.lastChange;
-            if (this.lastChange == 0) {
-                this.updateOutput();
-            }
+            if (this.lastChange == 0) this.updateOutput();
         }
-
-        if (this.level.isClientSide) {
-            this.clientState.tickChaser();
-        }
-
+        if (this.level.isClientSide) this.clientState.tickChaser();
     }
 
     public void initialize() {
@@ -60,7 +55,8 @@ public class SteppedLeverBlockEntity extends SmartBlockEntity implements IHaveGo
     }
 
     private void updateOutput() {
-        SteppedLeverBlock.updateNeighbors(this.getBlockState(), this.getLevel(), this.getBlockPos());
+        assert level != null;
+        SteppedLeverBlock.updateNeighbors(getBlockState(), level, worldPosition);
     }
 
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
@@ -70,15 +66,13 @@ public class SteppedLeverBlockEntity extends SmartBlockEntity implements IHaveGo
         int prevState = state;
         state += back ? -1 : 1;
         state = Mth.clamp(state, 0, 15);
-        if (prevState != state)
-            lastChange = 15;
+        if (prevState != state) lastChange = 15;
         sendData();
     }
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
         CreateLang.translate("tooltip.analogStrength", this.state).forGoggles(tooltip);
-
         return true;
     }
 

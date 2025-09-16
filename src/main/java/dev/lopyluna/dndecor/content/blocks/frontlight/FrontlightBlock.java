@@ -3,6 +3,7 @@ package dev.lopyluna.dndecor.content.blocks.frontlight;
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import com.simibubi.create.content.redstone.diodes.BrassDiodeBlock;
 import dev.lopyluna.dndecor.register.DnDecorShapes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -25,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -62,14 +64,16 @@ public class FrontlightBlock extends Block implements IWrenchable {
     }
 
     protected boolean hasNeighborSignal(Level level, BlockPos pos, Direction direction) {
-        return level.hasSignal(pos.relative(direction), direction) || level.hasNeighborSignal(pos.relative(direction));
+        return level.hasSignal(pos.relative(direction), direction);
     }
 
     @Override
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
-        boolean flag = this.hasNeighborSignal(level, pos, state.getValue(FACING).getOpposite());
-        if (flag != state.getValue(LIT)) {
-            level.setBlockAndUpdate(pos, state.setValue(LIT, flag));
+        boolean flag = level.hasSignal(neighborPos, Direction.getNearest(Vec3.atLowerCornerOf(pos.subtract(neighborPos))));
+        var neighborState = level.getBlockState(neighborPos);
+        if (neighborState.hasProperty(BlockStateProperties.POWERED) || neighborState.hasProperty(BrassDiodeBlock.POWERING)) flag = false;
+        if (flag) {
+            level.setBlockAndUpdate(pos, state.cycle(LIT));
             level.playSound(null, pos, state.getValue(LIT) ? SoundEvents.COPPER_BULB_TURN_ON : SoundEvents.COPPER_BULB_TURN_OFF, SoundSource.BLOCKS);
         }
         super.neighborChanged(state, level, pos, neighborBlock, neighborPos, movedByPiston);
@@ -90,8 +94,9 @@ public class FrontlightBlock extends Block implements IWrenchable {
 
     @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        var dir = state.getValue(FACING);
-        return Block.canSupportCenter(level, pos.relative(dir.getOpposite()), dir);
+        //var dir = state.getValue(FACING);
+        //return Block.canSupportCenter(level, pos.relative(dir.getOpposite()), dir);
+        return true;
     }
 
     @Override

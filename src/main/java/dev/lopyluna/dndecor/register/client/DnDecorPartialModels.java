@@ -19,25 +19,24 @@ public class DnDecorPartialModels {
             INDUSTRIAL_COGWHEEL = block("industrial_cogwheel/block_shaftless"),
             LARGE_INDUSTRIAL_COGWHEEL = block("large_industrial_cogwheel/block_shaftless"),
             STEPPED_LEVER_HANDLE = block("stepped_lever/lever");
-    ;
 
     public static final Map<DyeColor, PartialModel> DYED_FLYWHEELS = new EnumMap<>(DyeColor.class);
-    static {
-      for (DyeColor color : DyeColor.values()) DYED_FLYWHEELS.put(color, block(color.getSerializedName() + "_flywheel/block"));
-    }
-
     public static final Map<DyeColor, PartialModel> DYED_COGWHEEL = new EnumMap<>(DyeColor.class);
-    static {
-        for (DyeColor color : DyeColor.values()) DYED_COGWHEEL.put(color, block(color.getSerializedName() + "_cogwheel/block_shaftless"));
-    }
-
     public static final Map<DyeColor, PartialModel> DYED_LARGE_COGWHEEL = new EnumMap<>(DyeColor.class);
+    public static final Map<DyeColor, PartialModel> DYED_GEAR = new EnumMap<>(DyeColor.class);
+    public static final Map<DyeColor, PartialModel> DYED_LARGE_GEAR = new EnumMap<>(DyeColor.class);
     static {
+        for (DyeColor color : DyeColor.values()) DYED_FLYWHEELS.put(color, block(color.getSerializedName() + "_flywheel/block"));
+
+        for (DyeColor color : DyeColor.values()) DYED_COGWHEEL.put(color, block(color.getSerializedName() + "_cogwheel/block_shaftless"));
         for (DyeColor color : DyeColor.values()) DYED_LARGE_COGWHEEL.put(color, block(color.getSerializedName() + "_large_cogwheel/block_shaftless"));
+
+        for (DyeColor color : DyeColor.values()) DYED_GEAR.put(color, block(color.getSerializedName() + "_industrial_cogwheel/block_shaftless"));
+        for (DyeColor color : DyeColor.values()) DYED_LARGE_GEAR.put(color, block(color.getSerializedName() + "_large_industrial_cogwheel/block_shaftless"));
     }
 
     private static PartialModel block(String path) {
-        return PartialModel.of(DnDecor.asResource("block/" + path));
+        return PartialModel.of(DnDecor.loc("block/" + path));
     }
 
     public static void init() {}

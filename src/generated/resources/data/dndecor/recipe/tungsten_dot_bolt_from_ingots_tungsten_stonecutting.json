@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:ingots/tungsten"
+  },
+  "result": {
+    "count": 4,
+    "id": "dndecor:tungsten_dot_bolt"
+  }
+}

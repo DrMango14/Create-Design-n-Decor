@@ -196,7 +196,7 @@ public class BlockPattern {
         return nameType == PatternNameType.SUFFIX ? String.format(formatString, variant, id) : String.format(formatString, id, variant);
     }
     protected static ResourceLocation toLocation(String variant, String texture) {
-        return DnDecor.asResource(String.format(TEXTURE_LOCATION, texture, variant + (texture.equals("cut") ? "_" : "_cut_") + texture));
+        return DnDecor.loc(String.format(TEXTURE_LOCATION, texture, variant + (texture.equals("cut") ? "_" : "_cut_") + texture));
     }
     protected static CTSpriteShiftEntry ct(String variant, CTs texture) {
         ResourceLocation resLoc = texture.srcFactory.apply(variant);

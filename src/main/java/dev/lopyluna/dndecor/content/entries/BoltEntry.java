@@ -21,7 +21,7 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 
 import java.util.function.Function;
 
-import static dev.lopyluna.dndecor.DnDecor.REGISTRATE;
+import static dev.lopyluna.dndecor.DnDecor.REG;
 import static dev.lopyluna.dndecor.content.blocks.bolt.BoltBlock.FACING;
 import static dev.lopyluna.dndecor.content.blocks.bolt.BoltBlock.ROT;
 
@@ -50,13 +50,13 @@ public class BoltEntry<T extends Block> {
         String type = metal.id;
         MapColor mapColor = metal.color;
 
-        var builderCross = REGISTRATE.block(type + "_cross_bolt", BoltBlock::new);
+        var builderCross = REG.block(type + "_cross_bolt", BoltBlock::new);
         builderCross = buildBolts(builderCross, metal, mapColor, type, "cross");
-        var builderDash = REGISTRATE.block(type + "_dash_bolt", BoltBlock::new);
+        var builderDash = REG.block(type + "_dash_bolt", BoltBlock::new);
         builderDash = buildBolts(builderDash, metal, mapColor, type, "dash");
-        var builderDot = REGISTRATE.block(type + "_dot_bolt", BoltBlock::new);
+        var builderDot = REG.block(type + "_dot_bolt", BoltBlock::new);
         builderDot = buildBolts(builderDot, metal, mapColor, type, "dot");
-        var builderFlat = REGISTRATE.block(type + "_flat_bolt", BoltBlock::new);
+        var builderFlat = REG.block(type + "_flat_bolt", BoltBlock::new);
         builderFlat = buildBolts(builderFlat, metal, mapColor, type, "flat");
 
         builderCross = builderCross.recipe((c, p) -> {
@@ -96,8 +96,8 @@ public class BoltEntry<T extends Block> {
             var getY = switch (facing) { case DOWN, UP, NORTH -> 0; case SOUTH -> 180; case WEST -> 270; case EAST -> 90; };
             var rot = state.getValue(ROT);
             return ConfiguredModel.builder().modelFile(p.models()
-                            .withExistingParent("block/" + c.getName() + "/block_" + rot.getName(),  DnDecor.asResource("block/bolt_base/"+type+"/bolt_" + rot.getName()))
-                            .texture("0", DnDecor.asResource("block/"+material+"_bolt")).texture("particle", DnDecor.asResource("block/"+material+"_bolt")))
+                            .withExistingParent("block/" + c.getName() + "/block_" + rot.getName(),  DnDecor.loc("block/bolt_base/"+type+"/bolt_" + rot.getName()))
+                            .texture("0", DnDecor.loc("block/"+material+"_bolt")).texture("particle", DnDecor.loc("block/"+material+"_bolt")))
                     .rotationY(getY)
                     .rotationX(getX)
                     .build();

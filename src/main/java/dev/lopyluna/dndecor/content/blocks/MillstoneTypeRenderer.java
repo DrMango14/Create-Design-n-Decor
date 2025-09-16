@@ -18,7 +18,7 @@ public class MillstoneTypeRenderer extends KineticBlockEntityRenderer<MillstoneB
     @Override
     protected SuperByteBuffer getRotatedModel(MillstoneBlockEntity be, BlockState state) {
         if (state.getBlock() instanceof MillstoneTypeBlock block && block.id != null && !block.id.isEmpty())
-            return CachedBuffers.partial(PartialModel.of(DnDecor.asResource("block/" + block.id + "_millstone/inner")), state);
+            return CachedBuffers.partial(PartialModel.of(DnDecor.loc("block/" + block.id + "_millstone/inner")), state);
         return CachedBuffers.partial(AllPartialModels.MILLSTONE_COG, state);
     }
 }

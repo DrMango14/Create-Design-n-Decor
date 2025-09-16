@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:ingots/silver"
+  },
+  "result": {
+    "count": 4,
+    "id": "dndecor:silver_dash_bolt"
+  }
+}

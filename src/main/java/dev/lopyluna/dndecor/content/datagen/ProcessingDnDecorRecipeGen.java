@@ -71,7 +71,7 @@ public abstract class ProcessingDnDecorRecipeGen extends DnDecorRecipeProvider {
         return createWithDeferredId(() -> name, transform);
     }
     protected <T extends ProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(String name, UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
-        return create(DnDecor.asResource(name), transform);
+        return create(DnDecor.loc(name), transform);
     }
     protected abstract IRecipeTypeInfo getRecipeType();
 
@@ -80,6 +80,6 @@ public abstract class ProcessingDnDecorRecipeGen extends DnDecorRecipeProvider {
     }
 
     protected Supplier<ResourceLocation> idWithSuffix(Supplier<ItemLike> item, String suffix) {
-        return () -> DnDecor.asResource(RegisteredObjectsHelper.getKeyOrThrow(item.get().asItem()).getPath() + suffix);
+        return () -> DnDecor.loc(RegisteredObjectsHelper.getKeyOrThrow(item.get().asItem()).getPath() + suffix);
     }
 }

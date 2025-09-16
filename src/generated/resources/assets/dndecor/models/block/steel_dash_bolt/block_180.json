@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/bolt_base/dash/bolt_180",
+  "textures": {
+    "0": "dndecor:block/steel_bolt",
+    "particle": "dndecor:block/steel_bolt"
+  }
+}

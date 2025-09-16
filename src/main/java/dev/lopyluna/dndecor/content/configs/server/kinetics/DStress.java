@@ -19,6 +19,7 @@ import java.util.function.DoubleSupplier;
 
 import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
 
+@SuppressWarnings("unused")
 public class DStress extends ConfigBase {
 
     private static final Object2DoubleMap<ResourceLocation> DEFAULT_IMPACTS = new Object2DoubleOpenHashMap<>();
@@ -63,7 +64,7 @@ public class DStress extends ConfigBase {
     public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> setImpact(double value) {
         return builder -> {
             assertFromCreateD2D(builder);
-            DEFAULT_IMPACTS.put(DnDecor.asResource(builder.getName()), value);
+            DEFAULT_IMPACTS.put(DnDecor.loc(builder.getName()), value);
             return builder;
         };
     }
@@ -71,7 +72,7 @@ public class DStress extends ConfigBase {
     public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> setCapacity(double value) {
         return builder -> {
             assertFromCreateD2D(builder);
-            DEFAULT_CAPACITIES.put(DnDecor.asResource(builder.getName()), value);
+            DEFAULT_CAPACITIES.put(DnDecor.loc(builder.getName()), value);
             return builder;
         };
     }

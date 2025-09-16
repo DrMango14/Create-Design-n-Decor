@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "tag": "c:dyes/pink"
+    },
+    "S": {
+      "tag": "dndecor:deepslate_tiles_decor"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:pink_small_deepslate_tiles"
+  }
+}

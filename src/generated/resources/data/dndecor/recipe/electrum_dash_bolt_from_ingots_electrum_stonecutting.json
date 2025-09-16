@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:ingots/electrum"
+  },
+  "result": {
+    "count": 4,
+    "id": "dndecor:electrum_dash_bolt"
+  }
+}

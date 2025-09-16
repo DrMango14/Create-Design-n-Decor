@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "tag": "c:dyes/cyan"
+    },
+    "S": {
+      "tag": "dndecor:deepslate_tiles_decor"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:cyan_small_deepslate_tiles"
+  }
+}

@@ -20,17 +20,16 @@ public class DnDecorBlockStateGen {
 
     public static NonNullBiConsumer<DataGenContext<Block, DnDCogWheelBlock>, RegistrateBlockstateProvider> cogwheelBlockState(boolean large){
         return (c, p) -> {
-
-            String location = large ? "block/large_cogwheels/" : "block/cogwheels/";
+            String location = "block/";
 
             p.models().withExistingParent("block/" + c.getName() + "/block_shaftless", Create.asResource(large ? "block/large_cogwheel_shaftless":"block/cogwheel_shaftless"))
-                    .texture(large ? "4":"1_2", DnDecor.asResource(location + c.getName()))
-                    .texture("particle", DnDecor.asResource(location + c.getName()));
+                    .texture(large ? "4":"1_2", DnDecor.loc(location + c.getName()))
+                    .texture("particle", DnDecor.loc(location + c.getName()));
             p.models().withExistingParent("block/" + c.getName() + "/block", ResourceLocation.withDefaultNamespace("air"))
-                    .texture("particle", DnDecor.asResource(location + c.getName()));;
+                    .texture("particle", DnDecor.loc(location + c.getName()));
             p.models().withExistingParent("block/" + c.getName() + "/item", Create.asResource(large ? "block/large_cogwheel" : "block/cogwheel"))
-                    .texture(large ? "4":"1_2", DnDecor.asResource(location + c.getName()))
-                    .texture("particle", DnDecor.asResource(location + c.getName()));
+                    .texture(large ? "4":"1_2", DnDecor.loc(location + c.getName()))
+                    .texture("particle", DnDecor.loc(location + c.getName()));
 
             BlockStateGen.axisBlock(c, p, getBlockModel(true, c, p));
         };

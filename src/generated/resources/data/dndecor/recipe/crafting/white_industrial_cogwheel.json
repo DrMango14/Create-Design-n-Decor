@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "c:dyes/white"
+    },
+    "D": {
+      "tag": "dndecor:industrial_cogwheels"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DCD",
+    "DDD"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:white_industrial_cogwheel"
+  }
+}

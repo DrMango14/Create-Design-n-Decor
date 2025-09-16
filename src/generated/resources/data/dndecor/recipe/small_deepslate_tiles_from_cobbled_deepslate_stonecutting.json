@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+    {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    {
+      "item": "minecraft:deepslate"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:small_deepslate_tiles"
+  }
+}

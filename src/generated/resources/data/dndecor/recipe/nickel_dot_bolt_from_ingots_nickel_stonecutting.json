@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:ingots/nickel"
+  },
+  "result": {
+    "count": 4,
+    "id": "dndecor:nickel_dot_bolt"
+  }
+}

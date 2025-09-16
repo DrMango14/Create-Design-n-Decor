@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.Block;
 
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
-import static dev.lopyluna.dndecor.DnDecor.REGISTRATE;
+import static dev.lopyluna.dndecor.DnDecor.REG;
 import static dev.lopyluna.dndecor.register.DnDecorTags.ItemTags.PALETTE_BLOCKS;
 
 @SuppressWarnings("removal")
@@ -34,7 +34,7 @@ public class VariantEntry {
 
         for (BlockPattern pattern : paletteStoneVariants.variantTypes) {
             BlockBuilder<? extends Block, CreateRegistrate> builder =
-                    REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
+                    REG.block(pattern.createName(name), pattern.getBlockFactory())
                             .initialProperties(baseBlock)
                             .transform(pickaxeOnly())
                             .blockstate(pattern.getBlockStateGenerator()
@@ -65,8 +65,8 @@ public class VariantEntry {
             for (BlockPartial<? extends Block> partialBlock : pattern.getPartials()) registeredPartials.add(partialBlock.create(name, pattern, block, paletteStoneVariants).register());
         }
 
-        REGISTRATE.addDataGenerator(ProviderType.RECIPE, p -> p.stonecutting(DataIngredient.tag(paletteStoneVariants.materialTag), RecipeCategory.BUILDING_BLOCKS, baseBlock));
-        REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, p -> {
+        REG.addDataGenerator(ProviderType.RECIPE, p -> p.stonecutting(DataIngredient.tag(paletteStoneVariants.materialTag), RecipeCategory.BUILDING_BLOCKS, baseBlock));
+        REG.addDataGenerator(ProviderType.ITEM_TAGS, p -> {
             var block = baseBlock.get().asItem();
             p.addTag(paletteStoneVariants.materialTag).add(block);
             p.addTag(PALETTE_BLOCKS.tag).add(block);

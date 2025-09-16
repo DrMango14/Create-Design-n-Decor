@@ -4,7 +4,7 @@
 	"parent": "create:block/large_wheels",
 	"texture_size": [32, 32],
 	"textures": {
-		"1_2": "dndecor:block/cogwheels/industrial_cogwheel",
+		"1_2": "dndecor:block/industrial_cogwheel",
 		"particle": "create:block/industrial_iron_block"
 	},
 	"elements": [

@@ -51,7 +51,7 @@ public class MechanicalCraftingGen extends DnDecorRecipeProvider {
             return register(output -> {
                 MechanicalCraftingRecipeBuilder b =
                         builder.apply(MechanicalCraftingRecipeBuilder.shapedRecipe(result.get(), amount));
-                ResourceLocation location = DnDecor.asResource("mechanical_crafting/" + RegisteredObjectsHelper.getKeyOrThrow(result.get().asItem()).getPath() + suffix);
+                ResourceLocation location = DnDecor.loc("mechanical_crafting/" + RegisteredObjectsHelper.getKeyOrThrow(result.get().asItem()).getPath() + suffix);
                 b.build(output, location);
             });
         }

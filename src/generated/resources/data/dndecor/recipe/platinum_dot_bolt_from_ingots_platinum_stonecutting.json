@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:ingots/platinum"
+  },
+  "result": {
+    "count": 4,
+    "id": "dndecor:platinum_dot_bolt"
+  }
+}

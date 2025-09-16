@@ -54,7 +54,7 @@ public abstract class BlockPartial<B extends Block> {
     public @NonnullType BlockBuilder<B, CreateRegistrate> create(String variantName, BlockPattern pattern, BlockEntry<? extends Block> block, DnDecorStoneTypes variant) {
         String patternName = Lang.nonPluralId(pattern.createName(variantName));
         String blockName = patternName + "_" + this.name;
-        BlockBuilder<B, CreateRegistrate> blockBuilder = DnDecor.REGISTRATE
+        BlockBuilder<B, CreateRegistrate> blockBuilder = DnDecor.REG
                 .block(blockName, p -> createBlock(block))
                 .blockstate((c, p) -> generateBlockState(c, p, variantName, pattern, block))
                 .recipe((c, p) -> createRecipes(variant, block, c, p))

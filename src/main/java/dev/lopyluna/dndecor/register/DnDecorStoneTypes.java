@@ -65,7 +65,7 @@ public enum DnDecorStoneTypes {
         for (DnDecorStoneTypes paletteStoneVariants : values()) {
             paletteStoneVariants.baseBlock = paletteStoneVariants.factory.apply(registrate);
             String id = Lang.asId(paletteStoneVariants.name()).replace("_block", "");
-            paletteStoneVariants.materialTag = DnDecorTags.optionalTag(BuiltInRegistries.ITEM, DnDecor.asResource("stone_types/" + id));
+            paletteStoneVariants.materialTag = DnDecorTags.optionalTag(BuiltInRegistries.ITEM, DnDecor.loc("stone_types/" + id));
             paletteStoneVariants.variants = new VariantEntry(id, paletteStoneVariants);
         }
     }

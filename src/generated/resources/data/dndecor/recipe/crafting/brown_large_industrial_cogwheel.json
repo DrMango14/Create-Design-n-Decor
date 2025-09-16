@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "c:dyes/brown"
+    },
+    "D": {
+      "tag": "dndecor:large_industrial_cogwheel"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "DCD",
+    "DDD"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:brown_large_industrial_cogwheel"
+  }
+}

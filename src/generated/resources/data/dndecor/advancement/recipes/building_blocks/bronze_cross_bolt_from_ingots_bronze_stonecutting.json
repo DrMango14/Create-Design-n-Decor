@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingots_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:bronze_cross_bolt_from_ingots_bronze_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ingots_bronze"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:bronze_cross_bolt_from_ingots_bronze_stonecutting"
+    ]
+  }
+}

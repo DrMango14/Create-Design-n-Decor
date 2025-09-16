@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:ingots/invar"
+  },
+  "result": {
+    "count": 4,
+    "id": "dndecor:invar_cross_bolt"
+  }
+}

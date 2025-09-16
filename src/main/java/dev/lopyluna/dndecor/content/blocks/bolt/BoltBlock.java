@@ -63,8 +63,9 @@ public class BoltBlock extends Block implements IWrenchable {
 
     @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        var dir = state.getValue(FACING);
-        return Block.canSupportCenter(level, pos.relative(dir.getOpposite()), dir);
+        //var dir = state.getValue(FACING);
+        //return Block.canSupportCenter(level, pos.relative(dir.getOpposite()), dir);
+        return true;
     }
 
     @Override

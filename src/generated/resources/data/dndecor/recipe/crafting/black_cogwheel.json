@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
   "key": {
     "C": {
       "tag": "c:dyes/black"
     },
     "D": {
-      "item": "dndecor:dark_metal_cogwheel"
+      "tag": "dndecor:cogwheel"
     }
   },
   "pattern": [

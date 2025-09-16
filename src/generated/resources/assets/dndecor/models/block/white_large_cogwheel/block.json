@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/air",
   "textures": {
-    "particle": "dndecor:block/large_cogwheels/white"
+    "particle": "dndecor:block/large_dark_metal_cogwheel/white"
   }
 }

@@ -166,8 +166,6 @@
     "dndecor:layered_dolomite",
     "dndecor:dolomite_pillar",
     "dndecor:belt",
-    "dndecor:deepslate_tiles",
-    "dndecor:red_deepslate_tiles",
     "dndecor:stepped_lever",
     "dndecor:metal_support",
     "dndecor:diagonal_metal_support",
@@ -207,6 +205,38 @@
     "dndecor:large_dark_metal_cogwheel",
     "dndecor:industrial_cogwheel",
     "dndecor:large_industrial_cogwheel",
+    "dndecor:white_industrial_cogwheel",
+    "dndecor:orange_industrial_cogwheel",
+    "dndecor:magenta_industrial_cogwheel",
+    "dndecor:light_blue_industrial_cogwheel",
+    "dndecor:yellow_industrial_cogwheel",
+    "dndecor:lime_industrial_cogwheel",
+    "dndecor:pink_industrial_cogwheel",
+    "dndecor:gray_industrial_cogwheel",
+    "dndecor:light_gray_industrial_cogwheel",
+    "dndecor:cyan_industrial_cogwheel",
+    "dndecor:purple_industrial_cogwheel",
+    "dndecor:blue_industrial_cogwheel",
+    "dndecor:brown_industrial_cogwheel",
+    "dndecor:green_industrial_cogwheel",
+    "dndecor:red_industrial_cogwheel",
+    "dndecor:black_industrial_cogwheel",
+    "dndecor:white_large_industrial_cogwheel",
+    "dndecor:orange_large_industrial_cogwheel",
+    "dndecor:magenta_large_industrial_cogwheel",
+    "dndecor:light_blue_large_industrial_cogwheel",
+    "dndecor:yellow_large_industrial_cogwheel",
+    "dndecor:lime_large_industrial_cogwheel",
+    "dndecor:pink_large_industrial_cogwheel",
+    "dndecor:gray_large_industrial_cogwheel",
+    "dndecor:light_gray_large_industrial_cogwheel",
+    "dndecor:cyan_large_industrial_cogwheel",
+    "dndecor:purple_large_industrial_cogwheel",
+    "dndecor:blue_large_industrial_cogwheel",
+    "dndecor:brown_large_industrial_cogwheel",
+    "dndecor:green_large_industrial_cogwheel",
+    "dndecor:red_large_industrial_cogwheel",
+    "dndecor:black_large_industrial_cogwheel",
     "dndecor:white_cogwheel",
     "dndecor:orange_cogwheel",
     "dndecor:magenta_cogwheel",
@@ -239,6 +269,7 @@
     "dndecor:green_large_cogwheel",
     "dndecor:red_large_cogwheel",
     "dndecor:black_large_cogwheel",
+    "dndecor:ornate_grate",
     "dndecor:stone_crushing_wheel",
     "dndecor:packed_mud_crushing_wheel",
     "dndecor:amethyst_crushing_wheel",
@@ -287,7 +318,6 @@
     "dndecor:large_metal_girder",
     "dndecor:beam",
     "dndecor:diagonal_girder",
-    "dndecor:ornate_grate",
     "dndecor:zinc_bricks",
     "dndecor:zinc_checker_tiles",
     "dndecor:stone_metal",
@@ -307,6 +337,23 @@
     "dndecor:green_stone_metal",
     "dndecor:red_stone_metal",
     "dndecor:black_stone_metal",
+    "dndecor:small_deepslate_tiles",
+    "dndecor:white_small_deepslate_tiles",
+    "dndecor:orange_small_deepslate_tiles",
+    "dndecor:magenta_small_deepslate_tiles",
+    "dndecor:light_blue_small_deepslate_tiles",
+    "dndecor:yellow_small_deepslate_tiles",
+    "dndecor:lime_small_deepslate_tiles",
+    "dndecor:pink_small_deepslate_tiles",
+    "dndecor:gray_small_deepslate_tiles",
+    "dndecor:light_gray_small_deepslate_tiles",
+    "dndecor:cyan_small_deepslate_tiles",
+    "dndecor:purple_small_deepslate_tiles",
+    "dndecor:blue_small_deepslate_tiles",
+    "dndecor:brown_small_deepslate_tiles",
+    "dndecor:green_small_deepslate_tiles",
+    "dndecor:red_small_deepslate_tiles",
+    "dndecor:black_small_deepslate_tiles",
     "dndecor:colored_storage_container",
     "dndecor:dark_metal_block",
     "dndecor:dark_metal_plating",
@@ -369,6 +416,70 @@
     },
     {
       "id": "#dndecor:mineable/pickaxe/netherite_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/platinum_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/lead_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/silver_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/tin_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/uranium_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/aluminum_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/nickel_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/tungsten_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/steel_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/electrum_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/bronze_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/cast_iron_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/invar_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/constantan_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/wrought_iron_bolt",
+      "required": false
+    },
+    {
+      "id": "#dndecor:mineable/pickaxe/tarnished_gold_bolt",
       "required": false
     }
   ]

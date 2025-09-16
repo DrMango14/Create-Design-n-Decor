@@ -69,6 +69,10 @@ public class MaterialTypeProvider {
         public final List<Object> itemEntries = new ArrayList<>();
         public final List<String> modIDs;
 
+        public MetalType(String type, SoundType sound, MapColor color, TagKey<Item> tag) {
+            this(type, sound, color, null, tag, new ArrayList<>());
+        }
+
         public MetalType(String type, SoundType sound, MapColor color, TagKey<Item> tag, List<String> modIDs) {
             this(type, sound, color, null, tag, modIDs);
         }

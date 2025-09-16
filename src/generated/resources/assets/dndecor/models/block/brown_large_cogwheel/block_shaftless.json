@@ -1,7 +1,7 @@
 {
   "parent": "create:block/large_cogwheel_shaftless",
   "textures": {
-    "4": "dndecor:block/large_cogwheels/brown",
-    "particle": "dndecor:block/large_cogwheels/brown"
+    "4": "dndecor:block/large_dark_metal_cogwheel/brown",
+    "particle": "dndecor:block/large_dark_metal_cogwheel/brown"
   }
 }

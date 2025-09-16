@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/industrial_cogwheel/block_shaftless",
+  "textures": {
+    "1_2": "dndecor:block/industrial_cogwheel/light_blue",
+    "particle": "dndecor:block/large_girder/light_blue"
+  }
+}

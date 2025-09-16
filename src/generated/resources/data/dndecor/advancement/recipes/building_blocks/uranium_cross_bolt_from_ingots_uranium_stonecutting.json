@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingots_uranium": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/uranium"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:uranium_cross_bolt_from_ingots_uranium_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ingots_uranium"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:uranium_cross_bolt_from_ingots_uranium_stonecutting"
+    ]
+  }
+}

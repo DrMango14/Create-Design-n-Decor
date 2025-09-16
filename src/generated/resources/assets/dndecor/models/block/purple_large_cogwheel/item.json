@@ -1,7 +1,7 @@
 {
   "parent": "create:block/large_cogwheel",
   "textures": {
-    "4": "dndecor:block/large_cogwheels/purple",
-    "particle": "dndecor:block/large_cogwheels/purple"
+    "4": "dndecor:block/large_dark_metal_cogwheel/purple",
+    "particle": "dndecor:block/large_dark_metal_cogwheel/purple"
   }
 }

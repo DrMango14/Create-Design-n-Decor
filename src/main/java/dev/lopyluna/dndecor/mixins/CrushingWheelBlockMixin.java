@@ -23,10 +23,10 @@ public abstract class CrushingWheelBlockMixin extends RotatedPillarKineticBlock 
     public boolean updateControllersCheckInstance(BlockEntry<?> instance, BlockState state, Operation<Boolean> original) {
         return instance.equals(AllBlocks.CRUSHING_WHEEL) ? state.getBlock() instanceof CrushingWheelBlock : original.call(instance, state);
     }
-
-    @WrapOperation(method = "canSurvive(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z",
-            at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
-    public boolean canSurviveCheckInstance(BlockEntry<?> instance, BlockState state, Operation<Boolean> original) {
-        return instance.equals(AllBlocks.CRUSHING_WHEEL) ? (state.getBlock() instanceof CrushingWheelBlock) : original.call(instance, state);
-    }
+//
+    //@WrapOperation(method = "canSurvive(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z",
+   //        at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
+   //public boolean canSurviveCheckInstance(BlockEntry<?> instance, BlockState state, Operation<Boolean> original) {
+   //    return instance.equals(AllBlocks.CRUSHING_WHEEL) ? (state.getBlock() instanceof CrushingWheelBlock) : original.call(instance, state);
+   //}
 }

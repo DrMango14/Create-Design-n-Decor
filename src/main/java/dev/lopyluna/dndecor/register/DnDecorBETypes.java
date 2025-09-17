@@ -20,8 +20,7 @@ import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogwheelRenderer;
 import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogwheelVisual;
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeBlock;
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeVisual;
-import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltRenderer;
-import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltVisual;
+
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverBlockEntity;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverRenderer;
 import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerBlockEntity;
@@ -44,12 +43,7 @@ public class DnDecorBETypes {
             .renderer(() -> SteppedLeverRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<BeltBlockEntity> BELT = REGISTRATE
-            .blockEntity("belt", BeltBlockEntity::new)
-            .visual(() -> FullBeltVisual::new, BeltBlockEntity::shouldRenderNormally)
-            .validBlocks(DnDecorBlocks.BELT)
-            .renderer(() -> FullBeltRenderer::new)
-            .register();
+
 
     public static final BlockEntityEntry<FlapDisplayBlockEntity> FLAP_DISPLAYS = REGISTRATE
             .blockEntity("flap_display", FlapDisplayBlockEntity::new)

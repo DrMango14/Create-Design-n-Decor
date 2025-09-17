@@ -35,7 +35,7 @@ import java.util.Objects;
 
 public class FullBeltConnectorItem extends BlockItem {
     public FullBeltConnectorItem(Properties properties) {
-        super(DnDecorBlocks.BELT.get(), properties);
+        super(null, properties);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class FullBeltConnectorItem extends BlockItem {
                 .getValue(BlockStateProperties.AXIS) == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X);
 
         List<BlockPos> beltsToCreate = getBeltChainBetween(start, end, slope, facing);
-        BlockState beltBlock = DnDecorBlocks.BELT.getDefaultState();
+        BlockState beltBlock = null;
         boolean failed = false;
 
         for (BlockPos pos : beltsToCreate) {
@@ -144,8 +144,7 @@ public class FullBeltConnectorItem extends BlockItem {
                             .setValue(BeltBlock.HORIZONTAL_FACING, facing), pos));
         }
         if (!failed) return;
-        for (BlockPos pos : beltsToCreate) if (DnDecorBlocks.BELT.has(world.getBlockState(pos))) world.destroyBlock(pos, false);
-    }
+ }
 
     private static Direction getFacingFromTo(BlockPos start, BlockPos end) {
         Direction.Axis beltAxis = start.getX() == end.getX() ? Direction.Axis.Z : Direction.Axis.X;

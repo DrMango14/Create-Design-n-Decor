@@ -1,7 +1,0 @@
-{
-  "parent": "create:block/crushing_wheel/item",
-  "textures": {
-    "insert": "dndecor:block/crushing_wheels/dripstone/insert",
-    "plates": "dndecor:block/crushing_wheels/dripstone/plates"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 4,
-  "ingredient": {
-    "item": "create:industrial_iron_block"
-  },
-  "result": "dndecor:large_industrial_chain"
-}

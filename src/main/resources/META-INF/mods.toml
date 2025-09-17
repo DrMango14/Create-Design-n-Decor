@@ -68,5 +68,5 @@ side = "BOTH"
 modId="create"
 mandatory=true
 versionRange="[6.0.6,6.1.0)"
-ordering="NONE"
+ordering="AFTER"
 side="BOTH"

@@ -1,7 +1,0 @@
-{
-  "parent": "create:block/belt/diagonal_end",
-  "textures": {
-    "0": "dndecor:block/belt_diagonal",
-    "particle": "dndecor:block/belt_diagonal"
-  }
-}

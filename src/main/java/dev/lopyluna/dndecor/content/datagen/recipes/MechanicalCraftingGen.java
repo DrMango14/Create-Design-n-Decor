@@ -1,7 +1,7 @@
 package dev.lopyluna.dndecor.content.datagen.recipes;
 
 import com.google.common.base.Supplier;
-import com.simibubi.create.foundation.data.recipe.MechanicalCraftingRecipeBuilder;
+import com.simibubi.create.api.data.recipe.MechanicalCraftingRecipeBuilder;
 import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.content.datagen.DnDecorRecipeProvider;
 import net.createmod.catnip.registry.RegisteredObjectsHelper;

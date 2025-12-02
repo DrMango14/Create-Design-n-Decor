@@ -1,8 +1,7 @@
 package dev.lopyluna.dndecor.content.datagen;
 
-import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
-import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
-import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
+import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe;
+import com.simibubi.create.content.processing.recipe.StandardProcessingRecipe.Serializer;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.content.datagen.recipes.WashingGen;
@@ -36,7 +35,8 @@ public abstract class ProcessingDnDecorRecipeGen extends DnDecorRecipeProvider {
             }
             @Override
             public @NotNull CompletableFuture<?> run(@NotNull CachedOutput dc) {
-                return CompletableFuture.allOf(GENERATORS.stream().map(gen -> gen.run(dc)).toArray(CompletableFuture[]::new));
+                CompletableFuture<?>[] futures = GENERATORS.stream().map(gen -> gen.run(dc)).toArray(CompletableFuture[]::new);
+                return CompletableFuture.allOf(futures);
             }
         });
     }
@@ -45,37 +45,41 @@ public abstract class ProcessingDnDecorRecipeGen extends DnDecorRecipeProvider {
         super(generator, registries);
     }
 
-    protected <T extends ProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(String namespace, Supplier<ItemLike> singleIngredient, UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
-        ProcessingRecipeSerializer<T> serializer = getSerializer();
+    protected <T extends StandardProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(String namespace, Supplier<ItemLike> singleIngredient, UnaryOperator<StandardProcessingRecipe.Builder<T>> transform) {
+        Serializer<T> serializer = getSerializer();
         DnDecorRecipeProvider.GeneratedRecipe generatedRecipe = c -> {
             var itemLike = singleIngredient.get();
-            transform.apply(new ProcessingRecipeBuilder<>(serializer.getFactory(), ResourceLocation.fromNamespaceAndPath(namespace, RegisteredObjectsHelper.getKeyOrThrow(itemLike.asItem()).getPath())).withItemIngredients(Ingredient.of(itemLike))).build(c);
+            StandardProcessingRecipe.Builder<T> builder = new StandardProcessingRecipe.Builder<>(serializer.factory(), ResourceLocation.fromNamespaceAndPath(namespace, RegisteredObjectsHelper.getKeyOrThrow(itemLike.asItem()).getPath()));
+            transform.apply(builder.withItemIngredients(Ingredient.of(itemLike))).build(c);
         };
         all.add(generatedRecipe);
         return generatedRecipe;
     }
 
-    protected  <T extends ProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(Supplier<ItemLike> singleIngredient, UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
+    protected  <T extends StandardProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(Supplier<ItemLike> singleIngredient, UnaryOperator<StandardProcessingRecipe.Builder<T>> transform) {
         return create(DnDecor.MOD_ID, singleIngredient, transform);
     }
 
-    protected <T extends ProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe createWithDeferredId(Supplier<ResourceLocation> name, UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
-        ProcessingRecipeSerializer<T> serializer = getSerializer();
+    protected <T extends StandardProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe createWithDeferredId(Supplier<ResourceLocation> name, UnaryOperator<StandardProcessingRecipe.Builder<T>> transform) {
+        Serializer<T> serializer = getSerializer();
         DnDecorRecipeProvider.GeneratedRecipe generatedRecipe = 
-                c -> transform.apply(new ProcessingRecipeBuilder<>(serializer.getFactory(), name.get())).build(c);
+            c -> {
+                StandardProcessingRecipe.Builder<T> builder = new StandardProcessingRecipe.Builder<>(serializer.factory(), name.get());
+                transform.apply(builder).build(c);
+            };
         all.add(generatedRecipe);
         return generatedRecipe;
     }
 
-    protected <T extends ProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(ResourceLocation name, UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
+    protected <T extends StandardProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(ResourceLocation name, UnaryOperator<StandardProcessingRecipe.Builder<T>> transform) {
         return createWithDeferredId(() -> name, transform);
     }
-    protected <T extends ProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(String name, UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
+    protected <T extends StandardProcessingRecipe<?>> DnDecorRecipeProvider.GeneratedRecipe create(String name, UnaryOperator<StandardProcessingRecipe.Builder<T>> transform) {
         return create(DnDecor.loc(name), transform);
     }
     protected abstract IRecipeTypeInfo getRecipeType();
 
-    protected <T extends ProcessingRecipe<?>> ProcessingRecipeSerializer<T> getSerializer() {
+    protected <T extends StandardProcessingRecipe<?>> Serializer<T> getSerializer() {
         return getRecipeType().getSerializer();
     }
 

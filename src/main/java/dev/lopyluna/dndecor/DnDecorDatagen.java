@@ -31,7 +31,7 @@ public class DnDecorDatagen {
 
         generator.addProvider(event.includeServer(), new MechanicalCraftingGen(output, lookupProvider));
 
-        event.getGenerator().addProvider(true, REG.setDataProvider(new RegistrateDataProvider(REG, MOD_ID, event)));
+        event.getGenerator().addProvider(true, new RegistrateDataProvider(REG, MOD_ID, event));
         if (event.includeServer()) ProcessingDnDecorRecipeGen.registerAll(generator, output, lookupProvider);
     }
 

@@ -6,12 +6,13 @@ import com.simibubi.create.content.decoration.palettes.AllPaletteBlocks;
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
 import com.simibubi.create.content.decoration.palettes.WindowBlock;
+import com.simibubi.create.content.kinetics.belt.BeltBlock;
+import com.simibubi.create.content.kinetics.belt.BeltGenerator;
 import com.simibubi.create.content.kinetics.belt.BeltModel;
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelBlock;
 import com.simibubi.create.content.kinetics.flywheel.FlywheelBlock;
 import com.simibubi.create.content.kinetics.millstone.MillstoneBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
-import com.simibubi.create.content.logistics.vault.ItemVaultBlock;
 import com.simibubi.create.content.trains.display.FlapDisplayBlock;
 import com.simibubi.create.foundation.block.DyedBlockList;
 import com.simibubi.create.foundation.block.ItemUseOverrides;
@@ -36,13 +37,12 @@ import dev.lopyluna.dndecor.content.blocks.diagonal_girder.DiagonalGirderGenerat
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeBlock;
 import dev.lopyluna.dndecor.content.blocks.frontlight.Frontlight;
 import dev.lopyluna.dndecor.content.blocks.frontlight.FrontlightBlock;
-
+import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltBlock;
+import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltGenerator;
 import dev.lopyluna.dndecor.content.blocks.metal_supports.DiagonalMetalSupportBlock;
 import dev.lopyluna.dndecor.content.blocks.metal_supports.DiagonalMetalSupportCtBehavior;
 import dev.lopyluna.dndecor.content.blocks.metal_supports.MetalSupportBlock;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverBlock;
-import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerBlock;
-import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerCTBehaviour;
 import dev.lopyluna.dndecor.content.configs.server.kinetics.DStress;
 import dev.lopyluna.dndecor.content.entries.BoltEntry;
 import dev.lopyluna.dndecor.register.client.DnDecorPartialModels;
@@ -72,7 +72,6 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.ModList;
-
 
 import java.util.function.Function;
 
@@ -243,36 +242,36 @@ public class DnDecorBlocks {
                 .register();
     });
 
- //   public static final BlockEntry<FullBeltBlock> BELT = REGISTRATE.block("belt", FullBeltBlock::new)
- //           .properties(p -> p.sound(SoundType.WOOL).strength(0.8f).mapColor(MapColor.COLOR_GRAY))
- //           .addLayer(() -> RenderType::cutoutMipped)
- //           .transform(axeOrPickaxe())
- //           .blockstate((c, p) -> {
- //               p.models().withExistingParent("block/belt/diagonal_end", Create.asResource("block/belt/diagonal_end"))
- //                       .texture("0", DnDecor.asResource("block/belt_diagonal")).texture("particle", DnDecor.asResource("block/belt_diagonal"));
- //               p.models().withExistingParent("block/belt/diagonal_middle", Create.asResource("block/belt/diagonal_middle"))
- //                       .texture("0", DnDecor.asResource("block/belt_diagonal")).texture("particle", DnDecor.asResource("block/belt_diagonal"));
- //               p.models().withExistingParent("block/belt/diagonal_start", Create.asResource("block/belt/diagonal_start"))
- //                       .texture("0", DnDecor.asResource("block/belt_diagonal")).texture("particle", DnDecor.asResource("block/belt_diagonal"));
-//
- //               p.models().withExistingParent("block/belt/end", Create.asResource("block/belt/end")).texture("0", DnDecor.asResource("block/belt"));
- //               p.models().withExistingParent("block/belt/middle", Create.asResource("block/belt/middle")).texture("0", DnDecor.asResource("block/belt"));
- //               p.models().withExistingParent("block/belt/start", Create.asResource("block/belt/start")).texture("0", DnDecor.asResource("block/belt"));
-//
- //               p.models().withExistingParent("block/belt/end_bottom", Create.asResource("block/belt/end_bottom")).texture("1", DnDecor.asResource("block/belt_offset"));
- //               p.models().withExistingParent("block/belt/middle_bottom", Create.asResource("block/belt/middle_bottom")).texture("1", DnDecor.asResource("block/belt_offset"));
- //               p.models().withExistingParent("block/belt/start_bottom", Create.asResource("block/belt/start_bottom")).texture("1", DnDecor.asResource("block/belt_offset"));
-//
-//
- //               p.models().withExistingParent("block/belt/particle", Create.asResource("block/belt/particle")).texture("particle", DnDecor.asResource("block/belt"));
-//
-//
- //               new FullBeltGenerator().generate(c, p);
- //           })
- //           .transform(DStress.setNoImpact())
- //           .transform(displaySource(AllDisplaySources.ITEM_NAMES))
- //           .onRegister(CreateRegistrate.blockModel(() -> BeltModel::new))
- //           .register();
+    public static final BlockEntry<FullBeltBlock> BELT = REGISTRATE.block("belt", FullBeltBlock::new)
+            .properties(p -> p.sound(SoundType.WOOL).strength(0.8f).mapColor(MapColor.COLOR_GRAY))
+            .addLayer(() -> RenderType::cutoutMipped)
+            .transform(axeOrPickaxe())
+            .blockstate((c, p) -> {
+                p.models().withExistingParent("block/belt/diagonal_end", Create.asResource("block/belt/diagonal_end"))
+                        .texture("0", DnDecor.asResource("block/belt_diagonal")).texture("particle", DnDecor.asResource("block/belt_diagonal"));
+                p.models().withExistingParent("block/belt/diagonal_middle", Create.asResource("block/belt/diagonal_middle"))
+                        .texture("0", DnDecor.asResource("block/belt_diagonal")).texture("particle", DnDecor.asResource("block/belt_diagonal"));
+                p.models().withExistingParent("block/belt/diagonal_start", Create.asResource("block/belt/diagonal_start"))
+                        .texture("0", DnDecor.asResource("block/belt_diagonal")).texture("particle", DnDecor.asResource("block/belt_diagonal"));
+
+                p.models().withExistingParent("block/belt/end", Create.asResource("block/belt/end")).texture("0", DnDecor.asResource("block/belt"));
+                p.models().withExistingParent("block/belt/middle", Create.asResource("block/belt/middle")).texture("0", DnDecor.asResource("block/belt"));
+                p.models().withExistingParent("block/belt/start", Create.asResource("block/belt/start")).texture("0", DnDecor.asResource("block/belt"));
+
+                p.models().withExistingParent("block/belt/end_bottom", Create.asResource("block/belt/end_bottom")).texture("1", DnDecor.asResource("block/belt_offset"));
+                p.models().withExistingParent("block/belt/middle_bottom", Create.asResource("block/belt/middle_bottom")).texture("1", DnDecor.asResource("block/belt_offset"));
+                p.models().withExistingParent("block/belt/start_bottom", Create.asResource("block/belt/start_bottom")).texture("1", DnDecor.asResource("block/belt_offset"));
+
+
+                p.models().withExistingParent("block/belt/particle", Create.asResource("block/belt/particle")).texture("particle", DnDecor.asResource("block/belt"));
+
+
+                new FullBeltGenerator().generate(c, p);
+            })
+            .transform(DStress.setNoImpact())
+            .transform(displaySource(AllDisplaySources.ITEM_NAMES))
+            .onRegister(CreateRegistrate.blockModel(() -> BeltModel::new))
+            .register();
 
     public static final BlockEntry<DnDCogWheelBlock> DARK_METAL_COGWHEEL = REGISTRATE.block("dark_metal_cogwheel", p -> new DnDCogWheelBlock(DnDecorPartialModels.DARK_METAL_COGWHEEL,false,p))
             .initialProperties(SharedProperties::softMetal)

@@ -1,5 +1,6 @@
 package dev.lopyluna.dndecor.content.items;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.belt.BeltBlock;
 import com.simibubi.create.content.kinetics.belt.BeltPart;
@@ -35,7 +36,7 @@ import java.util.Objects;
 
 public class FullBeltConnectorItem extends BlockItem {
     public FullBeltConnectorItem(Properties properties) {
-        super(null, properties);
+        super(DnDecorBlocks.BELT.get(), properties);
     }
 
     @Override
@@ -120,7 +121,7 @@ public class FullBeltConnectorItem extends BlockItem {
                 .getValue(BlockStateProperties.AXIS) == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X);
 
         List<BlockPos> beltsToCreate = getBeltChainBetween(start, end, slope, facing);
-        BlockState beltBlock = null;
+        BlockState beltBlock = DnDecorBlocks.BELT.getDefaultState();
         boolean failed = false;
 
         for (BlockPos pos : beltsToCreate) {

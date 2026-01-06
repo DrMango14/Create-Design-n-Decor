@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-17T15:28:15.8102353	Registrate Provider for dndecor [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.20.1	2026-01-06T03:49:48.6493867	Registrate Provider for dndecor [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 11f908f936e67d82aa0e38a4fb31a04106f05362 assets/dndecor/blockstates/amethyst_crushing_wheel.json
 bf9c2ef0983dedbf72e5774d054b7c5aa743d755 assets/dndecor/blockstates/amethyst_millstone.json
 af1b056b1c0143b9e1cfb0e7623fd39aea16891e assets/dndecor/blockstates/amethyst_pillar.json
@@ -12,6 +12,7 @@ ca97a4ce2c1e9f0daa31eacc95cf2664648b7b5a assets/dndecor/blockstates/andesite_fro
 bd1a56e9d49abd42af29f6779c85b33f6c6385c6 assets/dndecor/blockstates/basalt_millstone.json
 bd5e283142ecc435ffc9b6d435332861b7ee8290 assets/dndecor/blockstates/basalt_pillar.json
 0b886b2d13207d006a193f449e4131505e408bc5 assets/dndecor/blockstates/beam.json
+a97910c7516e7cedec9e34eca51f1183f1e3e681 assets/dndecor/blockstates/belt.json
 d775b3fc4ca0c5e22e307cf853109fb07b19166f assets/dndecor/blockstates/blackstone_crushing_wheel.json
 f57d4ad8125529471e27f5dc30333504a093e21e assets/dndecor/blockstates/blackstone_millstone.json
 8caf874b8c14e672aced740e3c9ab4cdd077c4fc assets/dndecor/blockstates/blackstone_pillar.json
@@ -353,8 +354,8 @@ eb8a04ebbadc32123286a06d7f0adb8aed4a0128 assets/dndecor/blockstates/zinc_dot_bol
 f0cc4026526df53029ec504d4909b72de1574150 assets/dndecor/blockstates/zinc_flat_bolt.json
 bc94bf0d8b910a49a6b25444d936dda2f26e15e0 assets/dndecor/blockstates/zinc_floor.json
 a7bddeb0ed0dcd8e9bda1b432cc035bc7a1a1858 assets/dndecor/blockstates/zinc_frontlight.json
-24cdca5d879797c38c29d3f2e2801b7534269f07 assets/dndecor/lang/en_ud.json
-13cabc00e70c5cda796f56e35b54c3f536e12674 assets/dndecor/lang/en_us.json
+db3ca7fe8d092019b1d35db6ffc55437cdd08732 assets/dndecor/lang/en_ud.json
+285ec31c1d04eef4a423061da391b975bb34abc4 assets/dndecor/lang/en_us.json
 8689cd9ab84cfa571969f311be73f46e1b27b746 assets/dndecor/models/block/amethyst_crushing_wheel/block.json
 2ed501e437178e13c418ac5b069d28260820270b assets/dndecor/models/block/amethyst_crushing_wheel/item.json
 90911c57e596493e8018c1d46ec8511aeb92ed4f assets/dndecor/models/block/amethyst_millstone/block.json
@@ -415,6 +416,16 @@ d18e7c3c2cebfc20bafea9f33a698cbfc16db0d6 assets/dndecor/models/block/basalt_mill
 6cd5965c1139443d2a17b0e920f61067eea85308 assets/dndecor/models/block/basalt_millstone/item.json
 a23b48b0c8ac224ad6f3f31ce72158c0e00286b9 assets/dndecor/models/block/basalt_pillar.json
 337f879fe856191db5bddf3b03df350e2e288165 assets/dndecor/models/block/basalt_pillar_horizontal.json
+e4a1e7646a1d8d8a8b9829c9e48982db55c601f7 assets/dndecor/models/block/belt/diagonal_end.json
+c46eab0f5a812c71a39b7e1048b29a8f82ff3762 assets/dndecor/models/block/belt/diagonal_middle.json
+bdc73cfa10f27313011c1961fc5df9a1595d1b7f assets/dndecor/models/block/belt/diagonal_start.json
+870e60a33128efc870fbf55e19c041b1b0b9d4d0 assets/dndecor/models/block/belt/end.json
+1dc7753a19a268d3b63932df6446fcbb29a85ef4 assets/dndecor/models/block/belt/end_bottom.json
+4e754e0ef796b1aa02ae79a5aed7ddc95844b32c assets/dndecor/models/block/belt/middle.json
+eddd76fba614b53fab6b93829d3912a196c47d3b assets/dndecor/models/block/belt/middle_bottom.json
+817c21b9ca82752220d7358974f3368758bd169a assets/dndecor/models/block/belt/particle.json
+2cacdc3537dfabed50e4dc5acd45f704ef74600f assets/dndecor/models/block/belt/start.json
+982ac83b66c6a2e7975006d9351a8f728e02764a assets/dndecor/models/block/belt/start_bottom.json
 4a0b81e5d9d766c31d2cb3be08d1b00a2a5eec59 assets/dndecor/models/block/blackstone_crushing_wheel/block.json
 77188234d23df59ececb8b9d84db682d6055e0ca assets/dndecor/models/block/blackstone_crushing_wheel/item.json
 85c90222f774ad4237e714369b52cdb335ff7314 assets/dndecor/models/block/blackstone_millstone/block.json
@@ -2251,6 +2262,7 @@ ed6aa0f3aaf4e7bae97358f0229ad08da2c129de data/dndecor/loot_tables/blocks/andesit
 cc8a4c12dd3adf32877aac6965b942a87c21c20a data/dndecor/loot_tables/blocks/basalt_millstone.json
 5f28e7e7be357451ae9602b8ba894ec63561f27a data/dndecor/loot_tables/blocks/basalt_pillar.json
 07b2e76324710dd4ace9d14ee53a370be8c7bad4 data/dndecor/loot_tables/blocks/beam.json
+5389c8b896e374a642ec3fc1f6415020d4109788 data/dndecor/loot_tables/blocks/belt.json
 2b998af26be6729e06664ceab7fb48eefd7962ed data/dndecor/loot_tables/blocks/blackstone_crushing_wheel.json
 85ea38b6e1ba5233ec68f5b154baae5089e3a9a7 data/dndecor/loot_tables/blocks/blackstone_millstone.json
 b0e6adb1a4e428680497d73b7c2e9aca91de7214 data/dndecor/loot_tables/blocks/blackstone_pillar.json
@@ -3175,8 +3187,8 @@ afe9491713e4235811d9bb3d2a133824611df222 data/forge/tags/items/assets/create/dye
 04d144238f28c32228795ecf180dfe525eef32bc data/minecraft/tags/blocks/dripstone_replaceable_blocks.json
 1e7c565aa9271524b159ba629786b605241321a5 data/minecraft/tags/blocks/impermeable.json
 04d144238f28c32228795ecf180dfe525eef32bc data/minecraft/tags/blocks/lush_ground_replaceable.json
-a5785dfd7a047b2d067199332ee433007d70182e data/minecraft/tags/blocks/mineable/axe.json
-6e47d653d735aa4f81c7c0dbff368d8756d968e1 data/minecraft/tags/blocks/mineable/pickaxe.json
+ca3af3d30b773e80db25e2bfa4e52f2883451d22 data/minecraft/tags/blocks/mineable/axe.json
+6b1944d57bb8fc5b9415a57ffc5caab9ced408ce data/minecraft/tags/blocks/mineable/pickaxe.json
 04d144238f28c32228795ecf180dfe525eef32bc data/minecraft/tags/blocks/moss_replaceable.json
 e84f8efc1adb523f42e809f72c316c7f2cbdb216 data/minecraft/tags/blocks/slabs.json
 3f19d99c60b18f162e496b6a6f1c3b44a4c3c23d data/minecraft/tags/blocks/stairs.json

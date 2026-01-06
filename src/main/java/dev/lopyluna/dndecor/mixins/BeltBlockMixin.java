@@ -20,13 +20,13 @@ import static com.simibubi.create.content.kinetics.belt.BeltBlock.SLOPE;
 public abstract class BeltBlockMixin {
 
 
-    @Overwrite
-    public static boolean canTransportObjects(BlockState state) {
-        if (!(state.getBlock() instanceof BeltBlock))
-            return false;
-        BeltSlope slope = state.getValue(SLOPE);
-        return slope != BeltSlope.VERTICAL && slope != BeltSlope.SIDEWAYS;
-    }
+//    @Overwrite
+//    public static boolean canTransportObjects(BlockState state) {
+//        if (!(state.getBlock() instanceof BeltBlock))
+//            return false;
+//        BeltSlope slope = state.getValue(SLOPE);
+//        return slope != BeltSlope.VERTICAL && slope != BeltSlope.SIDEWAYS;
+//    }
 
     @WrapOperation(method = "updateEntityAfterFallOn(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;)V",
             at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
@@ -34,11 +34,11 @@ public abstract class BeltBlockMixin {
         return instance.equals(AllBlocks.BELT) ? state.getBlock() instanceof BeltBlock : original.call(instance, state);
     }
 //
-    // @WrapOperation(method = "canTransportObjects(Lnet/minecraft/world/level/block/state/BlockState;)Z",
-    //        at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
-    //private static boolean canTransportObjects(BlockEntry<?> instance, BlockState state, Operation<Boolean> original) {
-    //    return instance.equals(AllBlocks.BELT) ? state.getBlock() instanceof BeltBlock : original.call(instance, state);
-    //}
+     @WrapOperation(method = "canTransportObjects(Lnet/minecraft/world/level/block/state/BlockState;)Z",
+            at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
+    private static boolean canTransportObjects(BlockEntry<?> instance, BlockState state, Operation<Boolean> original) {
+        return instance.equals(AllBlocks.BELT) ? state.getBlock() instanceof BeltBlock : original.call(instance, state);
+    }
 //
     @WrapOperation(method = "initBelt(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V",
             at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))

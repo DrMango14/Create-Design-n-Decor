@@ -21,6 +21,8 @@ import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogwheelVisual;
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeBlock;
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeVisual;
 
+import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltRenderer;
+import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltVisual;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverBlockEntity;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverRenderer;
 import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerBlockEntity;
@@ -52,7 +54,12 @@ public class DnDecorBETypes {
             .validBlocks(DnDecorBlocks.DYED_DISPLAY_BOARDS.toArray())
             .register();
 
-
+    public static final BlockEntityEntry<BeltBlockEntity> BELT = REGISTRATE
+            .blockEntity("belt", BeltBlockEntity::new)
+            .visual(() -> FullBeltVisual::new, BeltBlockEntity::shouldRenderNormally)
+            .validBlocks(DnDecorBlocks.BELT)
+            .renderer(() -> FullBeltRenderer::new)
+            .register();
 
     public static final BlockEntityEntry<FlywheelBlockEntity> COLORED_FLYWHEELS = REGISTRATE.blockEntity("flywheel", FlywheelBlockEntity::new)
             .visual(() -> (c, b, p) -> new FlywheelTypeVisual(DnDecorPartialModels.DYED_FLYWHEELS.get(((FlywheelTypeBlock) b.getBlockState().getBlock()).color), c, b, p), false)

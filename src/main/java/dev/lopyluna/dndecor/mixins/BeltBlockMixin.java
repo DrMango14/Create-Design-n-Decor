@@ -29,7 +29,7 @@ public abstract class BeltBlockMixin {
 //    }
 
     @WrapOperation(method = "updateEntityAfterFallOn(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;)V",
-            at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
+            at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"), remap = true)
     public boolean updateEntityAfterFallOn(BlockEntry<?> instance, BlockState state, Operation<Boolean> original) {
         return instance.equals(AllBlocks.BELT) ? state.getBlock() instanceof BeltBlock : original.call(instance, state);
     }
@@ -47,7 +47,7 @@ public abstract class BeltBlockMixin {
     }
 //
     @WrapOperation(method = "onRemove(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V",
-            at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
+            at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"), remap = true)
     public boolean onRemove(BlockEntry<?> instance, BlockState state, Operation<Boolean> original) {
         return instance.equals(AllBlocks.BELT) ? state.getBlock() instanceof BeltBlock : original.call(instance, state);
     }

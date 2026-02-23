@@ -4,7 +4,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.simibubi.create.foundation.utility.FilesHelper;
 import com.tterrag.registrate.providers.ProviderType;
-import com.tterrag.registrate.providers.RegistrateDataProvider;
 import dev.lopyluna.dndecor.content.datagen.DatagenTags;
 import dev.lopyluna.dndecor.content.datagen.ProcessingDnDecorRecipeGen;
 import dev.lopyluna.dndecor.content.datagen.recipes.MechanicalCraftingGen;
@@ -31,7 +30,6 @@ public class DnDecorDatagen {
 
         generator.addProvider(event.includeServer(), new MechanicalCraftingGen(output, lookupProvider));
 
-        event.getGenerator().addProvider(true, REG.setDataProvider(new RegistrateDataProvider(REG, MOD_ID, event)));
         if (event.includeServer()) ProcessingDnDecorRecipeGen.registerAll(generator, output, lookupProvider);
     }
 

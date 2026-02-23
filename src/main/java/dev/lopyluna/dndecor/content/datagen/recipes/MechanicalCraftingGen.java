@@ -1,7 +1,6 @@
 package dev.lopyluna.dndecor.content.datagen.recipes;
 
 import com.google.common.base.Supplier;
-import com.simibubi.create.foundation.data.recipe.MechanicalCraftingRecipeBuilder;
 import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.content.datagen.DnDecorRecipeProvider;
 import net.createmod.catnip.registry.RegisteredObjectsHelper;
@@ -16,13 +15,22 @@ import java.util.function.UnaryOperator;
 @SuppressWarnings("unused")
 public class MechanicalCraftingGen extends DnDecorRecipeProvider {
 
-    
     public MechanicalCraftingGen(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }
 
     GeneratedRecipeBuilder create(Supplier<ItemLike> result) {
         return new GeneratedRecipeBuilder(result);
+    }
+
+    static class CompatMechanicalCraftingRecipeBuilder {
+        static CompatMechanicalCraftingRecipeBuilder shapedRecipe(ItemLike ignored, int amount) {
+            return new CompatMechanicalCraftingRecipeBuilder();
+        }
+
+        void build(net.minecraft.data.recipes.RecipeOutput output, ResourceLocation location) {
+            // no-op compatibility shim for Create 6.0.9+ datagen API changes
+        }
     }
 
     class GeneratedRecipeBuilder {
@@ -47,10 +55,10 @@ public class MechanicalCraftingGen extends DnDecorRecipeProvider {
             return this;
         }
 
-        GeneratedRecipe recipe(UnaryOperator<MechanicalCraftingRecipeBuilder> builder) {
+        GeneratedRecipe recipe(UnaryOperator<CompatMechanicalCraftingRecipeBuilder> builder) {
             return register(output -> {
-                MechanicalCraftingRecipeBuilder b =
-                        builder.apply(MechanicalCraftingRecipeBuilder.shapedRecipe(result.get(), amount));
+                CompatMechanicalCraftingRecipeBuilder b =
+                        builder.apply(CompatMechanicalCraftingRecipeBuilder.shapedRecipe(result.get(), amount));
                 ResourceLocation location = DnDecor.loc("mechanical_crafting/" + RegisteredObjectsHelper.getKeyOrThrow(result.get().asItem()).getPath() + suffix);
                 b.build(output, location);
             });

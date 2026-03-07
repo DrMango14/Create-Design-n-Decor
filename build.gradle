@@ -138,7 +138,7 @@ repositories {
             url 'https://dvs1.progwml6.com/files/maven'
         }
         maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
-        maven { url = "https://maven.tterrag.com" } // Registrate
+        maven { url = "https://maven.ithundxr.dev/mirror" } // Registrate
         maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // ForgeConfigAPIPort
         maven {
             url 'https://www.cursemaven.com'

@@ -972,7 +972,7 @@ public class DnDecorBlocks {
         });
         if (metal.equals(AllMetalTypes.NETHERITE)) builder = builder.item().properties(p -> p.fireResistant()).build();
         else builder = builder.simpleItem();
-        return builder.simpleItem().register();
+        return builder.register();
     });
 
     @SuppressWarnings("all")

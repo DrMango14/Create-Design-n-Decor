@@ -19,7 +19,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -33,9 +33,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class FullBeltConnectorItem extends BlockItem {
+public class FullBeltConnectorItem extends Item {
     public FullBeltConnectorItem(Properties properties) {
-        super(null, properties);
+        super(properties);
     }
 
     @Override

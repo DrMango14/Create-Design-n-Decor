@@ -118,6 +118,6 @@ public class DiagonalGirderBlock extends Block implements SimpleWaterloggedBlock
 
     @Override
     protected @NotNull BlockState mirror(BlockState state, Mirror mirror) {
-        return state.rotate(mirror.getRotation(state.getValue(DiagonalGirderBlock.FACING)));
+        return rotate(state, mirror.getRotation(state.getValue(DiagonalGirderBlock.FACING)));
     }
 }

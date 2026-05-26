@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "dye_depot"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rose_flywheel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:rose_flywheel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/rose_flywheel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rose_flywheel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/rose_flywheel"
+    ]
+  }
+}

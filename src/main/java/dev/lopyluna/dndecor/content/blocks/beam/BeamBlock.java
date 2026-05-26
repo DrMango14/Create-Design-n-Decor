@@ -14,8 +14,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import org.jetbrains.annotations.NotNull;
 
+import java.util.Locale;
+
+@SuppressWarnings("NullableProblems")
 public class BeamBlock extends Block implements IWrenchable {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     public static final EnumProperty<BeamStates> BEAM = EnumProperty.create("beam", BeamStates.class);
@@ -51,7 +53,7 @@ public class BeamBlock extends Block implements IWrenchable {
     }
 
     @Override
-    public BlockState getStateForPlacement(@NotNull BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         var stateForPlacement = super.getStateForPlacement(pContext);
         var face = pContext.getClickedFace();
         var direction = face.getAxis().isHorizontal() ? face.getAxis() : pContext.getHorizontalDirection().getAxis();
@@ -60,7 +62,7 @@ public class BeamBlock extends Block implements IWrenchable {
     }
 
     @Override
-    public @NotNull BlockState rotate(BlockState state, Rotation rot) {
+    public BlockState rotate(BlockState state, Rotation rot) {
         Direction.Axis axis = state.getValue(AXIS);
         return state.setValue(AXIS, rot.rotate(Direction.get(Direction.AxisDirection.POSITIVE, axis)).getAxis());
     }
@@ -71,8 +73,8 @@ public class BeamBlock extends Block implements IWrenchable {
         BOTH;
 
         @Override
-        public @NotNull String getSerializedName() {
-            return name().toLowerCase();
+        public String getSerializedName() {
+            return name().toLowerCase(Locale.ROOT);
         }
     }
 }

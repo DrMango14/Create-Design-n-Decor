@@ -16,49 +16,76 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.content.blocks.MillstoneTypeRenderer;
+import dev.lopyluna.dndecor.content.blocks.boiler.BoilerBlockEntity;
+import dev.lopyluna.dndecor.content.blocks.boiler.BoilerRenderer;
 import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogwheelRenderer;
 import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogwheelVisual;
-import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeBlock;
+import dev.lopyluna.dndecor.content.blocks.container.DyedContainerBE;
+import dev.lopyluna.dndecor.content.blocks.flywheel.FreeSpinBlock;
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeVisual;
 import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltRenderer;
 import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltVisual;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverBlockEntity;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverRenderer;
-import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerBlockEntity;
+import dev.lopyluna.dndecor.content.blocks.text_plate.TextPlateBE;
+import dev.lopyluna.dndecor.content.blocks.text_plate.TextPlateRenderer;
 import dev.lopyluna.dndecor.register.client.DnDecorPartialModels;
 import dev.lopyluna.dndecor.register.helpers.list_providers.StoneTypeBEList;
+import net.minecraft.world.item.DyeColor;
 
 import static dev.lopyluna.dndecor.DnDecor.REG;
 
 public class DnDecorBETypes {
 
-    public static BlockEntityEntry<ColoredStorageContainerBlockEntity> COLORED_STORAGE_CONTAINER =
-            REG.blockEntity("colored_storage_container", ColoredStorageContainerBlockEntity::new)
-                    .validBlock(DnDecorBlocks.DYED_STORAGE_CONTAINER)
-                    .register();
+    public static BlockEntityEntry<TextPlateBE> TEXT_PLATE = REG.blockEntity("text_plate", TextPlateBE::new)
+            .renderer(() -> TextPlateRenderer::new)
+            .validBlock(DnDecorBlocks.TEXT_PLATE)
+            .register();
 
-    public static final BlockEntityEntry<FlapDisplayBlockEntity> FLAP_DISPLAYS = REG
-            .blockEntity("flap_display", FlapDisplayBlockEntity::new)
+    public static BlockEntityEntry<DyedContainerBE> DYED_CONTAINER = REG.blockEntity("dyed_container", DyedContainerBE::new)
+            .validBlock(DnDecorBlocks.CONTAINER)
+            .validBlocks(DnDecorBlocks.DYED_CONTAINERS.toArray())
+            .validBlocks(DnDecorBlocks.DYED_SOLID_CONTAINERS.toArray())
+            .register();
+
+    public static final BlockEntityEntry<FlapDisplayBlockEntity> FLAP_DISPLAYS = REG.blockEntity("flap_display", FlapDisplayBlockEntity::new)
             .visual(() -> SingleAxisRotatingVisual.of(AllPartialModels.SHAFTLESS_COGWHEEL))
             .renderer(() -> FlapDisplayRenderer::new)
             .validBlocks(DnDecorBlocks.DYED_DISPLAY_BOARDS.toArray())
             .register();
 
-    public static final BlockEntityEntry<BeltBlockEntity> BELT = REG
-            .blockEntity("belt", BeltBlockEntity::new)
+    public static final BlockEntityEntry<BeltBlockEntity> BELT = REG.blockEntity("belt", BeltBlockEntity::new)
             .visual(() -> FullBeltVisual::new, BeltBlockEntity::shouldRenderNormally)
             .validBlocks(DnDecorBlocks.BELT)
             .renderer(() -> FullBeltRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<SteppedLeverBlockEntity> STEPPED_LEVER = REG
-            .blockEntity("stepped_lever", SteppedLeverBlockEntity::new)
+    public static final BlockEntityEntry<SteppedLeverBlockEntity> STEPPED_LEVER = REG.blockEntity("stepped_lever", SteppedLeverBlockEntity::new)
             .validBlocks(DnDecorBlocks.STEPPED_LEVER)
             .renderer(() -> SteppedLeverRenderer::new)
             .register();
 
+    public static final BlockEntityEntry<BoilerBlockEntity> BOILER = REG.blockEntity("boiler", BoilerBlockEntity::new)
+            .validBlocks(DnDecorBlocks.METAL_TYPE_BOILERS.toArray())
+            .renderer(() -> BoilerRenderer::new)
+            .register();
+
     public static final BlockEntityEntry<FlywheelBlockEntity> COLORED_FLYWHEELS = REG.blockEntity("flywheel", FlywheelBlockEntity::new)
-            .visual(() -> (c, b, p) -> new FlywheelTypeVisual(DnDecorPartialModels.DYED_FLYWHEELS.get(((FlywheelTypeBlock) b.getBlockState().getBlock()).color), c, b, p), false)
+            .visual(() -> (c, b, p) -> {
+                var color = DyeColor.WHITE;
+                var type = FreeSpinBlock.Type.FLYWHEEL;
+                if (b.getBlockState().getBlock() instanceof FreeSpinBlock block) {
+                    color = block.color;
+                    type = block.type;
+                }
+                var model = switch (type) {
+                    case FLYWHEEL -> DnDecorPartialModels.DYED_FLYWHEELS.get(color == null ? DyeColor.WHITE : color);
+                    case LARGE_FAN -> color == null ? DnDecorPartialModels.LARGE_FAN : DnDecorPartialModels.DYED_LARGE_FANS.get(color);
+                };
+                return new FlywheelTypeVisual(model, c, b, p);
+            }, false)
+            .validBlock(DnDecorBlocks.LARGE_FAN)
+            .validBlocks(DnDecorBlocks.DYED_LARGE_FANS.toArray())
             .validBlocks(DnDecorBlocks.DYED_FLYWHEELS.toArray())
             .renderer(() -> FlywheelRenderer::new)
             .register();

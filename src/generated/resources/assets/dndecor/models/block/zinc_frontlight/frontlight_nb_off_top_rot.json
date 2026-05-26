@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/frontlight/frontlight_nb_off_top_rot",
+  "textures": {
+    "0": "dndecor:block/frontlight/zinc",
+    "particle": "dndecor:block/frontlight/zinc"
+  }
+}

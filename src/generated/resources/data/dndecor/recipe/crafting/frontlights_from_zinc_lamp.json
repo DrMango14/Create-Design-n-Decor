@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dndecor:zinc_lamp"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "dndecor:zinc_frontlight"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "values": [
+    "dndecor:andesite_sheet_metal",
+    "dndecor:copper_sheet_metal",
+    "dndecor:industrial_sheet_metal",
+    "dndecor:iron_sheet_metal",
+    {
+      "id": "dndecor:white_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_sheet_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_sheet_metal",
+      "required": false
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "parent": "dndecor:block/bolt_base/dash/bolt_225",
   "textures": {
-    "0": "dndecor:block/industrial_bolt",
-    "particle": "dndecor:block/industrial_bolt"
+    "0": "dndecor:block/bolts/industrial",
+    "particle": "dndecor:block/bolts/industrial"
   }
 }

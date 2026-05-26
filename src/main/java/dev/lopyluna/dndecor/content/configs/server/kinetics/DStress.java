@@ -10,16 +10,15 @@ import net.createmod.catnip.registry.RegisteredObjectsHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.ModConfigSpec;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.DoubleSupplier;
 
 import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "NullableProblems"})
 public class DStress extends ConfigBase {
 
     private static final Object2DoubleMap<ResourceLocation> DEFAULT_IMPACTS = new Object2DoubleOpenHashMap<>();
@@ -40,7 +39,7 @@ public class DStress extends ConfigBase {
     }
 
     @Override
-    public @NotNull String getName() {
+    public String getName() {
         return "stressValues";
     }
 

@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "dye_depot"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_maroon_stone_metal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:maroon_stone_metal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/maroon_stone_metal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_maroon_stone_metal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/maroon_stone_metal"
+    ]
+  }
+}

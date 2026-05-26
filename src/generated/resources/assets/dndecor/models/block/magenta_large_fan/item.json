@@ -1,0 +1,6 @@
+{
+  "parent": "dndecor:block/large_fan/item",
+  "textures": {
+    "1": "dndecor:block/fan_blades/magenta"
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "dndecor:block/bolt_base/cross/bolt_225",
-  "textures": {
-    "0": "dndecor:block/uranium_bolt",
-    "particle": "dndecor:block/uranium_bolt"
-  }
-}

@@ -1,0 +1,10 @@
+{
+  "parent": "dndecor:block/catwalks/block_1",
+  "textures": {
+    "0": "dndecor:block/catwalks/gold_catwalk",
+    "1": "dndecor:block/catwalks/gold_catwalk_bottom",
+    "2": "dndecor:block/catwalks/gold_catwalk_side",
+    "3": "dndecor:block/catwalks/gold_catwalk_inner",
+    "particle": "dndecor:block/catwalks/gold_catwalk"
+  }
+}

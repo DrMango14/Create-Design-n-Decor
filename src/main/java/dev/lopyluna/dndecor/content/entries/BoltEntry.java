@@ -95,9 +95,10 @@ public class BoltEntry<T extends Block> {
             var getX = switch (facing) { case DOWN -> 180; case UP -> 0; case NORTH, SOUTH, WEST, EAST -> 90; };
             var getY = switch (facing) { case DOWN, UP, NORTH -> 0; case SOUTH -> 180; case WEST -> 270; case EAST -> 90; };
             var rot = state.getValue(ROT);
+            var textLoc = DnDecor.loc("block/bolts/"+material);
             return ConfiguredModel.builder().modelFile(p.models()
                             .withExistingParent("block/" + c.getName() + "/block_" + rot.getName(),  DnDecor.loc("block/bolt_base/"+type+"/bolt_" + rot.getName()))
-                            .texture("0", DnDecor.loc("block/"+material+"_bolt")).texture("particle", DnDecor.loc("block/"+material+"_bolt")))
+                            .texture("0", textLoc).texture("particle", textLoc))
                     .rotationY(getY)
                     .rotationX(getX)
                     .build();

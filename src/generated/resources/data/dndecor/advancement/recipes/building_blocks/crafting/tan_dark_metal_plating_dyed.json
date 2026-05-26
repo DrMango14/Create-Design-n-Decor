@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "dye_depot"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tan_dark_metal_plating": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:tan_dark_metal_plating"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/tan_dark_metal_plating_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tan_dark_metal_plating"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/tan_dark_metal_plating_dyed"
+    ]
+  }
+}

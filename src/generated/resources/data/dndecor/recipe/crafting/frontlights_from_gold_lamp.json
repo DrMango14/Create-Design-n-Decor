@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dndecor:gold_lamp"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "dndecor:gold_frontlight"
+  }
+}

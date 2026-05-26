@@ -1,7 +1,7 @@
 {
   "parent": "dndecor:block/frontlight/frontlight_grate",
   "textures": {
-    "0": "dndecor:block/copper_frontlight",
-    "particle": "dndecor:block/copper_frontlight"
+    "0": "dndecor:block/frontlight/copper",
+    "particle": "dndecor:block/frontlight/copper"
   }
 }

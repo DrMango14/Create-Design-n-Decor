@@ -8,6 +8,8 @@ import com.simibubi.create.content.trains.display.FlapDisplayBlock;
 import com.simibubi.create.foundation.utility.BlockHelper;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.lopyluna.dndecor.DnDecorUtils;
+import dev.lopyluna.dndecor.content.blocks.flywheel.FreeSpinBlock;
+import dev.lopyluna.dndecor.content.blocks.text_plate.TextPlateBlock;
 import dev.lopyluna.dndecor.register.DnDecorBlocks;
 import dev.lopyluna.dndecor.register.helpers.list_providers.MaterialTypeProvider;
 import net.minecraft.core.BlockPos;
@@ -30,7 +32,10 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.player.UseItemOnBlockEvent;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME)
+import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
+
+@SuppressWarnings("unused")
+@EventBusSubscriber(modid = MOD_ID)
 public class DnDecorServer {
 
     @SubscribeEvent
@@ -45,7 +50,7 @@ public class DnDecorServer {
         var context = event.getUseOnContext();
         if (event.getUsePhase() == UseItemOnBlockEvent.UsePhase.ITEM_BEFORE_BLOCK) {
 
-            if (stack.is(Tags.Items.DYES) || stack.is(Items.SPONGE)) {
+            if (stack.is(Tags.Items.DYES) || stack.is(Items.SPONGE) || stack.is(Items.WET_SPONGE) || stack.is(Items.WHITE_WOOL) || stack.is(Items.WATER_BUCKET)) {
                 var dye = dyeUseOn(level, player, state, blockPos, face, hand, stack, context);
                 if (dye.consumesAction()) event.cancelWithResult(DnDecorUtils.itemResult(dye));
             }
@@ -94,12 +99,32 @@ public class DnDecorServer {
         var block = pState.getBlock();
         if (pStack.getItem() instanceof DyeItem dyeItem) {
             var color = dyeItem.getDyeColor();
-            if (block instanceof FlywheelBlock) return changeBlock(pLevel, pPos, pState, DnDecorBlocks.DYED_FLYWHEELS.get(color).getDefaultState(), SoundEvents.DYE_USE);
-            if (pPlayer.isShiftKeyDown() && block instanceof FlapDisplayBlock) return changeBlock(pLevel, pPos, pState, DnDecorBlocks.DYED_DISPLAY_BOARDS.get(color).getDefaultState(), SoundEvents.DYE_USE);
-        } else {
-            if (block instanceof FlywheelBlock) return changeBlock(pLevel, pPos, pState, AllBlocks.FLYWHEEL.getDefaultState(), SoundEvents.SPONGE_ABSORB);
-            if (block instanceof FlapDisplayBlock) return changeBlock(pLevel, pPos, pState, AllBlocks.DISPLAY_BOARD.getDefaultState(), SoundEvents.SPONGE_ABSORB);
-        }
-        return InteractionResult.PASS;
+            return switch (block) {
+                case FlywheelBlock flywheelBlock when !(block instanceof FreeSpinBlock b && b.type == FreeSpinBlock.Type.LARGE_FAN) ->
+                        changeBlock(pLevel, pPos, pState, DnDecorBlocks.DYED_FLYWHEELS.get(color).getDefaultState(), SoundEvents.DYE_USE);
+
+                case FreeSpinBlock freeSpinBlock ->
+                        changeBlock(pLevel, pPos, pState, DnDecorBlocks.DYED_LARGE_FANS.get(color).getDefaultState(), SoundEvents.DYE_USE);
+
+                case FlapDisplayBlock flapDisplayBlock when pPlayer.isShiftKeyDown() ->
+                        changeBlock(pLevel, pPos, pState, DnDecorBlocks.DYED_DISPLAY_BOARDS.get(color).getDefaultState(), SoundEvents.DYE_USE);
+
+                case TextPlateBlock textPlate when pPlayer.isShiftKeyDown() ->
+                        textPlate.applyDye(pLevel, pPos, color);
+
+                default -> InteractionResult.PASS;
+            };
+        } else return switch (block) {
+            case FlywheelBlock flywheelBlock when !(block instanceof FreeSpinBlock b && b.type == FreeSpinBlock.Type.LARGE_FAN) ->
+                    changeBlock(pLevel, pPos, pState, AllBlocks.FLYWHEEL.getDefaultState(), SoundEvents.SPONGE_ABSORB);
+
+            case FreeSpinBlock freeSpinBlock ->
+                    changeBlock(pLevel, pPos, pState, DnDecorBlocks.LARGE_FAN.getDefaultState(), SoundEvents.SPONGE_ABSORB);
+
+            case FlapDisplayBlock flapDisplayBlock ->
+                    changeBlock(pLevel, pPos, pState, AllBlocks.DISPLAY_BOARD.getDefaultState(), SoundEvents.SPONGE_ABSORB);
+
+            default -> InteractionResult.PASS;
+        };
     }
 }

@@ -3,9 +3,7 @@ package dev.lopyluna.dndecor.content.blocks;
 import com.simibubi.create.foundation.utility.BlockHelper;
 import dev.lopyluna.dndecor.register.DnDecorBlocks;
 import net.createmod.catnip.data.Iterate;
-import net.createmod.catnip.placement.IPlacementHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -14,13 +12,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -38,19 +35,22 @@ public class VelvetBlock extends Block {
         this.color = color;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         DyeColor color = DyeColor.getColor(stack);
         if (color != null) {
             if (!level.isClientSide) level.playSound(null, pos, SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0f, 1.1f - level.random.nextFloat() * .2f);
-            applyDye(state, level, pos, hitResult.getLocation(), hitResult.getDirection(), color);
+            applyDye(state, level, pos, color);
             return ItemInteractionResult.SUCCESS;
+        } else if (stack.is(Items.SPONGE) || stack.is(Items.WET_SPONGE) || stack.is(Items.WHITE_WOOL) || stack.is(Items.WATER_BUCKET)) {
+            if (!level.isClientSide) level.playSound(null, pos, SoundEvents.SPONGE_ABSORB, SoundSource.BLOCKS, 1.0f, 1.1f - level.random.nextFloat() * .2f);
+            applyDye(state, level, pos, null);
         }
-
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
-    public void applyDye(BlockState state, Level world, BlockPos pos, Vec3 hit, Direction direction, @Nullable DyeColor color) {
+    public void applyDye(BlockState state, Level world, BlockPos pos, @Nullable DyeColor color) {
         BlockState newState = (color == null ? DnDecorBlocks.DYED_VELVET_BLOCKS.get(DyeColor.WHITE) : DnDecorBlocks.DYED_VELVET_BLOCKS.get(color)).getDefaultState();
         newState = BlockHelper.copyProperties(state, newState);
 
@@ -59,8 +59,7 @@ public class VelvetBlock extends Block {
             return;
         }
 
-        var directions = IPlacementHelper.orderedByDistanceExceptAxis(pos, hit, direction.getAxis());
-        for (var d : directions) {
+        for (var d : Iterate.directions) {
             BlockPos offset = pos.relative(d);
             BlockState adjacentState = world.getBlockState(offset);
             Block block = adjacentState.getBlock();
@@ -80,8 +79,7 @@ public class VelvetBlock extends Block {
             BlockPos currentPos = frontier.removeFirst();
             visited.add(currentPos);
 
-            for (Direction d : Iterate.directions) {
-                if (d.getAxis() == direction.getAxis()) continue;
+            for (var d : Iterate.directions) {
                 var offset = currentPos.relative(d);
                 if (visited.contains(offset)) continue;
                 var adjacentState = world.getBlockState(offset);

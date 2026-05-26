@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/copper/waxed_exposed_copper_floor_from_honeycomb"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unwaxed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:exposed_copper_floor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_unwaxed"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/copper/waxed_exposed_copper_floor_from_honeycomb"
+    ]
+  }
+}

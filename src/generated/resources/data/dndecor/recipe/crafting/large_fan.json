@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "c:plates/iron"
+    },
+    "N": {
+      "tag": "c:nuggets/iron"
+    },
+    "S": {
+      "item": "create:shaft"
+    }
+  },
+  "pattern": [
+    "NDN",
+    "DSD",
+    "NDN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dndecor:large_fan"
+  }
+}

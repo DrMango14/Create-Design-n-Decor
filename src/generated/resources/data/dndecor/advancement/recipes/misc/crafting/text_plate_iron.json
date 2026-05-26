@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_text_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:text_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/text_plate_iron"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_text_plate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/text_plate_iron"
+    ]
+  }
+}

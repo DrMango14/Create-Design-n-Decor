@@ -2,6 +2,6 @@
   "parent": "dndecor:block/large_industrial_cogwheel/item",
   "textures": {
     "4": "dndecor:block/large_industrial_cogwheel/red",
-    "particle": "dndecor:block/large_girder/red"
+    "particle": "dndecor:block/large_girders/red"
   }
 }

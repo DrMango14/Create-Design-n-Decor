@@ -1,0 +1,13 @@
+{
+  "values": {
+    "dndecor:copper_floor": {
+      "next_oxidation_stage": "dndecor:exposed_copper_floor"
+    },
+    "dndecor:exposed_copper_floor": {
+      "next_oxidation_stage": "dndecor:weathered_copper_floor"
+    },
+    "dndecor:weathered_copper_floor": {
+      "next_oxidation_stage": "dndecor:oxidized_copper_floor"
+    }
+  }
+}

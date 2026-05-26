@@ -18,10 +18,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
@@ -51,6 +48,11 @@ public class MaterialTypeProvider {
         }
     }
 
+    public static Optional<NonNullSupplier<MetalType>> getMetalTypeByID(String id) {
+        for (var type : metalTypes) if (type.get().id.equals(id)) return Optional.of(type);
+        return Optional.empty();
+    }
+
     public static Item getResolvedItem(ResourceLocation loc) {
         var item = BuiltInRegistries.ITEM.get(loc);
         if (item == Items.AIR) System.out.println("⚠ Item not yet registered: " + loc + " is " + item);
@@ -63,40 +65,42 @@ public class MaterialTypeProvider {
         public final String id;
         public final String type;
         public final SoundType sound;
+        public final Supplier<Block> block;
         public final MapColor color;
         public final TagKey<Item> tag;
 
         public final List<Object> itemEntries = new ArrayList<>();
         public final List<String> modIDs;
 
-        public MetalType(String type, SoundType sound, MapColor color, TagKey<Item> tag) {
-            this(type, sound, color, null, tag, new ArrayList<>());
+        public MetalType(String type, SoundType sound, Supplier<Block> block, MapColor color, TagKey<Item> tag) {
+            this(type, sound, block, color, null, tag, new ArrayList<>());
         }
 
-        public MetalType(String type, SoundType sound, MapColor color, TagKey<Item> tag, List<String> modIDs) {
-            this(type, sound, color, null, tag, modIDs);
+        public MetalType(String type, SoundType sound, Supplier<Block> block, MapColor color, TagKey<Item> tag, List<String> modIDs) {
+            this(type, sound, block, color, null, tag, modIDs);
         }
 
-        public MetalType(String type, SoundType sound, MapColor color, NonNullSupplier<ItemLike> item, TagKey<Item> tag) {
-            this(type, sound, color, item != null ? List.of(item) : List.of(), tag, new ArrayList<>());
+        public MetalType(String type, SoundType sound, Supplier<Block> block, MapColor color, NonNullSupplier<ItemLike> item, TagKey<Item> tag) {
+            this(type, sound, block, color, item != null ? List.of(item) : List.of(), tag, new ArrayList<>());
         }
 
-        public MetalType(String type, SoundType sound, MapColor color, ItemProviderEntry<?, ?> item, TagKey<Item> tag) {
-            this(type, sound, color, item != null ? List.of(item) : List.of(), tag, new ArrayList<>());
+        public MetalType(String type, SoundType sound, Supplier<Block> block, MapColor color, ItemProviderEntry<?, ?> item, TagKey<Item> tag) {
+            this(type, sound, block, color, item != null ? List.of(item) : List.of(), tag, new ArrayList<>());
         }
 
-        public MetalType(String type, SoundType sound, MapColor color, NonNullSupplier<ItemLike> item) {
-            this(type, sound, color, item != null ? List.of(item) : List.of(), null, new ArrayList<>());
+        public MetalType(String type, SoundType sound, Supplier<Block> block, MapColor color, NonNullSupplier<ItemLike> item) {
+            this(type, sound, block, color, item != null ? List.of(item) : List.of(), null, new ArrayList<>());
         }
 
-        public MetalType(String type, SoundType sound, MapColor color, ItemProviderEntry<?, ?> item) {
-            this(type, sound, color, item != null ? List.of(item) : List.of(), null, new ArrayList<>());
+        public MetalType(String type, SoundType sound, Supplier<Block> block, MapColor color, ItemProviderEntry<?, ?> item) {
+            this(type, sound, block, color, item != null ? List.of(item) : List.of(), null, new ArrayList<>());
         }
 
-        public MetalType(String type, SoundType sound, MapColor color, List<Object> itemEntries, TagKey<Item> tag, List<String> modIDs) {
-            this.id = type.toLowerCase().replace(" ", "_");
+        public MetalType(String type, SoundType sound, Supplier<Block> block, MapColor color, List<Object> itemEntries, TagKey<Item> tag, List<String> modIDs) {
+            this.id = type.toLowerCase(Locale.ROOT).replace(" ", "_");
             this.type = type;
             this.sound = sound;
+            this.block = block;
             this.color = color;
             this.tag = tag;
             this.modIDs = modIDs;

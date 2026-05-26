@@ -1,0 +1,44 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made by LopyLuna",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"0": "dndecor:block/base_textures/base_catwalk",
+		"1": "dndecor:block/base_textures/base_catwalk_bottom",
+		"2": "dndecor:block/base_textures/base_catwalk_side",
+		"3": "dndecor:block/base_textures/base_catwalk_inner",
+		"particle": "dndecor:block/base_textures/base_catwalk"
+	},
+	"elements": [
+		{
+			"from": [0, 3, 0],
+			"to": [16, 2, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [0, 1, 0],
+			"to": [16, 4, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 4, 0],
+			"to": [16, 1, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 3], "texture": "#2", "cullface": "west"}
+			}
+		}
+	]
+}

@@ -1,7 +1,7 @@
 {
   "parent": "create:block/flywheel/item",
   "textures": {
-    "0": "dndecor:block/flywheel/magenta",
-    "particle": "dndecor:block/flywheel/magenta"
+    "0": "dndecor:block/flywheels/magenta",
+    "particle": "dndecor:block/flywheels/magenta"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "parent": "dndecor:block/catwalks/block_4",
+  "textures": {
+    "0": "dndecor:block/catwalks/brass_catwalk",
+    "1": "dndecor:block/catwalks/brass_catwalk_bottom",
+    "2": "dndecor:block/catwalks/brass_catwalk_side",
+    "3": "dndecor:block/catwalks/brass_catwalk_inner",
+    "particle": "dndecor:block/catwalks/brass_catwalk"
+  }
+}

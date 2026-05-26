@@ -2,19 +2,17 @@ package dev.lopyluna.dndecor.content.blocks.metal_supports;
 
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.ConnectedTextureBehaviour;
-import javax.annotation.Nullable;
-
-import dev.lopyluna.dndecor.register.DnDecorBlocks;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockAndTintGetter;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
+import javax.annotation.Nullable;
+
 public class DiagonalMetalSupportCtBehavior extends ConnectedTextureBehaviour.Base {
-    private CTSpriteShiftEntry shift;
+    private final CTSpriteShiftEntry shift;
 
     public DiagonalMetalSupportCtBehavior(CTSpriteShiftEntry shift) {
         this.shift = shift;
@@ -29,19 +27,13 @@ public class DiagonalMetalSupportCtBehavior extends ConnectedTextureBehaviour.Ba
     }
 
     protected Direction getRightDirection(BlockAndTintGetter reader, BlockPos pos, BlockState state, Direction face) {
-        return ((Direction) state.getValue(HorizontalDirectionalBlock.FACING)).getCounterClockWise();
+        return state.getValue(HorizontalDirectionalBlock.FACING).getCounterClockWise();
     }
 
     public boolean connectsTo(BlockState state, BlockState other, BlockAndTintGetter reader, BlockPos pos, BlockPos otherPos, Direction face) {
-//
-        if (pos.getY() != otherPos.getY())
-            return false;
-       // } else {
-            if(!(other.getBlock() instanceof DiagonalMetalSupportBlock))
-                return false;
-            return state.getValue(HorizontalDirectionalBlock.FACING) == other.getValue(HorizontalDirectionalBlock.FACING);
-
-        //}
+        if (pos.getY() != otherPos.getY()) return false;
+        if(!(other.getBlock() instanceof DiagonalMetalSupportBlock)) return false;
+        return state.getValue(HorizontalDirectionalBlock.FACING) == other.getValue(HorizontalDirectionalBlock.FACING);
     }
 
      public boolean buildContextForOccludedDirections() {

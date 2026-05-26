@@ -4,6 +4,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.SoundType;
 import net.neoforged.neoforge.common.util.DeferredSoundType;
 
+@SuppressWarnings("unused")
 public class DnDecorSoundTypes {
 
     public static SoundType CRACKLE_STONE = new DeferredSoundType(0.9f, 0.7f,
@@ -39,6 +40,14 @@ public class DnDecorSoundTypes {
     );
 
     public static SoundType CHAIN_HEAVY  = new DeferredSoundType(0.9f, 0.75F,
+            () -> SoundEvents.CHAIN_BREAK,
+            () -> SoundEvents.CHAIN_STEP,
+            () -> SoundEvents.CHAIN_PLACE,
+            () -> SoundEvents.CHAIN_HIT,
+            () -> SoundEvents.CHAIN_FALL
+    );
+
+    public static SoundType CHAIN_LIGHT  = new DeferredSoundType(0.9f, 1.5F,
             () -> SoundEvents.CHAIN_BREAK,
             () -> SoundEvents.CHAIN_STEP,
             () -> SoundEvents.CHAIN_PLACE,

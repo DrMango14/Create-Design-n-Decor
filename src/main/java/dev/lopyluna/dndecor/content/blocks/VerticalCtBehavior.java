@@ -3,15 +3,16 @@ package dev.lopyluna.dndecor.content.blocks;
 
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.ConnectedTextureBehaviour;
-import javax.annotation.Nullable;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 
+import javax.annotation.Nullable;
+
 public class VerticalCtBehavior extends ConnectedTextureBehaviour.Base {
-    private CTSpriteShiftEntry shift;
+    private final CTSpriteShiftEntry shift;
 
     public VerticalCtBehavior(CTSpriteShiftEntry shift) {
         this.shift = shift;

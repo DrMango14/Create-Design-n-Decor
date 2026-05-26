@@ -1,0 +1,48 @@
+{
+  "variants": {
+    "axis=x,size=large": {
+      "model": "dndecor:block/zinc_boiler/boiler_large",
+      "y": 90
+    },
+    "axis=x,size=medium": {
+      "model": "dndecor:block/zinc_boiler/boiler_medium",
+      "y": 90
+    },
+    "axis=x,size=normal": {
+      "model": "dndecor:block/zinc_boiler/boiler",
+      "y": 90
+    },
+    "axis=x,size=small": {
+      "model": "dndecor:block/zinc_boiler/boiler_small",
+      "y": 90
+    },
+    "axis=y,size=large": {
+      "model": "dndecor:block/zinc_boiler/boiler_large",
+      "x": 90
+    },
+    "axis=y,size=medium": {
+      "model": "dndecor:block/zinc_boiler/boiler_medium",
+      "x": 90
+    },
+    "axis=y,size=normal": {
+      "model": "dndecor:block/zinc_boiler/boiler",
+      "x": 90
+    },
+    "axis=y,size=small": {
+      "model": "dndecor:block/zinc_boiler/boiler_small",
+      "x": 90
+    },
+    "axis=z,size=large": {
+      "model": "dndecor:block/zinc_boiler/boiler_large"
+    },
+    "axis=z,size=medium": {
+      "model": "dndecor:block/zinc_boiler/boiler_medium"
+    },
+    "axis=z,size=normal": {
+      "model": "dndecor:block/zinc_boiler/boiler"
+    },
+    "axis=z,size=small": {
+      "model": "dndecor:block/zinc_boiler/boiler_small"
+    }
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "dndecor:block/bolt_base/dot/bolt_90",
-  "textures": {
-    "0": "dndecor:block/lead_bolt",
-    "particle": "dndecor:block/lead_bolt"
-  }
-}

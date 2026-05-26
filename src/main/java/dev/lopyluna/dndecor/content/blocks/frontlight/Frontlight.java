@@ -3,9 +3,8 @@ package dev.lopyluna.dndecor.content.blocks.frontlight;
 import net.minecraft.Util;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
-import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings({"deprecation", "unused"})
+@SuppressWarnings({"deprecation", "unused", "NullableProblems"})
 public enum Frontlight implements StringRepresentable {
     EMPTY("empty", 0, 1, 2),
     TOP("top", 1, 2, 0),
@@ -58,7 +57,7 @@ public enum Frontlight implements StringRepresentable {
     }
 
     @Override
-    public @NotNull String getSerializedName() {
+    public String getSerializedName() {
         return name;
     }
 }

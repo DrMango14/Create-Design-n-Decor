@@ -21,12 +21,12 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
+@SuppressWarnings("NullableProblems")
 @ParametersAreNonnullByDefault
 public class DiagonalGirderBlock extends Block implements SimpleWaterloggedBlock, IWrenchable {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
@@ -53,10 +53,10 @@ public class DiagonalGirderBlock extends Block implements SimpleWaterloggedBlock
 
 
     @Override
-    public @NotNull FluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if (!state.getValue(FACING_UP)) {
             return switch (state.getValue(FACING)) {
                 case NORTH, UP, DOWN -> SHAPE_NORTH;
@@ -89,7 +89,7 @@ public class DiagonalGirderBlock extends Block implements SimpleWaterloggedBlock
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState blockState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+    public BlockState updateShape(BlockState state, Direction direction, BlockState blockState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         return super.updateShape(state, direction, blockState, level, pos, neighborPos);
     }

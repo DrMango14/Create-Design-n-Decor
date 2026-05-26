@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magenta_dark_metal_plating": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:magenta_dark_metal_plating"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/magenta_dark_metal_plating_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magenta_dark_metal_plating"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/magenta_dark_metal_plating_dyed"
+    ]
+  }
+}

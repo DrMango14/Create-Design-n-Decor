@@ -1,0 +1,12 @@
+{
+  "values": [
+    "dndecor:copper_floor",
+    "dndecor:exposed_copper_floor",
+    "dndecor:weathered_copper_floor",
+    "dndecor:oxidized_copper_floor",
+    "dndecor:waxed_copper_floor",
+    "dndecor:waxed_exposed_copper_floor",
+    "dndecor:waxed_weathered_copper_floor",
+    "dndecor:waxed_oxidized_copper_floor"
+  ]
+}

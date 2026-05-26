@@ -15,9 +15,8 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
@@ -59,8 +58,9 @@ public class MetalSupportBlock extends Block {
         return newState;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
-    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return state.getValue(TOP) ? DnDecorShapes.METAL_SUPPORT.get(state.getValue(HORIZONTAL_AXIS)) : DnDecorShapes.WOODEN_SUPPORT;
     }
 }

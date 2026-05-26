@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.function.Predicate;
 
-@Mixin(targets = "com.simibubi.create.content.trains.display.FlapDisplayBlock$PlacementHelper")
+@Mixin(targets = "com.simibubi.create.content.trains.display.FlapDisplayBlock$PlacementHelper", remap = false)
 public class FlapDisplayPlacementHelperMixin {
     @Inject(method = "getItemPredicate()Ljava/util/function/Predicate;", at = @At(value = "HEAD"), cancellable = true)
     public void getItemPredicate(CallbackInfoReturnable<Predicate<ItemStack>> cir) {

@@ -1,20 +1,132 @@
 {
   "values": [
-    "dndecor:white_small_deepslate_tiles",
-    "dndecor:orange_small_deepslate_tiles",
-    "dndecor:magenta_small_deepslate_tiles",
-    "dndecor:light_blue_small_deepslate_tiles",
-    "dndecor:yellow_small_deepslate_tiles",
-    "dndecor:lime_small_deepslate_tiles",
-    "dndecor:pink_small_deepslate_tiles",
-    "dndecor:gray_small_deepslate_tiles",
-    "dndecor:light_gray_small_deepslate_tiles",
-    "dndecor:cyan_small_deepslate_tiles",
-    "dndecor:purple_small_deepslate_tiles",
-    "dndecor:blue_small_deepslate_tiles",
-    "dndecor:brown_small_deepslate_tiles",
-    "dndecor:green_small_deepslate_tiles",
-    "dndecor:red_small_deepslate_tiles",
-    "dndecor:black_small_deepslate_tiles"
+    {
+      "id": "dndecor:white_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_small_deepslate_tiles",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_small_deepslate_tiles",
+      "required": false
+    }
   ]
 }

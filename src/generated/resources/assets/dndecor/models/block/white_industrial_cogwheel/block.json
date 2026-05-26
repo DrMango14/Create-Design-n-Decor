@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/air",
   "textures": {
-    "particle": "dndecor:block/large_girder/white"
+    "particle": "dndecor:block/large_girders/white"
   }
 }

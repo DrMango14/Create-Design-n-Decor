@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/boilers/base_boiler_medium",
+  "textures": {
+    "0": "dndecor:block/boilers/brass_medium",
+    "particle": "dndecor:block/boilers/brass_medium"
+  }
+}

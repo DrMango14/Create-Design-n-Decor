@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/text_plate/model_double",
+  "textures": {
+    "0": "dndecor:block/text_plates/red",
+    "particle": "dndecor:block/text_plates/red"
+  }
+}

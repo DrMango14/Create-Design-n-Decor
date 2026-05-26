@@ -31,18 +31,18 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.items.IItemHandler;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("NullableProblems")
 public class FullBeltBlock extends BeltBlock {
     public FullBeltBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (player.isShiftKeyDown() || !player.mayBuild()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         boolean isWrench = AllItems.WRENCH.isIn(stack);
         boolean isConnector = DnDecorItems.BELT_CONNECTOR.isIn(stack);
@@ -53,8 +53,8 @@ public class FullBeltBlock extends BeltBlock {
 
         if (isDye || hasWater) return onBlockEntityUseItemOn(level, pos, be -> be.applyColor(DyeColor.getColor(stack)) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION);
 
-        if (isConnector) return FullBeltSlicer.useConnector(state, level, pos, player, hand, hitResult, new BeltSlicer.Feedback());
-        if (isWrench) return FullBeltSlicer.useWrench(state, level, pos, player, hand, hitResult, new BeltSlicer.Feedback());
+        if (isConnector) return BeltSlicer.useConnector(state, level, pos, player, hand, hitResult, new BeltSlicer.Feedback());
+        if (isWrench) return BeltSlicer.useWrench(state, level, pos, player, hand, hitResult, new BeltSlicer.Feedback());
 
         BeltBlockEntity belt = BeltHelper.getSegmentBE(level, pos);
         if (belt == null) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
@@ -121,7 +121,7 @@ public class FullBeltBlock extends BeltBlock {
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
+    public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
         return DnDecorItems.BELT_CONNECTOR.asStack();
     }
 

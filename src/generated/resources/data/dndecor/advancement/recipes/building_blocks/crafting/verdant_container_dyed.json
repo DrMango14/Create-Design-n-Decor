@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "dye_depot"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/verdant_container_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_verdant_container": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:verdant_container"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_verdant_container"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/verdant_container_dyed"
+    ]
+  }
+}

@@ -1,10 +1,9 @@
 package dev.lopyluna.dndecor.content.datagen.recipes;
 
 import com.simibubi.create.AllBlocks;
-import com.simibubi.create.AllRecipeTypes;
+import com.simibubi.create.api.data.recipe.WashingRecipeGen;
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
-import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
-import dev.lopyluna.dndecor.content.datagen.ProcessingDnDecorRecipeGen;
+import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.register.DnDecorBlocks;
 import dev.lopyluna.dndecor.register.DnDecorStoneTypes;
 import dev.lopyluna.dndecor.register.DnDecorTags;
@@ -15,7 +14,7 @@ import net.minecraft.world.item.DyeColor;
 import java.util.concurrent.CompletableFuture;
 
 @SuppressWarnings("unused")
-public class WashingGen extends ProcessingDnDecorRecipeGen {
+public class WashingGen extends WashingRecipeGen {
     GeneratedRecipe FLYWHEEL = create("flywheel", b -> b
             .require(DnDecorTags.commonItemTag("create/dyed_flywheels"))
             .output(AllBlocks.FLYWHEEL));
@@ -33,11 +32,6 @@ public class WashingGen extends ProcessingDnDecorRecipeGen {
             .output(DnDecorStoneTypes.WEATHERED_LIMESTONE.baseBlock.get()));
 
     public WashingGen(PackOutput generator, CompletableFuture<HolderLookup.Provider> registries) {
-        super(generator, registries);
-    }
-
-    @Override
-    protected IRecipeTypeInfo getRecipeType() {
-        return AllRecipeTypes.SPLASHING;
+        super(generator, registries, DnDecor.MOD_ID);
     }
 }

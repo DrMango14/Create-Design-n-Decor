@@ -1,0 +1,10 @@
+{
+  "parent": "create:block/item_vault",
+  "textures": {
+    "0": "dndecor:block/containers/vault/navy_bottom_small",
+    "1": "dndecor:block/containers/vault/navy_front_small",
+    "2": "dndecor:block/containers/vault/navy_side_small",
+    "3": "dndecor:block/containers/vault/navy_top_small",
+    "particle": "dndecor:block/containers/vault/navy_top_small"
+  }
+}

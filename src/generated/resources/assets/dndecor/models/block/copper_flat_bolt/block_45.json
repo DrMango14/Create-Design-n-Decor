@@ -1,7 +1,7 @@
 {
   "parent": "dndecor:block/bolt_base/flat/bolt_45",
   "textures": {
-    "0": "dndecor:block/copper_bolt",
-    "particle": "dndecor:block/copper_bolt"
+    "0": "dndecor:block/bolts/copper",
+    "particle": "dndecor:block/bolts/copper"
   }
 }

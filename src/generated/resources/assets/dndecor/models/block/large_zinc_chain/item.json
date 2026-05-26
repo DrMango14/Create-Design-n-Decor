@@ -1,6 +1,6 @@
 {
   "parent": "dndecor:block/large_chain",
   "textures": {
-    "0": "dndecor:block/zinc_large_chain"
+    "0": "dndecor:block/large_chains/zinc"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/frontlight/frontlight_nb_top",
+  "textures": {
+    "0": "dndecor:block/frontlight/gold",
+    "particle": "dndecor:block/frontlight/gold"
+  }
+}

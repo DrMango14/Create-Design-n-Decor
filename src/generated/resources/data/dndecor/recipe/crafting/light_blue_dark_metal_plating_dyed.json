@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "tag": "c:dyes/light_blue"
+    },
+    "S": {
+      "tag": "dndecor:dark_metal_plating_decor"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:light_blue_dark_metal_plating"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "values": [
+    "dndecor:large_metal_girder",
+    {
+      "id": "dndecor:white_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_large_metal_girder",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_large_metal_girder",
+      "required": false
+    }
+  ]
+}

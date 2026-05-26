@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/air",
+  "textures": {
+    "particle": "dndecor:block/dark_metal_cogwheel/amber"
+  }
+}

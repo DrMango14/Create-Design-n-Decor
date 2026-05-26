@@ -1,7 +1,0 @@
-{
-  "parent": "dndecor:block/bolt_base/flat/bolt_315",
-  "textures": {
-    "0": "dndecor:block/electrum_bolt",
-    "particle": "dndecor:block/electrum_bolt"
-  }
-}

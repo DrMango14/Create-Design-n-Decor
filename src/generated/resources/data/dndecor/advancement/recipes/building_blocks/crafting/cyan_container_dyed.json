@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cyan_container": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:cyan_container"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/cyan_container_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cyan_container"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/cyan_container_dyed"
+    ]
+  }
+}

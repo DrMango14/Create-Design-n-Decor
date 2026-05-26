@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/industrial_cogwheel/item",
+  "textures": {
+    "1_2": "dndecor:block/industrial_cogwheel/amber",
+    "particle": "dndecor:block/large_girders/amber"
+  }
+}

@@ -18,8 +18,10 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -33,6 +35,7 @@ public class DnDecor {
     public static final String NAME = "Design n' Decor";
     public static final String MOD_ID = "dndecor";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static boolean DYE_DEPOT;
     public static final boolean LOAD_ALL_METALS = true;
 
     public static final CreateRegistrate REG = CreateRegistrate.create(MOD_ID)
@@ -49,6 +52,7 @@ public class DnDecor {
         REG.registerEventListeners(modEventBus);
 
         AllMetalTypes.register();
+        DYE_DEPOT = ModList.get().isLoaded("dye_depot");
 
         DnDecorStoneTypes.register(REG);
         DnDecorLangPartial.init();
@@ -57,12 +61,21 @@ public class DnDecor {
         DnDecorBlocks.register();
         DnDecorBETypes.register();
         DnDecorCreativeTabs.register(modEventBus);
+        DnDecorMountedStorageTypes.register();
 
         DnDecorConfigs.register(modLoadingContext, modContainer);
 
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(EventPriority.LOWEST, DnDecorCreativeTabs::addCreative);
+        modEventBus.addListener(EventPriority.HIGHEST, DnDecorDatagen::gatherDataHighPriority);
         modEventBus.addListener(EventPriority.LOWEST, DnDecorDatagen::gatherData);
+    }
+
+    @SuppressWarnings({"Convert2MethodRef", "CodeBlock2Expr"})
+    public static void init(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            DnDecorInventoryIdentifiers.registerDefaults();
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -102,7 +115,9 @@ public class DnDecor {
     public static ResourceLocation loc(String loc) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, loc);
     }
-
+    public static ResourceLocation mcLoc(String loc) {
+        return ResourceLocation.withDefaultNamespace(loc);
+    }
     public static ResourceLocation emptyLoc() {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, "empty");
     }

@@ -4,13 +4,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.simibubi.create.foundation.utility.FilesHelper;
 import com.tterrag.registrate.providers.ProviderType;
-import com.tterrag.registrate.providers.RegistrateDataProvider;
 import dev.lopyluna.dndecor.content.datagen.DatagenTags;
-import dev.lopyluna.dndecor.content.datagen.ProcessingDnDecorRecipeGen;
-import dev.lopyluna.dndecor.content.datagen.recipes.MechanicalCraftingGen;
+import dev.lopyluna.dndecor.content.datagen.DnDecorDatamapProvider;
+import dev.lopyluna.dndecor.content.datagen.DnDecorRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.Map;
@@ -22,17 +22,20 @@ import static dev.lopyluna.dndecor.DnDecor.REG;
 
 @SuppressWarnings({"unused", "SameParameterValue"})
 public class DnDecorDatagen {
+    public static void gatherDataHighPriority(GatherDataEvent event) {
+        DnDecor.DYE_DEPOT = ModList.get().isLoaded("dye_depot");
+        if (event.getMods().contains(MOD_ID)) addExtraRegistrateData();
+    }
+
     @SuppressWarnings("all")
     public static void gatherData(GatherDataEvent event) {
-        addExtraRegistrateData();
+        if (!event.getMods().contains(MOD_ID)) return;
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new MechanicalCraftingGen(output, lookupProvider));
-
-        event.getGenerator().addProvider(true, REG.setDataProvider(new RegistrateDataProvider(REG, MOD_ID, event)));
-        if (event.includeServer()) ProcessingDnDecorRecipeGen.registerAll(generator, output, lookupProvider);
+        generator.addProvider(event.includeServer(), new DnDecorDatamapProvider(output, lookupProvider));
+        if (event.includeServer()) DnDecorRecipeProvider.registerAllProcessing(generator, output, lookupProvider);
     }
 
     private static void addExtraRegistrateData() {

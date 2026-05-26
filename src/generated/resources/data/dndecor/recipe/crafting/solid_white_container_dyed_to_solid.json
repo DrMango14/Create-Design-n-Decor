@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "tag": "c:dyes/white"
+    },
+    "S": {
+      "tag": "dndecor:non_solid_containers_decor"
+    }
+  },
+  "pattern": [
+    " S ",
+    "SDS",
+    " S "
+  ],
+  "result": {
+    "count": 4,
+    "id": "dndecor:solid_white_container"
+  }
+}

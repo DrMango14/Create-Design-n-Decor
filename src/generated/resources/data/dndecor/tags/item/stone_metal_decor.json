@@ -1,21 +1,133 @@
 {
   "values": [
     "dndecor:stone_metal",
-    "dndecor:white_stone_metal",
-    "dndecor:orange_stone_metal",
-    "dndecor:magenta_stone_metal",
-    "dndecor:light_blue_stone_metal",
-    "dndecor:yellow_stone_metal",
-    "dndecor:lime_stone_metal",
-    "dndecor:pink_stone_metal",
-    "dndecor:gray_stone_metal",
-    "dndecor:light_gray_stone_metal",
-    "dndecor:cyan_stone_metal",
-    "dndecor:purple_stone_metal",
-    "dndecor:blue_stone_metal",
-    "dndecor:brown_stone_metal",
-    "dndecor:green_stone_metal",
-    "dndecor:red_stone_metal",
-    "dndecor:black_stone_metal"
+    {
+      "id": "dndecor:white_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_stone_metal",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_stone_metal",
+      "required": false
+    }
   ]
 }

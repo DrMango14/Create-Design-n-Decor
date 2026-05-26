@@ -5,9 +5,8 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Rotation;
-import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "unused"})
 public enum BoltRotation implements StringRepresentable {
     D0("0", 0, 1, 7),
     D45("45", 1, 2, 0),
@@ -82,8 +81,9 @@ public enum BoltRotation implements StringRepresentable {
         return name;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
-    public @NotNull String getSerializedName() {
+    public String getSerializedName() {
         return name;
     }
 }

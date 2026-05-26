@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/cogwheel",
+  "textures": {
+    "1_2": "dndecor:block/dark_metal_cogwheel/amber",
+    "particle": "dndecor:block/dark_metal_cogwheel/amber"
+  }
+}

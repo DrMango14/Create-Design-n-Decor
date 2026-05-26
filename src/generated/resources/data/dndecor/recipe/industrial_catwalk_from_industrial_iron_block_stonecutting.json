@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:industrial_iron_block"
+  },
+  "result": {
+    "count": 4,
+    "id": "dndecor:industrial_catwalk"
+  }
+}

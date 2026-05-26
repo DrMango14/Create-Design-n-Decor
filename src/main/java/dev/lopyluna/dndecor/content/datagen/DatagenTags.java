@@ -17,7 +17,6 @@ public class DatagenTags {
     public static void addGenerators() {
         REG.addDataGenerator(ProviderType.BLOCK_TAGS, DatagenTags::genBlockTags);
         REG.addDataGenerator(ProviderType.ITEM_TAGS, DatagenTags::genItemTags);
-
     }
 
     private static void genBlockTags(RegistrateTagsProvider<Block> provIn) {

@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/boilers/base_boiler_medium",
+  "textures": {
+    "0": "dndecor:block/boilers/netherite_medium",
+    "particle": "dndecor:block/boilers/netherite_medium"
+  }
+}

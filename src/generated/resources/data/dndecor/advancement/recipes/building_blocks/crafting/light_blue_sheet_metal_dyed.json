@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_light_blue_sheet_metal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:light_blue_sheet_metal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/light_blue_sheet_metal_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_light_blue_sheet_metal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/light_blue_sheet_metal_dyed"
+    ]
+  }
+}

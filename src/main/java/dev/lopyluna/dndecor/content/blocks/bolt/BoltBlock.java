@@ -11,25 +11,27 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("NullableProblems")
 @ParametersAreNonnullByDefault
-public class BoltBlock extends Block implements IWrenchable {
+public class BoltBlock extends Block implements SimpleWaterloggedBlock, IWrenchable {
     public static final VoxelShape SHAPE_DOWN = Block.box(3.0D, 13.0D, 3.0D, 13.0D, 16.0D, 13.0D);
     public static final VoxelShape SHAPE_UP = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 3.0D, 13.0D);
 
@@ -38,19 +40,21 @@ public class BoltBlock extends Block implements IWrenchable {
     public static final VoxelShape SHAPE_NORTH = Block.box(3.0D, 3.0D, 13.0D, 13.0D, 13.0D, 16.0D);
     public static final VoxelShape SHAPE_SOUTH = Block.box(3.0D, 3.0D, 0.0D, 13.0D, 13.0D, 3.0D);
 
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final EnumProperty<BoltRotation> ROT = EnumProperty.create("rotation", BoltRotation.class);
 
     public BoltBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any()
+        this.registerDefaultState(defaultBlockState()
+                .setValue(WATERLOGGED, false)
                 .setValue(FACING, Direction.UP)
                 .setValue(ROT, BoltRotation.D0)
         );
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return switch (state.getValue(FACING)) {
             case NORTH -> SHAPE_NORTH;
             case SOUTH -> SHAPE_SOUTH;
@@ -62,41 +66,41 @@ public class BoltBlock extends Block implements IWrenchable {
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        //var dir = state.getValue(FACING);
-        //return Block.canSupportCenter(level, pos.relative(dir.getOpposite()), dir);
-        return true;
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
     @Override
-    protected @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        return !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+    public FluidState getFluidState(BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, ROT);
+        builder.add(WATERLOGGED, FACING, ROT);
     }
 
     @Override
-    protected @NotNull BlockState rotate(BlockState state, Rotation rotation) {
+    protected BlockState rotate(BlockState state, Rotation rotation) {
         return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
     @Override
-    protected @NotNull BlockState mirror(BlockState state, Mirror mirror) {
+    protected BlockState mirror(BlockState state, Mirror mirror) {
         return rotate(state, mirror.getRotation(state.getValue(FACING)));
     }
 
     @Override
-    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        Direction face = context.getClickedFace();
-        BlockPos pos = context.getClickedPos();
-        Level level = context.getLevel();
-        var player = context.getPlayer();
-        BlockState base = defaultBlockState().setValue(FACING, face);
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        var face = ctx.getClickedFace();
+        var pos = ctx.getClickedPos();
+        var level = ctx.getLevel();
+        var fluidstate = level.getFluidState(pos);
+        var flag = fluidstate.getType() == Fluids.WATER;
+        var state = defaultBlockState().setValue(FACING, face).setValue(WATERLOGGED, flag);
 
-        if (!base.canSurvive(level, pos)) return null;
+        var player = ctx.getPlayer();
 
         BoltRotation rot = BoltRotation.D180;
         if (player != null && face.getAxis().isVertical()) {
@@ -104,7 +108,7 @@ public class BoltBlock extends Block implements IWrenchable {
             if (face == Direction.UP) yaw = -(yaw + 180.0);
             rot = BoltRotation.fromYaw(yaw);
         }
-        return base.setValue(ROT, rot);
+        return state.setValue(ROT, rot);
     }
 
     @Override

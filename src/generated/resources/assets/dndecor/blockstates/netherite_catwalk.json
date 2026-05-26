@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "layer=1,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_1"
+    },
+    "layer=1,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_1"
+    },
+    "layer=2,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_2"
+    },
+    "layer=2,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_2"
+    },
+    "layer=3,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_3"
+    },
+    "layer=3,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_3"
+    },
+    "layer=4,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_4"
+    },
+    "layer=4,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_4"
+    },
+    "layer=5,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_5"
+    },
+    "layer=5,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_5"
+    },
+    "layer=6,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_6"
+    },
+    "layer=6,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_6"
+    },
+    "layer=7,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_7"
+    },
+    "layer=7,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_7"
+    },
+    "layer=8,waterlogged=false": {
+      "model": "dndecor:block/netherite_catwalk_8"
+    },
+    "layer=8,waterlogged=true": {
+      "model": "dndecor:block/netherite_catwalk_8"
+    }
+  }
+}

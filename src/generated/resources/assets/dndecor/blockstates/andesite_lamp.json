@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,powered=false": {
+      "model": "dndecor:block/andesite_lamp"
+    },
+    "lit=false,powered=true": {
+      "model": "dndecor:block/andesite_lamp"
+    },
+    "lit=true,powered=false": {
+      "model": "dndecor:block/andesite_lamp_lit"
+    },
+    "lit=true,powered=true": {
+      "model": "dndecor:block/andesite_lamp_lit"
+    }
+  }
+}

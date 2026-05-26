@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "dye_depot"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_indigo_display_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:indigo_display_board"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/indigo_display_board"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_indigo_display_board"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/indigo_display_board"
+    ]
+  }
+}

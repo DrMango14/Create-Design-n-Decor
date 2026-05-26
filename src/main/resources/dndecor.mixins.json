@@ -5,16 +5,24 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "dndecor.refmap.json",
   "mixins": [
-    "AssemblyOperatorBlockItemMixin",
-    "BeltBlockEntityAccessor",
-    "BeltBlockEntityMixin",
-    "BeltBlockMixin",
-    "BeltMovementHandlerMixin",
     "CrushingWheelBlockMixin",
     "CrushingWheelControllerBlockMixin",
     "FlapDisplayBlockEntityMixin",
     "FlapDisplayBlockMixin",
-    "FlapDisplayPlacementHelperMixin"
+    "FlapDisplayPlacementHelperMixin",
+    "belts.AssemblyOperatorBlockItemMixin",
+    "belts.BeltBlockEntityAccessor",
+    "belts.BeltBlockEntityMixin",
+    "belts.BeltBlockMixin",
+    "belts.BeltFunnelBlockMixin",
+    "belts.BeltMovementHandlerMixin",
+    "belts.BeltSlicerMixin",
+    "belts.BeltTunnelBlockEntityMixin",
+    "belts.BeltTunnelBlockMixin",
+    "belts.BeltTypeMixin",
+    "belts.BlockHelperMixin",
+    "belts.BlockMovementChecksImplMixin",
+    "belts.ContraptionMixin"
   ],
   "minVersion": "0.8"
 }

@@ -46,7 +46,8 @@ public class DnDecorCreativeTabs {
             }
             removeEverywhere(event, DnDecorBlocks.METAL_TYPE_FLOORS.get(supplier));
             removeEverywhere(event, DnDecorBlocks.METAL_TYPE_FRONTLIGHTS.get(supplier));
-            removeEverywhere(event, DnDecorBlocks.METAL_TYPE_LARGE_CHAINS.get(supplier));
+            //removeEverywhere(event, DnDecorBlocks.METAL_TYPE_LAMPS.get(supplier));
+            removeEverywhere(event, DnDecorBlocks.METAL_TYPE_CATWALKS.get(supplier));
         }
     }
 

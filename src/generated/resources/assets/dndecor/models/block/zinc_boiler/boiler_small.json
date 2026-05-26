@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/boilers/base_boiler_small",
+  "textures": {
+    "0": "dndecor:block/boilers/zinc_small",
+    "particle": "dndecor:block/boilers/zinc_small"
+  }
+}

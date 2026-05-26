@@ -6,7 +6,6 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 
 import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
 
@@ -14,7 +13,6 @@ import static dev.lopyluna.dndecor.DnDecor.MOD_ID;
 public class DnDecorClient {
 
     public DnDecorClient(IEventBus modEventBus) {
-        IEventBus neoEventBus = NeoForge.EVENT_BUS;
         modEventBus.addListener(DnDecorClient::clientInit);
     }
 

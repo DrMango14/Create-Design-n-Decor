@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "size=large": {
+      "model": "minecraft:block/air"
+    },
+    "size=medium": {
+      "model": "minecraft:block/air"
+    },
+    "size=normal": {
+      "model": "minecraft:block/air"
+    },
+    "size=small": {
+      "model": "minecraft:block/air"
+    }
+  }
+}

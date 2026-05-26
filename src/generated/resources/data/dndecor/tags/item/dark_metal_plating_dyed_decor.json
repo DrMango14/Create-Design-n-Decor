@@ -1,0 +1,132 @@
+{
+  "values": [
+    {
+      "id": "dndecor:white_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_dark_metal_plating",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_dark_metal_plating",
+      "required": false
+    }
+  ]
+}

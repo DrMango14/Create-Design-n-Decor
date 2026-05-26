@@ -14,7 +14,7 @@ import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SameParameterValue"})
 public class DnDecorSpriteShifts {
     public static final Map<DyeColor, SpriteShiftEntry>
             DYED_BELTS = new EnumMap<>(DyeColor.class), DYED_OFFSET_BELTS = new EnumMap<>(DyeColor.class),
@@ -25,8 +25,15 @@ public class DnDecorSpriteShifts {
     public static final CTSpriteShiftEntry METAL_SUPPORT = vertical("metal_support_side");
 
     private static final Map<DyeColor, Couple<CTSpriteShiftEntry>>
-            COLORED_STORAGE_TOP = new HashMap<>(), COLORED_STORAGE_FRONT = new HashMap<>(),
-            COLORED_STORAGE_SIDE = new HashMap<>(), COLORED_STORAGE_BOTTOM = new HashMap<>();
+            DYED_CONTAINER_TOP = new HashMap<>(), DYED_CONTAINER_FRONT = new HashMap<>(),
+            DYED_CONTAINER_SIDE = new HashMap<>(), DYED_CONTAINER_BOTTOM = new HashMap<>();
+    private static final Map<DyeColor, Couple<CTSpriteShiftEntry>>
+            DYED_SOLID_CONTAINER_TOP = new HashMap<>(), DYED_SOLID_CONTAINER_FRONT = new HashMap<>(),
+            DYED_SOLID_CONTAINER_SIDE = new HashMap<>(), DYED_SOLID_CONTAINER_BOTTOM = new HashMap<>();
+
+    private static final Couple<CTSpriteShiftEntry>
+            CONTAINER_TOP = container("top", "", null), CONTAINER_FRONT = container("front", "", null),
+            CONTAINER_SIDE = container("side", "", null), CONTAINER_BOTTOM = container("bottom", "", null);
 
     public static final SpriteShiftEntry BELT = get("block/belt", "block/belt_scroll"),
             BELT_OFFSET = get("block/belt_offset", "block/belt_scroll"),
@@ -43,24 +50,32 @@ public class DnDecorSpriteShifts {
             DYED_OFFSET_BELTS.put(color, get("block/belt_offset", "block/belt/" + id + "_scroll"));
             DYED_DIAGONAL_BELTS.put(color, get("block/belt_diagonal", "block/belt/" + id + "_diagonal_scroll"));
 
-            COLORED_STORAGE_TOP.put(color, storage("top", color));
-            COLORED_STORAGE_FRONT.put(color, storage("front", color));
-            COLORED_STORAGE_SIDE.put(color, storage("side", color));
-            COLORED_STORAGE_BOTTOM.put(color, storage("bottom", color));
+            DYED_SOLID_CONTAINER_TOP.put(color, container("top", "normal", color));
+            DYED_SOLID_CONTAINER_FRONT.put(color, container("front", "normal", color));
+            DYED_SOLID_CONTAINER_SIDE.put(color, container("side", "normal", color));
+            DYED_SOLID_CONTAINER_BOTTOM.put(color, container("bottom", "normal", color));
+            DYED_CONTAINER_TOP.put(color, container("top", "vault", color));
+            DYED_CONTAINER_FRONT.put(color, container("front", "vault", color));
+            DYED_CONTAINER_SIDE.put(color, container("side", "vault", color));
+            DYED_CONTAINER_BOTTOM.put(color, container("bottom", "vault", color));
         }
     }
 
-    public static CTSpriteShiftEntry getColoredStorageTop(DyeColor color, boolean small) {
-        return COLORED_STORAGE_TOP.get(color).get(small);
+    public static CTSpriteShiftEntry getColoredStorageTop(DyeColor color, boolean small, boolean alt) {
+        if (color == null) return CONTAINER_TOP.get(small);
+        return alt ? DYED_SOLID_CONTAINER_TOP.get(color).get(small) : DYED_CONTAINER_TOP.get(color).get(small);
     }
-    public static CTSpriteShiftEntry getColoredStorageFront(DyeColor color, boolean small) {
-        return COLORED_STORAGE_FRONT.get(color).get(small);
+    public static CTSpriteShiftEntry getColoredStorageFront(DyeColor color, boolean small, boolean alt) {
+        if (color == null) return CONTAINER_FRONT.get(small);
+        return alt ? DYED_SOLID_CONTAINER_FRONT.get(color).get(small) : DYED_CONTAINER_FRONT.get(color).get(small);
     }
-    public static CTSpriteShiftEntry getColoredStorageSide(DyeColor color, boolean small) {
-        return COLORED_STORAGE_SIDE.get(color).get(small);
+    public static CTSpriteShiftEntry getColoredStorageSide(DyeColor color, boolean small, boolean alt) {
+        if (color == null) return CONTAINER_SIDE.get(small);
+        return alt ? DYED_SOLID_CONTAINER_SIDE.get(color).get(small) : DYED_CONTAINER_SIDE.get(color).get(small);
     }
-    public static CTSpriteShiftEntry getColoredStorageBottom(DyeColor color, boolean small) {
-        return COLORED_STORAGE_BOTTOM.get(color).get(small);
+    public static CTSpriteShiftEntry getColoredStorageBottom(DyeColor color, boolean small, boolean alt) {
+        if (color == null) return CONTAINER_BOTTOM.get(small);
+        return alt ? DYED_SOLID_CONTAINER_BOTTOM.get(color).get(small) : DYED_CONTAINER_BOTTOM.get(color).get(small);
     }
 
     private static CTSpriteShiftEntry omni(String name) {
@@ -83,10 +98,11 @@ public class DnDecorSpriteShifts {
         return getCT(type, blockTextureName, blockTextureName);
     }
 
-    private static Couple<CTSpriteShiftEntry> storage(String name, DyeColor color) {
-        final String prefixed = "block/storage_container/" + color.getSerializedName() + "_storage_container_" + name;
-        return Couple.createWithContext(medium -> CTSpriteShifter.getCT(AllCTTypes.RECTANGLE, DnDecor.loc(prefixed + "_small"),
-                DnDecor.loc(medium ? prefixed + "_medium" : prefixed + "_large")));
+    private static Couple<CTSpriteShiftEntry> container(String name, String type, DyeColor color) {
+        final String prefixed;
+        if (color == null || type.isEmpty()) prefixed = "block/container_" + name;
+        else prefixed = "block/containers/" + type + "/" + color.getSerializedName() + "_" + name;
+        return Couple.createWithContext(medium -> CTSpriteShifter.getCT(AllCTTypes.RECTANGLE, DnDecor.loc(prefixed + "_small"), DnDecor.loc(medium ? prefixed + "_medium" : prefixed + "_large")));
     }
 
     private static SpriteShiftEntry get(String originalLocation, String targetLocation) {

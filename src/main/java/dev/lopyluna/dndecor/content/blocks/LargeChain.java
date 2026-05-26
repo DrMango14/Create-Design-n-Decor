@@ -30,13 +30,13 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 import java.util.function.Predicate;
 
+@SuppressWarnings("NullableProblems")
 @ParametersAreNonnullByDefault
 public class LargeChain extends ChainBlock implements SimpleWaterloggedBlock, IWrenchable {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -49,11 +49,11 @@ public class LargeChain extends ChainBlock implements SimpleWaterloggedBlock, IW
 
     public LargeChain(Properties properties) {
         super(properties.noCollission().noOcclusion().isSuffocating(LargeChain::never).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(DnDecorSoundTypes.CHAIN_HEAVY));
-        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(AXIS, Direction.Axis.Y));
+        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false).setValue(AXIS, Direction.Axis.Y));
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return switch (state.getValue(AXIS)) { case Z -> Z_AXIS_AABB; case Y -> Y_AXIS_AABB; case X -> X_AXIS_AABB; };
     }
 
@@ -66,7 +66,7 @@ public class LargeChain extends ChainBlock implements SimpleWaterloggedBlock, IW
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos pos, BlockPos facingPos) {
+    public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos pos, BlockPos facingPos) {
         if (state.getValue(WATERLOGGED)) level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         return super.updateShape(state, facing, facingState, level, pos, facingPos);
     }
@@ -77,7 +77,7 @@ public class LargeChain extends ChainBlock implements SimpleWaterloggedBlock, IW
     }
 
     @Override
-    public @NotNull FluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
@@ -109,7 +109,7 @@ public class LargeChain extends ChainBlock implements SimpleWaterloggedBlock, IW
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         IPlacementHelper helper = PlacementHelpers.get(placementHelperId);
         if (helper.matchesItem(pStack)) return helper.getOffset(pPlayer, pLevel, pState, pPos, pHit).placeInWorld(pLevel, (BlockItem) pStack.getItem(), pPlayer, pHand, pHit);
         return super.useItemOn(pStack, pState, pLevel, pPos, pPlayer, pHand, pHit);

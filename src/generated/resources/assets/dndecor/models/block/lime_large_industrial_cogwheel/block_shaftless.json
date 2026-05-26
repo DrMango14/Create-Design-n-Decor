@@ -2,6 +2,6 @@
   "parent": "dndecor:block/large_industrial_cogwheel/block_shaftless",
   "textures": {
     "4": "dndecor:block/large_industrial_cogwheel/lime",
-    "particle": "dndecor:block/large_girder/lime"
+    "particle": "dndecor:block/large_girders/lime"
   }
 }

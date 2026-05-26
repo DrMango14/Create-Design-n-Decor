@@ -1,7 +1,0 @@
-{
-  "parent": "dndecor:block/bolt_base/cross/bolt_315",
-  "textures": {
-    "0": "dndecor:block/silver_bolt",
-    "particle": "dndecor:block/silver_bolt"
-  }
-}

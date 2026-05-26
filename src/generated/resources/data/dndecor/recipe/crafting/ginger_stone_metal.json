@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "dye_depot"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "create:asurine"
+    },
+    "D": {
+      "tag": "c:dyes/ginger"
+    },
+    "S": {
+      "tag": "c:plates/iron"
+    }
+  },
+  "pattern": [
+    "ASA",
+    "SDS",
+    "ASA"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dndecor:ginger_stone_metal"
+  }
+}

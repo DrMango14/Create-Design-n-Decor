@@ -25,7 +25,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.LinkedList;
@@ -38,7 +37,7 @@ public class FullBeltConnectorItem extends BlockItem {
     }
 
     @Override
-    public @NotNull String getDescriptionId() {
+    public @Nonnull String getDescriptionId() {
         return getOrCreateDescriptionId();
     }
 

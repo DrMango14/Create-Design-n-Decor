@@ -1,91 +1,781 @@
 {
   "values": [
     "dndecor:belt",
+    "dndecor:text_plate",
     "dndecor:stepped_lever",
-    "dndecor:white_flywheel",
-    "dndecor:orange_flywheel",
-    "dndecor:magenta_flywheel",
-    "dndecor:light_blue_flywheel",
-    "dndecor:yellow_flywheel",
-    "dndecor:lime_flywheel",
-    "dndecor:pink_flywheel",
-    "dndecor:gray_flywheel",
-    "dndecor:light_gray_flywheel",
-    "dndecor:cyan_flywheel",
-    "dndecor:purple_flywheel",
-    "dndecor:blue_flywheel",
-    "dndecor:brown_flywheel",
-    "dndecor:green_flywheel",
-    "dndecor:red_flywheel",
-    "dndecor:black_flywheel",
+    {
+      "id": "dndecor:white_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_flywheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_flywheel",
+      "required": false
+    },
+    "dndecor:large_fan",
+    {
+      "id": "dndecor:white_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_large_fan",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_large_fan",
+      "required": false
+    },
     "dndecor:dark_metal_cogwheel",
     "dndecor:large_dark_metal_cogwheel",
     "dndecor:industrial_cogwheel",
     "dndecor:large_industrial_cogwheel",
-    "dndecor:white_industrial_cogwheel",
-    "dndecor:orange_industrial_cogwheel",
-    "dndecor:magenta_industrial_cogwheel",
-    "dndecor:light_blue_industrial_cogwheel",
-    "dndecor:yellow_industrial_cogwheel",
-    "dndecor:lime_industrial_cogwheel",
-    "dndecor:pink_industrial_cogwheel",
-    "dndecor:gray_industrial_cogwheel",
-    "dndecor:light_gray_industrial_cogwheel",
-    "dndecor:cyan_industrial_cogwheel",
-    "dndecor:purple_industrial_cogwheel",
-    "dndecor:blue_industrial_cogwheel",
-    "dndecor:brown_industrial_cogwheel",
-    "dndecor:green_industrial_cogwheel",
-    "dndecor:red_industrial_cogwheel",
-    "dndecor:black_industrial_cogwheel",
-    "dndecor:white_large_industrial_cogwheel",
-    "dndecor:orange_large_industrial_cogwheel",
-    "dndecor:magenta_large_industrial_cogwheel",
-    "dndecor:light_blue_large_industrial_cogwheel",
-    "dndecor:yellow_large_industrial_cogwheel",
-    "dndecor:lime_large_industrial_cogwheel",
-    "dndecor:pink_large_industrial_cogwheel",
-    "dndecor:gray_large_industrial_cogwheel",
-    "dndecor:light_gray_large_industrial_cogwheel",
-    "dndecor:cyan_large_industrial_cogwheel",
-    "dndecor:purple_large_industrial_cogwheel",
-    "dndecor:blue_large_industrial_cogwheel",
-    "dndecor:brown_large_industrial_cogwheel",
-    "dndecor:green_large_industrial_cogwheel",
-    "dndecor:red_large_industrial_cogwheel",
-    "dndecor:black_large_industrial_cogwheel",
-    "dndecor:white_cogwheel",
-    "dndecor:orange_cogwheel",
-    "dndecor:magenta_cogwheel",
-    "dndecor:light_blue_cogwheel",
-    "dndecor:yellow_cogwheel",
-    "dndecor:lime_cogwheel",
-    "dndecor:pink_cogwheel",
-    "dndecor:gray_cogwheel",
-    "dndecor:light_gray_cogwheel",
-    "dndecor:cyan_cogwheel",
-    "dndecor:purple_cogwheel",
-    "dndecor:blue_cogwheel",
-    "dndecor:brown_cogwheel",
-    "dndecor:green_cogwheel",
-    "dndecor:red_cogwheel",
-    "dndecor:black_cogwheel",
-    "dndecor:white_large_cogwheel",
-    "dndecor:orange_large_cogwheel",
-    "dndecor:magenta_large_cogwheel",
-    "dndecor:light_blue_large_cogwheel",
-    "dndecor:yellow_large_cogwheel",
-    "dndecor:lime_large_cogwheel",
-    "dndecor:pink_large_cogwheel",
-    "dndecor:gray_large_cogwheel",
-    "dndecor:light_gray_large_cogwheel",
-    "dndecor:cyan_large_cogwheel",
-    "dndecor:purple_large_cogwheel",
-    "dndecor:blue_large_cogwheel",
-    "dndecor:brown_large_cogwheel",
-    "dndecor:green_large_cogwheel",
-    "dndecor:red_large_cogwheel",
-    "dndecor:black_large_cogwheel",
+    {
+      "id": "dndecor:white_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:white_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_large_industrial_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:white_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:white_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:orange_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:magenta_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_blue_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:yellow_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:lime_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:pink_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:gray_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:light_gray_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:cyan_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:purple_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:blue_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:brown_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:green_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:red_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:black_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:maroon_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:rose_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:coral_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:indigo_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:navy_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:slate_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:olive_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:amber_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:beige_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:teal_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:mint_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:aqua_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:verdant_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:forest_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:ginger_large_cogwheel",
+      "required": false
+    },
+    {
+      "id": "dndecor:tan_large_cogwheel",
+      "required": false
+    },
     "dndecor:ornate_grate",
     "dndecor:diagonal_girder"
   ]

@@ -3,8 +3,8 @@
 	"parent": "block/block",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "dndecor:block/brass_frontlight",
-		"particle": "dndecor:block/brass_frontlight"
+		"0": "dndecor:block/frontlight",
+		"particle": "dndecor:block/frontlight"
 	},
 	"elements": [
 		{
@@ -14,7 +14,7 @@
 			"faces": {
 				"north": {"uv": [2, 2, 4.5, 4.5], "texture": "#0"},
 				"east": {"uv": [0, 2, 2, 4.5], "texture": "#0"},
-				"south": {"uv": [6.5, 2, 9, 4.5], "texture": "#0"},
+				"south": {"uv": [6.5, 2, 9, 4.5], "texture": "#0", "cullface": "south"},
 				"west": {"uv": [4.5, 2, 6.5, 4.5], "texture": "#0"},
 				"up": {"uv": [2, 0, 4.5, 2], "texture": "#0"},
 				"down": {"uv": [4.5, 0, 7, 2], "texture": "#0"}

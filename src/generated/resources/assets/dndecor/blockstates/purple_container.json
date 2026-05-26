@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "axis=x,large=false": {
+      "model": "dndecor:block/purple_container",
+      "y": 90
+    },
+    "axis=x,large=true": {
+      "model": "dndecor:block/purple_container",
+      "y": 90
+    },
+    "axis=z,large=false": {
+      "model": "dndecor:block/purple_container"
+    },
+    "axis=z,large=true": {
+      "model": "dndecor:block/purple_container"
+    }
+  }
+}

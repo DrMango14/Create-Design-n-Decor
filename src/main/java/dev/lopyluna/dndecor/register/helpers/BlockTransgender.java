@@ -31,6 +31,7 @@ import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.DnDecorUtils;
 import dev.lopyluna.dndecor.content.blocks.OrnateGrateBlock;
 import dev.lopyluna.dndecor.content.blocks.VelvetBlock;
+import dev.lopyluna.dndecor.register.DnDecorBlocks;
 import dev.lopyluna.dndecor.register.DnDecorTags;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
@@ -54,7 +55,6 @@ import net.neoforged.neoforge.common.Tags;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.simibubi.create.AllTags.commonItemTag;
 import static com.simibubi.create.foundation.data.CreateRegistrate.casingConnectivity;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.tterrag.registrate.providers.RegistrateRecipeProvider.has;
@@ -73,14 +73,14 @@ public class BlockTransgender {
                                 .pattern("WB")
                                 .pattern("BW")
                                 .define('W', DnDecorUtils.getWool(dye))
-                                .define('B', commonItemTag("nuggets/brass"))
+                                .define('B', DnDecorTags.commonItemTag("nuggets/brass"))
                                 .unlockedBy("has_" + c.getName(), has(c.get()))
-                                .save(p, DnDecor.loc("crafting/" + c.getName()))
+                                .save(DnDecorBlocks.doesRequireDyeDepot(p, dye), DnDecor.loc("crafting/" + c.getName()))
                 )
                 .blockstate((c, p) -> p.simpleBlock(c.get(), p.models().cubeAll(c.getName(), Create.asResource("block/seat/top_" + colorId))))
-                .tag(AllTags.AllBlockTags.WINDMILL_SAILS.tag)
+                .tag(AllTags.AllBlockTags.WINDMILL_SAILS.tag).asOptional()
                 .item()
-                .tag(DnDecorTags.modItemTag("dyed_velvet_block"))
+                .tag(DnDecorTags.modItemTag("dyed_velvet_block")).asOptional()
                 .build()
                 .register();
     }

@@ -21,9 +21,9 @@ import net.createmod.catnip.render.SpriteShiftEntry;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.DyeColor;
-import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 
+import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
 public class FullBeltVisual extends KineticBlockEntityVisual<BeltBlockEntity> {

@@ -21,10 +21,17 @@ public class MetalTypeBlockList<T extends Block> implements Iterable<BlockEntry<
         }
     }
 
+    private int getIndex(MaterialTypeProvider.MetalType metal) {
+        for (int i = 0; i < MaterialTypeProvider.metalTypes.size(); i++) {
+            var type = MaterialTypeProvider.metalTypes.get(i);
+            if (type.get() == metal) return i;
+        }
+        return -1;
+    }
+
     @SuppressWarnings("unchecked")
     public BlockEntry<T> get(MaterialTypeProvider.MetalType metal) {
-        NonNullSupplier<MaterialTypeProvider.MetalType> type = () -> metal;
-        int index = MaterialTypeProvider.metalTypes.indexOf(type);
+        int index = getIndex(metal);
         if (index >= 0) return (BlockEntry<T>) values[index];
         return null;
     }

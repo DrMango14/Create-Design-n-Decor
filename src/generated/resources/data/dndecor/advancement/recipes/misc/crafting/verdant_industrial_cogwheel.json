@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "dye_depot"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/verdant_industrial_cogwheel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_verdant_industrial_cogwheel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:verdant_industrial_cogwheel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_verdant_industrial_cogwheel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/verdant_industrial_cogwheel"
+    ]
+  }
+}

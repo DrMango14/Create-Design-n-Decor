@@ -11,11 +11,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("NullableProblems")
 @ParametersAreNonnullByDefault
 public class DiagonalMetalSupportBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<DiagonalMetalSupportBlock> CODEC = simpleCodec(DiagonalMetalSupportBlock::new);
@@ -36,12 +36,12 @@ public class DiagonalMetalSupportBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return DnDecorShapes.DIAGONAL_METAL_SUPPORT.get(state.getValue(FACING).getOpposite());
     }
 
     @Override
-    protected @NotNull MapCodec<? extends HorizontalDirectionalBlock> codec() {
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 }

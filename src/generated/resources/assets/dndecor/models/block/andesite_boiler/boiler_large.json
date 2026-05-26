@@ -1,0 +1,7 @@
+{
+  "parent": "dndecor:block/boilers/base_boiler_large",
+  "textures": {
+    "0": "dndecor:block/boilers/andesite_large",
+    "particle": "dndecor:block/boilers/andesite_large"
+  }
+}

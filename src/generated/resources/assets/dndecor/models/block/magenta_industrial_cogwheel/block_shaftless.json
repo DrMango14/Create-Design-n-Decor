@@ -2,6 +2,6 @@
   "parent": "dndecor:block/industrial_cogwheel/block_shaftless",
   "textures": {
     "1_2": "dndecor:block/industrial_cogwheel/magenta",
-    "particle": "dndecor:block/large_girder/magenta"
+    "particle": "dndecor:block/large_girders/magenta"
   }
 }

@@ -28,13 +28,13 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import static dev.lopyluna.dndecor.register.DnDecorShapes.shape;
 
+@SuppressWarnings("NullableProblems")
 @ParametersAreNonnullByDefault
 public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock implements IBE<SteppedLeverBlockEntity> {
     public SteppedLeverBlock(BlockBehaviour.Properties properties) {
@@ -43,7 +43,7 @@ public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock im
     public static final MapCodec<AnalogLeverBlock> CODEC = simpleCodec(AnalogLeverBlock::new);
 
     @Override
-    public @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (level.isClientSide) {
             addParticles(state, level, pos, 1.0F);
             return InteractionResult.SUCCESS;
@@ -109,7 +109,7 @@ public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock im
 
 
     @Override
-    protected @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         var face = state.getValue(FACE);
         var dir = Direction.fromAxisAndDirection(state.getValue(FACING).getAxis(), Direction.AxisDirection.POSITIVE);
         var dirF = state.getValue(FACING);
@@ -140,7 +140,7 @@ public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock im
     }
 
     @Override
-    protected @NotNull MapCodec<? extends FaceAttachedHorizontalDirectionalBlock> codec() {
+    protected MapCodec<? extends FaceAttachedHorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 

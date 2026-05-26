@@ -55,6 +55,7 @@ repositories {
     maven { url = "https://api.modrinth.com/maven" }
     maven { url = "https://modmaven.dev" }
     maven { url = "https://maven.architectury.dev" } // Arch API
+    maven { url = "https://registry.somethingcatchy.net/repository/maven-releases/" }
     maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" } // NeoForge config api port, needed by ponder
     mavenLocal()
 }
@@ -62,8 +63,8 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}") { transitive = false }
-    implementation("net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:${ponder_version}")
+    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${flywheel_minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${flywheel_minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
@@ -72,11 +73,13 @@ dependencies {
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
     implementation("mezz.jei:jei-${jei_minecraft_version}-neoforge:${jei_version}")
 
+    implementation("com.ninni.dye_depot:dye_depot:$minecraft_version-$dye_depot_version-neoforge")
+
     compileOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}+${curios_minecraft_version}:api")
     runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}+${curios_minecraft_version}")
 
-    compileOnly("maven.modrinth:sodium:mc${minecraft_version}-${sodium_version}-neoforge")
-
+    //compileOnly("maven.modrinth:sodium:mc${minecraft_version}-${sodium_version}-neoforge")
+    implementation("maven.modrinth:jade:jBPaSUDN")
 }
 
 tasks.withType(ProcessResources).configureEach {

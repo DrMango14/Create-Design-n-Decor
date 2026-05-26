@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": {
-      "tag": "c:plates/brass"
+      "tag": "c:plates/iron"
     },
     "L": {
       "item": "minecraft:lever"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "dndecor:stepped_lever"
+    "id": "dndecor:breaker_switch"
   }
 }

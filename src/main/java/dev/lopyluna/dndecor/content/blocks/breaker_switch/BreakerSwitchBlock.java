@@ -1,4 +1,4 @@
-package dev.lopyluna.dndecor.content.blocks.stepped_lever;
+package dev.lopyluna.dndecor.content.blocks.breaker_switch;
 
 import com.mojang.serialization.MapCodec;
 import com.simibubi.create.content.redstone.analogLever.AnalogLeverBlock;
@@ -18,7 +18,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -36,8 +35,8 @@ import static dev.lopyluna.dndecor.register.DnDecorShapes.shape;
 
 @SuppressWarnings("NullableProblems")
 @ParametersAreNonnullByDefault
-public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock implements IBE<SteppedLeverBE> {
-    public SteppedLeverBlock(BlockBehaviour.Properties properties) {
+public class BreakerSwitchBlock extends FaceAttachedHorizontalDirectionalBlock implements IBE<BreakerSwitchBE> {
+    public BreakerSwitchBlock(Properties properties) {
         super(properties);
     }
     public static final MapCodec<AnalogLeverBlock> CODEC = simpleCodec(AnalogLeverBlock::new);
@@ -48,20 +47,22 @@ public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock im
             addParticles(state, level, pos, 1.0F);
             return InteractionResult.SUCCESS;
         }
+
         return onBlockEntityUse(level, pos, be -> {
             boolean sneak = player.isShiftKeyDown();
-            if ((be.state == 15 && !sneak) || (be.state == 0 && sneak)) return InteractionResult.SUCCESS;
+            if ((be.state == 2 && !sneak) || (be.state == 0 && sneak)) return InteractionResult.SUCCESS;
             be.changeState(sneak);
-            float f = .25f + ((be.state + 5) / 15f) * .5f;
-            level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.2F, f);
+            var f = .75f + (be.state/2f) * .25f;
+            level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.02F, f);
+            level.playSound(null, pos, SoundEvents.VAULT_INSERT_ITEM_FAIL, SoundSource.BLOCKS, 0.2F, f);
+            level.playSound(null, pos, SoundEvents.VAULT_CLOSE_SHUTTER, SoundSource.BLOCKS, 0.03F, f);
             return InteractionResult.SUCCESS;
         });
     }
 
     @Override
     public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        return getBlockEntityOptional(blockAccess, pos).map(al -> al.state)
-                .orElse(0);
+        return getBlockEntityOptional(blockAccess, pos).map(be -> Math.round(be.state/2f * 15f)).orElse(0);
     }
 
     @Override
@@ -91,13 +92,13 @@ public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock im
         });
     }
 
-    private static void addParticles(BlockState state, LevelAccessor worldIn, BlockPos pos, float alpha) {
+    private static void addParticles(BlockState state, LevelAccessor level, BlockPos pos, float alpha) {
         var sDir = state.getValue(FACING).getOpposite();
         var cDir = getConnectedDirection(state).getOpposite();
         double d0 = (double) pos.getX() + 0.5D + 0.1D * (double) sDir.getStepX() + 0.2D * (double) cDir.getStepX();
         double d1 = (double) pos.getY() + 0.5D + 0.1D * (double) sDir.getStepY() + 0.2D * (double) cDir.getStepY();
         double d2 = (double) pos.getZ() + 0.5D + 0.1D * (double) sDir.getStepZ() + 0.2D * (double) cDir.getStepZ();
-        worldIn.addParticle(new DustParticleOptions(new Vector3f(1.0F, 0.0F, 0.0F), alpha), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        level.addParticle(new DustParticleOptions(new Vector3f(1.0F, 0.0F, 0.0F), alpha), d0, d1, d2, 0.0D, 0.0D, 0.0D);
     }
 
     static void updateNeighbors(BlockState state, Level world, BlockPos pos) {
@@ -105,16 +106,15 @@ public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock im
         world.updateNeighborsAt(pos.relative(getConnectedDirection(state).getOpposite()), state.getBlock());
     }
 
-
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         var face = state.getValue(FACE);
         var dir = Direction.fromAxisAndDirection(state.getValue(FACING).getAxis(), Direction.AxisDirection.POSITIVE);
         var dirF = state.getValue(FACING);
         return face == AttachFace.CEILING ?
-                shape(4, 4.5, 0, 12, 16, 16).forHorizontalAxis().get(dir) : face == AttachFace.FLOOR ?
-                shape(4, 0, 0, 12, 11.5, 16).forHorizontalAxis().get(dir) :
-                shape(4, 0, 0, 12, 16, 11.5).forHorizontal(Direction.SOUTH).get(dirF);
+                shape(4, 12, 2, 12, 16, 14).forHorizontalAxis().get(dir) : face == AttachFace.FLOOR ?
+                shape(4, 0, 2, 12, 4, 14).forHorizontalAxis().get(dir) :
+                shape(4, 2, 0, 12, 14, 4).forHorizontal(Direction.SOUTH).get(dirF);
     }
 
     @Override
@@ -123,13 +123,13 @@ public class SteppedLeverBlock extends FaceAttachedHorizontalDirectionalBlock im
     }
 
     @Override
-    public Class<SteppedLeverBE> getBlockEntityClass() {
-        return SteppedLeverBE.class;
+    public Class<BreakerSwitchBE> getBlockEntityClass() {
+        return BreakerSwitchBE.class;
     }
 
     @Override
-    public BlockEntityType<? extends SteppedLeverBE> getBlockEntityType() {
-        return DnDecorBETypes.STEPPED_LEVER.get();
+    public BlockEntityType<? extends BreakerSwitchBE> getBlockEntityType() {
+        return DnDecorBETypes.BREAKER_SWITCH.get();
     }
 
     @Override

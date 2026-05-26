@@ -10,6 +10,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -107,5 +109,15 @@ public class DiagonalGirderBlock extends Block implements SimpleWaterloggedBlock
         }
         if (clickedFace == Direction.DOWN) return defaultBlockState().setValue(FACING, facing).setValue(FACING_UP,true).setValue(WATERLOGGED, flag);
         return defaultBlockState().setValue(FACING, facing).setValue(FACING_UP,false).setValue(WATERLOGGED, flag);
+    }
+
+    @Override
+    protected BlockState rotate(BlockState state, Rotation rot) {
+        return state.setValue(DiagonalGirderBlock.FACING, rot.rotate(state.getValue(DiagonalGirderBlock.FACING)));
+    }
+
+    @Override
+    protected BlockState mirror(BlockState state, Mirror mirror) {
+        return rotate(state, mirror.getRotation(state.getValue(DiagonalGirderBlock.FACING)));
     }
 }

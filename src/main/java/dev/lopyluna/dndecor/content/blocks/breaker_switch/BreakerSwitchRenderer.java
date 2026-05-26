@@ -1,4 +1,4 @@
-package dev.lopyluna.dndecor.content.blocks.stepped_lever;
+package dev.lopyluna.dndecor.content.blocks.breaker_switch;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.content.redstone.analogLever.AnalogLeverBlock;
@@ -15,27 +15,28 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 
 @SuppressWarnings("unused")
-public class SteppedLeverRenderer extends SafeBlockEntityRenderer<SteppedLeverBE> {
-    public SteppedLeverRenderer(BlockEntityRendererProvider.Context context) {
+public class BreakerSwitchRenderer extends SafeBlockEntityRenderer<BreakerSwitchBE> {
+    public BreakerSwitchRenderer(BlockEntityRendererProvider.Context context) {
     }
 
-    protected void renderSafe(SteppedLeverBE be, float pt, PoseStack ms, MultiBufferSource bs, int light, int overlay) {
+    protected void renderSafe(BreakerSwitchBE be, float pt, PoseStack ms, MultiBufferSource bs, int light, int overlay) {
         var leverState = be.getBlockState();
         var state = be.clientState.getValue(pt);
         var vb = bs.getBuffer(RenderType.cutoutMipped());
-        var handle = CachedBuffers.partial(DnDecorPartialModels.STEPPED_LEVER_HANDLE, leverState);
-        var angle = (((state / 15f * 135f) - 22.5f) / 180f) * (float) Math.PI;
+        var handle = CachedBuffers.partial(DnDecorPartialModels.BREAKER_SWITCH_HANDLE, leverState);
+        var added = 35f;
+        var angle = (((state/2f * (90f+added))-(added/2f)) / 180f) * (float) Math.PI;
 
-        transform(handle, leverState).translate(8/16f, 4/16f, 8/16f).rotate(Direction.EAST.getAxis(), angle).translate(-8/16f, -4/16f, -8/16f);
+        transform(handle, leverState).translate(8/16f, 0.5/16f, 8/16f).rotate(Direction.EAST.getAxis(), angle).translate(-8/16f, -0.5/16f, -8/16f);
         handle.light(light).renderInto(ms, vb);
     }
 
     private SuperByteBuffer transform(SuperByteBuffer buffer, BlockState leverState) {
         var face = leverState.getValue(AnalogLeverBlock.FACE);
-        var rX = face == AttachFace.FLOOR ? 0f : (face == AttachFace.WALL ? 90f : 180f);
+        var rX = face == AttachFace.FLOOR ? 0.0F : (face == AttachFace.WALL ? 90.0F : 180.0F);
         var rY = AngleHelper.horizontalAngle(leverState.getValue(AnalogLeverBlock.FACING));
-        buffer.rotateCentered((rY / 180f) * (float) Math.PI, Direction.UP);
-        buffer.rotateCentered((rX / 180f) * (float) Math.PI, Direction.EAST);
+        buffer.rotateCentered((rY / 180.0F) * (float) Math.PI, Direction.UP);
+        buffer.rotateCentered((rX / 180.0F) * (float) Math.PI, Direction.EAST);
         return buffer;
     }
 }

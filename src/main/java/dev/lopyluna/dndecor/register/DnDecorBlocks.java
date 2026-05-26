@@ -35,6 +35,7 @@ import dev.lopyluna.dndecor.content.blocks.beam.BeamBlock;
 import dev.lopyluna.dndecor.content.blocks.beam.BeamCTBehaviour;
 import dev.lopyluna.dndecor.content.blocks.boiler.BoilerBlock;
 import dev.lopyluna.dndecor.content.blocks.boiler.BoilerStructureBlock;
+import dev.lopyluna.dndecor.content.blocks.breaker_switch.BreakerSwitchBlock;
 import dev.lopyluna.dndecor.content.blocks.catwalk.CatwalkBlock;
 import dev.lopyluna.dndecor.content.blocks.catwalk.CatwalkCTBehaviour;
 import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogWheelBlock;
@@ -180,22 +181,36 @@ public class DnDecorBlocks {
             .transform(customItemModel())
             .register();
 
+    public static final BlockEntry<BreakerSwitchBlock> BREAKER_SWITCH = REG.block("breaker_switch", BreakerSwitchBlock::new)
+            .initialProperties(() -> Blocks.LEVER)
+            .transform(axeOrPickaxe())
+            .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
+            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+                    .pattern("L").pattern("B").pattern("R")
+                    .define('L', Items.LEVER)
+                    .define('R', Items.REDSTONE)
+                    .define('B', commonItemTag("plates/iron"))
+                    .unlockedBy("has_" + c.getName(), has(c.get()))
+                    .save(p, DnDecor.loc("crafting/" + c.getName()))
+            ).addLayer(() -> RenderType::cutoutMipped)
+            .blockstate((c, p) -> p.horizontalFaceBlock(c.get(), AssetLookup.partialBaseModel(c, p)))
+            .onRegister(ItemUseOverrides::addBlock)
+            .item()
+            .transform(customItemModel())
+            .register();
+
     public static final BlockEntry<SteppedLeverBlock> STEPPED_LEVER = REG.block("stepped_lever", SteppedLeverBlock::new)
             .initialProperties(() -> Blocks.LEVER)
             .transform(axeOrPickaxe())
             .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
-            .recipe((c, p) ->
-                    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
-                            .pattern(" L ")
-                            .pattern(" B ")
-                            .pattern(" R ")
-                            .define('L', Items.LEVER)
-                            .define('R', Items.REDSTONE)
-                            .define('B', commonItemTag("plates/brass"))
-                            .unlockedBy("has_" + c.getName(), has(c.get()))
-                            .save(p, DnDecor.loc("crafting/" + c.getName()))
-            )
-            .addLayer(() -> RenderType::cutoutMipped)
+            .recipe((c, p) -> ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+                    .pattern("L").pattern("B").pattern("R")
+                    .define('L', Items.LEVER)
+                    .define('R', Items.REDSTONE)
+                    .define('B', commonItemTag("plates/brass"))
+                    .unlockedBy("has_" + c.getName(), has(c.get()))
+                    .save(p, DnDecor.loc("crafting/" + c.getName()))
+            ).addLayer(() -> RenderType::cutoutMipped)
             .blockstate((c, p) -> p.horizontalFaceBlock(c.get(), AssetLookup.partialBaseModel(c, p)))
             .onRegister(ItemUseOverrides::addBlock)
             .item()

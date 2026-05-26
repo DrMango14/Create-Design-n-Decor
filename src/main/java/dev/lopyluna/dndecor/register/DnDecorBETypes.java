@@ -18,6 +18,8 @@ import dev.lopyluna.dndecor.DnDecor;
 import dev.lopyluna.dndecor.content.blocks.MillstoneTypeRenderer;
 import dev.lopyluna.dndecor.content.blocks.boiler.BoilerBlockEntity;
 import dev.lopyluna.dndecor.content.blocks.boiler.BoilerRenderer;
+import dev.lopyluna.dndecor.content.blocks.breaker_switch.BreakerSwitchBE;
+import dev.lopyluna.dndecor.content.blocks.breaker_switch.BreakerSwitchRenderer;
 import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogwheelRenderer;
 import dev.lopyluna.dndecor.content.blocks.cogs.DnDCogwheelVisual;
 import dev.lopyluna.dndecor.content.blocks.container.DyedContainerBE;
@@ -25,7 +27,7 @@ import dev.lopyluna.dndecor.content.blocks.flywheel.FreeSpinBlock;
 import dev.lopyluna.dndecor.content.blocks.flywheel.FlywheelTypeVisual;
 import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltRenderer;
 import dev.lopyluna.dndecor.content.blocks.full_belt.FullBeltVisual;
-import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverBlockEntity;
+import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverBE;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverRenderer;
 import dev.lopyluna.dndecor.content.blocks.text_plate.TextPlateBE;
 import dev.lopyluna.dndecor.content.blocks.text_plate.TextPlateRenderer;
@@ -60,9 +62,14 @@ public class DnDecorBETypes {
             .renderer(() -> FullBeltRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<SteppedLeverBlockEntity> STEPPED_LEVER = REG.blockEntity("stepped_lever", SteppedLeverBlockEntity::new)
+    public static final BlockEntityEntry<SteppedLeverBE> STEPPED_LEVER = REG.blockEntity("stepped_lever", SteppedLeverBE::new)
             .validBlocks(DnDecorBlocks.STEPPED_LEVER)
             .renderer(() -> SteppedLeverRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<BreakerSwitchBE> BREAKER_SWITCH = REG.blockEntity("breaker_switch", BreakerSwitchBE::new)
+            .validBlocks(DnDecorBlocks.BREAKER_SWITCH)
+            .renderer(() -> BreakerSwitchRenderer::new)
             .register();
 
     public static final BlockEntityEntry<BoilerBlockEntity> BOILER = REG.blockEntity("boiler", BoilerBlockEntity::new)

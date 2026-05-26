@@ -2,6 +2,7 @@
   "values": [
     "dndecor:belt",
     "dndecor:text_plate",
+    "dndecor:breaker_switch",
     "dndecor:stepped_lever",
     {
       "id": "dndecor:white_flywheel",

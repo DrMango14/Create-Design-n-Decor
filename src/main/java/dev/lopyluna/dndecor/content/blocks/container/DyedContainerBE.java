@@ -27,6 +27,7 @@ import net.neoforged.neoforge.items.wrapper.CombinedInvWrapper;
 
 import java.util.Objects;
 
+@SuppressWarnings({"unchecked", "RedundantSuppression"})
 public class DyedContainerBE extends ItemVaultBlockEntity {
     public boolean solidColor;
     public DyeColor color;

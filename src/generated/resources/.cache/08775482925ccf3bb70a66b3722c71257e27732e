@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-26T02:09:59.5272145	Registrate Provider for dndecor [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2026-05-26T12:12:00.5473438	Registrate Provider for dndecor [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (blocks), Tags (enchantments), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 5411a10fec645eb9e34704ad592e86350fb0f179 assets/dndecor/blockstates/amber_cogwheel.json
 b839f36bd3f696641716dd179ceef89513bfd8ab assets/dndecor/blockstates/amber_container.json
 9913513f60a2170a4d2e628267c18948e3584737 assets/dndecor/blockstates/amber_dark_metal_block.json
@@ -108,6 +108,7 @@ eb419b51fabf976c1f53cb43d12bdf945cd4415a assets/dndecor/blockstates/brass_dot_bo
 8c4b9480a4e09982b859f5e07ec79cfb6d7528d5 assets/dndecor/blockstates/brass_frontlight.json
 874f9e273d1fbab3056ae109636feec059d31e37 assets/dndecor/blockstates/brass_lamp.json
 ffc23b430bff0a555f9e2c68a24ad7678c75b351 assets/dndecor/blockstates/brass_sheet_metal.json
+458c1901ebfcd6e96570a77f2f21c7898f8571ba assets/dndecor/blockstates/breaker_switch.json
 94402e8160391c6237459a9fe55352a83b3dede6 assets/dndecor/blockstates/brown_cogwheel.json
 6b6c026b5836f266da6a5e8cc72551bebf3b90cc assets/dndecor/blockstates/brown_container.json
 e63282eb9b21d55357c72512560247020c6ebf0d assets/dndecor/blockstates/brown_dark_metal_block.json
@@ -844,8 +845,8 @@ bc94bf0d8b910a49a6b25444d936dda2f26e15e0 assets/dndecor/blockstates/zinc_floor.j
 9090fcd2b86d8808fd86dc568b899269c17d6a46 assets/dndecor/blockstates/zinc_frontlight.json
 65ef56a5e134dd31470d563e7e9bf0a6401acf61 assets/dndecor/blockstates/zinc_lamp.json
 25102cc94d0cd5a01c72f6b6c787859eb67ca478 assets/dndecor/blockstates/zinc_sheet_metal.json
-a7f4ae8b82a370b0f2cade62095663773139e11e assets/dndecor/lang/en_ud.json
-2a932c141c3e6e0f69458e2e455cd4bd5acdc3ba assets/dndecor/lang/en_us.json
+211cae2a68336d14d07c916d8f599e0466065599 assets/dndecor/lang/en_ud.json
+11aac0028a3db010ce953b6c60a09de5582f9872 assets/dndecor/lang/en_us.json
 806098d3859a3258cddcd4d35d385c813971170e assets/dndecor/models/block/amber_cogwheel/block.json
 cfb22bd9e0cca17b895777bdfa199730b1bb4cef assets/dndecor/models/block/amber_cogwheel/block_shaftless.json
 5283d71b46588d1a96be02949cdad62bad1c21a3 assets/dndecor/models/block/amber_cogwheel/item.json
@@ -3118,6 +3119,7 @@ f6fb401e45584d338dcc9aa3eb6a2f4558fd3e86 assets/dndecor/models/item/brass_floor.
 5838378f867776097d732f3d8c4733171431a2ef assets/dndecor/models/item/brass_frontlight.json
 f0071b3ab9d8926caccc1cad57df580a6cad1fd2 assets/dndecor/models/item/brass_lamp.json
 f1fe0ee9ab5a9d289660bdc6d40d1b3eb68c0806 assets/dndecor/models/item/brass_sheet_metal.json
+b8513361a8032c41f17a61a5ae1058020ecf5b27 assets/dndecor/models/item/breaker_switch.json
 52c86ad44014bb0e0141c6c510dd75d32ad1d925 assets/dndecor/models/item/brown_cogwheel.json
 f2dd565c2f89ffa220213940f2d689f115adcf13 assets/dndecor/models/item/brown_container.json
 2ac397a8d6759448f96210d45bbc7ee96514c9b6 assets/dndecor/models/item/brown_dark_metal_block.json
@@ -3857,7 +3859,7 @@ a80534c8b18d51a74d2f1d853d720d33350968c7 assets/dndecor/models/item/zinc_floor.j
 9c5a4daf78d01461538e4bd83ab95a8aff751060 assets/dndecor/models/item/zinc_sheet_metal.json
 08d67fe89b21dd94a0029b3be18be93d23ad518b data/create/tags/block/brittle.json
 32882ac39d6b5b3a546d21940903521708ab5b9d data/create/tags/block/fan_transparent.json
-645ed029c9c5e5bae94280ce50de17bd9b2a86da data/create/tags/block/safe_nbt.json
+6e30a140d276f6dfaefb72ed423dec5366c3977d data/create/tags/block/safe_nbt.json
 4007f43eb0a29f47572684971dc8bf14196cee4e data/create/tags/block/windmill_sails.json
 79df4f138d8367866aad4ca2b28f55281d905af9 data/create/tags/block/wrench_pickup.json
 752738f4b2c04e688d424b65f9c6dc0dcd78455f data/c/tags/block/glass_panes.json
@@ -4704,6 +4706,7 @@ a18cfbe154cabed1e39369e3b17bec2a2634fe6e data/dndecor/advancement/recipes/misc/c
 ea8a881d0a4db23398d0015972805bf8d3e67f0d data/dndecor/advancement/recipes/misc/crafting/blue_large_fan.json
 7a70c78059815ad1a55438e101ad64b75940d27d data/dndecor/advancement/recipes/misc/crafting/blue_large_industrial_cogwheel.json
 9c0e23e30dbc5f9096a26360b6cfafb2877b1d56 data/dndecor/advancement/recipes/misc/crafting/blue_velvet_block.json
+56851b580994306753382d9745df3c434f75a305 data/dndecor/advancement/recipes/misc/crafting/breaker_switch.json
 e167a4ca97c174db58a78127bc9d1a1a318ba96c data/dndecor/advancement/recipes/misc/crafting/brown_cogwheel.json
 308fb36edd6847146e4f4131df7363e9eebe7074 data/dndecor/advancement/recipes/misc/crafting/brown_display_board.json
 38317c47f1abf8606f52dc1d539faa498e387c5f data/dndecor/advancement/recipes/misc/crafting/brown_flywheel.json
@@ -5068,6 +5071,7 @@ ca580d0e2ed854f5403975a534c98a09b431804e data/dndecor/loot_table/blocks/brass_da
 9febe584748384ae7a0938f4b0926b6274ceabcf data/dndecor/loot_table/blocks/brass_frontlight.json
 57f3ef3d50acbd2bb52831e64829aeea40ff4c58 data/dndecor/loot_table/blocks/brass_lamp.json
 7859dcd68f4724d681df5bde60d665c4173d96a8 data/dndecor/loot_table/blocks/brass_sheet_metal.json
+16500818484af8bd8586f43a26211b63598d2fa7 data/dndecor/loot_table/blocks/breaker_switch.json
 a81c0bff60f72da28bacfff86611c8b9e3e22202 data/dndecor/loot_table/blocks/brown_cogwheel.json
 a4d117819c08b4dbd39484287f40088c7376addd data/dndecor/loot_table/blocks/brown_container.json
 3d595998b3ce3824ab81ab4922298b2a43d519a3 data/dndecor/loot_table/blocks/brown_dark_metal_block.json
@@ -5930,6 +5934,7 @@ bc42422b982dff02898f9470423fdbb5f35f88b9 data/dndecor/recipe/crafting/blue_sheet
 569829a3486bb7d1602fc4e5fd95d05a494cd1d1 data/dndecor/recipe/crafting/blue_stone_metal_dyed.json
 1f92419b6795ae41cd1eb6a01380f500947a02e2 data/dndecor/recipe/crafting/blue_velvet_block.json
 8bd8ba787b4eb9dc16ee358f796d731abdb3b193 data/dndecor/recipe/crafting/brass_frontlight.json
+34b626420dfd2411c2d824e4105e32e179b91945 data/dndecor/recipe/crafting/breaker_switch.json
 720a8ad87013f364bf7f756747b5fca9702fb045 data/dndecor/recipe/crafting/brown_cogwheel.json
 c6c07f1d908c7315a1f1c910d12faedd2be7b289 data/dndecor/recipe/crafting/brown_container_dyed.json
 12c582970b9b66644b4830817b96ae1bdc89c3e1 data/dndecor/recipe/crafting/brown_dark_metal_block_dyed.json
@@ -6415,7 +6420,7 @@ d03f0331a74f54d9876dbc666d933a9171ed7ff9 data/dndecor/recipe/crafting/solid_whit
 cc6bd3a4f73d813a90a6e482e6865f974f614883 data/dndecor/recipe/crafting/solid_white_container_dyed_to_solid.json
 389d06d18b5fe83a12c31ef5875585a49cd09bb7 data/dndecor/recipe/crafting/solid_yellow_container_dyed.json
 f1ee061894ade42db6ad3afda2d71bd16212a099 data/dndecor/recipe/crafting/solid_yellow_container_dyed_to_solid.json
-2f56bba1e11e0a2e52b4bc8319fe337e0cc2887a data/dndecor/recipe/crafting/stepped_lever.json
+86ddfa099aea2fe08856fa24aedeae9b8a350a2f data/dndecor/recipe/crafting/stepped_lever.json
 a9c81a52c2d9be8847caf47c5288961af68ca5f6 data/dndecor/recipe/crafting/stone_crushing_wheel.json
 05eb2e7e2fbd414e2d701f0a12984bead8b1fba6 data/dndecor/recipe/crafting/stone_metal.json
 9c233140c7b7bb7747e97f12ead265a69f571b38 data/dndecor/recipe/crafting/stone_millstone.json
@@ -6951,8 +6956,8 @@ ba2afb20cb8e7e6bf59178b200bb898e76114734 data/dndecor/tags/item/stone_types/ston
 04d144238f28c32228795ecf180dfe525eef32bc data/minecraft/tags/block/dripstone_replaceable_blocks.json
 1e7c565aa9271524b159ba629786b605241321a5 data/minecraft/tags/block/impermeable.json
 04d144238f28c32228795ecf180dfe525eef32bc data/minecraft/tags/block/lush_ground_replaceable.json
-0587f50199f3d8dab48caade5760f8732ee12d54 data/minecraft/tags/block/mineable/axe.json
-e7048a6e96e9cbf3be604d6413662c296620aeba data/minecraft/tags/block/mineable/pickaxe.json
+fba52792925f4b9a2202c6a98c559c8137d3ce48 data/minecraft/tags/block/mineable/axe.json
+b8fb15b9ab022a3e6b199e71babfc0884f2eb14f data/minecraft/tags/block/mineable/pickaxe.json
 04d144238f28c32228795ecf180dfe525eef32bc data/minecraft/tags/block/moss_replaceable.json
 203653bca5e5c4150dd9c1f0357221542e0ecd97 data/minecraft/tags/block/needs_stone_tool.json
 e84f8efc1adb523f42e809f72c316c7f2cbdb216 data/minecraft/tags/block/slabs.json

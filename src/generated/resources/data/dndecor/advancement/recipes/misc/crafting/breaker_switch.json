@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_breaker_switch": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dndecor:breaker_switch"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dndecor:crafting/breaker_switch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_breaker_switch"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dndecor:crafting/breaker_switch"
+    ]
+  }
+}

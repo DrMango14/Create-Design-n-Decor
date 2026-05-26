@@ -15,12 +15,12 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-public class SteppedLeverBlockEntity extends SmartBlockEntity implements IHaveGoggleInformation {
+public class SteppedLeverBE extends SmartBlockEntity implements IHaveGoggleInformation {
     int state = 0;
     int lastChange;
     LerpedFloat clientState = LerpedFloat.linear();
 
-    public SteppedLeverBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public SteppedLeverBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 

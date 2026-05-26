@@ -1,6 +1,7 @@
 {
   "values": [
     "dndecor:text_plate",
+    "dndecor:breaker_switch",
     "dndecor:stepped_lever"
   ]
 }

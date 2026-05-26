@@ -167,6 +167,7 @@
     "dndecor:dolomite_pillar",
     "dndecor:belt",
     "dndecor:text_plate",
+    "dndecor:breaker_switch",
     "dndecor:stepped_lever",
     "dndecor:metal_support",
     "dndecor:diagonal_metal_support",
@@ -1644,10 +1645,7 @@
       "id": "dndecor:tan_small_deepslate_tiles",
       "required": false
     },
-    {
-      "id": "dndecor:container",
-      "required": false
-    },
+    "dndecor:container",
     {
       "id": "dndecor:white_container",
       "required": false

@@ -122,17 +122,6 @@ public class BoltBlock extends Block implements SimpleWaterloggedBlock, IWrencha
         return InteractionResult.SUCCESS;
     }
 
-    @Override
-    public InteractionResult onSneakWrenched(BlockState state, UseOnContext context) {
-        var level = context.getLevel();
-        var pos = context.getClickedPos();
-        var rotated = state.setValue(ROT, state.getValue(ROT).getPrev());
-        if (!rotated.canSurvive(level, context.getClickedPos())) return InteractionResult.PASS;
-        KineticBlockEntity.switchToBlockState(level, pos, updateAfterWrenched(rotated, context));
-        if (level.getBlockState(pos) != state) playRotateSound(level, pos);
-        return InteractionResult.SUCCESS;
-    }
-
     public void playRotateSound(Level level, BlockPos pos) {
         AllSoundEvents.WRENCH_ROTATE.playOnServer(level, pos, 1, level.random.nextFloat() + .5f);
     }

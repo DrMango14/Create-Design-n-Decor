@@ -1,4 +1,3 @@
-
 {
   "required": true,
   "package": "dev.lopyluna.dndecor.mixins",
@@ -23,6 +22,9 @@
     "belts.BlockHelperMixin",
     "belts.BlockMovementChecksImplMixin",
     "belts.ContraptionMixin"
+  ],
+  "client": [
+    "belts.client.BeltSlicerMixin"
   ],
   "minVersion": "0.8"
 }

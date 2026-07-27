@@ -1,3 +1,6 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 plugins {
     id 'java-library'
     id 'eclipse'
@@ -42,6 +45,59 @@ runs {
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+def conditionDyeDepotLootTables = tasks.register('conditionDyeDepotLootTables') {
+    group = 'mod development'
+    description = 'Adds Dye Depot load conditions to generated loot tables for optional colors.'
+
+    def generatedData = layout.projectDirectory.dir('src/generated/resources/data/dndecor')
+    inputs.dir(generatedData.dir('recipe'))
+    inputs.dir(generatedData.dir('loot_table/blocks'))
+
+    doLast {
+        def recipeDir = generatedData.dir('recipe').asFile
+        def lootDir = generatedData.dir('loot_table/blocks').asFile
+        if (!recipeDir.isDirectory() || !lootDir.isDirectory()) return
+
+        def parser = new JsonSlurper()
+        def conditionalBlockIds = [] as Set
+        fileTree(recipeDir).matching { include '**/*.json' }.files.each { recipeFile ->
+            def recipe = parser.parse(recipeFile)
+            def requiresDyeDepot = recipe['neoforge:conditions']?.any {
+                it.type == 'neoforge:mod_loaded' && it.modid == 'dye_depot'
+            }
+            if (requiresDyeDepot && recipe.result?.id instanceof String) {
+                conditionalBlockIds.add(recipe.result.id)
+            }
+        }
+
+        conditionalBlockIds.each { blockId ->
+            def namespaceAndPath = blockId.split(':', 2)
+            if (namespaceAndPath.length != 2 || namespaceAndPath[0] != mod_id) return
+
+            def lootFile = new File(lootDir, "${namespaceAndPath[1]}.json")
+            if (!lootFile.isFile()) return
+
+            def lootTable = ['neoforge:conditions': [[
+                    type : 'neoforge:mod_loaded',
+                    modid: 'dye_depot'
+            ]]]
+            lootTable.putAll(parser.parse(lootFile))
+
+            def formatted = JsonOutput.prettyPrint(JsonOutput.toJson(lootTable))
+            def twoSpaceFormatted = formatted.readLines().collect { line ->
+                int indent = 0
+                while (indent < line.length() && line.charAt(indent) == ' ') indent++
+                (' ' * indent.intdiv(2)) + line.substring(indent)
+            }.join('\n') + '\n'
+            lootFile.setText(twoSpaceFormatted, 'UTF-8')
+        }
+    }
+}
+
+tasks.configureEach {
+    if (name == 'runData') finalizedBy conditionDyeDepotLootTables
+}
 
 configurations {
     runtimeClasspath.extendsFrom localRuntime
